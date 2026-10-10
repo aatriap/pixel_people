@@ -43,7 +43,7 @@ export interface Slot {
 }
 
 /** sPacketItem (01 §6): a reward waiting for its card. Applied when the card is closed. */
-export interface Packet { type: number; id: string; value: number }
+export interface Packet { type: number; id: string; value: number; love?: boolean } // love: heart-bar surprise
 
 /** One requirement of an active mission (04 §1.2). acq = peep id (J) or animal name (A/C/T). */
 export interface MissionReq { code: string; acq: string | null }
@@ -97,7 +97,7 @@ export interface GameState {
   // ---- milestone 2
   packets: Packet[];           // CURRENT_PACKET_QUEUE
   animals: Record<string, number>; // city+272: animal id -> count
-  heartCount: number;          // CURRENT_HEART_COUNT (max 10)
+  heartCount: number;          // CURRENT_HEART_COUNT: hearts filled on the HUD bar (HEART_BAR)
   hearts: { on: string | null };   // residence showing a heart (gm+496)
   dailyResetTime: number;      // DAILY_RESET_TIME (shifted local seconds)
   dailyUtopium: boolean;       // DAILY_UTOPIUM (Utopium Mine)

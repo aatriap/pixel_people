@@ -339,6 +339,9 @@ keys += [k for k in TEXT if k.endswith('_BuildPreview')] + ['Law Firm_LegalLooph
 for w in ('Arcade', 'Funeral Parlor', 'News Bureau', 'Observatory', 'Police Station', 'Sheriffs Office', 'Court',
           'TV Station', 'Altar', 'Hotel', 'Town Hall', 'Fortune Teller'):
     keys += [w + s for s in ('_Header', '_Special', '_ButtonText', '_Motto')]
+# HUD round: popup mottos / headers / special texts of every building, character card, vacant slot, gallery
+keys += [k for k in TEXT if k.endswith(('_Header', '_Special', '_ButtonText', '_Motto'))]
+keys += [k for k in TEXT if k.startswith(('Character_', 'Vacant_', 'Workplace_', 'SpacePort_', 'Gallery_'))]
 strings = {k: TEXT[k] for k in dict.fromkeys(keys) if k in TEXT}
 
 for fname, data in [('jobs', jobs), ('workplaces', workplaces), ('residences', residences),

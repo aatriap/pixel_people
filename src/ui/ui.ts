@@ -1,6 +1,6 @@
 // HTML overlay: HUD, menus and popups. Uses the game's UI sprites and the 04b03 font.
 import {
-  Game, ComboKind, FREE_COOLDOWN, F, HEART_MAX, HEART_PUMPS, HOTEL_ROOMS, DUPLICATE_UTOPIUM, LAW_FIRM_UTOPIUM,
+  Game, ComboKind, F, HEART_BAR, HOTEL_ROOMS, DUPLICATE_UTOPIUM, LAW_FIRM_UTOPIUM,
   ENTERPRISE_UTOPIUM, PET_STORE_UTOPIUM,
 } from '../logic/game';
 import {
@@ -17,6 +17,8 @@ export { fmtNum, fmtTime } from './dom';
 import type { Music } from './music';
 import { SEASONS, calendarAt } from '../logic/calendar';
 import { Extras } from './m3';
+import { CAT_COLORS, groupColor } from './colors';
+import { Classic } from './classic';
 import { footprintBox } from '../render/iso';
 const footprintCells = (t: string, x: number, y: number, f: boolean) => footprintBox(t, x, y, f).cells as [number, number][];
 import { TUTORIAL } from '../logic/tutorial';
@@ -55,11 +57,13 @@ export class UI {
   private confirmDelete = false;
 
   x: Extras;
+  c: Classic;
   private tutShown = -2;
   private newsAt = 0;
 
   constructor(public game: Game, public scene: CityScene, public onChange: () => void, public music: Music) {
     this.x = new Extras(this);
+    this.c = new Classic(this);
     this.buildHud();
   }
 
@@ -71,61 +75,38 @@ export class UI {
     root.innerHTML = `
       <div class="hud">
         <div class="topbar">
-          <div class="tb-left" title="Utopium"><img class="tb-plus" src="assets/ui/PlusButton.png"><img src="assets/ui/Utopium.png"><span id="h-uto"></span></div>
-          <div class="tb-mid" title="Jobs discovered"><span id="h-jobs"></span></div>
+          <div class="tb-left" title="Utopium"><button class="tb-plus" id="p-plus" title="Get coins"></button><img src="assets/ui/Utopium.png"><span id="h-uto"></span></div>
+          <button class="tb-mid" id="p-jobs" title="Gallery"><span id="h-jobs"></span></button>
           <div class="tb-right" title="Coins" id="p-coins"><span id="h-coins"></span><img src="assets/ui/Coin.png"></div>
         </div>
-        <div class="hudrow">
-          <button class="hearts-row" id="s-heart" title="Hearts"></button>
-          <div class="minis">
-            <span title="Chroma"><img src="assets/ui/Chroma.png"><b id="h-chroma"></b></span>
-            <span title="Civic spirit / limit">SPIRIT <b id="h-spirit"></b></span>
-            <span title="Population / housing">POP <b id="h-pop"></b></span>
-            <span title="Coins per second">CPS <b id="h-cps"></b></span>
+        <div class="hudrow"><button class="hearts-row" id="s-heart" title="Hearts"></button></div>
+      </div>
+      <div id="pending"></div>
+      <div class="footer420">
+        <button class="cbtn cal" id="s-cal" title="Calendar"></button>
+        <div class="fbar">
+          <button class="cbtn home" id="f-home" title="Back to the Town Hall"></button>
+          <img class="nb" src="assets/ui/UNNewsbar.png">
+          <div id="news" class="track"><span id="news-text"></span></div>
+          <div class="watches">
+            <div id="spiritwatch" class="watch spirit hidden"><span id="h-sw"></span></div>
+            <button class="watch land" id="f-land" title="Land used / limit"><span id="h-land"></span></button>
           </div>
         </div>
       </div>
-      <div class="side">
-        <button class="sidebtn" id="s-missions" title="Missions"><img src="assets/ui/MissionBoxHighlight.png"><span>HQ</span></button>
-        <button class="sidebtn" id="s-animals" title="Animals"><img src="assets/ui/AnimalSilhouette.png"><span id="h-animals"></span></button>
-        <button class="sidebtn" id="s-ach" title="Achievements"><img src="assets/ui/ach/ac1.png"><span id="h-ach">ACH</span></button>
-        <button class="sidebtn" id="s-edit" title="Edit"><span class="big">EDIT</span></button>
-        <button class="sidebtn" id="s-music" title="Music"><span id="h-music">BGM</span></button>
-      </div>
-      <div id="spiritwatch" class="hidden"><div class="gauge"><div class="fill" id="sw-fill"></div><img src="assets/ui/SpiritWatch.png"></div><span id="h-sw"></span></div>
-      <div id="pending"></div>
-      <div class="corner-btns">
-        <button class="cbtn cal" id="s-cal" title="Calendar"></button>
-        <button class="cbtn home" id="f-home" title="Back to the Town Hall"></button>
-      </div>
-      <div id="news"><img class="nb" src="assets/ui/UNNewsbar.png"><div class="track"><span id="news-text"></span></div>
-        <button class="landwatch" id="f-land" title="Land used / limit"><span id="h-land"></span></button></div>
       <div id="breaking" class="hidden"></div>
       <div id="buildbar" class="hidden"></div>
-      <div class="footer">
-        <button class="sprbtn b-build" id="f-build">BUILD</button>
-        <button class="sprbtn b-splice" id="f-ac">CLONES</button>
-        <button class="sprbtn b-expand" id="f-expand">EXPAND</button>
-        <button class="iconbtn" id="f-menu" title="Settings">⚙</button>
-      </div>
       <div id="toast" class="hidden"></div>
       <div id="tut" class="hidden"></div>
       <div id="modal" class="hidden"></div>`;
     const on = (id: string, f: () => void) => { $(id).onclick = () => { sfx('tap_01'); f(); }; };
-    on('#f-build', () => { this.buildCell = null; this.openBuildCats(); });
-    on('#f-ac', () => this.openArrivalCenter());
-    on('#f-expand', () => this.openExpand());
-    on('#f-menu', () => this.x.openSettings());
-    on('#s-ach', () => this.x.openAchievements());
     on('#p-coins', () => { if (!this.game.tutorialActive()) this.x.openExchange(); });
-    on('#s-heart', () => this.openHearts());
-    on('#s-missions', () => this.openMissions());
+    on('#p-plus', () => { if (!this.game.tutorialActive()) this.x.openExchange(); });
+    on('#p-jobs', () => { if (!this.game.tutorialActive()) this.c.openGallery(); });
+    on('#s-heart', () => { const on = this.s.hearts.on; if (on) this.scene.focusOn(on); });
     on('#s-cal', () => this.x.openCalendar());
     on('#f-home', () => { const th = this.s.buildings.find((b) => b.type === 'Town Hall'); if (th) this.scene.focusOn(th.id); });
     on('#f-land', () => { if (!this.game.tutorialActive()) this.openExpand(); });
-    on('#s-animals', () => this.openAnimals());
-    on('#s-edit', () => (this.editing ? this.endEdit() : this.startEdit()));
-    on('#s-music', () => { this.s.musicMuted = !this.s.musicMuted; this.music.setMuted(this.s.musicMuted); this.onChange(); });
     $('#modal').addEventListener('click', (e) => { if (e.target === $('#modal') && this.panelKind !== 'envelope') this.close(); });
   }
 
@@ -134,30 +115,22 @@ export class UI {
     const now = nowSec();
     $('#h-coins').textContent = fmtNum(s.coins);
     $('#h-uto').textContent = fmtNum(s.utopium);
-    $('#h-chroma').textContent = fmtNum(s.chroma);
     $('#h-land').textContent = `${s.landUsed}/${s.landLimit}`;
     $('#h-land').classList.toggle('warn', g.freeLand() <= 3);
-    $('#h-spirit').textContent = `${s.spirit}/${s.spiritLimit}`;
-    $('#h-pop').textContent = `${g.population()}/${g.populationLimit()}`;
-    $('#h-cps').textContent = fmtNum(g.totalCps());
     $('#h-jobs').textContent = `${s.unlockedJobs.length}/${JOB_TOTAL}`;
+    // the heart bar: permanent Research Lab hearts first, then the ones collected from houses
     const hearts = $('#s-heart');
-    if (hearts.dataset.n !== `${s.heartCount}`) {
-      hearts.dataset.n = `${s.heartCount}`;
+    const hk = `${s.heartCount}|${s.researchLevel}`;
+    if (hearts.dataset.n !== hk) {
+      hearts.dataset.n = hk;
       hearts.innerHTML = '';
-      for (let k = 0; k < HEART_MAX; k++) hearts.append(h('img', { src: `assets/ui/${k < s.heartCount ? 'HUDHeart' : 'HUDHeartmissing'}.png` }));
+      for (let k = 0; k < HEART_BAR; k++) {
+        const img = k < Math.min(s.researchLevel, s.heartCount) ? 'HUDHeartupgrade' : k < s.heartCount ? 'HUDHeart' : 'HUDHeartmissing';
+        hearts.append(h('img', { src: `assets/ui/${img}.png` }));
+      }
     }
-    hearts.classList.toggle('glow', s.heartCount > 0);
-    $('#h-animals').textContent = `${Object.values(s.animals).reduce((a, b) => a + b, 0)}`;
-    $('#h-music').textContent = s.musicMuted ? 'MUTED' : 'MUSIC';
-    $('#s-music').classList.toggle('off', s.musicMuted);
-    const ms = g.missions;
-    $('#s-missions').classList.toggle('hidden', !ms.unlocked());
-    $('#s-missions').classList.toggle('glow', ms.unlocked() && ms.active().some((a) => ms.canComplete(a)));
+    hearts.classList.toggle('glow', !!s.hearts.on);
     $('#s-cal').classList.toggle('glow', s.dailyGift);
-    $('#s-edit').classList.toggle('on', this.editing);
-    const acReady = s.slots.some((x) => x.state === 3 || x.state === 5);
-    $('#f-ac').classList.toggle('glow', acReady);
     const pend = $('#pending');
     pend.innerHTML = '';
     if (!this.buildType && !this.editing) {
@@ -168,17 +141,14 @@ export class UI {
       // (a new-job card may replace the Arrival Center, as in milestone 1)
       if (s.packets.length && (!this.panel || (this.panelKind === 'ARRIVAL CENTER' && s.packets[0].type === 0))) this.showPacket(s.packets[0]);
     }
-    $('#h-ach').textContent = `${g.achievements.pendingCount() || 'ACH'}`;
-    $('#s-ach').classList.toggle('glow', g.achievements.pendingCount() > 0);
     // Funeral Parlor: spirit watch
     $('#spiritwatch').classList.toggle('hidden', !s.spiritWatch || g.tutorialActive());
-    $('#h-sw').textContent = `${s.spirit}/${s.spiritLimit} · ${Math.trunc(g.discount() * 100)}% OFF`;
-    $('#sw-fill').style.width = `${Math.min(1, s.spirit / Math.max(1, s.spiritLimit)) * 90}%`;
+    $('#h-sw').textContent = `${s.spirit}/${s.spiritLimit}`;
     // Observatory background
     const bg = `url("assets/ui/bg${s.spaceBg}.png")`;
     if ($('#game').style.backgroundImage !== bg) $('#game').style.backgroundImage = bg;
     // News Agency: live news feed
-    $('#news').classList.toggle('hidden', !!this.buildType || this.editing);
+    document.body.classList.toggle('placing', !!this.buildType || this.editing);
     $('#news-text').classList.toggle('hidden', !s.newsFeed || g.tutorialActive());
     if (s.newsFeed && now >= this.newsAt) {
       this.newsAt = now + 16;
@@ -209,7 +179,6 @@ export class UI {
         el.classList.add('hidden');
         this.scene.setMarker(null);
         this.tutShown = -1;
-        for (const id of ['#f-ac', '#f-build', '#f-expand']) ($(id) as HTMLButtonElement).disabled = false;
       }
       return;
     }
@@ -242,17 +211,12 @@ export class UI {
     this.scene.setMarker(mark, !!st.hand || step === 1 || step === 16 || step === 22);
     // highlight the control the step is about
     const sel: Record<number, string> = {
-      3: 'button[data-k="bld-rush"]', 17: 'button[data-k="bld-rush"]', 5: '#f-ac', 18: '#f-ac', 7: 'button[data-k^="arr"]',
-      8: '.slot .portrait.tap', 19: '.slot .portrait.tap', 9: 'button[data-k^="spl"]', 11: '.spcol.l .gene[data-job="Mayor"]',
+      3: 'button[data-k="bld-rush"]', 17: 'button[data-k="bld-rush"]', 7: 'button[data-k^="arr"]',
+      8: '.acslot.tap', 19: '.acslot.tap', 9: 'button[data-k^="spl"]', 11: '.spcol.l .gene[data-job="Mayor"]',
       12: '.spcol.r .gene[data-job="Mechanic"]', 13: 'button[data-k="splice-go"]', 20: 'button[data-k^="as"][data-k$="Utopium Mine"]',
       14: '.env-handle', 15: 'button[data-k="disc-place"]',
     };
     if (sel[step]) document.querySelectorAll(sel[step]).forEach((e) => e.classList.add('tut-target'));
-    // gating: only the Arrival Center button and the settings stay usable
-    const acSteps = [5, 6, 7, 8, 9, 10, 11, 12, 13, 18, 19, 20];
-    ($('#f-ac') as HTMLButtonElement).disabled = !acSteps.includes(step);
-    ($('#f-build') as HTMLButtonElement).disabled = true;
-    ($('#f-expand') as HTMLButtonElement).disabled = true;
   }
 
   toast(msg: string, bad = false) {
@@ -266,7 +230,7 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- modal plumbing
-  open(title: string, body: HTMLElement, refresh?: () => void, cls = '', onClose?: () => void) {
+  open(title: string, body: HTMLElement, refresh?: () => void, cls = '', onClose?: () => void, kind = '') {
     const m = $('#modal');
     m.innerHTML = '';
     const close = h('button', { class: 'close', title: 'Close' });
@@ -275,7 +239,7 @@ export class UI {
     m.append(p);
     m.classList.remove('hidden');
     this.panel = p;
-    this.panelKind = cls.includes('envelope') ? 'envelope' : cls.includes('card') ? 'card' : cls.includes('splicer') ? 'splicer' : title;
+    this.panelKind = kind || (cls.includes('envelope') ? 'envelope' : cls.includes('card') ? 'card' : cls.includes('splicer') ? 'splicer' : title);
     this.panelRefresh = refresh ?? null;
     this.onPanelClose = onClose ?? null;
     refresh?.();
@@ -311,6 +275,7 @@ export class UI {
   private packetArt(p: Packet): string {
     if (p.id.startsWith('mission:') || p.type === 9 || p.type === 16) return 'MissionPacket';
     if (p.id === 'gift') return 'GIFTpacket';
+    if (p.love) return 'LOVEpacket'; // the full heart bar's "Special Delivery: With Love"
     switch (p.type) {
       case 0: return 'NewJobDiscovered';
       case 1: return 'SpecialPacket';
@@ -492,81 +457,7 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- arrival center + splicer
-  openArrivalCenter() {
-    const body = h('div', { class: 'slots' });
-    const refresh = () => {
-      const now = nowSec();
-      body.innerHTML = '';
-      const g = this.game;
-      body.append(h('div', { class: 'hint' },
-        `ARRIVAL TIME ${fmtTime(g.arrivalTime())} · SPLICE TIME ${fmtTime(g.splicingDuration())} · ${g.jobsUnlocked} JOBS`));
-      this.s.slots.forEach((slot, idx) => {
-        const peep = slot.peep ? g.peep(slot.peep) : undefined;
-        const row = h('div', { class: 'slot' });
-        const port = h('div', { class: 'portrait' });
-        const info = h('div', { class: 'info' });
-        const actions = h('div', { class: 'actions' });
-        switch (slot.state) {
-          case 0:
-          case 1:
-            port.append(h('img', { src: 'assets/ui/build-moar-house.png' }));
-            info.append(h('b', {}, slot.state === 1 ? 'IN QUEUE' : 'EMPTY'),
-              h('div', {}, g.firstVacantResidence() ? 'WAITING FOR THE NEXT CLONE' : 'BUILD MORE HOUSES'));
-            if (!g.firstVacantResidence()) actions.append(btn('BUILD', 'b-orange small', () => this.openBuildMenu('res')));
-            break;
-          case 2: {
-            port.append(h('img', { src: 'assets/ui/WaitingClone.png' }));
-            const left = slot.end - now;
-            info.append(h('b', {}, 'CLONE ARRIVING'), h('div', {}, fmtTime(left)), this.progress(1 - left / Math.max(1, slot.end - slot.start)));
-            actions.append(btn(`RUSH ${timeRushCost(left)}u`, 'b-pink small', () => this.act(g.rushArrival(idx, nowSec())), false, `arr${idx}`));
-            break;
-          }
-          case 3:
-            port.append(h('img', { src: this.scene.clonePortrait(null, !!peep?.female) }));
-            info.append(h('b', {}, 'NEW CLONE'), h('div', {}, 'READY TO SPLICE'));
-            port.classList.add('tap');
-            port.addEventListener('click', () => { if (g.tut('tapPortrait')) { sfx('tap_01'); this.onChange(); } });
-            actions.append(btn('SPLICE ME', 'b-green small', () => { g.tut('tapPortrait'); g.tut('spliceMe'); this.openSplicer(idx); }, false, `spl${idx}`));
-            break;
-          case 4: {
-            port.append(h('img', { src: 'assets/ui/SplicingClone.png' }));
-            const left = slot.end - now;
-            info.append(h('b', {}, `SPLICING ${jobDisplay(slot.job!).toUpperCase()}`), h('div', {}, fmtTime(left)),
-              this.progress(1 - left / Math.max(1, slot.end - slot.start)));
-            actions.append(btn(`RUSH ${timeRushCost(left)}u`, 'b-pink small', () => this.act(g.rushSplice(idx, nowSec())), false, `rspl${idx}`));
-            actions.append(this.freeButton(this.s.freeSpliceReadyAt, () => this.act(g.freeSplice(idx, nowSec())), `free${idx}`));
-            break;
-          }
-          case 5: {
-            port.append(h('img', { src: this.scene.clonePortrait(slot.job, !!peep?.female) }));
-            const jd = JOB.get(slot.job!)!;
-            info.append(h('b', {}, jobDisplay(slot.job!).toUpperCase()), h('div', {}, 'NEEDS A WORKPLACE'));
-            port.classList.add('tap');
-            port.addEventListener('click', () => { if (g.tut('tapPortrait')) { sfx('tap_01'); this.onChange(); } });
-            const vac = g.missions.vacancyFor(slot.job!);
-            if (vac) {
-              actions.append(btn(`MISSION: ${MISSION.get(vac.mission.id)!.name.toUpperCase()}`, 'b-pink small',
-                () => { if (this.act(g.missions.deliverClone(idx))) sfx('correct_03'); }, false, `mis${idx}`));
-            }
-            for (const wp of jd.workplaces) {
-              const exists = g.doesBuildingExist(wp);
-              const vacant = g.vacantWorkplace(wp, slot.job!);
-              const pending = this.s.pendingWorkplaces.includes(wp);
-              const label = displayName(wp).toUpperCase();
-              if (vacant) actions.append(btn(label, 'b-green small', () => { if (this.act(g.assignClone(idx, wp), `${jobDisplay(slot.job!).toUpperCase()} HIRED`)) sfx('correct_03'); }, false, `as${idx}${wp}`));
-              else if (pending) actions.append(btn(`PLACE ${label}`, 'b-orange small', () => this.startBuild(wp), false, `pl${idx}${wp}`));
-              else actions.append(btn(exists ? `${label}: NO VACANCY` : `${label}: TO BE DISCOVERED`, 'b-grey small', () => {}, true));
-            }
-            break;
-          }
-        }
-        row.append(port, info, actions);
-        body.append(row);
-      });
-    };
-    if (this.game.tut('openAC')) this.onChange();
-    this.open('ARRIVAL CENTER', body, refresh);
-  }
+  openArrivalCenter() { this.c.openArrivalCenter(); }
 
   progress(f: number): HTMLElement {
     const bar = h('div', { class: 'progress' });
@@ -709,6 +600,8 @@ export class UI {
     const kind = kindOf(b.type);
     if (kind === 'wonder' && g.state.missions.wonder?.id === b.type) return this.openMission(b.type);
     if (b.buildEnd >= 0 && g.tut('openSite')) this.onChange();
+    if (b.buildEnd < 0 && kind === 'workplace') return this.c.openWorkplace(id);
+    if (b.buildEnd < 0 && kind === 'residence') return this.c.openResidence(id);
     const body = h('div', { class: 'bldg' });
     const refresh = () => {
       const now = nowSec();
@@ -769,7 +662,6 @@ export class UI {
         const res = g.residents(b2);
         const cap = RESIDENCES.find((r) => r.name === b2.type)!.population;
         body.append(h('div', {}, `RESIDENTS ${res.length}/${cap}`));
-        if (this.s.hearts.on === id) body.append(btn('COLLECT HEART', 'b-pink', () => { this.close(); this.tapHeartOn(); }));
         const paint = this.x.paintRow(b2);
         if (paint) body.append(paint);
         const list = h('div', { class: 'jobs' });
@@ -834,6 +726,13 @@ export class UI {
     this.scene.setBuildMode(b.type, b.flip, b.id);
     const small = $('#buildbar').querySelector('small');
     if (small) small.textContent = 'TAP THE NEW SPOT';
+  }
+
+  /** Special buttons of a building, including the milestone 3 ones (shown under the popup's header text). */
+  specialRow(type: string, id: string): HTMLElement {
+    const sp = this.specialButtons(type, id);
+    this.x.specialButtons(type, sp);
+    return sp;
   }
 
   /** The special-function button of each special building (03 §3.2). */
@@ -903,34 +802,24 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- hearts
-  tapHeartOn() {
+  /** A heart over a house was tapped: after the First Wonder it is collected at once, otherwise the house opens to HOLD it. */
+  tapHeartOn(id: string) {
     const g = this.game;
-    if (this.act(g.tapHeart(nowSec()))) sfx('recharge_10');
+    if (!g.instantHearts()) { this.openBuilding(id); return; }
+    if (this.act(g.collectHeart(nowSec()))) sfx('recharge_10');
   }
 
-  /** Stored hearts are opened by pumping them (inferido: HEART_PUMPS taps), instantly after the First Wonder. */
-  openHearts() {
-    const g = this.game;
-    let pumps = 0;
-    const body = h('div', { class: 'hearts' });
-    const refresh = () => {
-      body.innerHTML = '';
-      body.append(h('div', {}, `STORED HEARTS: ${this.s.heartCount}/${HEART_MAX}`),
-        h('div', { class: 'hint' }, this.s.landUsed < 22 ? 'HEARTS APPEAR OVER HOUSES ONCE YOUR CITY USES 22 LAND.'
-          : 'TAP THE HEARTS THAT APPEAR OVER HOUSES TO STORE THEM.'));
-      const need = g.instantHearts() ? 1 : HEART_PUMPS;
-      const heart = h('button', { class: 'bigheart', 'data-k': 'pump' });
-      heart.append(h('img', { src: 'assets/ui/notif-heart.png', style: `transform: scale(${1 + pumps * 0.12})` }));
-      handlersSet('pump', () => {
-        if (this.s.heartCount < 1) { this.toast('NO HEARTS', true); return; }
-        pumps += 1;
-        if (pumps >= need) { pumps = 0; this.act(g.openHeart(nowSec())); this.close(); return; }
-        refresh();
-      });
-      body.append(heart, this.progress(pumps / need), h('div', { class: 'hint' }, need > 1 ? `PUMP THE HEART (${pumps}/${need})` : 'TAP TO OPEN'));
-    };
-    this.open('LOVE', body, undefined);
-    refresh();
+  /** Gallery: a discovered job's card; closing it goes back to the gallery page. */
+  showJobCard(job: string, back: () => void) {
+    const body = h('div', { class: 'card2' }, this.jobCard(job, (STRINGS.Gallery_Title ?? 'GALLERY').toUpperCase(), groupColor(JOB.get(job)?.group ?? '')));
+    body.append(btn('OK', 'b-green', () => this.close(), false, 'card-ok'));
+    this.open('', body, undefined, 'card', back);
+  }
+
+  showAnimalCard(name: string, back: () => void) {
+    const body = h('div', { class: 'card2' }, this.animalCard(name, (STRINGS.Gallery_Title ?? 'GALLERY').toUpperCase()));
+    body.append(btn('OK', 'b-green', () => this.close(), false, 'card-ok'));
+    this.open('', body, undefined, 'card', back);
   }
 
   // ---------------------------------------------------------------- missions (04 §1)
@@ -1076,15 +965,7 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- calendar + animals
-  openAnimals() {
-    const body = h('div', { class: 'animals' });
-    const names = Object.keys(this.s.animals).filter((n) => this.s.animals[n] > 0).sort();
-    if (!names.length) body.append(h('div', {}, 'NO ANIMALS YET. COLLECT HEARTS, ADOPT AT THE ANIMAL SHELTER OR OPEN GIFTS.'));
-    const grid = h('div', { class: 'agrid' });
-    for (const n of names) grid.append(h('div', { class: 'acell' }, this.animalImg(n, 44), h('small', {}, `${n.toUpperCase()} x${this.s.animals[n]}`)));
-    body.append(grid);
-    this.open('ANIMALS', body, undefined, 'wide');
-  }
+  openAnimals() { this.c.openGallery('animals'); }
 
   // ---------------------------------------------------------------- land menu and build menus (4.20 layout)
   /** The free cell the player tapped; BUILD from the land menu places the item right there. */
@@ -1452,23 +1333,6 @@ export class UI {
 
 
 }
-
-/** Splicer button colour per gene group (inferido: the 4.20 colours are in native code; matched to screenshots). */
-const GROUP_COLORS: Record<string, string> = {
-  Academic: '#c8169a', Administration: '#7cc81a', Business: '#2a9a5a', Creative: '#e0a814', Curious: '#a84c8a',
-  Enchanted: '#7a3cc8', Evil: '#444450', Explorers: '#5f7a22', Hospitality: '#16967a', Law: '#2a6ad8',
-  Media: '#d82a2a', Medical: '#8a3cd0', Music: '#d0602a', Performers: '#d03c8a', Production: '#a8961a',
-  Resident: '#3d6e3d', Services: '#2a8ab0', Special: '#e01e1e', Sports: '#6a2ca0', Technical: '#b0124a',
-  Transport: '#5a6a7a',
-};
-function groupColor(group: string): string { return GROUP_COLORS[group] ?? '#5a4a8a'; }
-
-/** Build menu colours (BuildMenu_Category_0..7, Landscape_Category_0..3), matched to the 4.20 screenshots (inferido). */
-const CAT_COLORS: Record<string, string> = {
-  RESIDENTIAL: '#12b4c8', ADMINISTRATION: '#bdb810', BUSINESS: '#86b414', CREATIVE: '#c8105a', ENTERTAINMENT: '#e0880a',
-  'F&B': '#c8b20c', SCIENCE: '#14a88c', SERVICES: '#3c78d8', TREE: '#3d9a2a', DECOR: '#c8509a', PATH: '#6a6a7a',
-  STORAGE: '#8a6a3a',
-};
 
 /** "<Name>_BuildPreview" from text_english (the key's case differs for some buildings). */
 function buildPreview(type: string): string {

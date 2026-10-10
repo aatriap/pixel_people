@@ -526,7 +526,8 @@ export class Extras {
       case 'Sheriffs Office': row.append(btn('SEARCH', 'b-special', () => this.openCredits(), false, 'sheriff'), head('Sheriffs Office')); break;
       case 'Town Hall': row.append(
         btn('SAVE', 'b-special', () => { g.manualSave(nowSec()); ui.onChange(); ui.toast('UTOPIA SAVED!'); }, g.tutorialActive(), 'thsave'),
-        btn('GET COINS', 'b-orange small', () => this.openExchange(), false, 'thcoins'));
+        btn('GET COINS', 'b-orange small', () => this.openExchange(), false, 'thcoins'),
+        btn('SETTINGS', 'b-orange small', () => this.openSettings(), false, 'thsettings'));
         break;
     }
   }

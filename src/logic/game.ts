@@ -1,7 +1,7 @@
 // Game rules on top of GameState. No Phaser here: everything is plain TS and unit-testable.
 import {
   JOB, JOBS, WORKPLACE, RESIDENCE, DECOR_BY, PATH, TREE, LAND, Cost, POD, TERRAIN_BY, CREDITS,
-  kindOf, footprint, landUse,
+  kindOf, footprint, landUse, jobDisplay,
 } from './data';
 import {
   arrivalTime, buildingCps, buildingTime, coinGen, constructionRushCost, landRow, landUpgradeCost,
@@ -56,7 +56,8 @@ const PATH_FEATURE: Record<string, number> = {
 };
 
 export const RESEARCH_COST = [10, 20, 30, 50, 80, 90, 120];
-export const HEART_MAX = 10;
+/** Hearts on the HUD bar; filling it delivers a surprise (wiki Heart: "11 hearts before bonuses"). */
+export const HEART_BAR = 11;
 export const HOTEL_ROOMS = 6;
 export const DUPLICATE_UTOPIUM = 20;
 export const LAW_FIRM_UTOPIUM = 40;
@@ -67,8 +68,8 @@ export const REVEAL_UTOPIUM = 5;
 export const SPACE_BGS = 6;
 /** Special genes handed out by processUnlockSpecialJobs (02 §3.8). */
 export const SPECIAL_GENE_POOL = ['Dreamer', 'Salesman', 'Explorer'];
-/** Pumps needed to open a stored heart (inferido: the residence heart had to be "pumped" until full). */
-export const HEART_PUMPS = 5;
+/** Seconds the HOLD button must be held for the residence heart to grow to full size (inferido). */
+export const HEART_HOLD_SEC = 1.6;
 
 export interface Result { ok: boolean; msg?: string }
 const tzOffset = (now: number) => -new Date(now * 1000).getTimezoneOffset() * 60;
@@ -416,6 +417,17 @@ export class Game {
   vacantWorkplace(type: string, job: string): Building | undefined {
     return this.state.buildings.find((b) => b.type === type && this.isBuilt(b)
       && !this.workers(b).some((p) => p.job === job));
+  }
+
+  /** Character popup: move an employed clone to a vacant workplace of another type it can work in (web). */
+  relocateWorker(peepId: string, workplaceType: string): Result {
+    const p = this.peep(peepId);
+    if (!p || !p.job || !JOB.get(p.job)?.workplaces.includes(workplaceType)) return fail('CANNOT WORK THERE');
+    if (p.work && this.building(p.work)?.type === workplaceType) return fail('ALREADY WORKING THERE');
+    const b = this.vacantWorkplace(workplaceType, p.job);
+    if (!b) return fail('NO VACANCY');
+    p.work = b.id;
+    return ok(`${jobDisplay(p.job).toUpperCase()} RELOCATED`);
   }
 
   assignClone(slotIdx: number, workplaceType: string): Result {
@@ -895,7 +907,7 @@ export class Game {
     this.state.utopium -= cost;
     this.state.researchLevel += 1;
     this.state.spiritLimit += 1;
-    this.state.heartCount = Math.min(HEART_MAX, this.state.heartCount + 1);
+    this.addHeart(this.state.lastTick);
     return ok(`RESEARCH LEVEL ${this.state.researchLevel}`);
   }
 
@@ -951,7 +963,6 @@ export class Game {
     if (this.heartNext === -2) this.startHeartCooldown(now, true);
     if (s.hearts.on && !this.building(s.hearts.on)) s.hearts.on = null;
     if (s.landUsed < 22 || s.hearts.on || this.heartNext < 0 || now < this.heartNext) return;
-    if (s.heartCount >= HEART_MAX && !this.instantHearts()) return; // inferido: storage full, no new hearts
     const homes = this.residencesBuilt();
     if (!homes.length) return;
     const b = homes[Math.floor(this.rng() * homes.length)];
@@ -960,27 +971,26 @@ export class Game {
     this.events.push({ type: 'heart', building: b.id });
   }
 
-  /** Tap the heart above a house: stored (max 10), or opened at once after the First Wonder. */
-  tapHeart(now: number): Result {
+  /**
+   * Collect the heart above a house: the residence popup's HOLD button grew it to full size (instantly after the
+   * First Wonder). It fills one heart of the HUD bar; a full bar delivers the "With Love" surprise (getHeartReward)
+   * and the bar restarts at the Research Lab level (resetHeartCount: CURRENT_HEART_COUNT = RESEARCH_LAB_LEVEL).
+   */
+  collectHeart(now: number): Result {
     const s = this.state;
     if (!s.hearts.on) return fail('');
     s.hearts.on = null;
     this.startHeartCooldown(now, false);
-    if (this.instantHearts()) {
-      this.queuePacket(getHeartReward(this.rng, s.level, this.season(this.local(now))));
-      return ok();
-    }
-    s.heartCount = Math.min(HEART_MAX, s.heartCount + 1);
-    return ok('+1 HEART');
+    return this.addHeart(now);
   }
 
-  /** Open a stored heart (after pumping it): getHeartReward. */
-  openHeart(now: number): Result {
+  private addHeart(now: number): Result {
     const s = this.state;
-    if (s.heartCount < 1) return fail('NO HEARTS');
-    s.heartCount -= 1;
-    this.queuePacket(getHeartReward(this.rng, s.level, this.season(this.local(now))));
-    return ok();
+    s.heartCount += 1;
+    if (s.heartCount < HEART_BAR) return ok();
+    s.heartCount = Math.min(s.researchLevel, HEART_BAR - 1);
+    this.queuePacket({ ...getHeartReward(this.rng, s.level, this.season(this.local(now))), love: true });
+    return ok('FULL');
   }
 
   // ---------------------------------------------------------------- trees (03 §4)

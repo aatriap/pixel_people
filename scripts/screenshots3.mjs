@@ -50,7 +50,13 @@ async function run(name, ctxOpts, fullTutorial) {
     await sleep(900);
     return true;
   };
-  const closePanel = async () => { await cutOpen(); if (await page.locator('.panel .close').count()) { await page.locator('.panel .close').first().click(); await sleep(400); } };
+  const closePanel = async () => {
+    await cutOpen();
+    const x = page.locator('.panel .close:visible, [data-k="pp-close"]:visible');
+    if (await x.count()) { await x.first().click(); await sleep(400); }
+  };
+  // settings live in the Town Hall (the 4.20 HUD has no settings button)
+  const openSettings = async () => { await openB('Town Hall'); await click('button[data-k="thsettings"]'); };
 
   // ---------------------------------------------------------------- tutorial
   if ((await step()) !== 0) throw new Error('a new game should start at tutorial step 0');
@@ -68,12 +74,12 @@ async function run(name, ctxOpts, fullTutorial) {
     await click('button[data-k="bld-rush"]');
     await closePanel();
     await click('button[data-k="tut-next"]');            // 4 -> 5
-    await click('#f-ac');                                  // 5 -> 6
+    await tapBuilding('SpacePort_1');                      // 5 -> 6
     await click('button[data-k="tut-next"]');            // 6 -> 7
     await sleep(1600);
     await click('button[data-k^="arr"]');                 // 7 -> 8
     await sleep(600);
-    await click('.slot .portrait.tap');                    // 8 -> 9
+    await click('.acslot.tap');                            // 8 -> 9
     await click('button[data-k^="spl"]');                 // 9 -> 10
     await shot('04-tutorial-splicer');
     await click('button[data-k="tut-next"]');            // 10 -> 11
@@ -92,8 +98,8 @@ async function run(name, ctxOpts, fullTutorial) {
     await tapBuilding(mine);
     await click('button[data-k="bld-rush"]');              // 17 -> 18
     await closePanel();
-    await click('#f-ac');                                  // 18 -> 19
-    await click('.slot .portrait.tap');                    // 19 -> 20
+    await tapBuilding('SpacePort_1');                      // 18 -> 19
+    await click('.acslot.tap');                            // 19 -> 20
     await click('button[data-k^="as"][data-k$="Utopium Mine"]'); // 20 -> 21
     await closePanel();
     await click('button[data-k="tut-next"]');            // 21 -> 22
@@ -105,7 +111,7 @@ async function run(name, ctxOpts, fullTutorial) {
     await shot('07-tutorial-done');
   } else {
     await closePanel();
-    await click('#f-menu');
+    await openSettings();
     await shot('07-settings-in-tutorial');
     await click('button[data-k="set-skip"]');
     await click('button[data-k="confirm-yes"]');
@@ -157,8 +163,9 @@ async function run(name, ctxOpts, fullTutorial) {
   await shot('10-miniquest');
   await closePanel();
 
-  // achievements (Police Station / side button)
-  await click('#s-ach');
+  // achievements (Police Station)
+  await openB('Police Station');
+  await click('button[data-k="police"]');
   await shot('11-achievements');
   await closePanel();
 
@@ -200,11 +207,12 @@ async function run(name, ctxOpts, fullTutorial) {
   await shot('19-skin-selector');
   await closePanel();
   await openB('Residence1');
+  await page.locator('.pp-bar >> text=PAINT').first().click(); await sleep(400);
   await shot('20-paint');
   await closePanel();
 
   // settings
-  await click('#f-menu');
+  await openSettings();
   await shot('21-settings');
   await click('button[data-k="set-reset"]');
   await shot('22-reset-confirm');
