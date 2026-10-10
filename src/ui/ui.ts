@@ -87,9 +87,9 @@ export class UI {
         <button class="sidebtn" id="s-edit" title="Edit"><img src="assets/ui/Movebtn.png"><span>EDIT</span></button>
         <button class="sidebtn" id="s-music" title="Music"><span id="h-music">BGM</span></button>
       </div>
-      <div id="spiritwatch" class="hidden"><img src="assets/ui/SpiritWatch.png"><span id="h-sw"></span></div>
+      <div id="spiritwatch" class="hidden"><div class="gauge"><div class="fill" id="sw-fill"></div><img src="assets/ui/SpiritWatch.png"></div><span id="h-sw"></span></div>
       <div id="pending"></div>
-      <div id="news" class="hidden"><img src="assets/ui/NewsFeedBar.png" class="nb"><div class="track"><span id="news-text"></span></div></div>
+      <div id="news" class="hidden"><span class="nb">LIVE</span><div class="track"><span id="news-text"></span></div></div>
       <div id="breaking" class="hidden"></div>
       <div id="buildbar" class="hidden"></div>
       <div class="footer">
@@ -157,6 +157,7 @@ export class UI {
     // Funeral Parlor: spirit watch
     $('#spiritwatch').classList.toggle('hidden', !s.spiritWatch || g.tutorialActive());
     $('#h-sw').textContent = `${s.spirit}/${s.spiritLimit} · ${Math.trunc(g.discount() * 100)}% OFF`;
+    $('#sw-fill').style.width = `${Math.min(1, s.spirit / Math.max(1, s.spiritLimit)) * 90}%`;
     // Observatory background
     const bg = `url("assets/ui/bg${s.spaceBg}.png")`;
     if ($('#game').style.backgroundImage !== bg) $('#game').style.backgroundImage = bg;
@@ -187,7 +188,12 @@ export class UI {
     const el = $('#tut');
     document.querySelectorAll('.tut-target').forEach((e) => e.classList.remove('tut-target'));
     if (!on) {
-      if (this.tutShown !== -1) { el.classList.add('hidden'); this.scene.setMarker(null); this.tutShown = -1; }
+      if (this.tutShown !== -1) {
+        el.classList.add('hidden');
+        this.scene.setMarker(null);
+        this.tutShown = -1;
+        for (const id of ['#f-ac', '#f-build', '#f-expand']) ($(id) as HTMLButtonElement).disabled = false;
+      }
       return;
     }
     const step = s.tutorial;

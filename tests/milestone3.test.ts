@@ -558,3 +558,18 @@ describe('tutorial: soft steps (web)', () => {
     expect(g.state.tutorial).toBe(16);
   });
 });
+
+describe('mini-quest counters fed by other systems', () => {
+  it('completing a mission counts for the Utopia HQ mini-quest', async () => {
+    const { MISSIONS } = await import('../src/logic/data');
+    const g = game();
+    add(g, 'MissionControl');
+    g.state.coins = 1e9; g.state.utopium = 1e4; g.state.chroma = 1e4;
+    const md = MISSIONS.find((m) => m.id === 'AClowder')!; // nine cats
+    g.state.missions.slots[5] = g.missions.create(md);
+    g.state.animals['Tabby Cat'] = 9;
+    g.missions.autoAssignAnimals(md.id);
+    expect(g.missions.complete(md.id, T0).ok).toBe(true);
+    expect(g.miniquests.qty(MQ.MISSION)).toBe(1);
+  });
+});

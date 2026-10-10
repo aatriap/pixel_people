@@ -115,7 +115,8 @@ async function start() {
       save(storage, st);
       location.reload();
     });
-    (window as unknown as { ppScene: CityScene }).ppScene = scene;
+    (window as unknown as { ppScene: CityScene; ppUI: UI }).ppScene = scene;
+    (window as unknown as { ppUI: UI }).ppUI = ui;
   }
 }
 

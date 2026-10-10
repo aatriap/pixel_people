@@ -216,7 +216,8 @@ export class Extras {
     const body = h('div', { class: 'miniquest' });
     const refresh = () => {
       const local = this.local();
-      const list = mq.available(local);
+      // the ones ready to collect first
+      const list = mq.available(local).sort((a, b) => Number(mq.isFulfilled(b)) - Number(mq.isFulfilled(a)));
       body.innerHTML = '';
       if (!list.length) { body.append(h('div', {}, 'NO MINI-QUESTS RIGHT NOW. THE GUEST HAS BEAMED UP!')); return; }
       page = Math.min(page, list.length - 1);
@@ -268,7 +269,7 @@ export class Extras {
       for (const a of ACTIVE_ACHIEVEMENTS) {
         const d = ach.isDone(a.index), c = ach.isCollected(a.index);
         const row = h('div', { class: `ach ${d ? 'done' : ''}` },
-          h('img', { src: `assets/ui/ach/${a.sprite}.png`, class: d ? '' : 'locked' }),
+          h('img', { src: `assets/ui/ach/${a.sprite}.png`, class: d ? '' : 'grey' }),
           h('div', { class: 'info' }, h('b', {}, a.title.toUpperCase()), h('small', {}, a.desc.toUpperCase()),
             a.reward ? h('small', { class: 'rew' }, fill(STRINGS.Achievement_RewardText ?? 'REWARD: %i UTOPIUM', a.reward)) : null));
         if (d && !c) row.append(btn((STRINGS.Achievement_Collect ?? 'COLLECT').toUpperCase(), 'b-green small', () => {
@@ -280,6 +281,7 @@ export class Extras {
       }
       body.append(list);
     };
+    ach.complete(33); // MedalOfHonor: "visit the achievements"
     ui.open((STRINGS.Achievements_Title ?? 'ACHIEVEMENTS').toUpperCase(), body, refresh, 'wide');
   }
 
@@ -289,8 +291,8 @@ export class Extras {
     if (!a) return;
     const el = $('#breaking');
     el.innerHTML = '';
-    el.append(h('img', { src: 'assets/ui/breaking_news_1.png', class: 'bn' }), h('img', { src: `assets/ui/ach/${a.sprite}.png` }),
-      h('span', {}, `${(STRINGS.Achievement_Unlocked ?? 'ACHIEVEMENT UNLOCKED').toUpperCase()}: ${a.title.toUpperCase()}`));
+    el.append(h('img', { src: 'assets/ui/breaking_news_1.png', class: 'bn' }), h('div', { class: 'bnrow' }, h('img', { src: `assets/ui/ach/${a.sprite}.png` }),
+      h('span', {}, `${(STRINGS.Achievement_Unlocked ?? 'ACHIEVEMENT UNLOCKED').toUpperCase()}: ${a.title.toUpperCase()}`)));
     el.classList.remove('hidden');
     sfx('Broadcast_News_Short');
     clearTimeout(this.newsTimer);
@@ -503,6 +505,7 @@ export class Extras {
       }
       body.append(list);
     };
+    g.achievements.complete(32); // BountyHunter: "visit the credits"
     ui.open((STRINGS['Sheriffs Office_Header'] ?? 'MOST WANTED').toUpperCase(), body, refresh, 'wide');
   }
 

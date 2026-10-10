@@ -360,6 +360,7 @@ export class Missions {
     s.chroma -= t.chroma;
     this.reset(a);
     st.completed += 1;
+    this.g.miniquests.increment(2, local); // cMiniQuestSystem::incrementQty(2): MissionControl
     if (md.type === 5) {
       const w = wonderOf(md.id);
       st.wonderMap[w.key] = w.part;

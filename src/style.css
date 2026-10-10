@@ -308,6 +308,7 @@ body.tutorial .side { display: none; }
 .agrid .dim { opacity: .45; }
 .agrid.seasonal { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); }
 .agrid.seasonal .aimg { width: 36px; height: 36px; }
+.agrid.seasonal .dim .aimg { filter: brightness(0) opacity(.45); }
 
 .miniquest .banner { width: 100%; max-width: 360px; display: block; margin: 0 auto 6px; }
 .miniquest .jobname { font-size: 18px; color: #1b1464; }
@@ -321,25 +322,26 @@ body.tutorial .side { display: none; }
 .achlist .ach { display: grid; grid-template-columns: 52px 1fr auto; gap: 8px; align-items: center; text-align: left; background: rgba(255,255,255,.55); border: 2px solid #8a8a9a; margin: 4px 0; padding: 4px; }
 .achlist .ach.done { border-color: #1aa83a; }
 .achlist .ach > img { width: 48px; height: 48px; object-fit: contain; }
-.achlist .ach > img.locked { filter: grayscale(1) brightness(.6); }
+.achlist .ach > img.grey { filter: grayscale(1) brightness(.6); }
 .achlist .ach .lock { width: 20px; height: 20px; }
 .achlist .ach b { font-size: 13px; margin: 0; }
 .achlist .ach small { display: block; font-size: 9px; color: #555; }
 .achlist .ach small.rew { color: #c2007a; }
 #breaking {
-  position: absolute; left: 50%; top: calc(var(--safe-top) + 64px); transform: translateX(-50%); z-index: 40;
-  display: flex; align-items: center; gap: 8px; padding: 4px 10px; width: min(96vw, 520px);
+  position: absolute; left: 50%; top: calc(var(--safe-top) + 64px); transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 4px 10px; width: min(92vw, 420px);
   background: rgba(10,10,30,.92); border: 2px solid #ff4a4a; font-size: 12px; color: #fff; animation: pulse .5s infinite alternate;
 }
-#breaking img { height: 36px; }
-#breaking img.bn { height: 28px; }
+#breaking .bnrow { display: flex; align-items: center; gap: 8px; }
+#breaking img { height: 32px; }
+#breaking img.bn { height: auto; width: 100%; max-width: 360px; }
 
 #news {
   position: absolute; left: 0; right: 0; bottom: calc(var(--safe-bottom) + 62px); height: 22px; overflow: hidden;
   display: flex; align-items: center; background: rgba(10,6,30,.8); border-top: 2px solid #6fd3ff; border-bottom: 2px solid #6fd3ff;
   font-size: 11px; pointer-events: none;
 }
-#news .nb { height: 18px; margin: 0 6px; flex: none; }
+#news .nb { margin: 0 6px; flex: none; color: #ff5a5a; }
 #news .track { flex: 1; overflow: hidden; white-space: nowrap; }
 #news .track span { display: inline-block; padding-left: 100%; animation: ticker 16s linear infinite; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-100%); } }
@@ -347,7 +349,10 @@ body.tutorial .side { display: none; }
   position: absolute; left: 6px; top: calc(var(--safe-top) + 84px); display: flex; align-items: center; gap: 4px;
   background: rgba(20,10,40,.82); border: 2px solid #6fd3ff; padding: 3px 6px; font-size: 11px; pointer-events: none;
 }
-#spiritwatch img { height: 26px; }
+#spiritwatch { flex-direction: column; z-index: 0; }
+#spiritwatch .gauge { position: relative; width: 120px; height: 38px; }
+#spiritwatch .gauge img { position: absolute; inset: 0; width: 100%; height: 100%; }
+#spiritwatch .fill { z-index: 1; opacity: .9; position: absolute; left: 5%; top: 46%; height: 36%; background: #ff9a1c; }
 
 .altar { overflow: auto; flex: 1; }
 .altar .altarart { height: 80px; display: block; margin: 0 auto; }

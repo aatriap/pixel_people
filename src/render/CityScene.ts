@@ -524,7 +524,7 @@ export class CityScene extends Phaser.Scene {
     const b = this.game2.building(id);
     if (!b) return;
     const a = this.anchorFor(b);
-    this.cameras.main.pan(a.x, a.y - 60, 400, 'Sine.inOut');
+    this.cameras.main.pan(a.x, a.y - 60, 400, 'Sine.easeInOut');
   }
 
   // ------------------------------------------------------------------ build mode
