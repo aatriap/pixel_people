@@ -14,7 +14,15 @@ export interface Building {
   treeTimer?: number;    // trees: b[152] countdown in ticks (-1 = pick U(30,120) next tick)
   treeReady?: boolean;   // trees: b[168] reward visible
   mission?: string;      // Mission Pod: id of the mission it serves
+  skin?: string;         // Arcade skin shown instead of the original sprite (cycleTileSkin, cosmetic)
+  paint?: [number, number]; // residence paint: two 0xRRGGBB colours for _Layer1/_Layer2 (cPaintPopup)
 }
+
+/** cMiniQuest save: current stage (+4), counter (+8) and weekly stamp (+16, -1 = empty). */
+export interface MiniQuestSave { stage: number; qty: number; stamp: number }
+
+/** One TV Station catalogue offer (scrambleHousesDecorDeals). */
+export interface Deal { id: string; stock: number }
 
 export interface Peep {
   id: string;
@@ -105,6 +113,25 @@ export interface GameState {
   recipes: string[];           // missions whose CB-n reward unlocked their MI_ recipes
   musicMuted: boolean;
   stats: { mining: number; adoptions: number; upgrades: number };
+  // ---- milestone 3
+  tutorial: number;            // CURRENT_TUTORIAL (user+696): current step, -1 = done
+  soundMuted: boolean;
+  calendarCollected: number[]; // local day numbers whose calendar gift was collected (current week only)
+  unclaimedJobs: string[];     // special genes waiting for their guest (addUnclaimedJobID)
+  miniquests: Record<string, MiniQuestSave>;
+  parkLevelUp: boolean;        // the Decor mini-quest was done and the land level went up afterwards
+  achievements: { done: number[]; collected: number[] }; // 1-based TSV indexes
+  animalsSeen: string[];       // isAnimalUnlocked: animals owned at some point
+  animalRecipes: string[];     // Altar recipes unlocked when the result card was closed
+  skins: string[];             // Arcade skins unlocked (The Claw)
+  spaceBg: number;             // SPACE_BG_INDEX 1..6 (Observatory)
+  spiritWatch: boolean;        // DISPLAY_SPIRIT_WATCH (Funeral Parlor)
+  newsFeed: boolean;           // !NEWS_FEED_DISABLED (News Agency)
+  revealed: string[];          // jobs whose formula was revealed for 5 u (inferido: kept for good)
+  deals: Deal[];               // HOUSES_DECOR_DEALS (TV Station)
+  packUnlocks: string[];       // pack-only items bought with chroma at the TV Station (Agustin's decision)
+  creditsCollected: number[];  // Sheriff's Office rewards already taken
+  altarSplices: number;
 }
 
 export const MISSION_SLOT_TYPES = [4, 4, 3, 3, 2, 2];
@@ -123,6 +150,10 @@ export function migrate(s: GameState): GameState {
     dailyAnimal: true, treeUtopiumToday: 0, calendarDay: -1, dailyGift: false, missions: emptyMissions(),
     doubleHours: false, researchLevel: 0, inventory: [], hotel: [], recipes: [], musicMuted: false,
     stats: { mining: 0, adoptions: 0, upgrades: 0 }, discoveries: [],
+    // milestone 3. Saves made before it count as having finished the tutorial.
+    tutorial: -1, soundMuted: false, calendarCollected: [], unclaimedJobs: [], miniquests: {}, parkLevelUp: false,
+    achievements: { done: [], collected: [] }, animalsSeen: [], animalRecipes: [], skins: [], spaceBg: 1,
+    spiritWatch: false, newsFeed: true, revealed: [], deals: [], packUnlocks: [], creditsCollected: [], altarSplices: 0,
   };
   for (const [k, v] of Object.entries(d)) {
     if ((s as unknown as Record<string, unknown>)[k] === undefined) (s as unknown as Record<string, unknown>)[k] = v;
@@ -130,6 +161,7 @@ export function migrate(s: GameState): GameState {
   // milestone 1 discovery cards become type 0 packets
   for (const job of s.discoveries) s.packets.push({ type: 0, id: job, value: 0 });
   s.discoveries = [];
+  for (const a of Object.keys(s.animals)) if (!s.animalsSeen.includes(a)) s.animalsSeen.push(a);
   return s;
 }
 
@@ -144,8 +176,9 @@ function b(id: string, type: string, x: number, y: number): Building {
 /**
  * New game as it stands after tutorial step 0 (01 §2): 14000 coins, 25 utopium, 100 chroma,
  * land 15/30, spirit 2/8, land level 1, and cBuildTerrain::spawnFirstTimeBuilts.
+ * `tutorial` = true starts at tutorial step 0 (the app); false gives a city with the tutorial done (tests).
  */
-export function newGame(now: number): GameState {
+export function newGame(now: number, tutorial = false): GameState {
   const buildings: Building[] = [
     b('SpacePort_1', 'SpacePort', 0, 0),
     b('Residence1_1', 'Residence1', -2, 3),
@@ -186,5 +219,6 @@ export function newGame(now: number): GameState {
     freeSpliceReadyAt: 0,
     pendingWorkplaces: [],
     discoveries: [],
+    tutorial: tutorial ? 0 : -1,
   } as unknown as GameState);
 }

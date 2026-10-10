@@ -1,6 +1,6 @@
 // Game rules on top of GameState. No Phaser here: everything is plain TS and unit-testable.
 import {
-  JOB, JOBS, WORKPLACE, RESIDENCE, DECOR_BY, PATH, TREE, LAND, Cost, POD,
+  JOB, JOBS, WORKPLACE, RESIDENCE, DECOR_BY, PATH, TREE, LAND, Cost, POD, TERRAIN_BY, CREDITS,
   kindOf, footprint, landUse,
 } from './data';
 import {
@@ -9,9 +9,13 @@ import {
 } from './formulas';
 import { Building, GameState, Packet, Peep, Slot, emptySlot, newGame } from './state';
 import { Rng, uniform } from './rng';
-import { calendarReward, dayNumber, seasonAt } from './calendar';
+import { calendarAt, dailyReward, dayNumber, weekStart } from './calendar';
 import { getGiftPacketReward, getHeartReward, nineAnimalsPacket, randomAnimalPacket, treeDrop } from './rewards';
 import { Missions } from './missions';
+import { MiniQuests, MQ } from './miniquests';
+import { Achievements, ACH } from './achievements';
+import { PACK_ITEM, Shop } from './shop';
+import { TUTORIAL, TUTORIAL_UTOPIUM, TutAction } from './tutorial';
 
 export const FREE_COOLDOWN = 24 * 3600;
 
@@ -25,7 +29,11 @@ export type GameEvent =
   | { type: 'treeReady'; building: string }
   | { type: 'tree'; building: string; kind: 'coins' | 'utopium'; amount: number }
   | { type: 'dailyReset' }
-  | { type: 'missionComplete'; mission: string };
+  | { type: 'missionComplete'; mission: string }
+  | { type: 'achievement'; index: number }
+  | { type: 'mineReady' }
+  | { type: 'shelterReady' }
+  | { type: 'tutorial'; step: number };
 
 /** cFeatureBlocker (03 §5): feature id -> building whose existence unlocks it. 16 is bought at the Enterprise. */
 export const FEATURES: Record<number, string> = {
@@ -50,6 +58,11 @@ export const DUPLICATE_UTOPIUM = 20;
 export const LAW_FIRM_UTOPIUM = 40;
 export const ENTERPRISE_UTOPIUM = 100;
 export const PET_STORE_UTOPIUM = 8;
+export const MOTHERSHIP_UTOPIUM = 1;
+export const REVEAL_UTOPIUM = 5;
+export const SPACE_BGS = 6;
+/** Special genes handed out by processUnlockSpecialJobs (02 §3.8). */
+export const SPECIAL_GENE_POOL = ['Dreamer', 'Salesman', 'Explorer'];
 /** Pumps needed to open a stored heart (inferido: the residence heart had to be "pumped" until full). */
 export const HEART_PUMPS = 5;
 
@@ -73,17 +86,69 @@ export class Game {
   /** gm+488: next heart spawn time (-2 = not started since load, 0 = waiting for the shown heart). Not saved. */
   heartNext = -2;
   missions: Missions;
+  miniquests: MiniQuests;
+  achievements: Achievements;
+  shop: Shop;
 
   constructor(state: GameState) {
     this.state = state;
     this.missions = new Missions(this);
+    this.miniquests = new MiniQuests(this);
+    this.achievements = new Achievements(this);
+    this.shop = new Shop(this);
   }
 
   local(now: number): number { return now + this.localOffset(now); }
-  season(local: number): number { return seasonAt(local); }
+  /** Current season with real events (Halloween forces Harvest, Christmas Frost). */
+  season(local: number): number { return calendarAt(local).season; }
 
-  static fresh(now: number): Game {
-    return new Game(newGame(now));
+  /** A new game; `tutorial` starts it at tutorial step 0 (the app does), otherwise the tutorial counts as done. */
+  static fresh(now: number, tutorial = false): Game {
+    return new Game(newGame(now, tutorial));
+  }
+
+  // ---------------------------------------------------------------- tutorial (01 §5)
+  /** checkTutorial() != -1: the tutorial runs while user+696 is 0..26. */
+  tutorialActive(): boolean { return this.state.tutorial >= 0 && this.state.tutorial < TUTORIAL.length; }
+
+  /** cTutorialManager::advanceTutorial when the action matches the current step. Returns true if it advanced. */
+  tut(action: TutAction): boolean {
+    if (!this.tutorialActive()) return false;
+    const step = TUTORIAL[this.state.tutorial];
+    if (step.action !== action) return false;
+    this.state.tutorial += 1;
+    if (this.state.tutorial >= TUTORIAL.length) this.finishTutorial();
+    this.events.push({ type: 'tutorial', step: this.state.tutorial });
+    return true;
+  }
+
+  /** The startTutorial lambda: CURRENT_TUTORIAL = -1 and utopium back to 25 (coins are kept). */
+  finishTutorial(): void {
+    const s = this.state;
+    s.tutorial = -1;
+    s.utopium = TUTORIAL_UTOPIUM;
+  }
+
+  /** Settings "skip tutorial" (web only): ends the tutorial the same way. */
+  skipTutorial(): Result {
+    if (!this.tutorialActive()) return fail('THE TUTORIAL IS OVER');
+    this.finishTutorial();
+    this.events.push({ type: 'tutorial', step: -1 });
+    return ok('TUTORIAL SKIPPED');
+  }
+
+  /** First free spot for a building, searching rings around the Arrival Center (tutorial flashing squares). */
+  findFreeSpot(type: string, from: [number, number] = [1, 1]): [number, number] {
+    for (let r = 0; r < 30; r++) {
+      for (let dx = -r; dx <= r; dx++) {
+        for (const dy of [-r, r]) {
+          for (const [x, y] of [[from[0] + dx, from[1] + dy], [from[0] + dy, from[1] + dx]]) {
+            if (this.canPlaceAt(type, x, y)) return [x, y];
+          }
+        }
+      }
+    }
+    return [from[0] + 30, from[1]];
   }
 
   // ---------------------------------------------------------------- queries
@@ -205,7 +270,9 @@ export class Game {
 
   arrivalTime(): number { return arrivalTime(this.jobsUnlocked, this.discount()); }
 
-  splicingDuration(): number { return Math.trunc((1 - this.discount()) * splicingTime(this.jobsUnlocked)); }
+  splicingDuration(): number {
+    return Math.trunc((1 - this.discount()) * splicingTime(this.jobsUnlocked, this.tutorialActive()));
+  }
 
   buildTime(type: string): number {
     const base = WORKPLACE.get(type)?.baseConstructionSec ?? RESIDENCE.get(type)?.baseConstructionSec ?? 0;
@@ -257,6 +324,7 @@ export class Game {
     if (this.landLimitReached(job)) return fail('UTOPIA NEEDS MORE LAND');
     const dur = this.splicingDuration();
     s.state = 4; s.start = now; s.end = now + dur; s.job = job;
+    this.tut('startSplice');
     return ok();
   }
 
@@ -312,6 +380,7 @@ export class Game {
     const p = this.peep(s.peep)!;
     p.work = b.id;
     this.clearSlot(slotIdx);
+    this.tut('assign');
     return ok();
   }
 
@@ -329,6 +398,8 @@ export class Game {
   /** scheduleCloneArrival (02 §2.2). `startAt` lets offline catch-up chain arrivals. */
   private scheduleArrivals(startAt: number): void {
     const slots = this.state.slots;
+    // only at tutorial step 7 ("let's rush their arrival") or with the tutorial done
+    if (this.state.tutorial !== 7 && this.state.tutorial !== -1) return;
     if (!this.firstVacantResidence()) {
       for (const s of slots) if (s.state === 1 || s.state === 2) { s.state = 0; s.start = -1; s.end = -1; }
       return;
@@ -361,6 +432,7 @@ export class Game {
     if (this.state.utopium < cost) return fail('NOT ENOUGH UTOPIUM');
     this.state.utopium -= cost;
     this.cloneArrived(s);
+    this.tut('rushArrival');
     this.scheduleArrivals(now);
     return ok();
   }
@@ -390,6 +462,7 @@ export class Game {
       case 'decor': return DECOR_BY.get(type)!.cost;
       case 'path': return PATH.get(type)!.cost;
       case 'tree': return TREE.get(type)?.cost ?? null;
+      case 'terrain': return TERRAIN_BY.get(type)!.cost;
     }
   }
 
@@ -408,6 +481,7 @@ export class Game {
     if (kind === 'pod' || kind === 'wonder') return fail('NOT AVAILABLE');
     if (kind === 'workplace' && !this.state.pendingWorkplaces.includes(type) && !this.canDuplicate(type)) return fail('NOT AVAILABLE');
     if (!this.typeUnlocked(type)) return fail('LOCKED');
+    if (PACK_ITEM.has(type) && !this.shop.packUnlocked(type)) return fail('BUY IT AT THE TV STATION FIRST');
     const cost = this.placementCost(type);
     if (!cost) return fail('NOT AVAILABLE');
     if (!this.canPlaceAt(type, x, y, flip)) return fail('SPACE OCCUPIED');
@@ -427,6 +501,9 @@ export class Game {
     }
     const t = kind === 'workplace' || kind === 'residence' ? this.buildTime(type) : 0;
     const id = this.newBuilding(type, x, y, flip, t > 0 ? now : -1, t > 0 ? now + t : -1).id;
+    if (kind === 'decor') this.miniquests.increment(MQ.PARK, this.local(now));
+    if (kind === 'residence') this.tut('placeHouse');
+    if (kind === 'workplace') this.tut('placeWorkplace');
     return { ok: true, msg: id };
   }
 
@@ -437,14 +514,17 @@ export class Game {
   }
 
   /** Place a stored or reward building: free and instant (inferido), uses land as usual. */
-  placeFromInventory(index: number, x: number, y: number, flip: boolean): Result {
+  placeFromInventory(index: number, x: number, y: number, flip: boolean, now = Math.floor(Date.now() / 1000)): Result {
     const it = this.state.inventory[index];
     if (!it) return fail('NOT AVAILABLE');
     if (!this.canPlaceAt(it.type, x, y, flip)) return fail('SPACE OCCUPIED');
     const land = landUse(it.type);
     if (land > this.freeLand()) return fail('EXPAND TO BUILD MORE');
     this.state.landUsed += land;
-    if (kindOf(it.type) === 'decor') this.state.spirit += DECOR_BY.get(it.type)!.spirit;
+    if (kindOf(it.type) === 'decor') {
+      this.state.spirit += DECOR_BY.get(it.type)!.spirit;
+      this.miniquests.increment(MQ.PARK, this.local(now));
+    }
     this.state.inventory.splice(index, 1);
     return { ok: true, msg: this.newBuilding(it.type, x, y, flip, -1, -1, it.level).id };
   }
@@ -500,6 +580,7 @@ export class Game {
     const why = this.removeBlocker(b);
     if (why) return fail(why);
     this.removeBuilding(b);
+    this.achievements.complete(ACH.DONT_PANIC);
     return ok('DEMOLISHED');
   }
 
@@ -520,7 +601,9 @@ export class Game {
     const b = this.building(id);
     if (!b) return fail('');
     if (!this.canPlaceAt(b.type, x, y, b.flip, b.id)) return fail('SPACE OCCUPIED');
+    const moved = b.x !== x || b.y !== y;
     b.x = x; b.y = y;
+    if (moved) this.achievements.complete(ACH.MOVER);
     return ok();
   }
 
@@ -557,6 +640,7 @@ export class Game {
     if (this.state.utopium < cost) return fail('NOT ENOUGH UTOPIUM');
     this.state.utopium -= cost;
     this.finishConstruction(b);
+    this.tut('rushBuild');
     return ok();
   }
 
@@ -567,7 +651,7 @@ export class Game {
     if (now < this.state.freeBuildReadyAt) return fail('FREE BUTTON IS COOLING DOWN');
     this.state.freeBuildReadyAt = now + FREE_COOLDOWN;
     if (b.buildEnd - now > 3599) b.buildEnd -= 3600;
-    else this.finishConstruction(b);
+    else { this.finishConstruction(b); this.tut('rushBuild'); }
     return ok();
   }
 
@@ -584,6 +668,7 @@ export class Game {
     if (b.shiftStart >= 0) return fail('ALREADY WORKING');
     if (this.workers(b).length < 1) return fail('NO WORKERS');
     this.startShift(b, now);
+    if (b.type === 'Utopium Mine') this.tut('tapMine');
     return ok();
   }
 
@@ -630,6 +715,7 @@ export class Game {
     this.state.landLimit += row.land;
     this.state.spiritLimit = maxSpirit(this.state.level);
     this.state.level += 1;
+    if (this.miniquests.done(MQ.PARK)) this.state.parkLevelUp = true; // SpiritDiscount gate ("level up one time")
   }
 
   // ---------------------------------------------------------------- packets (01 §6)
@@ -647,32 +733,48 @@ export class Game {
 
   addAnimal(name: string, n = 1): void {
     this.state.animals[name] = (this.state.animals[name] ?? 0) + n;
+    if (!this.state.animalsSeen.includes(name)) this.state.animalsSeen.push(name);
+  }
+
+  removeAnimal(name: string, n = 1): void {
+    const left = (this.state.animals[name] ?? 0) - n;
+    if (left > 0) this.state.animals[name] = left; else delete this.state.animals[name];
   }
 
   private applyPacket(p: Packet): void {
     const s = this.state;
     switch (p.type) {
       case 0: break; // new job: unlocked when the splice finished
-      case 1: {      // special gene (SP- reward)
+      case 1: {      // special gene (SP- reward or guest 2001): removeUnclaimedJobID + addUnlockedJobID
+        s.unclaimedJobs = s.unclaimedJobs.filter((j) => j !== p.id);
         if (!s.unlockedJobs.includes(p.id)) s.unlockedJobs.push(p.id);
         const wp = JOB.get(p.id)?.workplaces[0];
         if (wp && !this.doesBuildingExist(wp) && !s.pendingWorkplaces.includes(wp)) s.pendingWorkplaces.push(wp);
         break;
       }
       case 2: this.levelUp(); break;
-      case 3: case 14: this.addAnimal(p.id, 1); break;
+      case 3: this.addAnimal(p.id, 1); break;
+      case 14:       // Altar result: the recipe is known once its card is closed (unlockAnimalRecipe)
+        this.addAnimal(p.id, 1);
+        if (!s.animalRecipes.includes(p.id)) s.animalRecipes.push(p.id);
+        break;
       case 4: s.coins += p.value; s.lifetimeCoins += p.value; break;
       case 5: s.utopium += p.value; s.lifetimeUtopium += p.value; break;
       case 6: case 7: s.inventory.push({ type: p.id, level: 1 }); break;
       case 9: if (!s.recipes.includes(p.id)) s.recipes.push(p.id); break;
       case 10: for (const a of p.id.split('+')) this.addAnimal(a, 1); break;
       case 15: s.chroma += p.value; break;
+      case 50: {     // Arcade skin "<Skin>~<Building>~arcade"
+        const skin = p.id.split('~')[0];
+        if (!s.skins.includes(skin)) s.skins.push(skin);
+        break;
+      }
       default: break; // 16-49: no effect
     }
   }
 
   // ---------------------------------------------------------------- special buildings (03 §3.2)
-  private hasBuilt(type: string): boolean {
+  hasBuilt(type: string): boolean {
     return this.state.buildings.some((b) => b.type === type && this.isBuilt(b));
   }
 
@@ -760,6 +862,7 @@ export class Game {
     p.home = 'HOTEL';
     p.work = null;
     this.state.hotel.push(p.id);
+    this.achievements.check(); // CheckedIn, NoVacancy (movePeepToHotel)
     return ok('HOTEL CHECK-IN SUCCESSFUL');
   }
 
@@ -871,17 +974,26 @@ export class Game {
   private dailyUpdate(now: number): void {
     const s = this.state;
     const local = this.local(now);
-    if (s.dailyResetTime <= local) {
+    // no daily reset during the tutorial (timeUpdate checks checkTutorial)
+    if (s.dailyResetTime <= local && !this.tutorialActive()) {
+      const wasMine = s.dailyUtopium, wasShelter = s.dailyAnimal;
       s.dailyResetTime = local + timeTillNoon(local);
       s.treeUtopiumToday = 0;
       s.dailyUtopium = true;
       s.dailyAnimal = true;
       s.missions.refreshesUsed = 0;
       this.missions.dailyAutoRefresh(local);
+      this.shop.scrambleDeals(); // scrambleHousesDecorDeals
       this.events.push({ type: 'dailyReset' });
+      // local notifications (cUtopiumMineReadyNotification / cAnimalShelterReadyNotification)
+      if (!wasMine && this.hasBuilt('Utopium Mine')) this.events.push({ type: 'mineReady' });
+      if (!wasShelter && this.hasBuilt('Animal Shelter')) this.events.push({ type: 'shelterReady' });
     }
+    // cCalendarSystem::update: one gift per calendar day (it runs during the tutorial too)
     const day = dayNumber(local);
     if (s.calendarDay !== day) { s.calendarDay = day; s.dailyGift = true; }
+    const monday = dayNumber(weekStart(local));
+    s.calendarCollected = s.calendarCollected.filter((d) => d >= monday);
   }
 
   /**
@@ -891,9 +1003,12 @@ export class Game {
     const s = this.state;
     if (!s.dailyGift) return fail('COME BACK TOMORROW');
     const local = this.local(now);
-    const r = calendarReward(local);
+    const r = dailyReward(local);
     if (!r) return fail('');
+    s.calendarCollected.push(dayNumber(local));
+    this.miniquests.increment(MQ.CALENDAR, local);
     if (r.kind === 'utopium') this.queuePacket({ type: 5, id: 'calendar', value: r.n });
+    else if (r.kind === 'coins') this.queuePacket({ type: 4, id: 'calendar', value: r.n });
     else if (r.kind === 'chroma') this.queuePacket({ type: 15, id: 'calendar', value: r.n });
     else {
       const ps = getGiftPacketReward(this.rng, this.season(local));
@@ -902,6 +1017,115 @@ export class Game {
     }
     s.dailyGift = false;
     return ok();
+  }
+
+  // ---------------------------------------------------------------- special genes and guests (02 §3.8, 04 §4)
+  /** processUnlockSpecialJobs: Dreamer/Salesman/Explorer at 10/30/60 jobs, Bureaucrat at 50, Mutant at 149. */
+  processUnlockSpecialJobs(): void {
+    const s = this.state;
+    const n = this.jobsUnlocked;
+    const has = (j: string) => s.unlockedJobs.includes(j) || s.unclaimedJobs.includes(j);
+    const pool = () => SPECIAL_GENE_POOL.filter((j) => !has(j));
+    const take = () => { const p = pool(); s.unclaimedJobs.push(p[Math.floor(this.rng() * p.length)]); };
+    if (pool().length >= 3 && n >= 10) take();
+    if (pool().length >= 2 && n >= 30) take();
+    if (pool().length >= 1 && n >= 60) take();
+    if (n >= 50 && !has('Bureaucrat')) s.unclaimedJobs.push('Bureaucrat');
+    if (n >= 149 && !has('Mutant')) s.unclaimedJobs.push('Mutant');
+  }
+
+  /** Guests walking on the roads: one 2001 per unclaimed special gene, one 2005 while mini-quests are available. */
+  guests(local: number): { code: 2001 | 2005; job?: string }[] {
+    if (this.tutorialActive()) return [];
+    const out: { code: 2001 | 2005; job?: string }[] = this.state.unclaimedJobs.map((job) => ({ code: 2001 as const, job }));
+    if (this.miniquests.available(local).length) out.push({ code: 2005 });
+    return out;
+  }
+
+  /** cGuestPopup big button (special gene): free; the card (packet type 1) unlocks the job. */
+  claimSpecialGene(job: string): Result {
+    if (!this.state.unclaimedJobs.includes(job)) return fail('');
+    this.queuePacket({ type: 1, id: job, value: 1 });
+    return ok();
+  }
+
+  // ---------------------------------------------------------------- more special buttons (03 §3.2, 05 §5.1)
+  /** Observatory: randomBGSprite, another of the 6 space backgrounds (inferido: never the same one). WarpSpeed. */
+  changeBackground(): Result {
+    if (!this.hasBuilt('Observatory')) return fail('NO OBSERVATORY');
+    const cur = this.state.spaceBg;
+    let n = cur;
+    while (n === cur) n = uniform(this.rng, 1, SPACE_BGS);
+    this.state.spaceBg = n;
+    this.achievements.complete(ACH.WARP_SPEED);
+    return ok('TO INFINITY AND BEYOND!');
+  }
+
+  /** Funeral Parlor: show or hide the spirit counter (DISPLAY_SPIRIT_WATCH). */
+  toggleSpiritWatch(): Result {
+    if (!this.hasBuilt('Funeral Parlor')) return fail('NO FUNERAL PARLOR');
+    this.state.spiritWatch = !this.state.spiritWatch;
+    return ok(this.state.spiritWatch ? 'SPIRIT WATCH ON' : 'SPIRIT WATCH OFF');
+  }
+
+  /** News Agency: enable or disable the live news feed. Turning it off gives IgnoranceIsBliss. */
+  toggleNewsFeed(): Result {
+    if (!this.hasBuilt('News Bureau')) return fail('NO NEWS AGENCY');
+    this.state.newsFeed = !this.state.newsFeed;
+    if (!this.state.newsFeed) this.achievements.complete(ACH.IGNORANCE);
+    return ok(this.state.newsFeed ? 'NEWS FEED ON' : 'NEWS FEED OFF');
+  }
+
+  /** Sheriff's Office "most wanted" list: 1 u for the 5 entries with a Reward Amount, once each. */
+  collectCredit(id: number): Result {
+    const c = CREDITS.find((x) => x.id === id);
+    if (!c || !c.reward) return fail('NOTHING HERE');
+    if (this.state.creditsCollected.includes(id)) return fail('ALREADY COLLECTED');
+    this.state.creditsCollected.push(id);
+    this.queuePacket({ type: 5, id: 'credits', value: c.reward });
+    return ok();
+  }
+
+  /** canPeepBeDeleted: not the Mayor, the Mechanic or a unique (Special) character. */
+  canDeletePeep(id: string): boolean {
+    const p = this.peep(id);
+    if (!p || !p.job) return false;
+    if (p.job === 'Mayor' || p.job === 'Mechanic') return false;
+    return JOB.get(p.job)?.type !== 'Special';
+  }
+
+  /** Mothership: "SPEND 1u TO DELETE THIS CLONE?" — gone for good, frees its bed and job. */
+  deleteClone(id: string): Result {
+    const p = this.peep(id);
+    if (!p) return fail('');
+    if (!this.canDeletePeep(id)) return fail('CANNOT DELETE UNIQUE CHARACTER');
+    if (this.state.utopium < MOTHERSHIP_UTOPIUM) return fail('NOT ENOUGH UTOPIUM');
+    this.state.utopium -= MOTHERSHIP_UTOPIUM;
+    this.state.peeps = this.state.peeps.filter((x) => x !== p);
+    this.state.hotel = this.state.hotel.filter((x) => x !== id);
+    return ok('CLONE SENT TO THE MOTHERSHIP');
+  }
+
+  /** cVacantSlotPopup "REVEAL FORMULA?": 5 u shows the parents of a vacant job (kept, inferido). */
+  revealFormula(job: string): Result {
+    const jd = JOB.get(job);
+    if (!jd || !jd.parent1) return fail('NO FORMULA');
+    if (this.state.revealed.includes(job)) return ok(`${jd.parent1} + ${jd.parent2}`);
+    if (this.state.utopium < REVEAL_UTOPIUM) return fail('NOT ENOUGH UTOPIUM');
+    this.state.utopium -= REVEAL_UTOPIUM;
+    this.state.revealed.push(job);
+    return ok(`${jd.parent1} + ${jd.parent2}`);
+  }
+
+  /** Mission that must be complete before this job can be spliced (Requires = MI_x), or null. */
+  requiredMission(job: string): string | null {
+    const r = JOB.get(job)?.requires.split('_') ?? [];
+    return r.length === 2 && r[0] === 'MI' && !this.state.recipes.includes(r[1]) ? r[1] : null;
+  }
+
+  /** Town Hall manual save (cSaveManagerPopup): the Town Hall mini-quest counts it. */
+  manualSave(now: number): void {
+    this.miniquests.increment(MQ.TOWNHALL, this.local(now));
   }
 
   // ---------------------------------------------------------------- tick
@@ -931,9 +1155,15 @@ export class Game {
     }
     this.arrivalUpdate(now);
     this.dailyUpdate(now);
-    this.missions.update(this.local(now));
-    this.heartUpdate(now);
-    this.treeUpdate();
+    if (!this.tutorialActive()) {
+      // hearts and tree rewards are off during the tutorial (01 §5.3)
+      this.missions.update(this.local(now));
+      this.heartUpdate(now);
+      this.treeUpdate();
+      this.processUnlockSpecialJobs();
+      if (this.shop.hasTv() && !st.deals.length) this.shop.scrambleDeals();
+      this.achievements.check();
+    }
     st.lastTick = now;
     st.latestTime = Math.max(st.latestTime, now);
     this.firstTickDone = true;
