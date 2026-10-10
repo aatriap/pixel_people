@@ -1,0 +1,402 @@
+{
+ "skins": [
+  {
+   "skin": "AnimalShelterSkinA",
+   "building": "Animal Shelter",
+   "pack": "korean_pack"
+  },
+  {
+   "skin": "BuildingFirmSkinA",
+   "building": "Building Firm",
+   "pack": "korean_pack"
+  },
+  {
+   "skin": "GenePoolSkinA",
+   "building": "Gene Pool",
+   "pack": "korean_pack"
+  },
+  {
+   "skin": "HospitalSkinA",
+   "building": "Hospital",
+   "pack": "korean_pack"
+  },
+  {
+   "skin": "PharmacySkinA",
+   "building": "Pharmacy",
+   "pack": "korean_pack"
+  },
+  {
+   "skin": "ITServicesSkinA",
+   "building": "IT Services",
+   "pack": "korean_pack"
+  },
+  {
+   "skin": "SpaSkinA",
+   "building": "Spa",
+   "pack": "korean_pack"
+  },
+  {
+   "skin": "CentralSquareSkinA",
+   "building": "Central Square",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "MarketSkinA",
+   "building": "Market",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "FarmSkinA",
+   "building": "Farm",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "FuneralParlorSkinA",
+   "building": "Funeral Parlor",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "RestaurantSkinA",
+   "building": "Restaurant",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "FastFoodSkinA",
+   "building": "Fast Food",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "DentistsOfficeSkinA",
+   "building": "Dentists Office",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "ClinicSkinA",
+   "building": "Clinic",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "BankSkinA",
+   "building": "Bank",
+   "pack": "chinatown_pack"
+  },
+  {
+   "skin": "MuseumSkinA",
+   "building": "Museum",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "LakeSkinA",
+   "building": "Lake",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "TheatreSkinA",
+   "building": "Theatre",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "SchoolOfMagicSkinA",
+   "building": "School of Magic",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "HeroMansionSkinA",
+   "building": "Hero Mansion",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "NewsBureauSkinA",
+   "building": "News Bureau",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "LibrarySkinA",
+   "building": "Library",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "ObservatorySkinA",
+   "building": "Observatory",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "UniversitySkinA",
+   "building": "University",
+   "pack": "xmas_pack"
+  },
+  {
+   "skin": "FinancialCenterSkinA",
+   "building": "Financial Center",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "EnterpriseSkinA",
+   "building": "Enterprise",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "BootcampSkinA",
+   "building": "Bootcamp",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "ForensicLabSkinA",
+   "building": "Forensic Lab",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "ResearchFacilitySkinA",
+   "building": "Research Facility",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "BarSkinA",
+   "building": "Bar",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "DinerSkinA",
+   "building": "Diner",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "CafeSkinA",
+   "building": "Cafe",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "AutoShopSkinA",
+   "building": "Auto Shop",
+   "pack": "nature_pack"
+  },
+  {
+   "skin": "AquariumSkinA",
+   "building": "Aquarium",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "ArcadeSkinA",
+   "building": "Arcade",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "AstroChurchSkinA",
+   "building": "Astro Church",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "CircusSkinA",
+   "building": "Circus",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "FortuneTellerSkinA",
+   "building": "Fortune Teller",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "UtopiumMineSkinA",
+   "building": "Utopium Mine",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "SpaceAdminSkinA",
+   "building": "Space Admin",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "WeddingPlannerSkinA",
+   "building": "Wedding Planner",
+   "pack": "halloween_pack"
+  },
+  {
+   "skin": "PoliceStationSkinA",
+   "building": "Police Station",
+   "pack": "townhall_pack"
+  },
+  {
+   "skin": "PostOfficeSkinA",
+   "building": "Post Office",
+   "pack": "townhall_pack"
+  },
+  {
+   "skin": "SheriffsOfficeSkinA",
+   "building": "Sheriffs Office",
+   "pack": "townhall_pack"
+  },
+  {
+   "skin": "ConstructionYardSkinA",
+   "building": "Construction Yard",
+   "pack": "townhall_pack"
+  },
+  {
+   "skin": "LawFirmSkinA",
+   "building": "Law Firm",
+   "pack": "townhall_pack"
+  },
+  {
+   "skin": "CourtSkinA",
+   "building": "Court",
+   "pack": "townhall_pack"
+  },
+  {
+   "skin": "FireStationSkinA",
+   "building": "Fire Station",
+   "pack": "townhall_pack"
+  },
+  {
+   "skin": "TownHallSkinA",
+   "building": "Town Hall",
+   "pack": "townhall_pack"
+  }
+ ],
+ "packItems": [
+  {
+   "tile": "SpecialResidence3",
+   "name": "Alleviative Abode",
+   "pack": "korean_pack"
+  },
+  {
+   "tile": "SpecialResidence4",
+   "name": "Heritage Home",
+   "pack": "korean_pack"
+  },
+  {
+   "tile": "SpecialDecor13",
+   "name": "Festival Boulevard",
+   "pack": "korean_pack"
+  },
+  {
+   "tile": "SpecialDecor14",
+   "name": "Pondering Pergola",
+   "pack": "korean_pack"
+  },
+  {
+   "tile": "SpecialDecor15",
+   "name": "Festival Drum",
+   "pack": "korean_pack"
+  },
+  {
+   "tile": "SpecialDecor16",
+   "name": "Luminous Lamp",
+   "pack": "korean_pack"
+  },
+  {
+   "tile": "SpecialDecor5",
+   "name": "SpecialDecor5",
+   "pack": "chinatown_pack"
+  },
+  {
+   "tile": "SpecialDecor6",
+   "name": "SpecialDecor6",
+   "pack": "chinatown_pack"
+  },
+  {
+   "tile": "SpecialDecor7",
+   "name": "SpecialDecor7",
+   "pack": "chinatown_pack"
+  },
+  {
+   "tile": "SpecialDecor8",
+   "name": "SpecialDecor8",
+   "pack": "chinatown_pack"
+  },
+  {
+   "tile": "SpecialResidence2",
+   "name": "SpecialResidence2",
+   "pack": "xmas_pack"
+  },
+  {
+   "tile": "SpecialDecor10",
+   "name": "SpecialDecor10",
+   "pack": "xmas_pack"
+  },
+  {
+   "tile": "SpecialDecor11",
+   "name": "SpecialDecor11",
+   "pack": "xmas_pack"
+  },
+  {
+   "tile": "SpecialDecor12",
+   "name": "SpecialDecor12",
+   "pack": "xmas_pack"
+  },
+  {
+   "tile": "DirtR",
+   "name": "Lost Woods",
+   "pack": "nature_pack"
+  },
+  {
+   "tile": "SpecialDecor9",
+   "name": "Special Decor 9",
+   "pack": "halloween_pack"
+  },
+  {
+   "tile": "SpecialTerrain1",
+   "name": "Special Terrain 1",
+   "pack": "halloween_pack"
+  },
+  {
+   "tile": "SpecialTree1",
+   "name": "Special Tree 1",
+   "pack": "halloween_pack"
+  },
+  {
+   "tile": "SpecialTree2",
+   "name": "Special Tree 2",
+   "pack": "halloween_pack"
+  },
+  {
+   "tile": "SpecialResidence1",
+   "name": "Glassy Tower",
+   "pack": "townhall_pack"
+  },
+  {
+   "tile": "SpecialDecor1",
+   "name": "Obelisk of Sight",
+   "pack": "townhall_pack"
+  },
+  {
+   "tile": "SpecialDecor2",
+   "name": "Motherspeak Dish",
+   "pack": "townhall_pack"
+  },
+  {
+   "tile": "SpecialDecor3",
+   "name": "Creator’s Triumph",
+   "pack": "townhall_pack"
+  },
+  {
+   "tile": "SpecialDecor4",
+   "name": "Daytripper",
+   "pack": "townhall_pack"
+  }
+ ],
+ "packs": [
+  {
+   "id": "korean_pack",
+   "art": "KRPack_BoxArt"
+  },
+  {
+   "id": "chinatown_pack",
+   "art": "CTPack_BoxArt"
+  },
+  {
+   "id": "xmas_pack",
+   "art": "XmasPack_BoxArt"
+  },
+  {
+   "id": "nature_pack",
+   "art": "NaturePack_BoxArt"
+  },
+  {
+   "id": "halloween_pack",
+   "art": "HalloweenPack_BoxArt"
+  },
+  {
+   "id": "townhall_pack",
+   "art": "THPack_BoxArt"
+  }
+ ]
+}

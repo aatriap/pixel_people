@@ -205,14 +205,145 @@ for r in rows('land_upgrade_data.tsv')[1:]:
     if r and r[0].strip():
         land.append({'level': int(r[0]), 'cost': int(r[1]), 'land': int(r[2]), 'utopium': int(r[3])})
 
-# ---- a few UI strings ------------------------------------------------------------
+# ---- animals -----------------------------------------------------------------
+animals = []
+for r in rows('animals_static_data.tsv')[1:]:
+    r = r + [''] * 12
+    if not r[0].strip().isdigit():
+        continue
+    animals.append({
+        'id': int(r[0]),
+        'name': r[1].strip(),
+        'tier': num(r[3]),
+        'categories': [c.strip() for c in r[4].split(',') if c.strip()],
+        'seasons': [c.strip().upper() for c in r[5].split(',') if c.strip()],
+        'parent1': r[6].strip(),
+        'parent2': r[7].strip(),
+        'cost': num(r[8]),
+        'omit': r[9].strip() == 'Y',
+        'droppable': r[10].strip() == 'Y',
+    })
+
+# ---- missions (04 §1.1): Omit=Y rows are not loaded; Omit=X are loaded as discontinued ----------
+MTYPE = {'Normal': 2, 'Epic': 3, 'Unique': 4, 'Wonder': 5}
+missions = []
+for r in rows('missions.tsv')[1:]:
+    r = r + [''] * 20
+    mid, mtype = r[0].strip(), r[1].strip()
+    if not mid or r[3].strip() == 'Y' or mtype not in MTYPE:
+        continue
+    missions.append({
+        'id': mid,
+        'type': MTYPE[mtype],
+        'reward': r[2].strip(),
+        'discontinued': r[3].strip() == 'X',
+        'prerequisite': r[5].strip(),
+        'reqs': [(x.strip() or 'NONE') for x in r[6:15]],
+        'season': r[16].strip().upper(),
+        'needAltar': r[17].strip() == 'Y',
+        'needJobs': num(r[18]),
+        'name': (TEXT.get('Mission_' + mid) or TEXT.get(mid + '_Header') or mid).strip(),
+        'desc': (TEXT.get(mid + '_Desc') or '').strip(),
+    })
+
+# ---- milestone 3: calendar.tsv (04 §5) ---------------------------------------------
+calendar = {'seasons': {}, 'events': [], 'layouts': {}}
+section = None
+for r in rows('calendar.tsv'):
+    r = [c.strip() for c in r] + [''] * 8
+    head = r[0]
+    if head in ('Seasons', 'Real Events', 'Reward Layout'):
+        section = head
+        continue
+    if head == 'END':
+        section = None
+        continue
+    if not head or section is None:
+        continue
+    if section == 'Seasons':
+        calendar['seasons'][head.upper()] = [int(x) for x in r[1].split(',') if x.strip()]
+    elif section == 'Real Events':
+        if r[1] == 'Y':
+            continue
+        m, d = r[3].split('/')
+        calendar['events'].append({'name': head, 'season': r[2].upper(), 'month': int(m), 'day': int(d), 'weeks': int(r[4])})
+    elif section == 'Reward Layout':
+        days = []
+        for c in r[1:8]:
+            kind, n = c.split(',')
+            days.append({'kind': kind.lower(), 'n': int(n)})
+        calendar['layouts'][head] = days
+
+# ---- achievements_static_data.tsv (04 §6): index i (1-based) = row i -------------------
+achievements = []
+for i, r in enumerate(rows('achievements_static_data.tsv')[1:], start=1):
+    r = [c.strip() for c in r] + [''] * 4
+    if not r[0]:
+        continue
+    achievements.append({'index': i, 'id': r[0], 'sprite': r[1], 'reward': num(r[2]), 'omit': r[3] == 'Y',
+                         'title': TEXT.get(r[0] + '_Title', r[0]).strip(), 'desc': TEXT.get(r[0] + '_Desc', '').strip()})
+
+# ---- shop_offers.tsv (05 §3.3): AltTile skins and UnlockTile pack-only items --------------
+offers = {'skins': [], 'packItems': [], 'packs': []}
+pack = None
+for r in rows('shop_offers.tsv')[1:]:
+    r = [c.strip() for c in r] + [''] * 5
+    if r[0]:
+        pack = r[0]
+        offers['packs'].append({'id': pack, 'art': r[2].replace('.png', '')})
+    elif r[1] == 'AltTile':
+        offers['skins'].append({'skin': r[2], 'building': r[3], 'pack': pack})
+    elif r[1] == 'UnlockTile':
+        offers['packItems'].append({'tile': r[2], 'name': r[3], 'pack': pack})
+
+# ---- housesNdecor.tsv: the TV Station catalogue (cHousesDecorPopup) ------------------------
+houses_decor = []
+group = ''
+for r in rows('housesNdecor.tsv')[1:]:
+    r = [c.strip() for c in r] + [''] * 2
+    if not r[0]:
+        continue
+    if not r[1]:
+        group = r[0]
+        continue
+    houses_decor.append({'id': r[0], 'tier': int(r[1]), 'group': group})
+
+# ---- terrain_static_data.tsv (only used for the pack-only SpecialTerrain1) -----------------
+terrain = []
+for r in rows('terrain_static_data.tsv')[1:]:
+    r = [c.strip() for c in r] + [''] * 9
+    if not r[2]:
+        continue
+    terrain.append({'name': r[2], 'displayName': disp(r[2], r[1]), 'cost': parse_cost(r[3]), 'landCost': num(r[4]),
+                    'category': r[5]})
+
+# ---- credits_static_data.tsv (Sheriff's Office) ---------------------------------------
+credits = []
+for r in rows('credits_static_data.tsv')[1:]:
+    r = [c.strip() for c in r] + [''] * 5
+    if not r[0].isdigit():
+        continue
+    credits.append({'id': int(r[0]), 'role': r[1], 'name': TEXT.get('Credits_%s_DisplayName' % r[0], '').strip(),
+                    'reward': num(r[3])})
+
+# ---- UI strings ------------------------------------------------------------
 keys = [k for k in TEXT if k.startswith(('Splicer_', 'SplicerPopup_'))] + [
-    'Insufficient_Coin_Notif', 'LandLimitReached_Notif']
-strings = {k: TEXT[k] for k in keys if k in TEXT}
+    'Insufficient_Coin_Notif', 'LandLimitReached_Notif'] + [
+    k for k in TEXT if k.startswith(('Monument', 'Wonder_', 'Heart_Quote', 'Hotel_', 'MissionControl_'))]
+keys += [k for k in TEXT if k.startswith((
+    'Tutorial_', 'MiniQuest_', 'Achievement', 'Calendar_', 'Season_', 'GenericNews_', 'LocalNotif_', 'HousesDecor_',
+    'Gacha_', 'Card_Gacha', 'Guest_', 'Credits_Title', 'Altar_', 'PaintPopup', 'Insufficient_', 'VacantSlot',
+    'Residence_'))]
+for w in ('Arcade', 'Funeral Parlor', 'News Bureau', 'Observatory', 'Police Station', 'Sheriffs Office', 'Court',
+          'TV Station', 'Altar', 'Hotel', 'Town Hall', 'Fortune Teller'):
+    keys += [w + s for s in ('_Header', '_Special', '_ButtonText', '_Motto')]
+strings = {k: TEXT[k] for k in dict.fromkeys(keys) if k in TEXT}
 
 for fname, data in [('jobs', jobs), ('workplaces', workplaces), ('residences', residences),
                     ('decor', decor), ('paths', paths), ('trees', trees), ('land', land),
-                    ('strings', strings)]:
+                    ('animals', animals), ('missions', missions), ('strings', strings), ('calendar', calendar),
+                    ('achievements', achievements), ('offers', offers), ('housesdecor', houses_decor),
+                    ('terrain', terrain), ('credits', credits)]:
     with open(os.path.join(OUT, fname + '.json'), 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
     print(fname, len(data))

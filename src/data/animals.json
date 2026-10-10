@@ -1,0 +1,4636 @@
+[
+ {
+  "id": 1,
+  "name": "Tabby Cat",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Pet",
+   "Small"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 2,
+  "name": "Tom Cat",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Pet",
+   "Small"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 3,
+  "name": "Tuxedo Cat",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Pet",
+   "Small"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 4,
+  "name": "Siamese Cat",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Pet",
+   "Small"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 5,
+  "name": "Calico",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Pet",
+   "Small"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 6,
+  "name": "Box Cat",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Pet",
+   "Small"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 7,
+  "name": "Corgi",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Dog",
+   "Pet",
+   "Special"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 8,
+  "name": "Alsatian",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Dog",
+   "Farm",
+   "Pet",
+   "Special"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 9,
+  "name": "Pug",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Dog",
+   "Pet",
+   "Special"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 10,
+  "name": "Golden Retriever",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Dog",
+   "Farm",
+   "Pet",
+   "Special"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 11,
+  "name": "Poodle",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Dog",
+   "Pet",
+   "Small",
+   "Special"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 12,
+  "name": "Chow Chow",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Dog",
+   "Pet",
+   "Special"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 13,
+  "name": "Pig",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Tasty",
+   "Farm",
+   "Special"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Hippopotamus",
+  "parent2": "Horse",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 14,
+  "name": "Cow",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Tasty",
+   "Farm",
+   "Special",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Horse",
+  "parent2": "Chicken",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 15,
+  "name": "Bull",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Special",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Cow",
+  "parent2": "Stag",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 16,
+  "name": "Horse",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Special",
+   "Herbivore",
+   "Pet",
+   "Fast",
+   "Strong"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Cow",
+  "parent2": "Cheetah",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 17,
+  "name": "Unicorn",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Mythical",
+   "Special",
+   "Strong"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Horse",
+  "parent2": "Dodo",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 18,
+  "name": "Zebra",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Herbivore",
+   "Wild",
+   "Fast",
+   "Strong"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Horse",
+  "parent2": "Panda",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 19,
+  "name": "Donkey",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Horse",
+  "parent2": "Pig",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 20,
+  "name": "Camel",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Wild",
+   "Herbivore",
+   "Fast",
+   "Strong"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Llama",
+  "parent2": "Llama",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 21,
+  "name": "Mousedeer",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Mouse",
+  "parent2": "Moose",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 22,
+  "name": "Llama",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Donkey",
+  "parent2": "Donkey",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 23,
+  "name": "Moose",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Horse",
+  "parent2": "Goat",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 24,
+  "name": "Hippopotamus",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Cow",
+  "parent2": "Walrus",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 25,
+  "name": "Chicken",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Tasty",
+   "Farm",
+   "Special",
+   "Small"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Parrot",
+  "parent2": "Pig",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 26,
+  "name": "Duck",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Tasty",
+   "Farm",
+   "Special",
+   "Small"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Chicken",
+  "parent2": "Flamingo",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 27,
+  "name": "Rabbit",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Special",
+   "Small",
+   "Pet",
+   "Fast"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Mouse",
+  "parent2": "Cheetah",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 28,
+  "name": "Elephant",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Cow",
+  "parent2": "Cow",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 29,
+  "name": "Tiger",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Big Cat",
+   "Special",
+   "Wild",
+   "Carnivore"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Zebra",
+  "parent2": "Tabby Cat",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 30,
+  "name": "Lion",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Big Cat",
+   "Special",
+   "Wild",
+   "Carnivore",
+   "Fast"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Tiger",
+  "parent2": "Tiger",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 31,
+  "name": "Panther",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Big Cat",
+   "Wild",
+   "Carnivore",
+   "Arboreal"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Bat",
+  "parent2": "Tiger",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 32,
+  "name": "Cheetah",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Cat",
+   "Big Cat",
+   "Wild",
+   "Carnivore",
+   "Fast"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Tiger",
+  "parent2": "Horse",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 33,
+  "name": "Giraffe",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Fast"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Horse",
+  "parent2": "Snake",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 34,
+  "name": "Rhinoceros",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Hippopotamus",
+  "parent2": "Unicorn",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 35,
+  "name": "Harp Seal",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Carnivore",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Sea Lion",
+  "parent2": "Poodle",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 36,
+  "name": "Walrus",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Special",
+   "Snow",
+   "Strong"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Sea Lion",
+  "parent2": "Pug",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 37,
+  "name": "Panda",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Strong"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Zebra",
+  "parent2": "Brown Bear",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 38,
+  "name": "Polar Bear",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Bear",
+   "Wild",
+   "Carnivore",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Brown Bear",
+  "parent2": "Harp Seal",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 39,
+  "name": "Brown Bear",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Bear",
+   "Wild",
+   "Omnivore",
+   "Strong"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Wolf",
+  "parent2": "Bull",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 40,
+  "name": "Sun Bear",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Bear",
+   "Wild",
+   "Omnivore"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Brown Bear",
+  "parent2": "Camel",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 41,
+  "name": "Koala",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Omnivore"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Brown Bear",
+  "parent2": "Squirrel",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 42,
+  "name": "Gummy Bear",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Bear",
+   "Tasty",
+   "Mythical",
+   "Small"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Unicorn",
+  "parent2": "Brown Bear",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 43,
+  "name": "Tortoise",
+  "tier": 1,
+  "categories": [
+   "Reptile",
+   "Pet",
+   "Small",
+   "Herbivore"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "Snail",
+  "parent2": "Snake",
+  "cost": 25,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 44,
+  "name": "Fox",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Carnivore"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Wolf",
+  "parent2": "Chow Chow",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 45,
+  "name": "Wolf",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Wild",
+   "Carnivore",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Stag",
+  "parent2": "Dragon",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 46,
+  "name": "Orangutan",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Primate",
+   "Wild",
+   "Omnivore",
+   "Arboreal"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Brown Bear",
+  "parent2": "Octopus",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 47,
+  "name": "Gorilla",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Primate",
+   "Wild",
+   "Omnivore",
+   "Arboreal",
+   "Strong"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Chimpanzee",
+  "parent2": "Elephant",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 48,
+  "name": "Chimpanzee",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Primate",
+   "Wild",
+   "Omnivore",
+   "Arboreal"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Orangutan",
+  "parent2": "Octopus",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 49,
+  "name": "Penguin",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Aquatic",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Toucan",
+  "parent2": "Polar Bear",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 50,
+  "name": "Blue Whale",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Wild",
+   "Snow",
+   "Special"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Elephant",
+  "parent2": "Elephant",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 51,
+  "name": "Orca",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Wild",
+   "Snow",
+   "Carnivore"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Blue Whale",
+  "parent2": "Panda",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 52,
+  "name": "Snail",
+  "tier": 1,
+  "categories": [
+   "Mollusc",
+   "Small"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "Snake",
+  "parent2": "Tortoise",
+  "cost": 25,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 53,
+  "name": "Owl",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Small",
+   "Arboreal",
+   "Snow"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Chicken",
+  "parent2": "Bat",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 54,
+  "name": "Macaw",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Pet",
+   "Arboreal"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Parrot",
+  "parent2": "Parrot",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 55,
+  "name": "Parrot",
+  "tier": 1,
+  "categories": [
+   "Bird",
+   "Pet",
+   "Arboreal"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "Chicken",
+  "parent2": "Gummy Bear",
+  "cost": 25,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 56,
+  "name": "Toucan",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Arboreal"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Parrot",
+  "parent2": "Rhinoceros",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 57,
+  "name": "Eagle",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Special",
+   "Fast"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Lion",
+  "parent2": "Parrot",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 58,
+  "name": "Chameleon",
+  "tier": 1,
+  "categories": [
+   "Reptile",
+   "Arboreal"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "Tiger",
+  "parent2": "Toucan",
+  "cost": 25,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 59,
+  "name": "Raccoon",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Omnivore"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Zebra",
+  "parent2": "Red Panda",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 60,
+  "name": "Red Panda",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Arboreal"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Panda",
+  "parent2": "Fox",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 61,
+  "name": "Goat",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Tasty",
+   "Herbivore"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Donkey",
+  "parent2": "Horse",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 62,
+  "name": "Sheep",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Tasty",
+   "Herbivore"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Goat",
+  "parent2": "Poodle",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 63,
+  "name": "Mouse",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Pet",
+   "Small"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Elephant",
+  "parent2": "Chicken",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 64,
+  "name": "Octopus",
+  "tier": 1,
+  "categories": [
+   "Mollusc",
+   "Aquatic",
+   "Special"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "Chimpanzee",
+  "parent2": "Trout",
+  "cost": 25,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 65,
+  "name": "Snake",
+  "tier": 1,
+  "categories": [
+   "Reptile"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "Chameleon",
+  "parent2": "Platypus",
+  "cost": 25,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 66,
+  "name": "Spider",
+  "tier": 2,
+  "categories": [
+   "Insect",
+   "Small",
+   "Arboreal"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Snake",
+  "parent2": "Mouse",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 67,
+  "name": "Bat",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Small"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Owl",
+  "parent2": "Mouse",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 68,
+  "name": "Dodo",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Special"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Chicken",
+  "parent2": "Unicorn",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 69,
+  "name": "Dragon",
+  "tier": 2,
+  "categories": [
+   "Reptile",
+   "Mythical",
+   "Special",
+   "Carnivore"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Unicorn",
+  "parent2": "Snake",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 70,
+  "name": "Stag",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Herbivore",
+   "Wild"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Bull",
+  "parent2": "Moose",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 71,
+  "name": "Trout",
+  "tier": 2,
+  "categories": [
+   "Aquatic",
+   "Special",
+   "Small"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Mouse",
+  "parent2": "Blue Whale",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 72,
+  "name": "Turkey",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Farm",
+   "Tasty"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Chicken",
+  "parent2": "Pig",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 73,
+  "name": "Squirrel",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Arboreal"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Mouse",
+  "parent2": "Fox",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 74,
+  "name": "Flamingo",
+  "tier": 2,
+  "categories": [
+   "Bird"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Duck",
+  "parent2": "Fox",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 75,
+  "name": "Otter",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Trout",
+  "parent2": "Squirrel",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 76,
+  "name": "Sea Lion",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Lion",
+  "parent2": "Otter",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 77,
+  "name": "Hyena",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Carnivore",
+   "Scavenger"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Lion",
+  "parent2": "Wolf",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 78,
+  "name": "Terrier",
+  "tier": 1,
+  "categories": [
+   "Dog",
+   "Special",
+   "Mammal"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 79,
+  "name": "Crocodile",
+  "tier": 2,
+  "categories": [
+   "Reptile",
+   "Wild",
+   "Carnivore"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Snake",
+  "parent2": "Chameleon",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 80,
+  "name": "Platypus",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Duck",
+  "parent2": "Eurasian Beaver",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 81,
+  "name": "Pegasus",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Horse",
+  "parent2": "Eagle",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 82,
+  "name": "Gryphon",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Lion",
+  "parent2": "Eagle",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 83,
+  "name": "Phoenix",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret",
+   "Bird"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Dragon",
+  "parent2": "Flamingo",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 84,
+  "name": "Hydra",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snake",
+  "parent2": "Cerberus",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 85,
+  "name": "Cerberus",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Direwolf",
+  "parent2": "Wolf",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 86,
+  "name": "Oriental Dragon",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Dragon",
+  "parent2": "Panda",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 87,
+  "name": "Loch Ness Monster",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Orca",
+  "parent2": "Snake",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 88,
+  "name": "Yeti",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Polar Bear",
+  "parent2": "Gorilla",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 89,
+  "name": "Drop Bear",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret",
+   "Arboreal"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Koala",
+  "parent2": "Red Panda",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 90,
+  "name": "Narwhal",
+  "tier": 1,
+  "categories": [
+   "Aquatic"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "Harp Seal",
+  "parent2": "Unicorn",
+  "cost": 25,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 91,
+  "name": "Merlion",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret",
+   "Aquatic"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Trout",
+  "parent2": "Lion",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 92,
+  "name": "Rocket Cat",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret",
+   "Cat"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Tom Cat",
+  "parent2": "Oriental Dragon",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 93,
+  "name": "Cthulu",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Aquatic",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Octopus",
+  "parent2": "Dragon",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 94,
+  "name": "Sabertooth",
+  "tier": 3,
+  "categories": [
+   "Carnivore",
+   "Extinct",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Tiger",
+  "parent2": "Elephant",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 95,
+  "name": "Direwolf",
+  "tier": 3,
+  "categories": [
+   "Carnivore",
+   "Extinct",
+   "Secret",
+   "Snow"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Wolf",
+  "parent2": "Tiger",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 96,
+  "name": "Sphinx",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Lion",
+  "parent2": "Chimpanzee",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 97,
+  "name": "Wooly Mammoth",
+  "tier": 3,
+  "categories": [
+   "Extinct",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Elephant",
+  "parent2": "Sheep",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 98,
+  "name": "Chimera",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Lion",
+  "parent2": "Goat",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 99,
+  "name": "Chupacabra",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Panther",
+  "parent2": "Crocodile",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 100,
+  "name": "Hippogryph",
+  "tier": 3,
+  "categories": [
+   "Mythical",
+   "Secret"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Goat",
+  "parent2": "Eagle",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 101,
+  "name": "Fearful Owl",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Small",
+   "Special",
+   "Arboreal"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Owl",
+  "parent2": "Panther",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 102,
+  "name": "Black Mare",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Herbivore",
+   "Fast",
+   "Strong"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Horse",
+  "parent2": "Panther",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 103,
+  "name": "Raven",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Small",
+   "Special",
+   "Arboreal",
+   "Fast"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Toucan",
+  "parent2": "Bat",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 104,
+  "name": "Black Spider",
+  "tier": 2,
+  "categories": [
+   "Insect",
+   "Small",
+   "Special",
+   "Arboreal"
+  ],
+  "seasons": [
+   "HARVEST"
+  ],
+  "parent1": "Spider",
+  "parent2": "Bat",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 105,
+  "name": "Chocolate Rabbit",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Special",
+   "Small",
+   "Pet",
+   "Fast"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Rabbit",
+  "parent2": "Gummy Bear",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 106,
+  "name": "Mule Deer",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Special"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Donkey",
+  "parent2": "Mousedeer",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 107,
+  "name": "Golden Goose",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Special",
+   "Small"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Donkey",
+  "parent2": "Duck",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 108,
+  "name": "White Bass",
+  "tier": 2,
+  "categories": [
+   "Aquatic",
+   "Special",
+   "Small"
+  ],
+  "seasons": [
+   "THAW"
+  ],
+  "parent1": "Trout",
+  "parent2": "Harp Seal",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 109,
+  "name": "Mute Swan",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Special"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Lovebird",
+  "parent2": "Duck",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 110,
+  "name": "Lovebird",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Small",
+   "Special",
+   "Arboreal",
+   "Fast"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Parrot",
+  "parent2": "Flamingo",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 111,
+  "name": "Eurasian Beaver",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Special"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "Mouse",
+  "parent2": "Platypus",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 112,
+  "name": "French Angelfish",
+  "tier": 2,
+  "categories": [
+   "Aquatic",
+   "Special",
+   "Small"
+  ],
+  "seasons": [
+   "SWELL"
+  ],
+  "parent1": "White Bass",
+  "parent2": "Mute Swan",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 113,
+  "name": "Arctic Fox",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Carnivore",
+   "Special",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Fox",
+  "parent2": "Polar Bear",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 114,
+  "name": "Beluga Whale",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Wild",
+   "Snow",
+   "Special"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Blue Whale",
+  "parent2": "Polar Bear",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 115,
+  "name": "Chinstrap Penguin",
+  "tier": 2,
+  "categories": [
+   "Bird",
+   "Aquatic",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Penguin",
+  "parent2": "Penguin",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 116,
+  "name": "Reindeer",
+  "tier": 2,
+  "categories": [
+   "Mammal",
+   "Special",
+   "Herbivore",
+   "Wild",
+   "Snow"
+  ],
+  "seasons": [
+   "FROST"
+  ],
+  "parent1": "Moose",
+  "parent2": "Moose",
+  "cost": 45,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 117,
+  "name": "Peacock",
+  "tier": 3,
+  "categories": [
+   "Bird",
+   "Wild",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Macaw",
+  "parent2": "Flamingo",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 118,
+  "name": "Gecko",
+  "tier": 3,
+  "categories": [
+   "Reptile",
+   "Arboreal"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Crocodile",
+  "parent2": "Chameleon",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 119,
+  "name": "Porcupine",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Raccoon",
+  "parent2": "Tortoise",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 120,
+  "name": "Carp",
+  "tier": 3,
+  "categories": [
+   "Aquatic",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Trout",
+  "parent2": "Macaw",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 121,
+  "name": "Electric Eel",
+  "tier": 4,
+  "categories": [
+   "Aquatic",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snake",
+  "parent2": "Stingray",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 122,
+  "name": "Stingray",
+  "tier": 4,
+  "categories": [
+   "Aquatic",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Trout",
+  "parent2": "Scorpion",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 123,
+  "name": "Scorpion",
+  "tier": 4,
+  "categories": [
+   "Small",
+   "Wild",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Spider",
+  "parent2": "Pangolin",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 124,
+  "name": "Pangolin",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Tortoise",
+  "parent2": "Squirrel",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 125,
+  "name": "Buffalo",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Farm",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Bull",
+  "parent2": "Brown Bear",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 126,
+  "name": "Toad",
+  "tier": 4,
+  "categories": [
+   "Reptile",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Chameleon",
+  "parent2": "Snakehead Fish",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 127,
+  "name": "Snakehead Fish",
+  "tier": 3,
+  "categories": [
+   "Aquatic",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Trout",
+  "parent2": "Snake",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 128,
+  "name": "Weasel",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Arboreal",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Squirrel",
+  "parent2": "Snake",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 129,
+  "name": "Ant",
+  "tier": 3,
+  "categories": [
+   "Insect",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Spider",
+  "parent2": "Stag",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 130,
+  "name": "Mole",
+  "tier": 3,
+  "categories": [
+   "Small",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Ant",
+  "parent2": "Squirrel",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 131,
+  "name": "Rattlesnake",
+  "tier": 3,
+  "categories": [
+   "Reptile"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snake",
+  "parent2": "Spider",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 132,
+  "name": "Albatross",
+  "tier": 4,
+  "categories": [
+   "Bird",
+   "Wild",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Eagle",
+  "parent2": "Buffalo",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 133,
+  "name": "Spider Monkey",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Primate",
+   "Wild",
+   "Omnivore",
+   "Arboreal"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Spider",
+  "parent2": "Chimpanzee",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 134,
+  "name": "Manta Ray",
+  "tier": 5,
+  "categories": [
+   "Aquatic",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Stingray",
+  "parent2": "Panda",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 135,
+  "name": "Giant Anteater",
+  "tier": 4,
+  "categories": [
+   "Mammal",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Mole",
+  "parent2": "Elephant",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 136,
+  "name": "Kangaroo",
+  "tier": 4,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Squirrel",
+  "parent2": "Ostrich",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 137,
+  "name": "Ostrich",
+  "tier": 3,
+  "categories": [
+   "Bird",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Turkey",
+  "parent2": "Cheetah",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 138,
+  "name": "Pelican",
+  "tier": 6,
+  "categories": [
+   "Bird",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Albatross",
+  "parent2": "Kangaroo",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 139,
+  "name": "Hammerhead Shark",
+  "tier": 6,
+  "categories": [
+   "Aquatic",
+   "Carnivore",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snakehead Fish",
+  "parent2": "Praying Mantis",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 140,
+  "name": "Great White Shark",
+  "tier": 6,
+  "categories": [
+   "Aquatic",
+   "Carnivore",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hammerhead Shark",
+  "parent2": "Polar Bear",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 141,
+  "name": "Tiger Shark",
+  "tier": 6,
+  "categories": [
+   "Aquatic",
+   "Carnivore",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hammerhead Shark",
+  "parent2": "Tiger",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 142,
+  "name": "Sailfish",
+  "tier": 4,
+  "categories": [
+   "Aquatic",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snakehead Fish",
+  "parent2": "Narwhal",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 143,
+  "name": "Piranha",
+  "tier": 4,
+  "categories": [
+   "Aquatic",
+   "Carnivore",
+   "Fast",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Carp",
+  "parent2": "Hyena",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 144,
+  "name": "Vulture",
+  "tier": 4,
+  "categories": [
+   "Bird",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Turkey",
+  "parent2": "Piranha",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 145,
+  "name": "Tasmanian Devil",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Carnivore",
+   "Wild",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hyena",
+  "parent2": "Koala",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 146,
+  "name": "Lar Gibbon",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Primate",
+   "Wild",
+   "Omnivore",
+   "Arboreal"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Gorilla",
+  "parent2": "Red Panda",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 147,
+  "name": "Praying Mantis",
+  "tier": 5,
+  "categories": [
+   "Insect",
+   "Small",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Spider",
+  "parent2": "Scorpion",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 148,
+  "name": "Crab",
+  "tier": 5,
+  "categories": [
+   "Fast",
+   "Aquatic",
+   "Tasty"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Scorpion",
+  "parent2": "Tortoise",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 149,
+  "name": "Three Toed Sloth",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Herbivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snail",
+  "parent2": "Koala",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 150,
+  "name": "Pigeon",
+  "tier": 3,
+  "categories": [
+   "Bird",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Mouse",
+  "parent2": "Parrot",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 151,
+  "name": "Honey Bee",
+  "tier": 5,
+  "categories": [
+   "Insect",
+   "Small",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Scorpion",
+  "parent2": "Parrot",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 152,
+  "name": "Hummingbird",
+  "tier": 6,
+  "categories": [
+   "Bird",
+   "Small",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Honey Bee",
+  "parent2": "Swallow",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 153,
+  "name": "Swallow",
+  "tier": 5,
+  "categories": [
+   "Bird",
+   "Small",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Pigeon",
+  "parent2": "Ant",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 154,
+  "name": "Halibut",
+  "tier": 5,
+  "categories": [
+   "Aquatic",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Stingray",
+  "parent2": "Mole",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 155,
+  "name": "Lionfish",
+  "tier": 5,
+  "categories": [
+   "Aquatic",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Stingray",
+  "parent2": "Carp",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 156,
+  "name": "Black Rhinoceros",
+  "tier": 3,
+  "categories": [
+   "Extinct",
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Strong"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Rhinoceros",
+  "parent2": "Black Mare",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 157,
+  "name": "Manatee",
+  "tier": 4,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Wild",
+   "Herbivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Cow",
+  "parent2": "Dolphin",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 158,
+  "name": "Flying Fox",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Squirrel",
+  "parent2": "Bat",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 159,
+  "name": "Wooly Rhinoceros",
+  "tier": 4,
+  "categories": [
+   "Extinct",
+   "Mammal",
+   "Wild",
+   "Herbivore",
+   "Strong",
+   "Snow"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Wooly Mammoth",
+  "parent2": "Rhinoceros",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 160,
+  "name": "Beringian Wolf",
+  "tier": 4,
+  "categories": [
+   "Extinct",
+   "Wild",
+   "Mammal",
+   "Snow"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Direwolf",
+  "parent2": "Arctic Fox",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 161,
+  "name": "Monitor Lizard",
+  "tier": 4,
+  "categories": [
+   "Reptile"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Gecko",
+  "parent2": "Crocodile",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 162,
+  "name": "Komodo Dragon",
+  "tier": 5,
+  "categories": [
+   "Reptile"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Monitor Lizard",
+  "parent2": "Rattlesnake",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 163,
+  "name": "Scarab",
+  "tier": 6,
+  "categories": [
+   "Insect",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Honey Bee",
+  "parent2": "Crab",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 164,
+  "name": "Butterfly",
+  "tier": 6,
+  "categories": [
+   "Insect",
+   "Small",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Honey Bee",
+  "parent2": "Peacock",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 165,
+  "name": "Sperm Whale",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Orca",
+  "parent2": "Bull",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 166,
+  "name": "Humpback Whale",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Dolphin",
+  "parent2": "Blue Whale",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 167,
+  "name": "Puffin",
+  "tier": 3,
+  "categories": [
+   "Bird",
+   "Small",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Penguin",
+  "parent2": "Toucan",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 168,
+  "name": "Megalodon",
+  "tier": 6,
+  "categories": [
+   "Extinct",
+   "Aquatic",
+   "Carnivore",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Great White Shark",
+  "parent2": "Sabertooth",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 169,
+  "name": "Wild Boar",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Omnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Pig",
+  "parent2": "Bull",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 170,
+  "name": "Giant Centipede",
+  "tier": 5,
+  "categories": [
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Ant",
+  "parent2": "Scorpion",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 171,
+  "name": "Ladybird",
+  "tier": 6,
+  "categories": [
+   "Insect",
+   "Small",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Scarab",
+  "parent2": "Lovebird",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 172,
+  "name": "Stag Beetle",
+  "tier": 6,
+  "categories": [
+   "Insect",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Stag",
+  "parent2": "Scarab",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 173,
+  "name": "Field Grasshopper",
+  "tier": 6,
+  "categories": [
+   "Insect",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Praying Mantis",
+  "parent2": "Kangaroo",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 174,
+  "name": "Bluefin Tuna",
+  "tier": 5,
+  "categories": [
+   "Aquatic",
+   "Tasty"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Sailfish",
+  "parent2": "Cow",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 175,
+  "name": "Sunfish",
+  "tier": 5,
+  "categories": [
+   "Aquatic"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Sailfish",
+  "parent2": "Golden Goose",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 176,
+  "name": "Wasp",
+  "tier": 6,
+  "categories": [
+   "Insect",
+   "Small",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Honey Bee",
+  "parent2": "Scorpion",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 177,
+  "name": "Tarantula",
+  "tier": 3,
+  "categories": [
+   "Wild",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Spider",
+  "parent2": "Gorilla",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 178,
+  "name": "Skunk",
+  "tier": 5,
+  "categories": [
+   "Mammal",
+   "Small",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Raccoon",
+  "parent2": "Humboldt Squid",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 179,
+  "name": "Mongoose",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Omnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Squirrel",
+  "parent2": "Tiger",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 180,
+  "name": "King Cobra",
+  "tier": 6,
+  "categories": [
+   "Reptile"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Rattlesnake",
+  "parent2": "Humboldt Squid",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 181,
+  "name": "Armadillo",
+  "tier": 4,
+  "categories": [
+   "Mammal",
+   "Small",
+   "Wild",
+   "Omnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Pangolin",
+  "parent2": "Snail",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 182,
+  "name": "Basking Shark",
+  "tier": 6,
+  "categories": [
+   "Aquatic",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Great White Shark",
+  "parent2": "Hippopotamus",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 183,
+  "name": "Whale Shark",
+  "tier": 6,
+  "categories": [
+   "Aquatic",
+   "Carnivore",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Basking Shark",
+  "parent2": "Blue Whale",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 184,
+  "name": "Gazelle",
+  "tier": 4,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Fast",
+   "Herbivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Stag",
+  "parent2": "Ostrich",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 185,
+  "name": "Clownfish",
+  "tier": 4,
+  "categories": [
+   "Aquatic",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Carp",
+  "parent2": "Zebra",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 186,
+  "name": "Alligator",
+  "tier": 4,
+  "categories": [
+   "Reptile",
+   "Wild",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Crocodile",
+  "parent2": "Wild Boar",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 187,
+  "name": "Opossum",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Small",
+   "Omnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Koala",
+  "parent2": "Squirrel",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 188,
+  "name": "Pygmy Hippo",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Wild",
+   "Herbivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hippopotamus",
+  "parent2": "Pig",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 189,
+  "name": "Pygmy Owl",
+  "tier": 6,
+  "categories": [
+   "Bird",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Owl",
+  "parent2": "Hummingbird",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 190,
+  "name": "Pygmy Marmoset",
+  "tier": 4,
+  "categories": [
+   "Mammal",
+   "Small",
+   "Arboreal"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Spider Monkey",
+  "parent2": "Squirrel",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 191,
+  "name": "Pygmy Possum",
+  "tier": 4,
+  "categories": [
+   "Mammal",
+   "Small",
+   "Omnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Opossum",
+  "parent2": "Mouse",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 192,
+  "name": "Seahorse",
+  "tier": 4,
+  "categories": [
+   "Aquatic",
+   "Small",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Horse",
+  "parent2": "Snakehead Fish",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 193,
+  "name": "Humboldt Squid",
+  "tier": 4,
+  "categories": [
+   "Mollusc",
+   "Aquatic"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Octopus",
+  "parent2": "Sperm Whale",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 194,
+  "name": "Anglerfish",
+  "tier": 5,
+  "categories": [
+   "Aquatic",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Humboldt Squid",
+  "parent2": "Carp",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 195,
+  "name": "Python",
+  "tier": 3,
+  "categories": [
+   "Reptile"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snake",
+  "parent2": "Elephant",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 196,
+  "name": "Titanoboa",
+  "tier": 5,
+  "categories": [
+   "Extinct",
+   "Reptile"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Python",
+  "parent2": "Beringian Wolf",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 197,
+  "name": "Belgian Shepherd",
+  "tier": 1,
+  "categories": [
+   "Mammal",
+   "Dog",
+   "Farm",
+   "Pet"
+  ],
+  "seasons": [
+   "THAW",
+   "SWELL",
+   "HARVEST",
+   "FROST"
+  ],
+  "parent1": "",
+  "parent2": "",
+  "cost": 8,
+  "omit": false,
+  "droppable": true
+ },
+ {
+  "id": 198,
+  "name": "Pizza Rat",
+  "tier": 5,
+  "categories": [
+   "Secret",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Alligator",
+  "parent2": "Pigeon",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 199,
+  "name": "Policy Hawk",
+  "tier": 6,
+  "categories": [
+   "Secret",
+   "Bird"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Tengu",
+  "parent2": "Wild Boar",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 200,
+  "name": "Black Sheep",
+  "tier": 5,
+  "categories": [
+   "Secret",
+   "Farm"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Pug",
+  "parent2": "Pygmy Possum",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 201,
+  "name": "Scape Goat",
+  "tier": 3,
+  "categories": [
+   "Secret",
+   "Pet",
+   "Farm"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Wolf",
+  "parent2": "Raccoon",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 202,
+  "name": "Sacred Cow",
+  "tier": 3,
+  "categories": [
+   "Secret",
+   "Farm"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Elephant",
+  "parent2": "Donkey",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 203,
+  "name": "Program Bug",
+  "tier": 6,
+  "categories": [
+   "Secret",
+   "Small"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Stag Beetle",
+  "parent2": "Mouse",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 204,
+  "name": "Drunken Monkey",
+  "tier": 4,
+  "categories": [
+   "Secret",
+   "Primate"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Moose",
+  "parent2": "Spider Monkey",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 205,
+  "name": "One Trick Pony",
+  "tier": 6,
+  "categories": [
+   "Secret",
+   "Herbivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Buraq",
+  "parent2": "Loch Ness Monster",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 206,
+  "name": "Cold Turkey",
+  "tier": 3,
+  "categories": [
+   "Secret",
+   "Bird"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Turkey",
+  "parent2": "Arctic Fox",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 207,
+  "name": "Social Butterfly",
+  "tier": 6,
+  "categories": [
+   "Secret",
+   "Fast"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Butterfly",
+  "parent2": "Golden Retriever",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 208,
+  "name": "Top Dawg",
+  "tier": 6,
+  "categories": [
+   "Secret",
+   "Wild"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Pug",
+  "parent2": "Ushi Oni",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 209,
+  "name": "Sausage Dog",
+  "tier": 3,
+  "categories": [
+   "Secret",
+   "Tasty"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Corgi",
+  "parent2": "Giraffe",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 210,
+  "name": "Bleached Hyena",
+  "tier": 6,
+  "categories": [
+   "Secret",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hyena",
+  "parent2": "Anansi",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 211,
+  "name": "Kirin",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Bicorn",
+  "parent2": "Wyvern",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 212,
+  "name": "Peryton",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Stag",
+  "parent2": "Albatross",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 213,
+  "name": "Cerynitis",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Peryton",
+  "parent2": "Golden Goose",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 214,
+  "name": "Kelpie",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hippocamp",
+  "parent2": "Sphinx",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 215,
+  "name": "Encantado",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Dolphin",
+  "parent2": "Chameleon",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 216,
+  "name": "Myrmecoleon",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Ant",
+  "parent2": "Lion",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 217,
+  "name": "Tsuchigumo",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Anansi",
+  "parent2": "Shachihoko",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 218,
+  "name": "Anansi",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Black Spider",
+  "parent2": "Aqrabuamelu",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 219,
+  "name": "Aqrabuamelu",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Chimpanzee",
+  "parent2": "Scorpion",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 220,
+  "name": "Cockatrice",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Feng Huang",
+  "parent2": "Bat",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 221,
+  "name": "Chamrosh",
+  "tier": 3,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Belgian Shepherd",
+  "parent2": "Eagle",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 222,
+  "name": "Feng Huang",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hydra",
+  "parent2": "Peacock",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 223,
+  "name": "Simurgh",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Cockatrice",
+  "parent2": "Chamrosh",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 224,
+  "name": "Tengu",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Chamrosh",
+  "parent2": "Buraq",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 225,
+  "name": "Kutabe",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Ratatoskr",
+  "parent2": "Ushi Oni",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 226,
+  "name": "Bicorn",
+  "tier": 3,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Cow",
+  "parent2": "Panther",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 227,
+  "name": "Ushi Oni",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Bicorn",
+  "parent2": "Tsuchigumo",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 228,
+  "name": "Sha",
+  "tier": 3,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Wolf",
+  "parent2": "Crocodile",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 229,
+  "name": "Shug Monkey",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Belgian Shepherd",
+  "parent2": "Spider Monkey",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 230,
+  "name": "Adlet",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Shug Monkey",
+  "parent2": "Bunyip",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 231,
+  "name": "Capricornus",
+  "tier": 3,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Goat",
+  "parent2": "French Angelfish",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 232,
+  "name": "Buraq",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Pegasus",
+  "parent2": "Sphinx",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 233,
+  "name": "Hippocamp",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Black Mare",
+  "parent2": "Seahorse",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 234,
+  "name": "Uchchaihshravas",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hydra",
+  "parent2": "Buraq",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 235,
+  "name": "Manticore",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Sphinx",
+  "parent2": "Scorpion",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 236,
+  "name": "Mishipeshu",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Panther",
+  "parent2": "Porcupine",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 237,
+  "name": "Shachihoko",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Carp",
+  "parent2": "Tiger",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 238,
+  "name": "Bunyip",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Sea Lion",
+  "parent2": "Sausage Dog",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 239,
+  "name": "Kraken",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Shen",
+  "parent2": "Lusca",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 240,
+  "name": "Shen",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Snail",
+  "parent2": "Dragon",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 241,
+  "name": "Lusca",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Megalodon",
+  "parent2": "Octopus",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 242,
+  "name": "Ramidreju",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Weasel",
+  "parent2": "Rattlesnake",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 243,
+  "name": "Raiju",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Electric Eel",
+  "parent2": "Ramidreju",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 244,
+  "name": "Baku",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Taweret",
+  "parent2": "Elephant",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 245,
+  "name": "Behemoth",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Baku",
+  "parent2": "Kutabe",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 246,
+  "name": "Taweret",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Hippopotamus",
+  "parent2": "Afanc",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 247,
+  "name": "Kobalt Kong",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Yeti",
+  "parent2": "Blue Whale",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 248,
+  "name": "Xuan Wu",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Tortoise",
+  "parent2": "Rattlesnake",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 249,
+  "name": "Cipactli",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Toad",
+  "parent2": "Afanc",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 250,
+  "name": "Taniwha",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Beluga Whale",
+  "parent2": "Gecko",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 251,
+  "name": "Wyvern",
+  "tier": 4,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Sha",
+  "parent2": "Dragon",
+  "cost": 150,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 252,
+  "name": "Ratatoskr",
+  "tier": 3,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Narwhal",
+  "parent2": "Squirrel",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 253,
+  "name": "Afanc",
+  "tier": 3,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Crocodile",
+  "parent2": "Eurasian Beaver",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 254,
+  "name": "Quetzalcoatl",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Cockatrice",
+  "parent2": "Peacock",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 255,
+  "name": "Tarasque",
+  "tier": 6,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Kirin",
+  "parent2": "Manticore",
+  "cost": 170,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 256,
+  "name": "Peluda",
+  "tier": 5,
+  "categories": [
+   "Mythical"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Mishipeshu",
+  "parent2": "Rattlesnake",
+  "cost": 160,
+  "omit": false,
+  "droppable": false
+ },
+ {
+  "id": 257,
+  "name": "Dolphin",
+  "tier": 3,
+  "categories": [
+   "Mammal",
+   "Aquatic",
+   "Wild",
+   "Carnivore"
+  ],
+  "seasons": [
+   "NONE"
+  ],
+  "parent1": "Orca",
+  "parent2": "Sea Lion",
+  "cost": 80,
+  "omit": false,
+  "droppable": false
+ }
+]

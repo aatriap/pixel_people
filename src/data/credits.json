@@ -1,0 +1,296 @@
+[
+ {
+  "id": 6,
+  "role": "Producer",
+  "name": "ABHISHEK RADHAKRISHNAN",
+  "reward": 0
+ },
+ {
+  "id": 7,
+  "role": "Producer",
+  "name": "IVAN LOO",
+  "reward": 0
+ },
+ {
+  "id": 2,
+  "role": "Programmer",
+  "name": "POH WEI LI",
+  "reward": 0
+ },
+ {
+  "id": 10,
+  "role": "Programmer",
+  "name": "LIM CHEE HAN",
+  "reward": 0
+ },
+ {
+  "id": 15,
+  "role": "Programmer",
+  "name": "LIM GIM HONG",
+  "reward": 0
+ },
+ {
+  "id": 8,
+  "role": "GameArtist",
+  "name": "BENJAMIN CHEE",
+  "reward": 0
+ },
+ {
+  "id": 1,
+  "role": "PeopleArtist",
+  "name": "SHARON BONG",
+  "reward": 0
+ },
+ {
+  "id": 4,
+  "role": "CityArtist",
+  "name": "SHAHIDAH SHUKOR",
+  "reward": 0
+ },
+ {
+  "id": 3,
+  "role": "TroubleFinder",
+  "name": "HOO QING YU",
+  "reward": 0
+ },
+ {
+  "id": 9,
+  "role": "QA",
+  "name": "NICODEMUS SEET",
+  "reward": 0
+ },
+ {
+  "id": 12,
+  "role": "QA",
+  "name": "RYAN WONG",
+  "reward": 0
+ },
+ {
+  "id": 11,
+  "role": "QA",
+  "name": "JOHN HEW",
+  "reward": 0
+ },
+ {
+  "id": 24,
+  "role": "RuthlessCritic",
+  "name": "SABRINA CHAN",
+  "reward": 0
+ },
+ {
+  "id": 5,
+  "role": "Playtester",
+  "name": "SANDRA HO",
+  "reward": 1
+ },
+ {
+  "id": 21,
+  "role": "Playtester",
+  "name": "CHARLOTTE CHEW",
+  "reward": 0
+ },
+ {
+  "id": 16,
+  "role": "Producer",
+  "name": "WILL WHITEHEAD",
+  "reward": 0
+ },
+ {
+  "id": 26,
+  "role": "Playtester",
+  "name": "SOPPHIA LOO",
+  "reward": 0
+ },
+ {
+  "id": 18,
+  "role": "QA",
+  "name": "GLEN CHEW",
+  "reward": 0
+ },
+ {
+  "id": 19,
+  "role": "QA",
+  "name": "MATHIAS LOH",
+  "reward": 1
+ },
+ {
+  "id": 20,
+  "role": "Playtester",
+  "name": "KENNY LOH",
+  "reward": 0
+ },
+ {
+  "id": 27,
+  "role": "Sound",
+  "name": "ADGIO HUTCHINGS",
+  "reward": 0
+ },
+ {
+  "id": 28,
+  "role": "Deployment",
+  "name": "MICHAEL DAVIES",
+  "reward": 1
+ },
+ {
+  "id": 29,
+  "role": "Marketing",
+  "name": "STEPHEN HEY",
+  "reward": 0
+ },
+ {
+  "id": 30,
+  "role": "PR",
+  "name": "CARMEN PEARSON",
+  "reward": 0
+ },
+ {
+  "id": 31,
+  "role": "PR",
+  "name": "DAN TAUSNEY",
+  "reward": 0
+ },
+ {
+  "id": 32,
+  "role": "QA",
+  "name": "ADAM CLAY",
+  "reward": 0
+ },
+ {
+  "id": 33,
+  "role": "COO",
+  "name": "ED RUMLEY",
+  "reward": 0
+ },
+ {
+  "id": 34,
+  "role": "QA",
+  "name": "JOHNATHAN",
+  "reward": 0
+ },
+ {
+  "id": 35,
+  "role": "Playtester",
+  "name": "WENDY HOW",
+  "reward": 0
+ },
+ {
+  "id": 36,
+  "role": "Playtester",
+  "name": "NICHOLAS CHOY",
+  "reward": 0
+ },
+ {
+  "id": 37,
+  "role": "WizardryIntern",
+  "name": "MERLIN CHENG",
+  "reward": 0
+ },
+ {
+  "id": 38,
+  "role": "QAS",
+  "name": "LACE L.",
+  "reward": 1
+ },
+ {
+  "id": 39,
+  "role": "Programmer",
+  "name": "SIN YEE HOWE",
+  "reward": 0
+ },
+ {
+  "id": 40,
+  "role": "CodeWeaver",
+  "name": "EDMUND CHING",
+  "reward": 0
+ },
+ {
+  "id": 46,
+  "role": "Programmer",
+  "name": "JIX LEE",
+  "reward": 0
+ },
+ {
+  "id": 41,
+  "role": "TheDrawer",
+  "name": "SHAWN YAP",
+  "reward": 0
+ },
+ {
+  "id": 43,
+  "role": "Programmer",
+  "name": "IAN TAN",
+  "reward": 0
+ },
+ {
+  "id": 44,
+  "role": "Programmer",
+  "name": "DARYL ANG",
+  "reward": 0
+ },
+ {
+  "id": 45,
+  "role": "Programmer",
+  "name": "MERVYN LAM",
+  "reward": 0
+ },
+ {
+  "id": 42,
+  "role": "Tonberry",
+  "name": "LINDA YEO",
+  "reward": 0
+ },
+ {
+  "id": 87,
+  "role": "Programmer",
+  "name": "JOEL TAY",
+  "reward": 0
+ },
+ {
+  "id": 86,
+  "role": "Programmer",
+  "name": "ALEX HEW",
+  "reward": 1
+ },
+ {
+  "id": 85,
+  "role": "",
+  "name": "CLAYTON NARCIS",
+  "reward": 0
+ },
+ {
+  "id": 84,
+  "role": "",
+  "name": "GOH I-MING",
+  "reward": 0
+ },
+ {
+  "id": 83,
+  "role": "Programmer",
+  "name": "DERRICK LEE",
+  "reward": 0
+ },
+ {
+  "id": 82,
+  "role": "Programmer",
+  "name": "CALVIN CHIN",
+  "reward": 0
+ },
+ {
+  "id": 81,
+  "role": "",
+  "name": "JANICE TAN",
+  "reward": 0
+ },
+ {
+  "id": 80,
+  "role": "Programmer",
+  "name": "JEREMY HOR",
+  "reward": 0
+ },
+ {
+  "id": 88,
+  "role": "",
+  "name": "TJ LEE",
+  "reward": 0
+ }
+]

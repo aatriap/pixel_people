@@ -9,7 +9,7 @@ export function sfx(name: string) {
   try {
     let a = cache.get(name);
     if (!a) {
-      a = new Audio(`assets/audio/${name}.mp3`);
+      a = new Audio(`assets/audio/${name.includes('.') ? name : name + '.mp3'}`);
       a.volume = 0.5;
       cache.set(name, a);
     }

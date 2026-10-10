@@ -1,0 +1,255 @@
+[
+ {
+  "name": "GrassTerrain",
+  "displayName": "Grass",
+  "cost": {
+   "coins": 1000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Terrain"
+ },
+ {
+  "name": "WaterTerrain",
+  "displayName": "Water",
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Terrain"
+ },
+ {
+  "name": "snowTile1",
+  "displayName": "Snow Bump",
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Snow Terrain"
+ },
+ {
+  "name": "snowTile2",
+  "displayName": "Snow Flat",
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Snow Terrain"
+ },
+ {
+  "name": "ShoreDecor1",
+  "displayName": "Dry Bottom Corner",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "ShoreDecor2",
+  "displayName": "Bottom Shore",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "ShoreDecor3",
+  "displayName": "Dry Side Corner",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "ShoreDecor4",
+  "displayName": "Top Shore",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "ShoreDecor5",
+  "displayName": "Dry Top Corner",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "ShoreDecor6",
+  "displayName": "Top Cove",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "ShoreDecor7",
+  "displayName": "Side Cove",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "ShoreDecor8",
+  "displayName": "Bottom Cove",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Flat Edges"
+ },
+ {
+  "name": "waterwayConnector1",
+  "displayName": "North Canal",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Connectors"
+ },
+ {
+  "name": "waterwayConnector2",
+  "displayName": "South Canal",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Connectors"
+ },
+ {
+  "name": "ShoreCorner1",
+  "displayName": "Bottom Corner",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "ShoreCorner2",
+  "displayName": "Side Corner",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "ShoreCorner3",
+  "displayName": "Side Corner 2",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "ShoreCorner4",
+  "displayName": "Flat Bottom",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "ShoreCorner5",
+  "displayName": "Top Corner",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "ShoreCorner6",
+  "displayName": "Top Cove",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "ShoreCorner7",
+  "displayName": "Flat Top",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "ShoreCorner8",
+  "displayName": "Flat Top 2",
+  "cost": {
+   "coins": 100000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Tapered"
+ },
+ {
+  "name": "SpecialTerrain1",
+  "displayName": "Fallow Fields",
+  "cost": {
+   "coins": 1000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "category": "Special Terrain"
+ }
+]
