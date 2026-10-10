@@ -6,6 +6,9 @@ import decorJson from '../data/decor.json';
 import pathsJson from '../data/paths.json';
 import treesJson from '../data/trees.json';
 import landJson from '../data/land.json';
+import animalsJson from '../data/animals.json';
+import missionsJson from '../data/missions.json';
+import stringsJson from '../data/strings.json';
 
 export interface Cost { coins: number; utopium: number; chroma: number }
 
@@ -30,6 +33,14 @@ export interface DecorData {
 export interface PathData { name: string; displayName: string; cost: Cost | null; landCost: number; pathType: string }
 export interface TreeData { name: string; displayName: string; cost: Cost | null; landCost: number }
 export interface LandRow { level: number; cost: number; land: number; utopium: number }
+export interface AnimalData {
+  id: number; name: string; tier: number; categories: string[]; seasons: string[]; cost: number;
+  omit: boolean; droppable: boolean;
+}
+export interface MissionData {
+  id: string; type: number; reward: string; discontinued: boolean; prerequisite: string; reqs: string[];
+  season: string; needAltar: boolean; needJobs: number; name: string; desc: string;
+}
 
 export const JOBS = jobsJson as JobData[];
 export const WORKPLACES = workplacesJson as WorkplaceData[];
@@ -38,6 +49,9 @@ export const DECOR = decorJson as DecorData[];
 export const PATHS = pathsJson as PathData[];
 export const TREES = treesJson as TreeData[];
 export const LAND = landJson as LandRow[];
+export const ANIMALS = animalsJson as AnimalData[];
+export const MISSIONS = missionsJson as MissionData[];
+export const STRINGS = stringsJson as Record<string, string>;
 
 export const JOB = new Map(JOBS.map((j) => [j.name, j]));
 export const WORKPLACE = new Map(WORKPLACES.map((w) => [w.name, w]));
@@ -45,11 +59,22 @@ export const RESIDENCE = new Map(RESIDENCES.map((r) => [r.name, r]));
 export const DECOR_BY = new Map(DECOR.map((d) => [d.name, d]));
 export const PATH = new Map(PATHS.map((p) => [p.name, p]));
 export const TREE = new Map(TREES.map((t) => [t.name, t]));
+export const JOB_BY_ID = new Map(JOBS.map((j) => [j.id, j]));
+export const ANIMAL = new Map(ANIMALS.map((a) => [a.name, a]));
+export const ANIMAL_BY_ID = new Map(ANIMALS.map((a) => [a.id, a]));
+export const MISSION = new Map(MISSIONS.map((m) => [m.id, m]));
 
-export type Kind = 'workplace' | 'residence' | 'decor' | 'path' | 'tree';
+/** Mission Pod (build type 11, "RocketShip"). */
+export const POD = 'RocketShip';
+/** Wonder part buildings: one 1x1 tile per part (MonumentPart1..9, Monument3Part1..4, Monument4Part1..4). */
+export const isWonderPart = (type: string) => /^Monument\d?Part\d$/.test(type);
+
+export type Kind = 'workplace' | 'residence' | 'decor' | 'path' | 'tree' | 'pod' | 'wonder';
 
 /** Kind of a static id. Workplaces win (SpacePort, Town Hall...). */
 export function kindOf(type: string): Kind {
+  if (type === POD) return 'pod';
+  if (isWonderPart(type)) return 'wonder';
   if (WORKPLACE.has(type)) return 'workplace';
   if (RESIDENCE.has(type)) return 'residence';
   if (DECOR_BY.has(type)) return 'decor';
@@ -74,10 +99,16 @@ export function landUse(type: string): number {
     case 'decor': return DECOR_BY.get(type)!.landCost;
     case 'path': return PATH.get(type)!.landCost;
     case 'tree': return TREE.get(type)?.landCost ?? 1;
+    case 'pod': case 'wonder': return 0; // inferido: no TSV row; mission pods and wonder parts use no land
   }
 }
 
 export function displayName(type: string): string {
+  if (type === POD) return 'Mission Pod';
+  if (isWonderPart(type)) {
+    const [w, n] = type.split('Part');
+    return `${STRINGS[w + '_DisplayName'] ?? w} part ${n}`;
+  }
   return WORKPLACE.get(type)?.displayName ?? RESIDENCE.get(type)?.displayName
     ?? DECOR_BY.get(type)?.displayName ?? PATH.get(type)?.displayName ?? TREE.get(type)?.displayName ?? type;
 }

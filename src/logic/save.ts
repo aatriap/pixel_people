@@ -1,5 +1,5 @@
 // localStorage persistence. The whole GameState is one JSON document.
-import { GameState } from './state';
+import { GameState, migrate } from './state';
 
 export const SAVE_KEY = 'pixelpeople.save.v1';
 
@@ -11,7 +11,7 @@ export function load(storage: Storage | undefined): GameState | null {
     if (!raw) return null;
     const s = JSON.parse(raw) as GameState;
     if (s.version !== 1 || !Array.isArray(s.buildings)) return null;
-    return s;
+    return migrate(s);
   } catch {
     return null;
   }

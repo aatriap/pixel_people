@@ -144,6 +144,10 @@ describe('building and land', () => {
   });
   it('decor adds spirit and land; paths use no land', () => {
     const g = Game.fresh(T0);
+    // milestone 2: decor needs the Park (feature 0) and roads the Construction Yard (feature 5)
+    expect(g.place('Bush1', 5, 5, false, T0).msg).toBe('LOCKED');
+    g.state.buildings.push({ id: 'Park_x', type: 'Park', x: 20, y: 20, flip: false, buildStart: -1, buildEnd: -1, shiftStart: -1, level: 1 });
+    g.state.buildings.push({ id: 'CY_x', type: 'Construction Yard', x: 25, y: 25, flip: false, buildStart: -1, buildEnd: -1, shiftStart: -1, level: 1 });
     g.place('Bush1', 5, 5, false, T0);
     expect([g.state.spirit, g.state.landUsed, g.state.coins]).toEqual([3, 16, 4000]);
     g.place('PlainR', 6, 6, false, T0);
@@ -154,6 +158,7 @@ describe('building and land', () => {
     const cost = g.landUpgradeCost();
     expect(cost).toBe(8124);
     expect(g.expandLand().ok).toBe(true);
+    g.closePacket(); // milestone 2: the level-up packet (type 2) applies when its card closes
     expect([g.state.coins, g.state.landLimit, g.state.utopium, g.state.spiritLimit, g.state.level])
       .toEqual([14000 - 8124, 40, 26, 12, 2]);
   });
