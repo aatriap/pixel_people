@@ -64,8 +64,8 @@ async function run(name, ctxOpts, fullTutorial) {
     await click('button[data-k^="spl"]');                 // 9 -> 10
     await shot('04-tutorial-splicer');
     await click('button[data-k="tut-next"]');            // 10 -> 11
-    await click('.gene[data-job="Mayor"]');                // 11 -> 12
-    await click('.gene[data-job="Mechanic"]');             // 12 -> 13
+    await click('.spcol.l .gene[data-job="Mayor"]');       // 11 -> 12
+    await click('.spcol.r .gene[data-job="Mechanic"]');    // 12 -> 13
     await click('button[data-k="splice-go"]');             // 13 -> 14
     await sleep(9000);                                     // 7 s splice, then the card
     await shot('05-tutorial-eureka');

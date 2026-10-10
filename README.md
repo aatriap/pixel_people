@@ -28,8 +28,12 @@ as in the original. Saves from milestones 1 and 2 load with the tutorial already
 - **CLONES** opens the Arrival Center, which has 3 slots. From there you rush arrivals, splice and assign jobs.
 - **BUILD** lists houses, decor, paths and trees. Tap the map to place one.
 - **EXPAND** buys +10 land (the level-up card applies it). With the Law Firm you can also expand for 40 utopium.
-- Side buttons: **hearts** (stored hearts; pump one to open it), **HQ** (missions, once Utopia HQ is built), **DAY** (calendar reward),
-  **animals**, **ACH** (achievements), **EDIT** (tap a building, then MOVE / FLIP / STORE / DELETE) and **MUSIC** (mute is saved).
+- HUD as in 4.20: utopium, discovered jobs (n/450) and coins on the top bar; the heart row under it (tap it to open a
+  stored heart); the calendar and "back to the Town Hall" buttons and the Utopia News bar with the LAND WATCH at the
+  bottom (tap LAND WATCH to expand). Side buttons: **HQ** (missions), **animals**, **ACH**, **EDIT** and **MUSIC**.
+- Every building popup ends with **DELETE · MOVE** (plus FLIP and STORE): MOVE, then tap the new spot.
+- Splicer: pick a gene group on each side, then a gene. Faded genes have nothing new left to discover with the genes
+  you know. During the tutorial only MAYOR + MECHANIC can be spliced, so it can't get stuck.
 - Tap the coins counter to trade utopium for coins (also at the Town Hall and the TV Station).
 - Guests walk on the roads: the one with the gene icon gives a special gene, the "?" one shows the mini-quests (COLLECT when done).
 - Rewards (hearts, gifts, missions, the shelter, level-ups) arrive as cards, one at a time; the reward is applied when the card closes.

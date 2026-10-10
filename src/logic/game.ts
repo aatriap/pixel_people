@@ -297,6 +297,17 @@ export class Game {
     return null;
   }
 
+  /**
+   * Splicer list fading (web, inferido): true while some job not discovered yet can still be spliced from this gene
+   * and another known gene. Known genes with nothing left to discover are drawn faded.
+   */
+  hasNewRecipes(gene: string): boolean {
+    const known = new Set(this.state.unlockedJobs);
+    return JOBS.some((j) => !known.has(j.name)
+      && ((j.parent1 === gene && known.has(j.parent2)) || (j.parent2 === gene && known.has(j.parent1)))
+      && this.validate(j.parent1, j.parent2) === j.name);
+  }
+
   /** landLimitReached(job): only Workplace 1 matters, and only if none exists yet. */
   landLimitReached(job: string): boolean {
     const wp = JOB.get(job)?.workplaces[0];
@@ -322,6 +333,10 @@ export class Game {
     const s = this.state.slots[slotIdx];
     if (!s || s.state !== 3) return fail('NO CLONE READY TO SPLICE');
     if (!this.state.unlockedJobs.includes(a) || !this.state.unlockedJobs.includes(b)) return fail('UNKNOWN GENE');
+    // web: the tutorial only goes on with the Mechanic gene (the mine), so any other pair would leave it stuck
+    if (this.tutorialActive() && !((a === 'Mayor' && b === 'Mechanic') || (a === 'Mechanic' && b === 'Mayor'))) {
+      return fail('SPLICE THE MAYOR WITH THE MECHANIC');
+    }
     const job = this.validate(a, b);
     if (!job) return fail('NO GENETIC MATCH');
     if (this.state.slots.some((x) => x.state === 4 && x.job === job)) return fail('JOB IS STILL SPLICING');

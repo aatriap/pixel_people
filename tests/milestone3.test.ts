@@ -69,6 +69,10 @@ describe('tutorial (01 §5)', () => {
     expect(g.rushArrival(0, t).ok).toBe(true);
     expect(g.state.tutorial).toBe(8);
     for (const a of ['tapPortrait', 'spliceMe', 'next', 'pickMayor', 'pickMechanic'] as const) expect(g.tut(a)).toBe(true);
+    // Mayor + Mayor (Sheriff) or Mechanic + Mechanic would never build the mine, so they are refused
+    expect(g.startSplice(0, 'Mayor', 'Mayor', t)).toMatchObject({ ok: false, msg: 'SPLICE THE MAYOR WITH THE MECHANIC' });
+    expect(g.startSplice(0, 'Mechanic', 'Mechanic', t).ok).toBe(false);
+    expect(g.state.slots[0].state).toBe(3);
     expect(g.startSplice(0, 'Mayor', 'Mechanic', t).ok).toBe(true);
     expect(g.state.slots[0].end - t).toBeLessThanOrEqual(7); // 7 s splicing in the tutorial
     expect(g.state.tutorial).toBe(14);
@@ -95,6 +99,14 @@ describe('tutorial (01 §5)', () => {
     g.tut('next');
     expect(g.state.tutorial).toBe(-1);
     expect(g.state.utopium).toBe(25); // "UTOPIUM WILL RESET AFTER TUTORIAL"
+  });
+
+  it('fades splicer genes with nothing left to discover', () => {
+    const g = game();
+    expect(g.hasNewRecipes('Mayor')).toBe(true); // Sheriff, Engineer
+    g.state.unlockedJobs = ['Mayor', 'Mechanic', 'Engineer', 'Sheriff', 'Assistant'];
+    // every recipe that uses only these genes is known; what is left needs a gene not discovered yet
+    expect(g.hasNewRecipes('Mechanic')).toBe(g.state.unlockedJobs.some((a) => g.combo('Mechanic', a).kind === 'new'));
   });
 
   it('blocks the daily reset, hearts and tree rewards while active', () => {

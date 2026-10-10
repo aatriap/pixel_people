@@ -144,19 +144,6 @@ img { image-rendering: pixelated; }
 .slot .portrait img { width: 56px; height: 56px; object-fit: contain; }
 .slot .actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: center; }
 
-.splicer .splicetop { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 4px; background: #2b2550; color: #fff; }
-.splicer .pick { width: 86px; min-height: 86px; background: #48407a; border: 2px dashed #9a92d0; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 10px; cursor: pointer; }
-.splicer .pick.on { border-style: solid; border-color: #7dff7d; }
-.splicer .pick span { font-size: 28px; color: #9a92d0; }
-.splicer .pick img { width: 54px; height: 54px; }
-.splicer .combo img { width: 56px; height: 54px; }
-.splicer .combotext { flex-basis: 100%; font-size: 12px; }
-.splicer .combotext .land { color: #ffb24a; }
-.genes { overflow: auto; flex: 1; text-align: left; }
-.group .gname { background: #5a4a8a; color: #fff; padding: 3px 6px; margin-top: 6px; font-size: 12px; }
-.gene { display: inline-flex; flex-direction: column; align-items: center; width: 84px; margin: 3px; padding: 3px; background: rgba(255,255,255,.6); border: 2px solid #8a8a9a; cursor: pointer; font-size: 9px; text-align: center; }
-.gene img { width: 54px; height: 54px; }
-.gene.on { border-color: #1aa83a; background: #c9ffd1; }
 
 .card .eureka { font-size: 18px; color: #c2007a; }
 .card .big { width: 108px; height: 108px; background: #2b2550; border: 2px solid #111; margin: 6px; }
@@ -399,3 +386,79 @@ body.tutorial .side { display: none; }
   .calendar .day { width: 42px; min-height: 58px; }
   #spiritwatch { top: calc(var(--safe-top) + 70px); }
 }
+
+/* ------------------------------------------------------------------ splicer (two gene lists) */
+.panel.splicer { width: min(94vw, 400px); }
+.splicer2 { display: flex; flex-direction: column; gap: 4px; color: #fff; background: #12889c; border: 3px solid #0a5d6c; padding: 8px 6px; }
+.sp-top { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.sp-box { width: 88px; height: 88px; border: 3px solid #333; background: radial-gradient(#9a9a9a, #4a4a4a); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: inset 0 0 0 3px rgba(0,0,0,.25); }
+.sp-box img { width: 72px; height: 72px; }
+.sp-vial { width: 84px; height: 81px; border: 0; padding: 0; background: url('/assets/ui/Splice_normal.png') center / 100% 100% no-repeat; image-rendering: pixelated; cursor: pointer; }
+.sp-vial:active:not(:disabled) { background-image: url('/assets/ui/Splice_pressed.png'); }
+.sp-vial img { width: 100%; height: 100%; }
+.sp-vial:disabled { cursor: default; }
+.sp-vial:not(:disabled) { animation: pulse .6s infinite alternate; }
+.sp-info { font-size: 13px; text-shadow: 1px 1px 0 #000; min-height: 34px; }
+.sp-info .land { color: #ffe14a; font-size: 15px; }
+.sp-info .time { font-size: 10px; color: #cff; }
+.sp-title { font-size: 17px; margin-top: 4px; letter-spacing: 1px; }
+.sp-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.spcol { background: #2a2a32; border: 3px solid #555; border-radius: 6px; padding: 5px; height: min(42vh, 300px); overflow: hidden; }
+.sp-list { height: 100%; overflow-y: auto; display: flex; flex-direction: column; gap: 5px; -webkit-overflow-scrolling: touch; touch-action: pan-y; }
+.sp-btn { flex: none; font-family: inherit; color: #fff; font-size: 12px; text-shadow: 1px 1px 0 rgba(0,0,0,.7); padding: 8px 4px; border: 2px solid rgba(0,0,0,.45); border-radius: 4px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-shadow: inset 0 -3px 0 rgba(0,0,0,.25); }
+.sp-btn.back { background: #555560; color: #ffd44a; }
+.sp-btn.dim { opacity: .45; }
+.sp-btn.on { border-color: #fff; box-shadow: 0 0 0 2px #fff, inset 0 -3px 0 rgba(0,0,0,.25); opacity: 1; }
+.sp-btn:disabled { filter: grayscale(1) brightness(.6); cursor: default; }
+.splicer2 .hint { color: #bff; }
+
+/* ------------------------------------------------------------------ HUD (4.20 layout) */
+.hud { padding: 0; gap: 0; align-items: stretch; }
+.topbar {
+  pointer-events: auto; display: grid; grid-template-columns: 37.5% 25% 37.5%; align-items: center;
+  padding-top: var(--safe-top); height: calc(var(--safe-top) + clamp(40px, 12.5vw, 56px));
+  background: #84cc00 url('/assets/ui/UITopBar.png') bottom / 100% clamp(40px, 12.5vw, 56px) no-repeat;
+  font-size: clamp(13px, 4.6vw, 24px); text-shadow: 2px 2px 0 #2a4a00; color: #fff;
+}
+.topbar > div { display: flex; align-items: center; gap: 4px; height: 100%; padding-bottom: 6%; white-space: nowrap; overflow: hidden; }
+.topbar img { width: clamp(18px, 6vw, 28px); height: auto; }
+.tb-left { padding-left: 4px; }
+.tb-left .tb-plus { width: clamp(22px, 7.5vw, 34px); }
+.tb-mid { justify-content: center; font-size: clamp(16px, 6.4vw, 30px); text-shadow: 2px 2px 0 #00427a; }
+.tb-right { justify-content: flex-end; padding-right: 4px; cursor: pointer; }
+.hudrow { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 4px 6px 0; pointer-events: none; }
+.hearts-row { pointer-events: auto; display: flex; gap: 2px; background: transparent; border: 0; padding: 2px; cursor: pointer; }
+.hearts-row img { width: clamp(16px, 5.4vw, 26px); height: auto; }
+.hearts-row.glow { animation: pulse .6s infinite alternate; }
+.minis { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 2px 8px; font-size: 10px; color: #cfe; text-shadow: 1px 1px 0 #000; }
+.minis span { display: flex; align-items: center; gap: 3px; background: rgba(10,6,30,.6); padding: 1px 4px; }
+.minis b { font-weight: normal; color: #fff; }
+.minis img { width: 14px; height: 14px; }
+#pending { top: calc(var(--safe-top) + clamp(40px, 12.5vw, 56px) + 34px); }
+.side { top: calc(var(--safe-top) + clamp(40px, 12.5vw, 56px) + 56px); }
+#spiritwatch { top: calc(var(--safe-top) + clamp(40px, 12.5vw, 56px) + 56px); }
+#tut { top: calc(var(--safe-top) + clamp(40px, 12.5vw, 56px) + 4px); }
+#breaking { top: calc(var(--safe-top) + clamp(40px, 12.5vw, 56px) + 30px); }
+
+/* footer: Utopia News bar with the Land Watch, calendar and Town Hall buttons above it */
+#news {
+  bottom: calc(var(--safe-bottom) + 62px); height: 34px; border: 0; pointer-events: auto;
+  background: url('/assets/ui/NewsFeedBar.png') center / 100% 100% no-repeat; font-size: 14px;
+}
+#news .nb { margin: 0 4px 0 2px; height: 30px; width: auto; color: inherit; }
+#news .track span { animation-duration: 16s; }
+.landwatch {
+  flex: none; height: 32px; width: 104px; border: 0; padding: 12px 0 0; cursor: pointer;
+  background: url('/assets/ui/LandWatch.png') center / 100% 100% no-repeat; image-rendering: pixelated;
+  font-family: inherit; font-size: 14px; color: #fff; text-shadow: 1px 1px 0 #000;
+}
+.corner-btns { position: absolute; left: 4px; bottom: calc(var(--safe-bottom) + 100px); display: flex; flex-direction: column; gap: 4px; pointer-events: none; }
+.cbtn { pointer-events: auto; width: 40px; height: 42px; border: 0; padding: 0; cursor: pointer; background: center / 100% 100% no-repeat; image-rendering: pixelated; }
+.cbtn.cal { background-image: url('/assets/ui/Season_Calendar.png'); }
+.cbtn.cal:active { background-image: url('/assets/ui/Season_Calendar_pressed.png'); }
+.cbtn.cal.glow { animation: pulse .5s infinite alternate; outline: 2px solid #ffe14a; }
+.cbtn.home { background-image: url('/assets/ui/ReturnTownHall_button.png'); }
+.cbtn.home:active { background-image: url('/assets/ui/ReturnTownHall_pressed.png'); }
+#buildbar { bottom: calc(var(--safe-bottom) + 100px); }
+body.tutorial .corner-btns, body.tutorial .minis { display: none; }
+.sidebtn .big { font-size: 13px; }

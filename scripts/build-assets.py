@@ -128,7 +128,7 @@ def main():
     com += collect('always_on_screen_ui/always_on_screen', ['Notif-Clone', 'Notif-NewJob', 'Notif-House', 'Utopium',
                                                             'notif-heart', 'notification_tree', 'Notif-Utopium',
                                                             'Notif-Gift', 'Notif-Empty', 'notif_specialgene',
-                                                            'Notif-Hint', 'Notif-NewSkin'],
+                                                            'Notif-Hint', 'Notif-NewSkin', 'GroundTileBig_1'],
                    'always_on_screen_ui/sprites/')
     # milestone 2: wonders (one 1x1 tile per part), the Mission Pod and the animals
     wonders = ['MonumentPart%d' % i for i in range(1, 10)] + ['Monument3Part%d' % i for i in range(1, 5)] + \
@@ -193,11 +193,13 @@ def main():
         'tutorial/_tutorial_ss': ['narrator_box', 'mouth_shape_1', 'mouth_shape_2', 'mouth_shape_3', 'mouth_shape_4',
                                   'mouth_shape_5'],
         'localization/english/image_english': ['TutorialNextbtn_normal', 'TutorialNextbtn_pressed', 'SpiritWatch',
-                                               'breaking_news_1', 'UNNewsbar'],
+                                               'breaking_news_1', 'UNNewsbar', 'LandWatch'],
     }
     ui['always_on_screen_ui/always_on_screen'] += ['Season_Thaw', 'Season_Swell', 'Season_Harvest', 'Season_Frost',
                                                    'Season_Calendar', 'GiftPacket', 'NewsFeedBar', 'notif_specialgene',
-                                                   'Notif-Hint', 'Notif-NewSkin']
+                                                   'Notif-Hint', 'Notif-NewSkin', 'HUDHeartmissing',
+                                                   'ReturnTownHall_button', 'ReturnTownHall_pressed',
+                                                   'Season_Calendar_pressed', 'UITopBar_IPX_extension']
     prefix = {'always_on_screen_ui/always_on_screen': 'always_on_screen_ui/sprites/', 'popups/_popupsSS': 'popups/',
               'tutorial/_tutorial_ss': 'tutorial/sprites/',
               'localization/english/image_english': 'localization/english/'}

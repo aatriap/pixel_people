@@ -107,17 +107,25 @@ export class CityScene extends Phaser.Scene {
     const g = this.game2;
     const occ = g.occupied();
     const ground: Phaser.GameObjects.GameObject[] = [];
-    // floating ground under every occupied cell
+    // floating ground under every occupied cell: the rock (GroundTileBig) with the grass top (GroundTileBig_1)
+    // over it, so paths, trees and decor stand on grass like in the game. All grass draws above all rock.
     for (const key of occ.keys()) {
       const [i, j] = key.split(',').map(Number);
       const p = cellCenter(i, j);
-      const im = this.img(p.x, p.y, 'GroundTileBig');
-      if (im) {
-        im.setOrigin(0.5, 127.75 / 200).setDepth(depthFor(i, j, -5000));
-        this.world.add(im);
-        ground.push(im);
+      const rock = this.img(p.x, p.y, 'GroundTileBig');
+      if (rock) {
+        rock.setOrigin(0.5, 127.75 / 200).setDepth(depthFor(i, j, -60000));
+        this.world.add(rock);
+        ground.push(rock);
+      }
+      const grass = this.img(p.x, p.y, 'GroundTileBig_1');
+      if (grass) {
+        grass.setOrigin(0.5, 127.75 / 200).setDepth(depthFor(i, j, -40000));
+        this.world.add(grass);
+        ground.push(grass);
       }
     }
+    this.drawSpaceGrid(occ);
     this.views.set('__ground', ground);
     const roads = new Set(g.state.buildings.filter((b) => PATH.has(b.type)).map((b) => `${b.x},${b.y}:${b.type}`));
     for (const b of g.state.buildings) this.views.set(b.id, this.buildingView(b, roads));
@@ -556,6 +564,32 @@ export class CityScene extends Phaser.Scene {
   private clearGhost() {
     for (const o of this.ghost) o.destroy();
     this.ghost = [];
+  }
+
+  /** The faint isometric grid over space around the city (as in the game's map view). */
+  private spaceGrid?: Phaser.GameObjects.Graphics;
+  private drawSpaceGrid(occ: Map<string, string>) {
+    let minI = 0, maxI = 0, minJ = 0, maxJ = 0;
+    for (const k of occ.keys()) {
+      const [i, j] = k.split(',').map(Number);
+      minI = Math.min(minI, i); maxI = Math.max(maxI, i); minJ = Math.min(minJ, j); maxJ = Math.max(maxJ, j);
+    }
+    const PAD = 14;
+    minI -= PAD; minJ -= PAD; maxI += PAD + 1; maxJ += PAD + 1;
+    // corner of cell (i, j) between its left and bottom edges
+    const corner = (i: number, j: number) => ({ x: (j - i) * 61.5, y: -(i + j) * 30.75 });
+    const gfx = this.spaceGrid ?? this.add.graphics();
+    if (!this.spaceGrid) { this.spaceGrid = gfx; this.world.add(gfx); }
+    gfx.clear().setDepth(-1e6);
+    gfx.lineStyle(2, 0xffffff, 0.16);
+    for (let i = minI; i <= maxI; i++) {
+      const a = corner(i, minJ), b = corner(i, maxJ);
+      gfx.lineBetween(a.x, a.y, b.x, b.y);
+    }
+    for (let j = minJ; j <= maxJ; j++) {
+      const a = corner(minI, j), b = corner(maxI, j);
+      gfx.lineBetween(a.x, a.y, b.x, b.y);
+    }
   }
 
   private refreshGrid() {

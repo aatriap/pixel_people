@@ -44,11 +44,11 @@ async function run(name, ctxOpts) {
   await tap('#f-ac');
   await button('RUSH').click(); await sleep(1200);
   await button('SPLICE').click(); await sleep(400);
-  await page.locator('.gene', { hasText: 'MAYOR' }).first().click();
-  await page.locator('.gene', { hasText: 'MECHANIC' }).first().click();
+  await page.locator('.spcol.l .gene[data-job="Mayor"]').click();
+  await page.locator('.spcol.r .gene[data-job="Mechanic"]').click();
   await sleep(300);
   await shot('3-splicer');
-  await page.locator('.splicetop button').click(); await sleep(500);
+  await page.locator('button[data-k="splice-go"]').click(); await sleep(500);
   await button('FREE?').click(); await sleep(1500);
   await shot('4-discovery');
 

@@ -4,7 +4,7 @@ import {
   ENTERPRISE_UTOPIUM, PET_STORE_UTOPIUM,
 } from '../logic/game';
 import {
-  ANIMAL, DECOR, JOB, JOB_BY_ID, MISSION, PATHS, RESIDENCES, STRINGS, TREES, WORKPLACE, Cost, POD,
+  ANIMAL, DECOR, JOB, JOBS, JOB_BY_ID, MISSION, PATHS, RESIDENCES, STRINGS, TREES, WORKPLACE, Cost, POD,
   displayName, jobDisplay, kindOf, landUse,
 } from '../logic/data';
 import { constructionRushCost, landRow, timeTillNoon, timeRushCost } from '../logic/formulas';
@@ -34,6 +34,9 @@ type PlaceMode =
   | { kind: 'wonder' }
   | { kind: 'move'; id: string };
 
+/** HeaderTop "78/450": discovered jobs out of the professions (the 23 special genes are not counted). */
+const JOB_TOTAL = JOBS.filter((j) => j.group !== 'Special').length;
+
 const COMBO_IMG: Record<ComboKind, string> = {
   none: 'Splice_NoCombo', old: 'Splice_OldCombo', new: 'Splice_NewCombo', evil: 'Splice_EvilCombo',
 };
@@ -47,6 +50,7 @@ export class UI {
   buildType: string | null = null;
   private placeMode: PlaceMode = { kind: 'buy' };
   editing = false;
+  private moveFromPopup = false;
   private editSel: string | null = null;
   private confirmDelete = false;
 
@@ -66,30 +70,36 @@ export class UI {
     const root = $('#ui');
     root.innerHTML = `
       <div class="hud">
-        <div class="bar">
-          <div class="pill" title="Utopium"><img src="assets/ui/Utopium.png"><span id="h-uto"></span></div>
-          <div class="pill" title="Coins" id="p-coins"><img src="assets/ui/Coin.png"><span id="h-coins"></span></div>
-          <div class="pill" title="Chroma"><img src="assets/ui/Chroma.png"><span id="h-chroma"></span></div>
+        <div class="topbar">
+          <div class="tb-left" title="Utopium"><img class="tb-plus" src="assets/ui/PlusButton.png"><img src="assets/ui/Utopium.png"><span id="h-uto"></span></div>
+          <div class="tb-mid" title="Jobs discovered"><span id="h-jobs"></span></div>
+          <div class="tb-right" title="Coins" id="p-coins"><span id="h-coins"></span><img src="assets/ui/Coin.png"></div>
         </div>
-        <div class="bar small">
-          <div class="pill" title="Land used / limit">LAND <span id="h-land"></span></div>
-          <div class="pill" title="Civic spirit / limit">SPIRIT <span id="h-spirit"></span></div>
-          <div class="pill" title="Population / housing">POP <span id="h-pop"></span></div>
-          <div class="pill" title="Coins per second">CPS <span id="h-cps"></span></div>
+        <div class="hudrow">
+          <button class="hearts-row" id="s-heart" title="Hearts"></button>
+          <div class="minis">
+            <span title="Chroma"><img src="assets/ui/Chroma.png"><b id="h-chroma"></b></span>
+            <span title="Civic spirit / limit">SPIRIT <b id="h-spirit"></b></span>
+            <span title="Population / housing">POP <b id="h-pop"></b></span>
+            <span title="Coins per second">CPS <b id="h-cps"></b></span>
+          </div>
         </div>
       </div>
       <div class="side">
-        <button class="sidebtn" id="s-heart" title="Hearts"><img src="assets/ui/notif-heart.png"><span id="h-hearts"></span></button>
         <button class="sidebtn" id="s-missions" title="Missions"><img src="assets/ui/MissionBoxHighlight.png"><span>HQ</span></button>
-        <button class="sidebtn" id="s-cal" title="Calendar"><img id="s-cal-img" src="assets/ui/SeasonArt_Thaw.png"><span>DAY</span></button>
         <button class="sidebtn" id="s-animals" title="Animals"><img src="assets/ui/AnimalSilhouette.png"><span id="h-animals"></span></button>
         <button class="sidebtn" id="s-ach" title="Achievements"><img src="assets/ui/ach/ac1.png"><span id="h-ach">ACH</span></button>
-        <button class="sidebtn" id="s-edit" title="Edit"><img src="assets/ui/Movebtn.png"><span>EDIT</span></button>
+        <button class="sidebtn" id="s-edit" title="Edit"><span class="big">EDIT</span></button>
         <button class="sidebtn" id="s-music" title="Music"><span id="h-music">BGM</span></button>
       </div>
       <div id="spiritwatch" class="hidden"><div class="gauge"><div class="fill" id="sw-fill"></div><img src="assets/ui/SpiritWatch.png"></div><span id="h-sw"></span></div>
       <div id="pending"></div>
-      <div id="news" class="hidden"><span class="nb">LIVE</span><div class="track"><span id="news-text"></span></div></div>
+      <div class="corner-btns">
+        <button class="cbtn cal" id="s-cal" title="Calendar"></button>
+        <button class="cbtn home" id="f-home" title="Back to the Town Hall"></button>
+      </div>
+      <div id="news"><img class="nb" src="assets/ui/UNNewsbar.png"><div class="track"><span id="news-text"></span></div>
+        <button class="landwatch" id="f-land" title="Land used / limit"><span id="h-land"></span></button></div>
       <div id="breaking" class="hidden"></div>
       <div id="buildbar" class="hidden"></div>
       <div class="footer">
@@ -111,6 +121,8 @@ export class UI {
     on('#s-heart', () => this.openHearts());
     on('#s-missions', () => this.openMissions());
     on('#s-cal', () => this.x.openCalendar());
+    on('#f-home', () => { const th = this.s.buildings.find((b) => b.type === 'Town Hall'); if (th) this.scene.focusOn(th.id); });
+    on('#f-land', () => { if (!this.game.tutorialActive()) this.openExpand(); });
     on('#s-animals', () => this.openAnimals());
     on('#s-edit', () => (this.editing ? this.endEdit() : this.startEdit()));
     on('#s-music', () => { this.s.musicMuted = !this.s.musicMuted; this.music.setMuted(this.s.musicMuted); this.onChange(); });
@@ -128,8 +140,14 @@ export class UI {
     $('#h-spirit').textContent = `${s.spirit}/${s.spiritLimit}`;
     $('#h-pop').textContent = `${g.population()}/${g.populationLimit()}`;
     $('#h-cps').textContent = fmtNum(g.totalCps());
-    $('#h-hearts').textContent = `${s.heartCount}/${HEART_MAX}`;
-    $('#s-heart').classList.toggle('glow', s.heartCount > 0);
+    $('#h-jobs').textContent = `${s.unlockedJobs.length}/${JOB_TOTAL}`;
+    const hearts = $('#s-heart');
+    if (hearts.dataset.n !== `${s.heartCount}`) {
+      hearts.dataset.n = `${s.heartCount}`;
+      hearts.innerHTML = '';
+      for (let k = 0; k < HEART_MAX; k++) hearts.append(h('img', { src: `assets/ui/${k < s.heartCount ? 'HUDHeart' : 'HUDHeartmissing'}.png` }));
+    }
+    hearts.classList.toggle('glow', s.heartCount > 0);
     $('#h-animals').textContent = `${Object.values(s.animals).reduce((a, b) => a + b, 0)}`;
     $('#h-music').textContent = s.musicMuted ? 'MUTED' : 'MUSIC';
     $('#s-music').classList.toggle('off', s.musicMuted);
@@ -137,8 +155,6 @@ export class UI {
     $('#s-missions').classList.toggle('hidden', !ms.unlocked());
     $('#s-missions').classList.toggle('glow', ms.unlocked() && ms.active().some((a) => ms.canComplete(a)));
     $('#s-cal').classList.toggle('glow', s.dailyGift);
-    const season = calendarAt(g.local(now)).season;
-    ($('#s-cal-img') as HTMLImageElement).src = `assets/ui/SeasonArt_${season >= 0 ? SEASONS[season][0] + SEASONS[season].slice(1).toLowerCase() : 'Thaw'}.png`;
     $('#s-edit').classList.toggle('on', this.editing);
     const acReady = s.slots.some((x) => x.state === 3 || x.state === 5);
     $('#f-ac').classList.toggle('glow', acReady);
@@ -162,7 +178,8 @@ export class UI {
     const bg = `url("assets/ui/bg${s.spaceBg}.png")`;
     if ($('#game').style.backgroundImage !== bg) $('#game').style.backgroundImage = bg;
     // News Agency: live news feed
-    $('#news').classList.toggle('hidden', !s.newsFeed || g.tutorialActive() || !!this.buildType || this.editing);
+    $('#news').classList.toggle('hidden', !!this.buildType || this.editing);
+    $('#news-text').classList.toggle('hidden', !s.newsFeed || g.tutorialActive());
     if (s.newsFeed && now >= this.newsAt) {
       this.newsAt = now + 16;
       const t = $('#news-text');
@@ -226,8 +243,8 @@ export class UI {
     // highlight the control the step is about
     const sel: Record<number, string> = {
       3: 'button[data-k="bld-rush"]', 17: 'button[data-k="bld-rush"]', 5: '#f-ac', 18: '#f-ac', 7: 'button[data-k^="arr"]',
-      8: '.slot .portrait.tap', 19: '.slot .portrait.tap', 9: 'button[data-k^="spl"]', 11: '.gene[data-job="Mayor"]',
-      12: '.gene[data-job="Mechanic"]', 13: 'button[data-k="splice-go"]', 20: 'button[data-k^="as"][data-k$="Utopium Mine"]',
+      8: '.slot .portrait.tap', 19: '.slot .portrait.tap', 9: 'button[data-k^="spl"]', 11: '.spcol.l .gene[data-job="Mayor"]',
+      12: '.spcol.r .gene[data-job="Mechanic"]', 13: 'button[data-k="splice-go"]', 20: 'button[data-k^="as"][data-k$="Utopium Mine"]',
       15: 'button[data-k="disc-place"]',
     };
     if (sel[step]) document.querySelectorAll(sel[step]).forEach((e) => e.classList.add('tut-target'));
@@ -470,58 +487,93 @@ export class UI {
     return btn('FREE?', 'b-free small', onUse, false, key);
   }
 
+  /**
+   * cSplicerPopup: one gene list on each side. Each list shows the gene groups first; tapping a group
+   * lists its genes (with BACK). Genes with nothing new left to discover are faded (web, inferido).
+   */
   openSplicer(slotIdx: number) {
-    const sel: (string | null)[] = [null, null];
-    const body = h('div', { class: 'splicer' });
     const g = this.game;
-    const genes = h('div', { class: 'genes' });
-    const top = h('div', { class: 'splicetop' });
+    const sel: (string | null)[] = [null, null];
+    const tut = g.tutorialActive();
     const groups = new Map<string, string[]>();
     for (const j of this.s.unlockedJobs) {
       const grp = JOB.get(j)?.group ?? 'Other';
       groups.set(grp, [...(groups.get(grp) ?? []), j]);
     }
-    const render = () => {
+    const fresh = new Map(this.s.unlockedJobs.map((j) => [j, g.hasNewRecipes(j)] as [string, boolean]));
+    // in the tutorial the left list is the Mayor and the right one the Mechanic (the mine is the next step)
+    const only: (string | null)[] = tut ? ['Mayor', 'Mechanic'] : [null, null];
+    const open: (string | null)[] = only.map((j) => (j ? JOB.get(j)?.group ?? null : null));
+    const body = h('div', { class: 'splicer2' });
+    const top = h('div', { class: 'sp-top' });
+    const info = h('div', { class: 'sp-info' });
+    const cols = [h('div', { class: 'spcol l' }), h('div', { class: 'spcol r' })];
+    const color = (j: string | null) => groupColor(j ? JOB.get(j)?.group ?? '' : '');
+    const renderTop = () => {
       top.innerHTML = '';
-      const pick = (k: 0 | 1) => {
+      const box = (k: 0 | 1) => {
         const j = sel[k];
-        const d = h('div', { class: `pick ${j ? 'on' : ''}` });
-        d.append(j ? h('img', { src: this.scene.clonePortrait(j, false) }) : h('span', {}, '?'), h('div', {}, j ? jobDisplay(j).toUpperCase() : 'GENE'));
-        d.addEventListener('click', () => { sel[k] = null; render(); });
+        const d = h('div', { class: `sp-box ${j ? 'on' : ''}`, style: j ? `background:${color(j)}` : '' });
+        if (j) d.append(h('img', { src: this.scene.clonePortrait(j, false, 72) }));
+        d.addEventListener('click', () => { if (sel[k]) { sel[k] = null; render(); } });
         return d;
       };
-      const info = g.combo(sel[0], sel[1]);
-      const mid = h('div', { class: 'combo' }, h('img', { src: `assets/ui/${COMBO_IMG[info.kind]}.png` }));
-      const text = info.kind === 'none' ? (sel[0] && sel[1] ? 'NO GENETIC MATCH' : 'SELECT GENETIC MATERIAL')
-        : info.kind === 'old' ? `KNOWN: ${jobDisplay(info.job!).toUpperCase()}` : 'NEW GENETIC MATCH FOUND!';
-      const land = info.landRequired ? `LAND REQUIRED: ${info.landRequired}` : '';
-      const spliceBtn = btn(`SPLICE (${fmtTime(g.splicingDuration())})`, 'b-green', () => {
+      const c = g.combo(sel[0], sel[1]);
+      const vial = h('button', { class: 'sp-vial', 'data-k': 'splice-go' }, h('img', { src: `assets/ui/${COMBO_IMG[c.kind]}.png` })) as HTMLButtonElement;
+      vial.disabled = c.kind === 'none';
+      handlersSet('splice-go', () => {
         if (this.act(g.startSplice(slotIdx, sel[0]!, sel[1]!, nowSec()))) { sfx('extra_05'); this.openArrivalCenter(); }
-      }, info.kind === 'none', 'splice-go');
-      top.append(pick(0), mid, pick(1), h('div', { class: 'combotext' }, text, land ? h('div', { class: 'land' }, land) : null), spliceBtn);
-      genes.querySelectorAll('.gene').forEach((el) => {
-        const j = (el as HTMLElement).dataset.job!;
-        el.classList.toggle('on', sel.includes(j));
       });
+      top.append(box(0), vial, box(1));
+      info.innerHTML = '';
+      const text = c.kind === 'none' ? (sel[0] && sel[1] ? 'NO GENETIC MATCH' : '')
+        : c.kind === 'old' ? `KNOWN: ${jobDisplay(c.job!).toUpperCase()}` : 'NEW GENETIC MATCH FOUND!';
+      if (c.landRequired) info.append(h('div', { class: 'land' }, `LAND REQUIRED: ${c.landRequired}`));
+      if (text) info.append(h('div', {}, text));
+      if (c.kind !== 'none') info.append(h('div', { class: 'time' }, `TAP THE VIAL TO SPLICE (${fmtTime(g.splicingDuration())})`));
+      info.append(h('div', { class: 'sp-title' }, 'SELECT GENETIC MATERIAL'));
     };
-    for (const [grp, jobs] of [...groups.entries()].sort()) {
-      const sec = h('div', { class: 'group' }, h('div', { class: 'gname' }, grp.toUpperCase()));
-      for (const j of jobs.sort()) {
-        const el = h('div', { class: 'gene' }, h('img', { src: this.scene.clonePortrait(j, false) }), h('span', {}, jobDisplay(j).toUpperCase()));
-        el.dataset.job = j;
-        el.addEventListener('click', () => {
-          sfx('tap_01');
-          if (sel[0] === null) sel[0] = j; else if (sel[1] === null) sel[1] = j; else { sel[0] = sel[1]; sel[1] = j; }
-          if (j === 'Mayor' && g.tut('pickMayor')) this.onChange();
-          if (j === 'Mechanic' && g.tut('pickMechanic')) this.onChange();
-          render();
-        });
-        sec.append(el);
+    const renderCol = (k: 0 | 1) => {
+      const col = cols[k];
+      col.innerHTML = '';
+      const list = h('div', { class: 'sp-list' });
+      const grp = open[k];
+      if (!grp) {
+        for (const [name, jobs] of [...groups.entries()].sort()) {
+          const b = h('button', { class: `sp-btn grp ${jobs.some((j) => fresh.get(j)) ? '' : 'dim'}`, style: `background:${groupColor(name)}`, 'data-grp': name }, name.toUpperCase());
+          b.addEventListener('click', () => { sfx('tap_01'); open[k] = name; renderCol(k); });
+          list.append(b);
+        }
+      } else {
+        const back = h('button', { class: 'sp-btn back' }, 'BACK');
+        back.addEventListener('click', () => { sfx('tap_01'); open[k] = null; renderCol(k); });
+        if (!only[k]) list.append(back);
+        for (const j of [...(groups.get(grp) ?? [])].sort((x, y) => jobDisplay(x).localeCompare(jobDisplay(y)))) {
+          const b = h('button', {
+            class: `sp-btn gene ${fresh.get(j) ? '' : 'dim'} ${sel[k] === j ? 'on' : ''}`,
+            style: `background:${groupColor(grp)}`, 'data-job': j,
+          }, jobDisplay(j).toUpperCase()) as HTMLButtonElement;
+          b.disabled = !!only[k] && only[k] !== j;
+          b.addEventListener('click', () => {
+            sfx('tap_01');
+            sel[k] = j;
+            if (tut) {
+              let changed = false;
+              if (sel.includes('Mayor')) changed = g.tut('pickMayor') || changed;
+              if (sel.includes('Mechanic')) changed = g.tut('pickMechanic') || changed;
+              if (changed) this.onChange();
+            }
+            render();
+          });
+          list.append(b);
+        }
       }
-      genes.append(sec);
-    }
-    body.append(top, h('div', { class: 'hint' }, 'TIP: TRY SPLICING TWO OF THE SAME TYPE OF GENE'), genes);
-    this.open('SPLICER', body, undefined, 'wide splicer');
+      col.append(list);
+    };
+    const render = () => { renderTop(); renderCol(0); renderCol(1); };
+    body.append(top, info, h('div', { class: 'sp-cols' }, ...cols),
+      h('div', { class: 'hint' }, 'TIP: TRY SPLICING TWO OF THE SAME TYPE OF GENE'));
+    this.open('SPLICER', body, undefined, 'splicer');
     render();
   }
 
@@ -653,7 +705,45 @@ export class UI {
           h('div', { class: 'hint' }, g.missions.wonderPartDone(b2.type) ? 'COMPLETE' : 'IN PROGRESS'));
       }
     };
-    this.open(displayName(b.type).toUpperCase(), body, refresh);
+    // the original popup's bottom bar: DELETE · MOVE (plus FLIP and STORE from edit mode)
+    let sure = false;
+    const withTools = () => {
+      refresh();
+      const b2 = g.building(id);
+      if (!b2 || g.tutorialActive() || !this.panel) return;
+      const blocker = g.removeBlocker(b2);
+      const bar = h('div', { class: 'row popup-tools' });
+      bar.append(
+        btn(sure ? 'SURE?' : 'DELETE', 'b-pink small', () => {
+          if (!sure) { sure = true; withTools(); return; }
+          sure = false;
+          if (this.act(g.deleteBuilding(id))) { sfx('Construction_sound'); this.close(); }
+        }, !!blocker, `pt-del${id}`),
+        btn('MOVE', 'b-green small', () => this.startMove(id), false, `pt-move${id}`));
+      if (g.featureUnlocked(F.FLIP)) bar.append(btn('FLIP', 'b-orange small', () => this.act(g.flipBuilding(id)), false, `pt-flip${id}`));
+      if (g.isBuilt(b2)) bar.append(btn('STORE', 'b-grey small', () => { if (this.act(g.storeBuilding(id))) this.close(); }, !!blocker, `pt-store${id}`));
+      body.append(bar);
+      if (blocker) body.append(h('div', { class: 'hint' }, blocker));
+    };
+    this.open(displayName(b.type).toUpperCase(), body, withTools);
+  }
+
+  /** MOVE from a building popup: tap the new spot (edit mode underneath, closed again once it moved). */
+  startMove(id: string) {
+    const b = this.game.building(id);
+    if (!b) return;
+    this.startEdit();
+    this.editTap(id);
+    this.moveFromPopup = true;
+    this.beginMove(b);
+  }
+
+  private beginMove(b: { id: string; type: string; flip: boolean }) {
+    this.buildType = b.type;
+    this.placeMode = { kind: 'move', id: b.id };
+    this.scene.setBuildMode(b.type, b.flip, b.id);
+    const small = $('#buildbar').querySelector('small');
+    if (small) small.textContent = 'TAP THE NEW SPOT';
   }
 
   /** The special-function button of each special building (03 §3.2). */
@@ -1031,7 +1121,13 @@ export class UI {
     const g = this.game;
     const mode = this.placeMode;
     if (mode.kind === 'move') {
-      if (this.act(g.moveBuilding(mode.id, i, j))) { sfx('Construction_sound'); this.buildType = null; this.scene.setBuildMode(null); this.renderEditBar(); }
+      if (this.act(g.moveBuilding(mode.id, i, j))) {
+        sfx('Construction_sound');
+        this.buildType = null;
+        this.placeMode = { kind: 'buy' };
+        this.scene.setBuildMode(null);
+        if (this.moveFromPopup) this.endEdit(); else this.renderEditBar();
+      }
       return;
     }
     if (mode.kind === 'inventory') {
@@ -1067,6 +1163,7 @@ export class UI {
 
   endEdit(refresh = true) {
     this.editing = false;
+    this.moveFromPopup = false;
     this.editSel = null;
     this.scene.select(null);
     this.buildType = null;
@@ -1094,12 +1191,7 @@ export class UI {
         btn('DONE', 'b-grey small', () => this.endEdit(), false, 'edit-done'));
       return;
     }
-    const doMove = () => {
-      this.buildType = b.type;
-      this.placeMode = { kind: 'move', id: b.id };
-      this.scene.setBuildMode(b.type, b.flip, b.id);
-      bar.querySelector('small')!.textContent = 'TAP THE NEW SPOT';
-    };
+    const doMove = () => this.beginMove(b);
     const blocker = g.removeBlocker(b);
     bar.append(h('img', { src: this.scene.workplaceThumb(b.type, 40) }),
       h('div', { class: 'bname' }, displayName(b.type).toUpperCase(), h('br'), h('small', {}, blocker ? blocker.replace('YOU CANNOT DELETE ', 'CANNOT REMOVE ') : 'NO REFUNDS ON DELETE')));
@@ -1141,6 +1233,16 @@ export class UI {
   }
 
 }
+
+/** Splicer button colour per gene group (inferido: the 4.20 colours are in native code; matched to screenshots). */
+const GROUP_COLORS: Record<string, string> = {
+  Academic: '#2e8b57', Administration: '#2f6fd6', Business: '#76762a', Creative: '#c8961e', Curious: '#a84c8a',
+  Enchanted: '#7a3cc8', Evil: '#444450', Explorers: '#5f7a22', Hospitality: '#16967a', Law: '#3c46c8',
+  Media: '#c43c3c', Medical: '#8a46d0', Music: '#d0602a', Performers: '#d03c8a', Production: '#a8961a',
+  Resident: '#3d6e3d', Services: '#2a8ab0', Special: '#d01e1e', Sports: '#6a2ca0', Technical: '#b0124a',
+  Transport: '#5a6a7a',
+};
+function groupColor(group: string): string { return GROUP_COLORS[group] ?? '#5a4a8a'; }
 
 function md0Title(id: string): string {
   const md = MISSION.get(id);
