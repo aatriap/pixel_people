@@ -370,6 +370,14 @@ export class CityScene extends Phaser.Scene {
   // ------------------------------------------------------------------ guests (cTerrainNPC)
   private guestViews = new Map<string, Phaser.GameObjects.Container>();
   private guestHits = new Map<Phaser.GameObjects.GameObject, GuestInfo>();
+  private guestIcons = new Map<Phaser.GameObjects.Container, Phaser.GameObjects.Image>();
+
+  update(time: number) {
+    for (const [c, icon] of this.guestIcons) {
+      if (!c.active) { icon.destroy(); this.guestIcons.delete(c); continue; }
+      icon.setPosition(c.x, c.y - 34 - Math.abs(Math.sin(time / 300)) * 6).setAlpha(c.alpha);
+    }
+  }
 
   /** One walker per guest on a random road (04 §4). They beam up when their reason is gone. */
   syncGuests(list: GuestInfo[]) {
@@ -389,9 +397,12 @@ export class CityScene extends Phaser.Scene {
       const c = this.add.container(q.x, q.y);
       const frames = [info.code === 2001 ? 'Female1' : 'Male1', `${info.code}`, `${info.code}_L`].filter((f) => this.hasFrame(f));
       for (const f of frames) { const im = this.img(0, 0, f); if (im) c.add(im.setOrigin(0.5, 1)); }
-      const icon = this.add.image(0, -58, info.code === 2001 ? 'ui-specialgene' : 'ui-hint').setOrigin(0.5, 1).setScale(1.1);
-      c.add(icon);
-      this.tweens.add({ targets: icon, y: -66, yoyo: true, repeat: -1, duration: 500, ease: 'Sine.inOut' });
+      // the bubble lives in the overlay so buildings never hide it; update() keeps it over the guest
+      const icon = this.add.image(q.x, q.y, info.code === 2001 ? 'ui-specialgene' : 'ui-hint').setOrigin(0.5, 1).setDepth(200000);
+      this.overlay.add(icon);
+      this.guestIcons.set(c, icon);
+      icon.setInteractive({ useHandCursor: true });
+      this.guestHits.set(icon, info);
       c.setScale(1.5).setAlpha(0);
       this.tweens.add({ targets: c, alpha: 1, duration: 500 }); // doSpawn
       for (const o of c.list) {
@@ -518,6 +529,12 @@ export class CityScene extends Phaser.Scene {
       this.tweens.add({ targets: c, y: c.y - 50, alpha: 0, duration: 1400, onComplete: () => c.destroy() });
     }
     this.coinAcc.clear();
+  }
+
+  /** Centre the camera on a cell (tutorial flashing square). */
+  panToCell(i: number, j: number) {
+    const p = cellCenter(i, j);
+    this.cameras.main.pan(p.x, p.y - 40, 400, 'Sine.easeInOut');
   }
 
   focusOn(id: string) {

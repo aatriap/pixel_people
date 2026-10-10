@@ -287,6 +287,7 @@ body.tutorial .side { display: none; }
 .b-no:active { background-image: url('/assets/ui/NoPressed.png'); }
 .confirm .quote { font-size: 13px; color: #2a2a3a; margin: 8px; }
 
+.settings .ok { color: #0a7a2a; }
 .settings .setrow { display: flex; align-items: center; justify-content: space-between; padding: 2px 8px; background: rgba(255,255,255,.5); margin: 4px 0; font-size: 14px; color: #1b1464; }
 .sethead { margin-top: 10px; font-size: 13px; color: #fff; background: #5a4a8a; padding: 3px; }
 .small { font-size: 11px; }

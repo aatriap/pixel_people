@@ -208,8 +208,9 @@ export class UI {
       el.classList.remove('hidden');
     }
     // the action each step waits for
-    if (step === 1 && !this.buildType && !this.panel) this.startBuild('Residence1');
-    if (step === 16 && !this.buildType && !this.panel && s.pendingWorkplaces.length && !s.packets.length) this.startBuild(s.pendingWorkplaces[0]);
+    const tutBuild = (type: string) => { this.startBuild(type); this.scene.panToCell(...this.tutSpot(type)); };
+    if (step === 1 && !this.buildType && !this.panel) tutBuild('Residence1');
+    if (step === 16 && !this.buildType && !this.panel && s.pendingWorkplaces.length && !s.packets.length) tutBuild(s.pendingWorkplaces[0]);
     const cells = (id?: string) => {
       const b = id ? g.building(id) : undefined;
       return b ? footprintCells(b.type, b.x, b.y, b.flip) : null;
@@ -542,7 +543,7 @@ export class UI {
       this.game.closePacket();
       this.game.tut('closeCard');
       this.onChange();
-      if (placeAfter || (tut && wp && this.s.pendingWorkplaces.includes(wp))) this.startBuild(wp);
+      if (placeAfter && !tut) this.startBuild(wp); // in the tutorial, step 16 starts it on the flashing square
     };
     if (wp && this.s.pendingWorkplaces.includes(wp)) {
       body.append(h('img', { class: 'wp', src: this.scene.workplaceThumb(wp, 120) }),
