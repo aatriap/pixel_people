@@ -205,14 +205,54 @@ for r in rows('land_upgrade_data.tsv')[1:]:
     if r and r[0].strip():
         land.append({'level': int(r[0]), 'cost': int(r[1]), 'land': int(r[2]), 'utopium': int(r[3])})
 
+# ---- animals -----------------------------------------------------------------
+animals = []
+for r in rows('animals_static_data.tsv')[1:]:
+    r = r + [''] * 12
+    if not r[0].strip().isdigit():
+        continue
+    animals.append({
+        'id': int(r[0]),
+        'name': r[1].strip(),
+        'tier': num(r[3]),
+        'categories': [c.strip() for c in r[4].split(',') if c.strip()],
+        'seasons': [c.strip().upper() for c in r[5].split(',') if c.strip()],
+        'cost': num(r[8]),
+        'omit': r[9].strip() == 'Y',
+        'droppable': r[10].strip() == 'Y',
+    })
+
+# ---- missions (04 §1.1): Omit=Y rows are not loaded; Omit=X are loaded as discontinued ----------
+MTYPE = {'Normal': 2, 'Epic': 3, 'Unique': 4, 'Wonder': 5}
+missions = []
+for r in rows('missions.tsv')[1:]:
+    r = r + [''] * 20
+    mid, mtype = r[0].strip(), r[1].strip()
+    if not mid or r[3].strip() == 'Y' or mtype not in MTYPE:
+        continue
+    missions.append({
+        'id': mid,
+        'type': MTYPE[mtype],
+        'reward': r[2].strip(),
+        'discontinued': r[3].strip() == 'X',
+        'prerequisite': r[5].strip(),
+        'reqs': [(x.strip() or 'NONE') for x in r[6:15]],
+        'season': r[16].strip().upper(),
+        'needAltar': r[17].strip() == 'Y',
+        'needJobs': num(r[18]),
+        'name': (TEXT.get('Mission_' + mid) or TEXT.get(mid + '_Header') or mid).strip(),
+        'desc': (TEXT.get(mid + '_Desc') or '').strip(),
+    })
+
 # ---- a few UI strings ------------------------------------------------------------
 keys = [k for k in TEXT if k.startswith(('Splicer_', 'SplicerPopup_'))] + [
-    'Insufficient_Coin_Notif', 'LandLimitReached_Notif']
+    'Insufficient_Coin_Notif', 'LandLimitReached_Notif'] + [
+    k for k in TEXT if k.startswith(('Monument', 'Wonder_', 'Heart_Quote', 'Hotel_', 'MissionControl_'))]
 strings = {k: TEXT[k] for k in keys if k in TEXT}
 
 for fname, data in [('jobs', jobs), ('workplaces', workplaces), ('residences', residences),
                     ('decor', decor), ('paths', paths), ('trees', trees), ('land', land),
-                    ('strings', strings)]:
+                    ('animals', animals), ('missions', missions), ('strings', strings)]:
     with open(os.path.join(OUT, fname + '.json'), 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
     print(fname, len(data))

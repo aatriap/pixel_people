@@ -119,17 +119,27 @@ def main():
     pnames = [k.split('/')[-1][:-4] for k in sheet('buildings/paths/_paths_ss')[0]
               if '_summer' not in k]
     pth = collect('buildings/paths/_paths_ss', pnames, 'buildings/paths/')
-    tre = collect('buildings/trees/_trees_ss', ['Tree%d' % i for i in range(1, 8)], 'buildings/trees/')
+    tre = collect('buildings/trees/_trees_ss', ['Tree%d' % i for i in range(1, 8)] + ['Tree101'], 'buildings/trees/')
     com = collect('buildings/common/_buildingsCommon_ss',
                   ['GroundTileBig', 'SelectionSquare', 'SelectionSquareFill'], 'buildings/common/')
     com += collect('stimulate/_stimulate_ss', ['ConstructionYard_%d' % i for i in range(1, 6)] +
                    ['coin_00%d' % i for i in range(1, 5)], 'stimulate/')
-    com += collect('always_on_screen_ui/always_on_screen', ['Notif-Clone', 'Notif-NewJob', 'Notif-House', 'Utopium'],
+    com += collect('always_on_screen_ui/always_on_screen', ['Notif-Clone', 'Notif-NewJob', 'Notif-House', 'Utopium',
+                                                            'notif-heart', 'notification_tree', 'Notif-Utopium',
+                                                            'Notif-Gift', 'Notif-Empty'],
                    'always_on_screen_ui/sprites/')
+    # milestone 2: wonders (one 1x1 tile per part), the Mission Pod and the animals
+    wonders = ['MonumentPart%d' % i for i in range(1, 10)] + ['Monument3Part%d' % i for i in range(1, 5)] + \
+              ['Monument4Part%d' % i for i in range(1, 5)]
+    won = collect('buildings/wonders/_wonders_ss', wonders, 'buildings/wonders/')
+    won += collect('buildings/workplace/_workplaceBuildings_ss', ['RocketShip'], 'buildings/workplace/')
+    ani = [('A%d' % a['id'], im) for a, im in
+           ((a, frame('animals/_animals_ss', 'animals/%dA.png' % a['id'])) for a in load('animals')) if im is not None]
     ns = Image.open(os.path.join(RES, 'terrain_notifs/sprites/notif-stimulate.png')).convert('RGBA')
     com.append(('notif-stimulate', ns))
     manifest['buildings'] = pack('buildings', wp + res)
-    manifest['small'] = pack('small', dec + pth + tre + com)
+    manifest['small'] = pack('small', dec + pth + tre + com + ani)
+    manifest['wonders'] = pack('wonders', won)
 
     # clones ------------------------------------------------------------------
     jobs = [j for j in load('jobs')]
@@ -154,7 +164,11 @@ def main():
                              'working', 'Idle', 'PlainBg', 'Spliceloadingbar', 'SpliceMenuJobSelectedBox',
                              'SpliceCharacterjobbox', 'status_lock', 'status_star', 'BackButton', 'BackButton_Pressed',
                              'FlipButton', 'FlipButton_Pressed', 'Deletebtn', 'build-moar-house', 'CurrencyBox',
-                             'Building-Notification-Box', 'NotificationBar'],
+                             'Building-Notification-Box', 'NotificationBar', 'HeartBG', 'RefreshMission',
+                             'MissionBoxHighlight', 'Movebtn', 'Movebtn_pressed', 'Deletebtn_pressed',
+                             'Special Building Button', 'Special Building Button pressed', 'SeasonArt_Thaw',
+                             'SeasonArt_Swell', 'SeasonArt_Harvest', 'SeasonArt_Frost', 'GiftCollected',
+                             'norequirement', 'AnimalSilhouette', 'VacationBtn', 'notif-heart'],
     }
     prefix = {'always_on_screen_ui/always_on_screen': 'always_on_screen_ui/sprites/', 'popups/_popupsSS': 'popups/'}
     for sp, names in ui.items():
@@ -163,7 +177,18 @@ def main():
             if im is None:
                 missing.append(n)
                 continue
-            im.save(os.path.join(OUT, 'ui', n + '.png'))
+            im.save(os.path.join(OUT, 'ui', n.replace(' ', '_') + '.png'))
+    # reward card art (cPackOpeningPopup), scaled down from 640x960
+    os.makedirs(os.path.join(OUT, 'ui', 'packets'))
+    for n in ('GIFTpacket', 'LevelUpPacket', 'LOVEpacket', 'NewAnimalDiscovered', 'NewJobDiscovered', 'SpecialPacket',
+              'MissionPacket', 'NineAnimalsPacket', 'ShopPacket'):
+        im = frame('pack_opening_ui/sprites/_pack_opening_ss', 'pack_opening_ui/sprites/%s-hd.png' % n)
+        im.resize((240, 360), Image.LANCZOS).save(os.path.join(OUT, 'ui', 'packets', n + '.png'), optimize=True)
+    # background music (06: the .m4a versions) and the packet "rip" sound
+    os.makedirs(os.path.join(OUT, 'music'))
+    for n in ('Outer Space Theme RMX 1', 'Outer Space Theme RMX 2', 'Small Town Far In Space', 'Outer Space'):
+        shutil.copy(os.path.join(RES, 'audio', n + '.m4a'), os.path.join(OUT, 'music', n.replace(' ', '_') + '.m4a'))
+    shutil.copy(os.path.join(RES, 'audio', 'Rip.m4a'), os.path.join(OUT, 'audio', 'Rip.m4a'))
     shutil.copy(os.path.join(RES, 'always_on_screen_ui/sprites/bg1.png'), os.path.join(OUT, 'ui', 'bg1.png'))
     for n in ('discovery_04', 'extra_05', 'recharge_10', 'tap_01', 'correct_03', 'Construction_sound', 'nega tap_02'):
         shutil.copy(os.path.join(RES, 'audio', n + '.mp3'), os.path.join(OUT, 'audio', n.replace(' ', '_') + '.mp3'))
