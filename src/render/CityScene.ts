@@ -2,7 +2,7 @@
 import Phaser from 'phaser';
 import { Game } from '../logic/game';
 import { Building } from '../logic/state';
-import { JOB, PATH, WORKPLACE, kindOf } from '../logic/data';
+import { ANIMAL, JOB, PATH, WORKPLACE, kindOf } from '../logic/data';
 import { cellCenter, depthFor, footprintBox, originFor, roadVariant, worldToCell } from './iso';
 
 export interface SceneHooks {
@@ -33,6 +33,13 @@ export class CityScene extends Phaser.Scene {
   private pinch: { dist: number; zoom: number } | null = null;
   private signature = '';
   private coinAcc = new Map<string, number>();
+  /** Placement modifiers: moving an existing building ignores its own cells and keeps its flip. */
+  placeFlip = false;
+  placeIgnore: string | undefined;
+  private selected: string | null = null;
+  private selection: Phaser.GameObjects.GameObject[] = [];
+  private animalViews: { c: Phaser.GameObjects.Image; name: string }[] = [];
+  private animalSig = '';
 
   constructor() { super('city'); }
 
@@ -155,6 +162,8 @@ export class CityScene extends Phaser.Scene {
     im.setOrigin(o.ox, o.oy);
     im.setFlipX(flip);
     im.setDepth(depthFor(box.minI, box.minJ, kind === 'path' ? -3000 : 0));
+    // a wonder part still being researched is drawn as a ghost until its mission completes
+    if (kind === 'wonder' && !this.game2.missions.wonderPartDone(b.type)) im.setAlpha(0.45).setTint(0x9fd8ff);
     im.setInteractive({ pixelPerfect: true, useHandCursor: kind === 'workplace' || kind === 'residence' });
     this.hitImages.set(im, b.id);
     this.world.add(im);
@@ -163,13 +172,16 @@ export class CityScene extends Phaser.Scene {
   }
 
   private layoutSignature(): string {
-    return this.game2.state.buildings.map((b) => `${b.id}@${b.x},${b.y},${b.flip ? 1 : 0},${b.buildEnd >= 0 ? 1 : 0}`).join('|');
+    const w = JSON.stringify(this.game2.state.missions.wonderMap);
+    return w + this.game2.state.buildings.map((b) => `${b.id}@${b.x},${b.y},${b.flip ? 1 : 0},${b.buildEnd >= 0 ? 1 : 0}`).join('|');
   }
 
   /** Called after each tick or action. */
   refresh() {
     if (this.layoutSignature() !== this.signature) this.rebuild();
     else { this.syncPeeps(); this.refreshDynamic(); }
+    this.syncAnimals();
+    this.drawSelection();
   }
 
   /** Notification bubbles: stopped workplaces, Arrival Center states. */
@@ -178,7 +190,11 @@ export class CityScene extends Phaser.Scene {
     const want = new Map<string, string>();
     for (const b of g.state.buildings) {
       if (g.needsRestart(b)) want.set(b.id, 'notif-stimulate');
+      if (b.treeReady) want.set(b.id, 'notification_tree');
+      if (b.type === 'Utopium Mine' && g.isBuilt(b) && g.state.dailyUtopium) want.set(b.id, 'Notif-Utopium');
+      if (b.type === 'Animal Shelter' && g.isBuilt(b) && g.state.dailyAnimal) want.set(b.id, 'Notif-Gift');
     }
+    if (g.state.hearts.on) want.set(g.state.hearts.on, 'notif-heart');
     const ac = g.state.buildings.find((b) => b.type === 'SpacePort');
     if (ac) {
       if (g.state.slots.some((s) => s.state === 3 || s.state === 5)) {
@@ -282,7 +298,88 @@ export class CityScene extends Phaser.Scene {
     });
   }
 
+  // ------------------------------------------------------------------ animals
+  /** Owned animals stroll along the roads (decorative, cAnimalNPC). One sprite per animal kind, up to 12. */
+  private syncAnimals() {
+    const g = this.game2;
+    const names = Object.keys(g.state.animals).filter((n) => g.state.animals[n] > 0).slice(0, 12);
+    const roads = g.state.buildings.filter((b) => PATH.has(b.type) && g.isBuilt(b));
+    const sig = names.join('|') + '#' + roads.length;
+    if (sig === this.animalSig) return;
+    this.animalSig = sig;
+    for (const a of this.animalViews) { this.tweens.killTweensOf(a.c); a.c.destroy(); }
+    this.animalViews = [];
+    if (!roads.length) return;
+    for (const name of names) {
+      const id = ANIMAL.get(name)?.id;
+      const r = Phaser.Utils.Array.GetRandom(roads);
+      const q = cellCenter(r.x, r.y);
+      const im = id ? this.img(q.x, q.y, `A${id}`) : null;
+      if (!im) continue;
+      im.setOrigin(0.5, 1).setScale(1.3);
+      this.world.add(im);
+      const av = { c: im, name };
+      this.animalViews.push(av);
+      this.strollAnimal(av);
+    }
+  }
+
+  private strollAnimal(av: { c: Phaser.GameObjects.Image }) {
+    if (!av.c.active) return;
+    const roads = this.game2.state.buildings.filter((b) => PATH.has(b.type));
+    if (!roads.length) return;
+    const r = Phaser.Utils.Array.GetRandom(roads);
+    const q = cellCenter(r.x, r.y);
+    const tx = q.x + Phaser.Math.Between(-24, 24), ty = q.y + Phaser.Math.Between(-8, 8);
+    av.c.setFlipX(tx < av.c.x);
+    const dist = Phaser.Math.Distance.Between(av.c.x, av.c.y, tx, ty);
+    this.tweens.add({
+      targets: av.c, x: tx, y: ty, duration: Math.max(500, dist * 40),
+      onUpdate: () => { const cell = worldToCell(av.c.x, av.c.y); av.c.setDepth(depthFor(cell.i, cell.j, 4)); },
+      onComplete: () => this.time.delayedCall(Phaser.Math.Between(500, 3000), () => this.strollAnimal(av)),
+    });
+  }
+
+  // ------------------------------------------------------------------ edit selection
+  select(id: string | null) {
+    this.selected = id;
+    this.drawSelection(true);
+  }
+
+  private selSig = '';
+  private drawSelection(force = false) {
+    const b = this.selected ? this.game2.building(this.selected) : undefined;
+    const sig = b ? `${b.id}@${b.x},${b.y},${b.flip}` : '';
+    if (!force && sig === this.selSig) return;
+    this.selSig = sig;
+    for (const o of this.selection) o.destroy();
+    this.selection = [];
+    if (!b) return;
+    for (const [i, j] of footprintBox(b.type, b.x, b.y, b.flip).cells) {
+      const p = cellCenter(i, j);
+      const s = this.img(p.x, p.y, 'SelectionSquareFill');
+      if (s) {
+        s.setTint(0x44ccff).setAlpha(0.55).setDepth(240000);
+        this.tweens.add({ targets: s, alpha: 0.25, yoyo: true, repeat: -1, duration: 500 });
+        this.overlay.add(s);
+        this.selection.push(s);
+      }
+    }
+  }
+
   // ------------------------------------------------------------------ effects
+  /** Floating "+n" over a building (tree harvests). */
+  floatText(buildingId: string, text: string, color = '#ffe14a') {
+    const view = this.views.get(buildingId)?.[0] as Phaser.GameObjects.Image | undefined;
+    if (!view || !view.active) return;
+    const top = view.getTopCenter();
+    const t = this.add.text(top.x!, top.y! + 40, text, {
+      fontFamily: '"04b03", monospace', fontSize: '20px', color, stroke: '#3a2400', strokeThickness: 4,
+    }).setOrigin(0.5).setDepth(300000);
+    this.overlay.add(t);
+    this.tweens.add({ targets: t, y: t.y - 60, alpha: 0, duration: 1600, onComplete: () => t.destroy() });
+  }
+
   coinGain(buildingId: string, amount: number) {
     this.coinAcc.set(buildingId, (this.coinAcc.get(buildingId) ?? 0) + amount);
   }
@@ -312,8 +409,10 @@ export class CityScene extends Phaser.Scene {
   }
 
   // ------------------------------------------------------------------ build mode
-  setBuildMode(type: string | null) {
+  setBuildMode(type: string | null, flip = false, ignore?: string) {
     this.buildType = type;
+    this.placeFlip = flip;
+    this.placeIgnore = ignore;
     this.clearGhost();
     this.refreshGrid();
   }
@@ -347,8 +446,8 @@ export class CityScene extends Phaser.Scene {
     this.clearGhost();
     const type = this.buildType;
     if (!type) return;
-    const okPlace = this.game2.canPlaceAt(type, i, j, false);
-    const box = footprintBox(type, i, j, false);
+    const okPlace = this.game2.canPlaceAt(type, i, j, this.placeFlip, this.placeIgnore);
+    const box = footprintBox(type, i, j, this.placeFlip);
     for (const [ci, cj] of box.cells) {
       const p = cellCenter(ci, cj);
       const s = this.img(p.x, p.y, 'SelectionSquareFill');
@@ -360,7 +459,7 @@ export class CityScene extends Phaser.Scene {
     const im = this.img(p.x, p.y, frame);
     if (im) {
       const o = originFor(im.frame.realWidth, im.frame.realHeight);
-      im.setOrigin(o.ox, o.oy).setAlpha(0.75).setDepth(250001);
+      im.setOrigin(o.ox, o.oy).setAlpha(0.75).setDepth(250001).setFlipX(this.placeFlip);
       if (!okPlace) im.setTint(0xff8080);
       this.overlay.add(im);
       this.ghost.push(im);
