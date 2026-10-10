@@ -424,7 +424,8 @@ describe('TV Station (05 §3.3, §5.1)', () => {
     expect(packItemChroma('SpecialDecor1')).toBe(120);
     expect(packItemChroma('SpecialResidence1')).toBe(200);
     expect(packItemChroma('SpecialResidence4')).toBe(100);
-    expect(packItemChroma('SpecialTree1')).toBe(20);
+    expect(packItemChroma('SpecialTree1')).toBe(200);
+    expect(packItemChroma('DirtR')).toBe(20);
     const g = game();
     g.state.coins = 1e7; g.state.utopium = 100;
     add(g, 'Park');
@@ -515,5 +516,30 @@ describe('local notifications (04 §7)', () => {
     const ev = g.drainEvents().map((e) => e.type);
     expect(ev).toContain('mineReady');
     expect(ev).toContain('shelterReady');
+  });
+});
+
+// ------------------------------------------------------------------ settings: export / import
+describe('save file export and import (settings)', () => {
+  it('round-trips a city and rejects anything else', async () => {
+    const { exportSave, importSave, saveFileName } = await import('../src/logic/save');
+    const g = game();
+    g.state.coins = 123456;
+    g.state.skins = ['BankSkinA'];
+    const text = exportSave(g.state, T0);
+    const back = importSave(text)!;
+    expect(back.coins).toBe(123456);
+    expect(back.skins).toEqual(['BankSkinA']);
+    expect(back.buildings).toHaveLength(g.state.buildings.length);
+    // a bare localStorage state also loads, and old saves get the new fields with the tutorial done
+    const old = JSON.parse(JSON.stringify(g.state));
+    delete old.tutorial; delete old.skins;
+    const m = importSave(JSON.stringify(old))!;
+    expect(m.tutorial).toBe(-1);
+    expect(m.skins).toEqual([]);
+    expect(importSave('not json')).toBeNull();
+    expect(importSave(JSON.stringify({ app: 'pixel-people-web', state: { version: 2 } }))).toBeNull();
+    expect(importSave(JSON.stringify({ hello: 1 }))).toBeNull();
+    expect(saveFileName(DAY0)).toBe('pixel-people-2027-01-15.json');
   });
 });

@@ -69,7 +69,8 @@ export const CATALOGUE = HOUSES_DECOR.filter((x) => dealPrice(x.id));
  * - decor: 20 chroma per spirit point, as the "Chroma (Normal)" decor (1 spirit 20c, 2 spirit 40c, 3 spirit 60c),
  *   so the 6-spirit SpecialDecor cost 120c;
  * - residences: by beds, as the UtopiumChroma houses (2 beds 50c, 4 beds 100c, 6 beds 200c);
- * - trees, paths and terrain (no spirit, no beds): 20c, the cheapest chroma price in the TSVs.
+ * - trees: 200c, as the chroma-priced special trees (Astro Tree, SeasonalTree, JapTree1: "10u,200c");
+ * - paths and terrain (no chroma-priced comparable, no spirit, no beds): 20c, the cheapest chroma price in the TSVs.
  * Buying one unlocks the item for good, like the non-consumable pack did: the first one goes to storage for free
  * and more can be built from the BUILD menu at their normal TSV cost.
  */
@@ -80,6 +81,7 @@ export function packItemChroma(tile: string): number {
     const beds = RESIDENCE.get(tile)!.population;
     return beds >= 6 ? 200 : beds >= 4 ? 100 : 50;
   }
+  if (k === 'tree') return 200;
   return 20;
 }
 export const PACK_ITEMS = OFFERS.packItems.map((p) => ({ ...p, chroma: packItemChroma(p.tile) }));
