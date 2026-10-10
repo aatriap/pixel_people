@@ -58,7 +58,7 @@ async function start() {
         ui.openBuilding(id);
       },
       onPlace: (type: string, i: number, j: number) => ui.place(type, i, j),
-      onTapEmpty: () => undefined,
+      onTapEmpty: (i: number, j: number) => ui.tapLand(i, j),
       onTapGuest: (code: number, job?: string) => { if (!ui.editing && !ui.buildType) ui.x.onGuest(code, job); },
       onReady: () => ready(),
     },

@@ -155,6 +155,7 @@ def main():
     for j in jobs:
         for s in ('M', 'F'):
             cn += ['%d%s' % (j['id'], s), '%d%s_L' % (j['id'], s)]
+        cn.append('%d' % j['id'])  # special genes (1001...): one unisex outfit drawn over Male1/Female1
     chars = [(n, im) for n, im in ((n, frame('characters/_characters_ss', 'characters/%s.png' % n)) for n in
                                    cn + ['CloneMale', 'FemaleClone', 'Male1', 'Female1', '2001', '2001_L', '2005',
                                          '2005_L']) if im is not None]
@@ -189,11 +190,13 @@ def main():
                              'KRPack_BoxArt', 'CTPack_BoxArt', 'XmasPack_BoxArt', 'NaturePack_BoxArt',
                              'HalloweenPack_BoxArt', 'THPack_BoxArt', 'SaveButton', 'BusinessBg', 'HintPerson',
                              'Gallery_Arrow_button', 'ToAltarButton', 'Casino_Spin', 'Casino_Spin_Pressed',
-                             'NewJobGlow', 'status_star', 'Special Building Button2', 'BoxBlue', 'BoxPurple'],
+                             'NewJobGlow', 'status_star', 'Special Building Button2', 'BoxBlue', 'BoxPurple',
+                             # improvements 2: land menu, expand, reward cards
+                             'CharacterSplicingFrame', 'LandscapeMenuIcon', 'Expand_Pink', 'Expand_Pink_pressed'],
         'tutorial/_tutorial_ss': ['narrator_box', 'mouth_shape_1', 'mouth_shape_2', 'mouth_shape_3', 'mouth_shape_4',
                                   'mouth_shape_5'],
         'localization/english/image_english': ['TutorialNextbtn_normal', 'TutorialNextbtn_pressed', 'SpiritWatch',
-                                               'breaking_news_1', 'UNNewsbar', 'LandWatch'],
+                                               'breaking_news_1', 'UNNewsbar', 'LandWatch', 'Level1-Corner', 'UtopiaCorp'],
     }
     ui['always_on_screen_ui/always_on_screen'] += ['Season_Thaw', 'Season_Swell', 'Season_Harvest', 'Season_Frost',
                                                    'Season_Calendar', 'GiftPacket', 'NewsFeedBar', 'notif_specialgene',
@@ -229,7 +232,10 @@ def main():
     for n in ('GIFTpacket', 'LevelUpPacket', 'LOVEpacket', 'NewAnimalDiscovered', 'NewJobDiscovered', 'SpecialPacket',
               'MissionPacket', 'NineAnimalsPacket', 'ShopPacket', 'ArcadePacket'):
         im = frame('pack_opening_ui/sprites/_pack_opening_ss', 'pack_opening_ui/sprites/%s-hd.png' % n)
-        im.resize((240, 360), Image.LANCZOS).save(os.path.join(OUT, 'ui', 'packets', n + '.png'), optimize=True)
+        im.resize((400, 600), Image.LANCZOS).save(os.path.join(OUT, 'ui', 'packets', n + '.png'), optimize=True)
+    for n in ('NewJobSlider', 'NewJobSlidetoReveal'):  # the "slide to open" handle and label
+        frame('pack_opening_ui/sprites/_pack_opening_ss', 'pack_opening_ui/sprites/%s-hd.png' % n).save(
+            os.path.join(OUT, 'ui', 'packets', n + '.png'))
     # background music (06: the .m4a versions) and the packet "rip" sound
     os.makedirs(os.path.join(OUT, 'music'))
     for n in ('Outer Space Theme RMX 1', 'Outer Space Theme RMX 2', 'Small Town Far In Space', 'Outer Space'):

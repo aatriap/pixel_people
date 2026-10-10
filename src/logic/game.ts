@@ -18,6 +18,8 @@ import { PACK_ITEM, Shop } from './shop';
 import { TUTORIAL, TUTORIAL_UTOPIUM, TutAction } from './tutorial';
 
 export const FREE_COOLDOWN = 24 * 3600;
+/** How far (in tiles) from existing buildings the grid reaches. */
+export const BUILD_REACH = 2;
 /** Tutorial steps that only show something; a later real action may pass them (web). */
 const SOFT_TUT = new Set<TutAction>(['next', 'openSite', 'openAC', 'tapPortrait', 'spliceMe', 'card']);
 
@@ -260,13 +262,39 @@ export class Game {
     return m;
   }
 
-  /** cBuildManager::canPlaceTileAt: only checks that every footprint cell is free. */
+  /** cBuildManager::canPlaceTileAt: every footprint cell is free and within reach of the city. */
   canPlaceAt(type: string, x: number, y: number, flip = false, ignore?: string): boolean {
     const occ = this.occupied();
-    return footprint(type, flip).every(([dx, dy]) => {
-      const o = occ.get(`${x + dx},${y + dy}`);
-      return o === undefined || o === ignore;
-    });
+    const cells = footprint(type, flip).map(([dx, dy]) => [x + dx, y + dy] as [number, number]);
+    if (!cells.every(([i, j]) => { const o = occ.get(`${i},${j}`); return o === undefined || o === ignore; })) return false;
+    return !this.reachRule || cells.every(([i, j]) => this.inReach(i, j, occ, ignore));
+  }
+
+  /** Why canPlaceAt said no. */
+  placeError(type: string, x: number, y: number, flip = false, ignore?: string): string {
+    const occ = this.occupied();
+    const free = footprint(type, flip).every(([dx, dy]) => { const o = occ.get(`${x + dx},${y + dy}`); return o === undefined || o === ignore; });
+    return free ? 'TOO FAR FROM THE CITY' : 'SPACE OCCUPIED';
+  }
+
+  /** Tests that lay out scattered cities turn the reach rule off. */
+  reachRule = true;
+
+  /**
+   * The buildable grid only reaches BUILD_REACH cells around what is already built (4.20: the grid lines stop
+   * two tiles away from the city and farther spots can't be tapped). An empty map is all in reach.
+   */
+  inReach(i: number, j: number, occ = this.occupied(), ignore?: string): boolean {
+    let any = false;
+    for (const id of occ.values()) if (id !== ignore) { any = true; break; }
+    if (!any) return true;
+    for (let di = -BUILD_REACH; di <= BUILD_REACH; di++) {
+      for (let dj = -BUILD_REACH; dj <= BUILD_REACH; dj++) {
+        const o = occ.get(`${i + di},${j + dj}`);
+        if (o !== undefined && o !== ignore) return true;
+      }
+    }
+    return false;
   }
 
   landUpgradeCost(): number {
@@ -504,7 +532,7 @@ export class Game {
     if (PACK_ITEM.has(type) && !this.shop.packUnlocked(type)) return fail('BUY IT AT THE TV STATION FIRST');
     const cost = this.placementCost(type);
     if (!cost) return fail('NOT AVAILABLE');
-    if (!this.canPlaceAt(type, x, y, flip)) return fail('SPACE OCCUPIED');
+    if (!this.canPlaceAt(type, x, y, flip)) return fail(this.placeError(type, x, y, flip));
     const land = landUse(type);
     if (land > this.freeLand()) return fail('EXPAND TO BUILD MORE');
     if (!this.canAfford(cost)) {
@@ -537,7 +565,7 @@ export class Game {
   placeFromInventory(index: number, x: number, y: number, flip: boolean, now = Math.floor(Date.now() / 1000)): Result {
     const it = this.state.inventory[index];
     if (!it) return fail('NOT AVAILABLE');
-    if (!this.canPlaceAt(it.type, x, y, flip)) return fail('SPACE OCCUPIED');
+    if (!this.canPlaceAt(it.type, x, y, flip)) return fail(this.placeError(it.type, x, y, flip));
     const land = landUse(it.type);
     if (land > this.freeLand()) return fail('EXPAND TO BUILD MORE');
     this.state.landUsed += land;
@@ -620,7 +648,7 @@ export class Game {
   moveBuilding(id: string, x: number, y: number): Result {
     const b = this.building(id);
     if (!b) return fail('');
-    if (!this.canPlaceAt(b.type, x, y, b.flip, b.id)) return fail('SPACE OCCUPIED');
+    if (!this.canPlaceAt(b.type, x, y, b.flip, b.id)) return fail(this.placeError(b.type, x, y, b.flip, b.id));
     const moved = b.x !== x || b.y !== y;
     b.x = x; b.y = y;
     if (moved) this.achievements.complete(ACH.MOVER);

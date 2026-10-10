@@ -2,6 +2,7 @@
  {
   "id": 1,
   "name": "Tabby Cat",
+  "latin": "Felis Catus",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -24,6 +25,7 @@
  {
   "id": 2,
   "name": "Tom Cat",
+  "latin": "Felis Catus",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -46,6 +48,7 @@
  {
   "id": 3,
   "name": "Tuxedo Cat",
+  "latin": "Felis Catus",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -68,6 +71,7 @@
  {
   "id": 4,
   "name": "Siamese Cat",
+  "latin": "Felis Catus",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -90,6 +94,7 @@
  {
   "id": 5,
   "name": "Calico",
+  "latin": "Felis Catus",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -112,6 +117,7 @@
  {
   "id": 6,
   "name": "Box Cat",
+  "latin": "Felis Catus",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -134,6 +140,7 @@
  {
   "id": 7,
   "name": "Corgi",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -153,6 +160,7 @@
  {
   "id": 8,
   "name": "Alsatian",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -176,6 +184,7 @@
  {
   "id": 9,
   "name": "Pug",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -198,6 +207,7 @@
  {
   "id": 10,
   "name": "Golden Retriever",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -221,6 +231,7 @@
  {
   "id": 11,
   "name": "Poodle",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -241,6 +252,7 @@
  {
   "id": 12,
   "name": "Chow Chow",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -263,6 +275,7 @@
  {
   "id": 13,
   "name": "Pig",
+  "latin": "Sus Scrofa Domesticus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -282,6 +295,7 @@
  {
   "id": 14,
   "name": "Cow",
+  "latin": "Bos Primigenius",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -303,6 +317,7 @@
  {
   "id": 15,
   "name": "Bull",
+  "latin": "Bos Primigenius",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -323,6 +338,7 @@
  {
   "id": 16,
   "name": "Horse",
+  "latin": "Equus Ferus Caballus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -345,6 +361,7 @@
  {
   "id": 17,
   "name": "Unicorn",
+  "latin": "Equus Hocuspocus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -364,6 +381,7 @@
  {
   "id": 18,
   "name": "Zebra",
+  "latin": "Equus Simplicidens",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -385,6 +403,7 @@
  {
   "id": 19,
   "name": "Donkey",
+  "latin": "Equus Africanus Asinus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -404,6 +423,7 @@
  {
   "id": 20,
   "name": "Camel",
+  "latin": "Camelus Bactrianus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -425,6 +445,7 @@
  {
   "id": 21,
   "name": "Mousedeer",
+  "latin": "Tragulus Napu",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -443,6 +464,7 @@
  {
   "id": 22,
   "name": "Llama",
+  "latin": "Lama Glama",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -462,6 +484,7 @@
  {
   "id": 23,
   "name": "Moose",
+  "latin": "Alces Alces",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -481,6 +504,7 @@
  {
   "id": 24,
   "name": "Hippopotamus",
+  "latin": "Hippopotamus Amphibius",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -500,6 +524,7 @@
  {
   "id": 25,
   "name": "Chicken",
+  "latin": "Gallus Gallus",
   "tier": 2,
   "categories": [
    "Bird",
@@ -520,6 +545,7 @@
  {
   "id": 26,
   "name": "Duck",
+  "latin": "Anas Platyrhynchos",
   "tier": 2,
   "categories": [
    "Bird",
@@ -540,6 +566,7 @@
  {
   "id": 27,
   "name": "Rabbit",
+  "latin": "Oryctolagus Cuniculus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -561,6 +588,7 @@
  {
   "id": 28,
   "name": "Elephant",
+  "latin": "Elephas Maximus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -580,6 +608,7 @@
  {
   "id": 29,
   "name": "Tiger",
+  "latin": "Panthera Tigris",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -601,6 +630,7 @@
  {
   "id": 30,
   "name": "Lion",
+  "latin": "Panthera Leo",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -623,6 +653,7 @@
  {
   "id": 31,
   "name": "Panther",
+  "latin": "Panthera Panthera",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -644,6 +675,7 @@
  {
   "id": 32,
   "name": "Cheetah",
+  "latin": "Acinonyx Jubatus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -665,6 +697,7 @@
  {
   "id": 33,
   "name": "Giraffe",
+  "latin": "Giraffa Camelopardalis",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -684,6 +717,7 @@
  {
   "id": 34,
   "name": "Rhinoceros",
+  "latin": "Rhinoceros Unicornis",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -703,6 +737,7 @@
  {
   "id": 35,
   "name": "Harp Seal",
+  "latin": "Pagophilus Groenlandicus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -722,6 +757,7 @@
  {
   "id": 36,
   "name": "Walrus",
+  "latin": "Odobenus Rosmarus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -742,6 +778,7 @@
  {
   "id": 37,
   "name": "Panda",
+  "latin": "Ailuropoda Melanoleuca",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -760,6 +797,7 @@
  {
   "id": 38,
   "name": "Polar Bear",
+  "latin": "Ursus Maritimus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -780,6 +818,7 @@
  {
   "id": 39,
   "name": "Brown Bear",
+  "latin": "Ursus Arctos",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -800,6 +839,7 @@
  {
   "id": 40,
   "name": "Sun Bear",
+  "latin": "Helarctos Malayanus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -819,6 +859,7 @@
  {
   "id": 41,
   "name": "Koala",
+  "latin": "Phascolarctos Cinereus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -837,6 +878,7 @@
  {
   "id": 42,
   "name": "Gummy Bear",
+  "latin": "Ursus Deilicious",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -857,6 +899,7 @@
  {
   "id": 43,
   "name": "Tortoise",
+  "latin": "Testudo Graeca",
   "tier": 1,
   "categories": [
    "Reptile",
@@ -879,6 +922,7 @@
  {
   "id": 44,
   "name": "Fox",
+  "latin": "Vulpes Vulpes",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -897,6 +941,7 @@
  {
   "id": 45,
   "name": "Wolf",
+  "latin": "Canis Lupus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -917,6 +962,7 @@
  {
   "id": 46,
   "name": "Orangutan",
+  "latin": "Pongo Pygmaeus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -937,6 +983,7 @@
  {
   "id": 47,
   "name": "Gorilla",
+  "latin": "Gorilla Gorilla",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -958,6 +1005,7 @@
  {
   "id": 48,
   "name": "Chimpanzee",
+  "latin": "Pan Troglodytes",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -978,6 +1026,7 @@
  {
   "id": 49,
   "name": "Penguin",
+  "latin": "Aptenodytes Forsteri",
   "tier": 2,
   "categories": [
    "Bird",
@@ -996,6 +1045,7 @@
  {
   "id": 50,
   "name": "Blue Whale",
+  "latin": "Balaenoptera Musculus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1016,6 +1066,7 @@
  {
   "id": 51,
   "name": "Orca",
+  "latin": "Orcinus Orca",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1036,6 +1087,7 @@
  {
   "id": 52,
   "name": "Snail",
+  "latin": "Helix Pomatia",
   "tier": 1,
   "categories": [
    "Mollusc",
@@ -1056,6 +1108,7 @@
  {
   "id": 53,
   "name": "Owl",
+  "latin": "Athene Noctua",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1075,6 +1128,7 @@
  {
   "id": 54,
   "name": "Macaw",
+  "latin": "Ara macao",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1093,6 +1147,7 @@
  {
   "id": 55,
   "name": "Parrot",
+  "latin": "Ara Ararauna",
   "tier": 1,
   "categories": [
    "Bird",
@@ -1114,6 +1169,7 @@
  {
   "id": 56,
   "name": "Toucan",
+  "latin": "Ramphastos Toco",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1131,6 +1187,7 @@
  {
   "id": 57,
   "name": "Eagle",
+  "latin": "Haliaeetus Leucocephalus",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1149,6 +1206,7 @@
  {
   "id": 58,
   "name": "Chameleon",
+  "latin": "Bradypodion Pumilum",
   "tier": 1,
   "categories": [
    "Reptile",
@@ -1169,6 +1227,7 @@
  {
   "id": 59,
   "name": "Raccoon",
+  "latin": "Procyon Lotor",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1186,6 +1245,7 @@
  {
   "id": 60,
   "name": "Red Panda",
+  "latin": "Ailurus Fulgens",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1203,6 +1263,7 @@
  {
   "id": 61,
   "name": "Goat",
+  "latin": "Capra Aegagrus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1222,6 +1283,7 @@
  {
   "id": 62,
   "name": "Sheep",
+  "latin": "Ovis aries",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1241,6 +1303,7 @@
  {
   "id": 63,
   "name": "Mouse",
+  "latin": "Mus Musculus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1259,6 +1322,7 @@
  {
   "id": 64,
   "name": "Octopus",
+  "latin": "Octopus Vulgaris",
   "tier": 1,
   "categories": [
    "Mollusc",
@@ -1280,6 +1344,7 @@
  {
   "id": 65,
   "name": "Snake",
+  "latin": "Elaphe Obsoleta",
   "tier": 1,
   "categories": [
    "Reptile"
@@ -1299,6 +1364,7 @@
  {
   "id": 66,
   "name": "Spider",
+  "latin": "Phidippus Audax",
   "tier": 2,
   "categories": [
    "Insect",
@@ -1317,6 +1383,7 @@
  {
   "id": 67,
   "name": "Bat",
+  "latin": "Desmodus rotundus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1335,6 +1402,7 @@
  {
   "id": 68,
   "name": "Dodo",
+  "latin": "Raphus cucullatus",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1352,6 +1420,7 @@
  {
   "id": 69,
   "name": "Dragon",
+  "latin": "Draconis Occidentalis",
   "tier": 2,
   "categories": [
    "Reptile",
@@ -1371,6 +1440,7 @@
  {
   "id": 70,
   "name": "Stag",
+  "latin": "Cervus elaphus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1390,6 +1460,7 @@
  {
   "id": 71,
   "name": "Trout",
+  "latin": "Salmo trutta",
   "tier": 2,
   "categories": [
    "Aquatic",
@@ -1408,6 +1479,7 @@
  {
   "id": 72,
   "name": "Turkey",
+  "latin": "Meleagris gallopavo",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1426,6 +1498,7 @@
  {
   "id": 73,
   "name": "Squirrel",
+  "latin": "Xerus rutilus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1443,6 +1516,7 @@
  {
   "id": 74,
   "name": "Flamingo",
+  "latin": "Phoenicopterus roseus",
   "tier": 2,
   "categories": [
    "Bird"
@@ -1459,6 +1533,7 @@
  {
   "id": 75,
   "name": "Otter",
+  "latin": "Lutra lutra",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1476,6 +1551,7 @@
  {
   "id": 76,
   "name": "Sea Lion",
+  "latin": "Zalophus californianus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1493,6 +1569,7 @@
  {
   "id": 77,
   "name": "Hyena",
+  "latin": "Hyaenidae Protelinae",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1512,6 +1589,7 @@
  {
   "id": 78,
   "name": "Terrier",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Dog",
@@ -1533,6 +1611,7 @@
  {
   "id": 79,
   "name": "Crocodile",
+  "latin": "Crocodylus Niloticus",
   "tier": 2,
   "categories": [
    "Reptile",
@@ -1551,6 +1630,7 @@
  {
   "id": 80,
   "name": "Platypus",
+  "latin": "Ornithorhynchus Anatinus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1568,6 +1648,7 @@
  {
   "id": 81,
   "name": "Pegasus",
+  "latin": "Equus Avis",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1585,6 +1666,7 @@
  {
   "id": 82,
   "name": "Gryphon",
+  "latin": "Gryphus Gryphus",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1602,6 +1684,7 @@
  {
   "id": 83,
   "name": "Phoenix",
+  "latin": "Phoenicopterus Vulcans",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1620,6 +1703,7 @@
  {
   "id": 84,
   "name": "Hydra",
+  "latin": "Hydra Vulgaris",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1637,6 +1721,7 @@
  {
   "id": 85,
   "name": "Cerberus",
+  "latin": "Canis Canis Canis",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1654,6 +1739,7 @@
  {
   "id": 86,
   "name": "Oriental Dragon",
+  "latin": "Dracanis Orientalis",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1671,6 +1757,7 @@
  {
   "id": 87,
   "name": "Loch Ness Monster",
+  "latin": "Nessiteras rhombopteryx",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1688,6 +1775,7 @@
  {
   "id": 88,
   "name": "Yeti",
+  "latin": "Homo Himalayens",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1705,6 +1793,7 @@
  {
   "id": 89,
   "name": "Drop Bear",
+  "latin": "Thylarctos plummetus",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1723,6 +1812,7 @@
  {
   "id": 90,
   "name": "Narwhal",
+  "latin": "Monodon monoceros",
   "tier": 1,
   "categories": [
    "Aquatic"
@@ -1742,6 +1832,7 @@
  {
   "id": 91,
   "name": "Merlion",
+  "latin": "Salmo Leo",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1760,6 +1851,7 @@
  {
   "id": 92,
   "name": "Rocket Cat",
+  "latin": "Felis Blastus",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1778,6 +1870,7 @@
  {
   "id": 93,
   "name": "Cthulu",
+  "latin": "Architeuthis Lovecraftus",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1796,6 +1889,7 @@
  {
   "id": 94,
   "name": "Sabertooth",
+  "latin": "Smilodon fatalis",
   "tier": 3,
   "categories": [
    "Carnivore",
@@ -1814,6 +1908,7 @@
  {
   "id": 95,
   "name": "Direwolf",
+  "latin": "Canis Dirus",
   "tier": 3,
   "categories": [
    "Carnivore",
@@ -1833,6 +1928,7 @@
  {
   "id": 96,
   "name": "Sphinx",
+  "latin": "Homo Leo",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1850,6 +1946,7 @@
  {
   "id": 97,
   "name": "Wooly Mammoth",
+  "latin": "Mammuthus primigenius",
   "tier": 3,
   "categories": [
    "Extinct",
@@ -1867,6 +1964,7 @@
  {
   "id": 98,
   "name": "Chimera",
+  "latin": "Surplus Animus",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1884,6 +1982,7 @@
  {
   "id": 99,
   "name": "Chupacabra",
+  "latin": "Hirquus Lac",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1901,6 +2000,7 @@
  {
   "id": 100,
   "name": "Hippogryph",
+  "latin": "Hirquus Volantis",
   "tier": 3,
   "categories": [
    "Mythical",
@@ -1918,6 +2018,7 @@
  {
   "id": 101,
   "name": "Fearful Owl",
+  "latin": "Nesasio solomonensis",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1937,6 +2038,7 @@
  {
   "id": 102,
   "name": "Black Mare",
+  "latin": "Nigreos Caballa",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -1957,6 +2059,7 @@
  {
   "id": 103,
   "name": "Raven",
+  "latin": "Corvus Huginnius",
   "tier": 2,
   "categories": [
    "Bird",
@@ -1977,6 +2080,7 @@
  {
   "id": 104,
   "name": "Black Spider",
+  "latin": "Araneae Cavatica",
   "tier": 2,
   "categories": [
    "Insect",
@@ -1996,6 +2100,7 @@
  {
   "id": 105,
   "name": "Chocolate Rabbit",
+  "latin": "Leporidae Scelerisque",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -2017,6 +2122,7 @@
  {
   "id": 106,
   "name": "Mule Deer",
+  "latin": "Hemionus Bambinus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -2036,6 +2142,7 @@
  {
   "id": 107,
   "name": "Golden Goose",
+  "latin": "Anser Aurum Pario",
   "tier": 2,
   "categories": [
    "Bird",
@@ -2054,6 +2161,7 @@
  {
   "id": 108,
   "name": "White Bass",
+  "latin": "Morone chrysops",
   "tier": 2,
   "categories": [
    "Aquatic",
@@ -2072,6 +2180,7 @@
  {
   "id": 109,
   "name": "Mute Swan",
+  "latin": "Cygnus Olor",
   "tier": 2,
   "categories": [
    "Bird",
@@ -2089,6 +2198,7 @@
  {
   "id": 110,
   "name": "Lovebird",
+  "latin": "Agapomis Coonimium",
   "tier": 2,
   "categories": [
    "Bird",
@@ -2109,6 +2219,7 @@
  {
   "id": 111,
   "name": "Eurasian Beaver",
+  "latin": "Castor fiber",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -2127,6 +2238,7 @@
  {
   "id": 112,
   "name": "French Angelfish",
+  "latin": "Pomacanthus paru",
   "tier": 2,
   "categories": [
    "Aquatic",
@@ -2145,6 +2257,7 @@
  {
   "id": 113,
   "name": "Arctic Fox",
+  "latin": "Vulpes lagopus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -2165,6 +2278,7 @@
  {
   "id": 114,
   "name": "Beluga Whale",
+  "latin": "Delphinapterus leucas",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -2185,6 +2299,7 @@
  {
   "id": 115,
   "name": "Chinstrap Penguin",
+  "latin": "Pygoscelis antarticus",
   "tier": 2,
   "categories": [
    "Bird",
@@ -2203,6 +2318,7 @@
  {
   "id": 116,
   "name": "Reindeer",
+  "latin": "Rangifer Tarandus",
   "tier": 2,
   "categories": [
    "Mammal",
@@ -2223,6 +2339,7 @@
  {
   "id": 117,
   "name": "Peacock",
+  "latin": "Pavo cristatus",
   "tier": 3,
   "categories": [
    "Bird",
@@ -2241,6 +2358,7 @@
  {
   "id": 118,
   "name": "Gecko",
+  "latin": "Gekko Insuritus",
   "tier": 3,
   "categories": [
    "Reptile",
@@ -2258,6 +2376,7 @@
  {
   "id": 119,
   "name": "Porcupine",
+  "latin": "Erethizon dorsatum",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2276,6 +2395,7 @@
  {
   "id": 120,
   "name": "Carp",
+  "latin": "Cyprinus carpio",
   "tier": 3,
   "categories": [
    "Aquatic",
@@ -2293,6 +2413,7 @@
  {
   "id": 121,
   "name": "Electric Eel",
+  "latin": "Electrophorus electricus",
   "tier": 4,
   "categories": [
    "Aquatic",
@@ -2310,6 +2431,7 @@
  {
   "id": 122,
   "name": "Stingray",
+  "latin": "Myliobatoidei Ouchus",
   "tier": 4,
   "categories": [
    "Aquatic",
@@ -2327,6 +2449,7 @@
  {
   "id": 123,
   "name": "Scorpion",
+  "latin": "Scopiones Quearocauda",
   "tier": 4,
   "categories": [
    "Small",
@@ -2345,6 +2468,7 @@
  {
   "id": 124,
   "name": "Pangolin",
+  "latin": "Smutsia Volubilem",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2362,6 +2486,7 @@
  {
   "id": 125,
   "name": "Buffalo",
+  "latin": "Bubalus Bulbousus",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2381,6 +2506,7 @@
  {
   "id": 126,
   "name": "Toad",
+  "latin": "Bufonidae Concrepat",
   "tier": 4,
   "categories": [
    "Reptile",
@@ -2398,6 +2524,7 @@
  {
   "id": 127,
   "name": "Snakehead Fish",
+  "latin": "Channa Asiata",
   "tier": 3,
   "categories": [
    "Aquatic",
@@ -2415,6 +2542,7 @@
  {
   "id": 128,
   "name": "Weasel",
+  "latin": "Mustela Evadere",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2434,6 +2562,7 @@
  {
   "id": 129,
   "name": "Ant",
+  "latin": "Formicidae Formidolosi",
   "tier": 3,
   "categories": [
    "Insect",
@@ -2451,6 +2580,7 @@
  {
   "id": 130,
   "name": "Mole",
+  "latin": "Talpinae Talpa",
   "tier": 3,
   "categories": [
    "Small",
@@ -2468,6 +2598,7 @@
  {
   "id": 131,
   "name": "Rattlesnake",
+  "latin": "Crotalus Atrox",
   "tier": 3,
   "categories": [
    "Reptile"
@@ -2484,6 +2615,7 @@
  {
   "id": 132,
   "name": "Albatross",
+  "latin": "Diomedea Exulans",
   "tier": 4,
   "categories": [
    "Bird",
@@ -2502,6 +2634,7 @@
  {
   "id": 133,
   "name": "Spider Monkey",
+  "latin": "Ateles Parkerus",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2522,6 +2655,7 @@
  {
   "id": 134,
   "name": "Manta Ray",
+  "latin": "Mobula Birostris",
   "tier": 5,
   "categories": [
    "Aquatic",
@@ -2539,6 +2673,7 @@
  {
   "id": 135,
   "name": "Giant Anteater",
+  "latin": "Myrmecophaga Tridactyla",
   "tier": 4,
   "categories": [
    "Mammal",
@@ -2556,6 +2691,7 @@
  {
   "id": 136,
   "name": "Kangaroo",
+  "latin": "Macropus Pugliemus",
   "tier": 4,
   "categories": [
    "Mammal",
@@ -2574,6 +2710,7 @@
  {
   "id": 137,
   "name": "Ostrich",
+  "latin": "Struthio Camelus",
   "tier": 3,
   "categories": [
    "Bird",
@@ -2591,6 +2728,7 @@
  {
   "id": 138,
   "name": "Pelican",
+  "latin": "Pelecanus Onocrotalus",
   "tier": 6,
   "categories": [
    "Bird",
@@ -2608,6 +2746,7 @@
  {
   "id": 139,
   "name": "Hammerhead Shark",
+  "latin": "Sphyrna Mokarran",
   "tier": 6,
   "categories": [
    "Aquatic",
@@ -2626,6 +2765,7 @@
  {
   "id": 140,
   "name": "Great White Shark",
+  "latin": "Carcharodon Carcharias",
   "tier": 6,
   "categories": [
    "Aquatic",
@@ -2644,6 +2784,7 @@
  {
   "id": 141,
   "name": "Tiger Shark",
+  "latin": "Galeocerdo Cuvier",
   "tier": 6,
   "categories": [
    "Aquatic",
@@ -2662,6 +2803,7 @@
  {
   "id": 142,
   "name": "Sailfish",
+  "latin": "Istiophorus Albicans",
   "tier": 4,
   "categories": [
    "Aquatic",
@@ -2679,6 +2821,7 @@
  {
   "id": 143,
   "name": "Piranha",
+  "latin": "Pygocentrus Nattereri",
   "tier": 4,
   "categories": [
    "Aquatic",
@@ -2698,6 +2841,7 @@
  {
   "id": 144,
   "name": "Vulture",
+  "latin": "Gyps Africanus",
   "tier": 4,
   "categories": [
    "Bird",
@@ -2715,6 +2859,7 @@
  {
   "id": 145,
   "name": "Tasmanian Devil",
+  "latin": "Sarcophilus Harrisii",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2734,6 +2879,7 @@
  {
   "id": 146,
   "name": "Lar Gibbon",
+  "latin": "Hylobates Lar",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2754,6 +2900,7 @@
  {
   "id": 147,
   "name": "Praying Mantis",
+  "latin": "Mantis Religiosa",
   "tier": 5,
   "categories": [
    "Insect",
@@ -2772,6 +2919,7 @@
  {
   "id": 148,
   "name": "Crab",
+  "latin": "Carcinus Iracundiorus",
   "tier": 5,
   "categories": [
    "Fast",
@@ -2790,6 +2938,7 @@
  {
   "id": 149,
   "name": "Three Toed Sloth",
+  "latin": "Bradypus Variegatus",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2807,6 +2956,7 @@
  {
   "id": 150,
   "name": "Pigeon",
+  "latin": "Columba Livia Domestica",
   "tier": 3,
   "categories": [
    "Bird",
@@ -2824,6 +2974,7 @@
  {
   "id": 151,
   "name": "Honey Bee",
+  "latin": "Apis Mellifera",
   "tier": 5,
   "categories": [
    "Insect",
@@ -2842,6 +2993,7 @@
  {
   "id": 152,
   "name": "Hummingbird",
+  "latin": "Selasphorus Percanticum",
   "tier": 6,
   "categories": [
    "Bird",
@@ -2860,6 +3012,7 @@
  {
   "id": 153,
   "name": "Swallow",
+  "latin": "Hirundo Rustica",
   "tier": 5,
   "categories": [
    "Bird",
@@ -2878,6 +3031,7 @@
  {
   "id": 154,
   "name": "Halibut",
+  "latin": "Hippoglossus Stenolepis",
   "tier": 5,
   "categories": [
    "Aquatic",
@@ -2895,6 +3049,7 @@
  {
   "id": 155,
   "name": "Lionfish",
+  "latin": "Pterois Miles",
   "tier": 5,
   "categories": [
    "Aquatic",
@@ -2912,6 +3067,7 @@
  {
   "id": 156,
   "name": "Black Rhinoceros",
+  "latin": "Diceros Bicornis",
   "tier": 3,
   "categories": [
    "Extinct",
@@ -2932,6 +3088,7 @@
  {
   "id": 157,
   "name": "Manatee",
+  "latin": "Richechus Inunguis",
   "tier": 4,
   "categories": [
    "Mammal",
@@ -2951,6 +3108,7 @@
  {
   "id": 158,
   "name": "Flying Fox",
+  "latin": "Pteropus Vampyrus",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -2969,6 +3127,7 @@
  {
   "id": 159,
   "name": "Wooly Rhinoceros",
+  "latin": "Coelodonta Antiquitatis",
   "tier": 4,
   "categories": [
    "Extinct",
@@ -2990,6 +3149,7 @@
  {
   "id": 160,
   "name": "Beringian Wolf",
+  "latin": "Canis Lupus Avus",
   "tier": 4,
   "categories": [
    "Extinct",
@@ -3009,6 +3169,7 @@
  {
   "id": 161,
   "name": "Monitor Lizard",
+  "latin": "Varanus Salvator",
   "tier": 4,
   "categories": [
    "Reptile"
@@ -3025,6 +3186,7 @@
  {
   "id": 162,
   "name": "Komodo Dragon",
+  "latin": "Varanus Komodoensis",
   "tier": 5,
   "categories": [
    "Reptile"
@@ -3041,6 +3203,7 @@
  {
   "id": 163,
   "name": "Scarab",
+  "latin": "Scarabaeus Sacer",
   "tier": 6,
   "categories": [
    "Insect",
@@ -3058,6 +3221,7 @@
  {
   "id": 164,
   "name": "Butterfly",
+  "latin": "Papilionidae Multijugus",
   "tier": 6,
   "categories": [
    "Insect",
@@ -3076,6 +3240,7 @@
  {
   "id": 165,
   "name": "Sperm Whale",
+  "latin": "Physeter Macrocephalus",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -3094,6 +3259,7 @@
  {
   "id": 166,
   "name": "Humpback Whale",
+  "latin": "Megaptera Novaeangliae",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -3112,6 +3278,7 @@
  {
   "id": 167,
   "name": "Puffin",
+  "latin": "Fratercula Arctica",
   "tier": 3,
   "categories": [
    "Bird",
@@ -3130,6 +3297,7 @@
  {
   "id": 168,
   "name": "Megalodon",
+  "latin": "Carcharocles Megalodon",
   "tier": 6,
   "categories": [
    "Extinct",
@@ -3149,6 +3317,7 @@
  {
   "id": 169,
   "name": "Wild Boar",
+  "latin": "Sus Scrofa",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -3167,6 +3336,7 @@
  {
   "id": 170,
   "name": "Giant Centipede",
+  "latin": "Scolopendra Gigantea",
   "tier": 5,
   "categories": [
    "Small"
@@ -3183,6 +3353,7 @@
  {
   "id": 171,
   "name": "Ladybird",
+  "latin": "Coccinella Transversalis",
   "tier": 6,
   "categories": [
    "Insect",
@@ -3201,6 +3372,7 @@
  {
   "id": 172,
   "name": "Stag Beetle",
+  "latin": "Lucanus Cervus",
   "tier": 6,
   "categories": [
    "Insect",
@@ -3218,6 +3390,7 @@
  {
   "id": 173,
   "name": "Field Grasshopper",
+  "latin": "Chorthippus Brunneus",
   "tier": 6,
   "categories": [
    "Insect",
@@ -3235,6 +3408,7 @@
  {
   "id": 174,
   "name": "Bluefin Tuna",
+  "latin": "Thunnus Orientalis",
   "tier": 5,
   "categories": [
    "Aquatic",
@@ -3252,6 +3426,7 @@
  {
   "id": 175,
   "name": "Sunfish",
+  "latin": "Mola Mola",
   "tier": 5,
   "categories": [
    "Aquatic"
@@ -3268,6 +3443,7 @@
  {
   "id": 176,
   "name": "Wasp",
+  "latin": "Vespula Vulgaris",
   "tier": 6,
   "categories": [
    "Insect",
@@ -3286,6 +3462,7 @@
  {
   "id": 177,
   "name": "Tarantula",
+  "latin": "Lycosa Tarantula",
   "tier": 3,
   "categories": [
    "Wild",
@@ -3303,6 +3480,7 @@
  {
   "id": 178,
   "name": "Skunk",
+  "latin": "Mephitis Mephitis",
   "tier": 5,
   "categories": [
    "Mammal",
@@ -3321,6 +3499,7 @@
  {
   "id": 179,
   "name": "Mongoose",
+  "latin": "Galerella Sanguinea",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -3338,6 +3517,7 @@
  {
   "id": 180,
   "name": "King Cobra",
+  "latin": "Ophiophagus Hannah",
   "tier": 6,
   "categories": [
    "Reptile"
@@ -3354,6 +3534,7 @@
  {
   "id": 181,
   "name": "Armadillo",
+  "latin": "Dasypus Novemcinctus",
   "tier": 4,
   "categories": [
    "Mammal",
@@ -3373,6 +3554,7 @@
  {
   "id": 182,
   "name": "Basking Shark",
+  "latin": "Cetorhinus Maximus",
   "tier": 6,
   "categories": [
    "Aquatic",
@@ -3390,6 +3572,7 @@
  {
   "id": 183,
   "name": "Whale Shark",
+  "latin": "Rhincodon Typus",
   "tier": 6,
   "categories": [
    "Aquatic",
@@ -3408,6 +3591,7 @@
  {
   "id": 184,
   "name": "Gazelle",
+  "latin": "Eudorcas Pronkalotus",
   "tier": 4,
   "categories": [
    "Mammal",
@@ -3427,6 +3611,7 @@
  {
   "id": 185,
   "name": "Clownfish",
+  "latin": "Amphiprion Ocellaris",
   "tier": 4,
   "categories": [
    "Aquatic",
@@ -3444,6 +3629,7 @@
  {
   "id": 186,
   "name": "Alligator",
+  "latin": "Alligator Mississippiensis",
   "tier": 4,
   "categories": [
    "Reptile",
@@ -3462,6 +3648,7 @@
  {
   "id": 187,
   "name": "Opossum",
+  "latin": "Didelphis Marsupialis",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -3481,6 +3668,7 @@
  {
   "id": 188,
   "name": "Pygmy Hippo",
+  "latin": "Choeropsis Liberiensis",
   "tier": 3,
   "categories": [
    "Mammal",
@@ -3499,6 +3687,7 @@
  {
   "id": 189,
   "name": "Pygmy Owl",
+  "latin": "Glaucidium Magnaoculis",
   "tier": 6,
   "categories": [
    "Bird",
@@ -3516,6 +3705,7 @@
  {
   "id": 190,
   "name": "Pygmy Marmoset",
+  "latin": "Cebuella Pygmaea",
   "tier": 4,
   "categories": [
    "Mammal",
@@ -3534,6 +3724,7 @@
  {
   "id": 191,
   "name": "Pygmy Possum",
+  "latin": "Burramyidae Adorabalis",
   "tier": 4,
   "categories": [
    "Mammal",
@@ -3552,6 +3743,7 @@
  {
   "id": 192,
   "name": "Seahorse",
+  "latin": "Hippocampus Guttulatus",
   "tier": 4,
   "categories": [
    "Aquatic",
@@ -3570,6 +3762,7 @@
  {
   "id": 193,
   "name": "Humboldt Squid",
+  "latin": "Dosidicus Gigas",
   "tier": 4,
   "categories": [
    "Mollusc",
@@ -3587,6 +3780,7 @@
  {
   "id": 194,
   "name": "Anglerfish",
+  "latin": "Photocorynus Spiniceps",
   "tier": 5,
   "categories": [
    "Aquatic",
@@ -3604,6 +3798,7 @@
  {
   "id": 195,
   "name": "Python",
+  "latin": "Python Montilius",
   "tier": 3,
   "categories": [
    "Reptile"
@@ -3620,6 +3815,7 @@
  {
   "id": 196,
   "name": "Titanoboa",
+  "latin": "Titanoboa Cerrejonensis",
   "tier": 5,
   "categories": [
    "Extinct",
@@ -3637,6 +3833,7 @@
  {
   "id": 197,
   "name": "Belgian Shepherd",
+  "latin": "Canis Lupus Familiaris",
   "tier": 1,
   "categories": [
    "Mammal",
@@ -3659,6 +3856,7 @@
  {
   "id": 198,
   "name": "Pizza Rat",
+  "latin": "Rattus Avarumcheesus",
   "tier": 5,
   "categories": [
    "Secret",
@@ -3676,6 +3874,7 @@
  {
   "id": 199,
   "name": "Policy Hawk",
+  "latin": "Accipiter Orbispolicecer",
   "tier": 6,
   "categories": [
    "Secret",
@@ -3693,6 +3892,7 @@
  {
   "id": 200,
   "name": "Black Sheep",
+  "latin": "Ovis Jamesdeanum",
   "tier": 5,
   "categories": [
    "Secret",
@@ -3710,6 +3910,7 @@
  {
   "id": 201,
   "name": "Scape Goat",
+  "latin": "Capra Quidpickinonmeia",
   "tier": 3,
   "categories": [
    "Secret",
@@ -3728,6 +3929,7 @@
  {
   "id": 202,
   "name": "Sacred Cow",
+  "latin": "Bos Nondoubtio",
   "tier": 3,
   "categories": [
    "Secret",
@@ -3745,6 +3947,7 @@
  {
   "id": 203,
   "name": "Program Bug",
+  "latin": "Hemiptera Glitchinterius",
   "tier": 6,
   "categories": [
    "Secret",
@@ -3762,6 +3965,7 @@
  {
   "id": 204,
   "name": "Drunken Monkey",
+  "latin": "Pan Freddywongus",
   "tier": 4,
   "categories": [
    "Secret",
@@ -3779,6 +3983,7 @@
  {
   "id": 205,
   "name": "One Trick Pony",
+  "latin": "Equus Senitbeforeous",
   "tier": 6,
   "categories": [
    "Secret",
@@ -3796,6 +4001,7 @@
  {
   "id": 206,
   "name": "Cold Turkey",
+  "latin": "Meleagris Unotinysipia",
   "tier": 3,
   "categories": [
    "Secret",
@@ -3813,6 +4019,7 @@
  {
   "id": 207,
   "name": "Social Butterfly",
+  "latin": "Rhopalocera Iterumtweet",
   "tier": 6,
   "categories": [
    "Secret",
@@ -3830,6 +4037,7 @@
  {
   "id": 208,
   "name": "Top Dawg",
+  "latin": "Canis Totusbroness",
   "tier": 6,
   "categories": [
    "Secret",
@@ -3847,6 +4055,7 @@
  {
   "id": 209,
   "name": "Sausage Dog",
+  "latin": "Canis Donwannaknowus",
   "tier": 3,
   "categories": [
    "Secret",
@@ -3864,6 +4073,7 @@
  {
   "id": 210,
   "name": "Bleached Hyena",
+  "latin": "Hyaenidae Ronickledgenix",
   "tier": 6,
   "categories": [
    "Secret",
@@ -3881,6 +4091,7 @@
  {
   "id": 211,
   "name": "Kirin",
+  "latin": "CanofIchi Banbeerus",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -3897,6 +4108,7 @@
  {
   "id": 212,
   "name": "Peryton",
+  "latin": "Bonum Bachelornightis",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -3913,6 +4125,7 @@
  {
   "id": 213,
   "name": "Cerynitis",
+  "latin": "Colossicus Caboosecus",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -3929,6 +4142,7 @@
  {
   "id": 214,
   "name": "Kelpie",
+  "latin": "Appellonon Hippocampus",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -3945,6 +4159,7 @@
  {
   "id": 215,
   "name": "Encantado",
+  "latin": "Permanens Blowhologia",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -3961,6 +4176,7 @@
  {
   "id": 216,
   "name": "Myrmecoleon",
+  "latin": "Morsus Thancanchew",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -3977,6 +4193,7 @@
  {
   "id": 217,
   "name": "Tsuchigumo",
+  "latin": "Catambulo Fashionista",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -3993,6 +4210,7 @@
  {
   "id": 218,
   "name": "Anansi",
+  "latin": "Spinataleius Etiamwebs",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4009,6 +4227,7 @@
  {
   "id": 219,
   "name": "Aqrabuamelu",
+  "latin": "Guninma Pocketas",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4025,6 +4244,7 @@
  {
   "id": 220,
   "name": "Cockatrice",
+  "latin": "Unoaspectu Instagibio",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4041,6 +4261,7 @@
  {
   "id": 221,
   "name": "Chamrosh",
+  "latin": "Restinunda Asomatreea",
   "tier": 3,
   "categories": [
    "Mythical"
@@ -4057,6 +4278,7 @@
  {
   "id": 222,
   "name": "Feng Huang",
+  "latin": "Omnisavis Omnisfeather",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4073,6 +4295,7 @@
  {
   "id": 223,
   "name": "Simurgh",
+  "latin": "Apocalypsis Seenthreesis",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4089,6 +4312,7 @@
  {
   "id": 224,
   "name": "Tengu",
+  "latin": "Quidfacit Foxsaysit",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4105,6 +4329,7 @@
  {
   "id": 225,
   "name": "Kutabe",
+  "latin": "Literatus Bovinus",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4121,6 +4346,7 @@
  {
   "id": 226,
   "name": "Bicorn",
+  "latin": "Quaeritis Honestusman",
   "tier": 3,
   "categories": [
    "Mythical"
@@ -4137,6 +4363,7 @@
  {
   "id": 227,
   "name": "Ushi Oni",
+  "latin": "Amoraswalk Sonbeaches",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4153,6 +4380,7 @@
  {
   "id": 228,
   "name": "Sha",
+  "latin": "Primuspuppy Domesticus",
   "tier": 3,
   "categories": [
    "Mythical"
@@ -4169,6 +4397,7 @@
  {
   "id": 229,
   "name": "Shug Monkey",
+  "latin": "Scaryus Cambridgeexam",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4185,6 +4414,7 @@
  {
   "id": 230,
   "name": "Adlet",
+  "latin": "Inversus Werewolficus",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4201,6 +4431,7 @@
  {
   "id": 231,
   "name": "Capricornus",
+  "latin": "Magis Pertinaxgoaticus",
   "tier": 3,
   "categories": [
    "Mythical"
@@ -4217,6 +4448,7 @@
  {
   "id": 232,
   "name": "Buraq",
+  "latin": "Ducetvos Septimaparadis",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4233,6 +4465,7 @@
  {
   "id": 233,
   "name": "Hippocamp",
+  "latin": "Appellonon Seahorsey",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4249,6 +4482,7 @@
  {
   "id": 234,
   "name": "Uchchaihshravas",
+  "latin": "Hic Venio Solis Dudududu",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4265,6 +4499,7 @@
  {
   "id": 235,
   "name": "Manticore",
+  "latin": "Cavete Hic Shecomesus",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4281,6 +4516,7 @@
  {
   "id": 236,
   "name": "Mishipeshu",
+  "latin": "Fabulosa Noctis Swimmin",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4297,6 +4533,7 @@
  {
   "id": 237,
   "name": "Shachihoko",
+  "latin": "Durum Pluviam Gonafall",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4313,6 +4550,7 @@
  {
   "id": 238,
   "name": "Bunyip",
+  "latin": "Occursum Adbillabong",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4329,6 +4567,7 @@
  {
   "id": 239,
   "name": "Kraken",
+  "latin": "Antiquissimus Etcrabiest",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4345,6 +4584,7 @@
  {
   "id": 240,
   "name": "Shen",
+  "latin": "Nunc Me Vides Nowyadun",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4361,6 +4601,7 @@
  {
   "id": 241,
   "name": "Lusca",
+  "latin": "Appendiciis Cumjawsilis",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4377,6 +4618,7 @@
  {
   "id": 242,
   "name": "Ramidreju",
+  "latin": "Suffragium EnimaPETA",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4393,6 +4635,7 @@
  {
   "id": 243,
   "name": "Raiju",
+  "latin": "Egosum Timere Thundera",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4409,6 +4652,7 @@
  {
   "id": 244,
   "name": "Baku",
+  "latin": "Tastsomnium Treatsum",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4425,6 +4669,7 @@
  {
   "id": 245,
   "name": "Behemoth",
+  "latin": "Blande Sitsa Omniwhere",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4441,6 +4686,7 @@
  {
   "id": 246,
   "name": "Taweret",
+  "latin": "Numquamsee MeInthenile",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4457,6 +4703,7 @@
  {
   "id": 247,
   "name": "Kobalt Kong",
+  "latin": "Gigagorilla Sialis",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4473,6 +4720,7 @@
  {
   "id": 248,
   "name": "Xuan Wu",
+  "latin": "Tu Non Meouttameshell",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4489,6 +4737,7 @@
  {
   "id": 249,
   "name": "Cipactli",
+  "latin": "Mundusboots Ex Corporis",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4505,6 +4754,7 @@
  {
   "id": 250,
   "name": "Taniwha",
+  "latin": "Sanctuscustos Downunda",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4521,6 +4771,7 @@
  {
   "id": 251,
   "name": "Wyvern",
+  "latin": "Nimirum Apud Videoludum",
   "tier": 4,
   "categories": [
    "Mythical"
@@ -4537,6 +4788,7 @@
  {
   "id": 252,
   "name": "Ratatoskr",
+  "latin": "Magis Celeri Snailmaili",
   "tier": 3,
   "categories": [
    "Mythical"
@@ -4553,6 +4805,7 @@
  {
   "id": 253,
   "name": "Afanc",
+  "latin": "Plusconmodus Pueralapus",
   "tier": 3,
   "categories": [
    "Mythical"
@@ -4569,6 +4822,7 @@
  {
   "id": 254,
   "name": "Quetzalcoatl",
+  "latin": "Et Repleti Aer Calidus",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4585,6 +4839,7 @@
  {
   "id": 255,
   "name": "Tarasque",
+  "latin": "Quare Nomen Martha",
   "tier": 6,
   "categories": [
    "Mythical"
@@ -4601,6 +4856,7 @@
  {
   "id": 256,
   "name": "Peluda",
+  "latin": "Nullus Locus Arkusdarnus",
   "tier": 5,
   "categories": [
    "Mythical"
@@ -4617,6 +4873,7 @@
  {
   "id": 257,
   "name": "Dolphin",
+  "latin": "Tursiops truncatus",
   "tier": 3,
   "categories": [
    "Mammal",

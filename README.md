@@ -26,7 +26,10 @@ as in the original. Saves from milestones 1 and 2 load with the tutorial already
 - Drag to pan the city. Use the mouse wheel or pinch to zoom.
 - Tap a building to open it. Tapping an idle workplace that has workers restarts its shift for free.
 - **CLONES** opens the Arrival Center, which has 3 slots. From there you rush arrivals, splice and assign jobs.
-- **BUILD** lists houses, decor, paths and trees. Tap the map to place one.
+- Tap free land near the city (the grid reaches two tiles from what is built) for **LAND USAGE**: **BUILD** (residential,
+  plus the workplace categories once the Building Firm allows duplicates), **EXPAND** and **LANDSCAPE** (trees, decor,
+  paths). Pick an item to see its card, then **BUILD** puts it on the spot you tapped.
+- Reward envelopes open by sliding the scissors along "cut here to open"; the card shows what was inside.
 - **EXPAND** buys +10 land (the level-up card applies it). With the Law Firm you can also expand for 40 utopium.
 - HUD as in 4.20: utopium, discovered jobs (n/450) and coins on the top bar; the heart row under it (tap it to open a
   stored heart); the calendar and "back to the Town Hall" buttons and the Utopia News bar with the LAND WATCH at the

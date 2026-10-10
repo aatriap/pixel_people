@@ -16,6 +16,7 @@ const T0 = DAY0 + 9 * 3600;
 
 function game(seed = 1, now = T0): Game {
   const g = Game.fresh(now);
+  g.reachRule = false; // these tests scatter buildings far apart
   g.rng = seeded(seed);
   g.localOffset = () => 0;
   return g;

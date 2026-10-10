@@ -3,12 +3,13 @@ import Phaser from 'phaser';
 import { Game } from '../logic/game';
 import { Building } from '../logic/state';
 import { ANIMAL, JOB, PATH, WORKPLACE, kindOf } from '../logic/data';
+import { BUILD_REACH } from '../logic/game';
 import { cellCenter, depthFor, footprintBox, originFor, roadVariant, worldToCell } from './iso';
 
 export interface SceneHooks {
   onTapBuilding(id: string): void;
   onPlace(type: string, i: number, j: number): void;
-  onTapEmpty(): void;
+  onTapEmpty(i: number, j: number): void;
   onTapGuest(code: number, job?: string): void;
   onReady(): void;
 }
@@ -263,7 +264,7 @@ export class CityScene extends Phaser.Scene {
     const jd = JOB.get(job);
     if (!jd) return [female ? 'FemaleClone' : 'CloneMale'];
     const s = female ? 'F' : 'M';
-    return [female ? 'Female1' : 'Male1', `${jd.id}${s}`, `${jd.id}${s}_L`].filter((f) => this.hasFrame(f));
+    return [female ? 'Female1' : 'Male1', `${jd.id}${s}`, `${jd.id}${s}_L`, `${jd.id}`].filter((f) => this.hasFrame(f));
   }
 
   private makePeep(job: string | null, female: boolean, x: number, y: number) {
@@ -566,29 +567,37 @@ export class CityScene extends Phaser.Scene {
     this.ghost = [];
   }
 
-  /** The faint isometric grid over space around the city (as in the game's map view). */
-  private spaceGrid?: Phaser.GameObjects.Graphics;
-  private drawSpaceGrid(occ: Map<string, string>) {
-    let minI = 0, maxI = 0, minJ = 0, maxJ = 0;
+  /** Cells within reach of the city (BUILD_REACH tiles around every building): the buildable grid. */
+  reachCells(occ = this.game2.occupied()): Set<string> {
+    const out = new Set<string>();
+    const R = BUILD_REACH;
     for (const k of occ.keys()) {
       const [i, j] = k.split(',').map(Number);
-      minI = Math.min(minI, i); maxI = Math.max(maxI, i); minJ = Math.min(minJ, j); maxJ = Math.max(maxJ, j);
+      for (let di = -R; di <= R; di++) for (let dj = -R; dj <= R; dj++) out.add(`${i + di},${j + dj}`);
     }
-    const PAD = 14;
-    minI -= PAD; minJ -= PAD; maxI += PAD + 1; maxJ += PAD + 1;
-    // corner of cell (i, j) between its left and bottom edges
+    return out;
+  }
+
+  /** The faint isometric grid: it covers the city and stops BUILD_REACH tiles away from it, like the game. */
+  private spaceGrid?: Phaser.GameObjects.Graphics;
+  private drawSpaceGrid(occ: Map<string, string>) {
+    // corner (i, j) of the lattice: bottom vertex of cell (i, j)
     const corner = (i: number, j: number) => ({ x: (j - i) * 61.5, y: -(i + j) * 30.75 });
     const gfx = this.spaceGrid ?? this.add.graphics();
     if (!this.spaceGrid) { this.spaceGrid = gfx; this.world.add(gfx); }
     gfx.clear().setDepth(-1e6);
-    gfx.lineStyle(2, 0xffffff, 0.16);
-    for (let i = minI; i <= maxI; i++) {
-      const a = corner(i, minJ), b = corner(i, maxJ);
-      gfx.lineBetween(a.x, a.y, b.x, b.y);
+    gfx.lineStyle(2, 0xffffff, 0.18);
+    const edges = new Set<string>();
+    for (const k of this.reachCells(occ)) {
+      const [i, j] = k.split(',').map(Number);
+      // the four sides of the diamond as lattice segments, deduplicated between neighbours
+      edges.add(`${i},${j},${i},${j + 1}`); edges.add(`${i + 1},${j},${i + 1},${j + 1}`);
+      edges.add(`${i},${j},${i + 1},${j}`); edges.add(`${i},${j + 1},${i + 1},${j + 1}`);
     }
-    for (let j = minJ; j <= maxJ; j++) {
-      const a = corner(minI, j), b = corner(maxI, j);
-      gfx.lineBetween(a.x, a.y, b.x, b.y);
+    for (const e of edges) {
+      const [a1, b1, a2, b2] = e.split(',').map(Number);
+      const p = corner(a1, b1), q = corner(a2, b2);
+      gfx.lineBetween(p.x, p.y, q.x, q.y);
     }
   }
 
@@ -597,18 +606,12 @@ export class CityScene extends Phaser.Scene {
     this.grid = [];
     if (!this.buildType) return;
     const occ = this.game2.occupied();
-    let minI = 0, maxI = 0, minJ = 0, maxJ = 0;
-    for (const k of occ.keys()) {
+    for (const k of this.reachCells(occ)) {
+      if (occ.has(k)) continue;
       const [i, j] = k.split(',').map(Number);
-      minI = Math.min(minI, i); maxI = Math.max(maxI, i); minJ = Math.min(minJ, j); maxJ = Math.max(maxJ, j);
-    }
-    for (let i = minI - 2; i <= maxI + 2; i++) {
-      for (let j = minJ - 2; j <= maxJ + 2; j++) {
-        if (occ.has(`${i},${j}`)) continue;
-        const p = cellCenter(i, j);
-        const im = this.img(p.x, p.y, 'SelectionSquare');
-        if (im) { im.setAlpha(0.35).setDepth(1); this.world.add(im); this.grid.push(im); }
-      }
+      const p = cellCenter(i, j);
+      const im = this.img(p.x, p.y, 'SelectionSquare');
+      if (im) { im.setAlpha(0.35).setDepth(1); this.world.add(im); this.grid.push(im); }
     }
   }
 
@@ -702,7 +705,7 @@ export class CityScene extends Phaser.Scene {
       const c = worldToCell(w.x, w.y);
       const id = this.game2.occupied().get(`${c.i},${c.j}`);
       if (id) this.hooks.onTapBuilding(id);
-      else this.hooks.onTapEmpty();
+      else this.hooks.onTapEmpty(c.i, c.j);
     });
     this.input.on('wheel', (p: Phaser.Input.Pointer, _o: unknown, _dx: number, dy: number) => {
       this.zoomAt(cam.zoom * Math.pow(1.0015, -dy), p.x, p.y);

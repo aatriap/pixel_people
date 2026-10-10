@@ -214,6 +214,7 @@ for r in rows('animals_static_data.tsv')[1:]:
     animals.append({
         'id': int(r[0]),
         'name': r[1].strip(),
+        'latin': r[2].strip(),
         'tier': num(r[3]),
         'categories': [c.strip() for c in r[4].split(',') if c.strip()],
         'seasons': [c.strip().upper() for c in r[5].split(',') if c.strip()],
@@ -333,7 +334,8 @@ keys = [k for k in TEXT if k.startswith(('Splicer_', 'SplicerPopup_'))] + [
 keys += [k for k in TEXT if k.startswith((
     'Tutorial_', 'MiniQuest_', 'Achievement', 'Calendar_', 'Season_', 'GenericNews_', 'LocalNotif_', 'HousesDecor_',
     'Gacha_', 'Card_Gacha', 'Guest_', 'Credits_Title', 'Altar_', 'PaintPopup', 'Insufficient_', 'VacantSlot',
-    'Residence_'))]
+    'Residence_', 'Card_', 'TerrainUpgrade_Quote', 'BuildMenu_Category_', 'Landscape_Category_'))]
+keys += [k for k in TEXT if k.endswith('_BuildPreview')] + ['Law Firm_LegalLoophole', 'SpacePort_Discount']
 for w in ('Arcade', 'Funeral Parlor', 'News Bureau', 'Observatory', 'Police Station', 'Sheriffs Office', 'Court',
           'TV Station', 'Altar', 'Hotel', 'Town Hall', 'Fortune Teller'):
     keys += [w + s for s in ('_Header', '_Special', '_ButtonText', '_Motto')]

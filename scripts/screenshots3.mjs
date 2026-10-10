@@ -37,7 +37,20 @@ async function run(name, ctxOpts, fullTutorial) {
     await sleep(700);
   };
   const step = () => page.evaluate(() => window.pp.state.tutorial);
-  const closePanel = async () => { if (await page.locator('.panel .close').count()) { await page.locator('.panel .close').first().click(); await sleep(400); } };
+  // envelopes open by sliding the scissors along the cut line
+  const cutOpen = async () => {
+    const env = page.locator('.env');
+    if (!(await env.count())) return false;
+    const r = await env.boundingBox();
+    const y = r.y + r.height * 0.869;
+    await page.mouse.move(r.x + r.width * 0.17, y);
+    await page.mouse.down();
+    for (let k = 1; k <= 10; k++) await page.mouse.move(r.x + r.width * (0.17 + 0.07 * k), y);
+    await page.mouse.up();
+    await sleep(900);
+    return true;
+  };
+  const closePanel = async () => { await cutOpen(); if (await page.locator('.panel .close').count()) { await page.locator('.panel .close').first().click(); await sleep(400); } };
 
   // ---------------------------------------------------------------- tutorial
   if ((await step()) !== 0) throw new Error('a new game should start at tutorial step 0');
@@ -68,6 +81,8 @@ async function run(name, ctxOpts, fullTutorial) {
     await click('.spcol.r .gene[data-job="Mechanic"]');    // 12 -> 13
     await click('button[data-k="splice-go"]');             // 13 -> 14
     await sleep(9000);                                     // 7 s splice, then the card
+    await shot('05a-tutorial-envelope');
+    if (!(await cutOpen())) throw new Error('the discovery should arrive as an envelope');
     await shot('05-tutorial-eureka');
     await click('button[data-k="disc-place"]');            // 15 -> 16
     await sleep(800);
@@ -155,6 +170,7 @@ async function run(name, ctxOpts, fullTutorial) {
   await shot('12-altar');
   await click('button[data-k="altar-splice"]');
   await sleep(800);
+  await cutOpen();
   await shot('13-altar-result');
   await closePanel();
 
@@ -165,6 +181,7 @@ async function run(name, ctxOpts, fullTutorial) {
   await click('button[data-k="claw-c"]');
   await click('button[data-k="confirm-yes"]');
   await sleep(800);
+  await cutOpen();
   await shot('15-arcade-new-skin');
   await closePanel();
 
