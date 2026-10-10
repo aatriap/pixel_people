@@ -1,0 +1,686 @@
+[
+ {
+  "index": 1,
+  "id": "Ach_FoundingFathers",
+  "sprite": "ac1",
+  "reward": 1,
+  "omit": false,
+  "title": "Founding Fathers",
+  "desc": "Discover all jobs on the Mayor's page"
+ },
+ {
+  "index": 2,
+  "id": "Ach_PilotProject",
+  "sprite": "ac2",
+  "reward": 1,
+  "omit": false,
+  "title": "Pilot Project",
+  "desc": "Discover all jobs on the Pilot's page"
+ },
+ {
+  "index": 3,
+  "id": "Ach_ModelCitizens",
+  "sprite": "ac3",
+  "reward": 1,
+  "omit": false,
+  "title": "Model Citizens",
+  "desc": "Discover all jobs on the Model's page"
+ },
+ {
+  "index": 4,
+  "id": "Ach_FishyBusiness",
+  "sprite": "ac4",
+  "reward": 1,
+  "omit": false,
+  "title": "Fishy Business",
+  "desc": "Discover all jobs on the Sushi Chef's page"
+ },
+ {
+  "index": 5,
+  "id": "Ach_SuperSplicing",
+  "sprite": "ac5",
+  "reward": 1,
+  "omit": false,
+  "title": "Super Splicing",
+  "desc": "Discover all jobs on the Hero's page"
+ },
+ {
+  "index": 6,
+  "id": "Ach_FromClonesToClowns",
+  "sprite": "ac6",
+  "reward": 1,
+  "omit": false,
+  "title": "From Clones to Clowns",
+  "desc": "Discover all jobs on the Clown's page"
+ },
+ {
+  "index": 7,
+  "id": "Ach_InTooDeep",
+  "sprite": "ac7",
+  "reward": 1,
+  "omit": false,
+  "title": "In Too deep",
+  "desc": "Discover all jobs on the Diver's page"
+ },
+ {
+  "index": 8,
+  "id": "Ach_Boom-De-Ya-Dah",
+  "sprite": "ac8",
+  "reward": 1,
+  "omit": false,
+  "title": "Boom-De-Ya-Dah",
+  "desc": "Discover 150 jobs"
+ },
+ {
+  "index": 9,
+  "id": "Ach_SearchAndRescue",
+  "sprite": "ac9",
+  "reward": 1,
+  "omit": false,
+  "title": "Search and Rescue",
+  "desc": "Rescue all tier 1 Animals (Cyan)"
+ },
+ {
+  "index": 10,
+  "id": "Ach_StableEnvironment",
+  "sprite": "ac10",
+  "reward": 2,
+  "omit": false,
+  "title": "Stable Environment",
+  "desc": "Rescue all tier 2 Animals (Yellow)"
+ },
+ {
+  "index": 11,
+  "id": "Ach_AnimalFarm",
+  "sprite": "ac11",
+  "reward": 3,
+  "omit": false,
+  "title": "Animal Farm",
+  "desc": "Rescue all tier 3 Animals (Green)"
+ },
+ {
+  "index": 12,
+  "id": "Ach_EndangeredSpecies",
+  "sprite": "ac12",
+  "reward": 5,
+  "omit": false,
+  "title": "Endangered Species",
+  "desc": "Rescue all tier 4 Animals (Maroon)"
+ },
+ {
+  "index": 13,
+  "id": "Ach_Decorator",
+  "sprite": "ac13",
+  "reward": 1,
+  "omit": false,
+  "title": "Decorator",
+  "desc": "Build 5 decorations"
+ },
+ {
+  "index": 14,
+  "id": "Ach_ExtremeMakeover",
+  "sprite": "ac14",
+  "reward": 3,
+  "omit": false,
+  "title": "Extreme Makeover",
+  "desc": "Build 30 decorations"
+ },
+ {
+  "index": 15,
+  "id": "Ach_RoadAwakening",
+  "sprite": "ac15",
+  "reward": 0,
+  "omit": false,
+  "title": "Road Awakening",
+  "desc": "Build 5 roads"
+ },
+ {
+  "index": 16,
+  "id": "Ach_SettlerOfUtopia",
+  "sprite": "ac16",
+  "reward": 1,
+  "omit": false,
+  "title": "Settler of Utopia",
+  "desc": "Build 30 roads"
+ },
+ {
+  "index": 17,
+  "id": "Ach_MakeASplash",
+  "sprite": "ac17",
+  "reward": 0,
+  "omit": false,
+  "title": "Make a Splash",
+  "desc": "Build 5 waterways"
+ },
+ {
+  "index": 18,
+  "id": "Ach_WaterWonderfulWorld",
+  "sprite": "ac18",
+  "reward": 1,
+  "omit": false,
+  "title": "Water Wonderful World",
+  "desc": "Build 50 waterways"
+ },
+ {
+  "index": 19,
+  "id": "Ach_OneSmallStep",
+  "sprite": "ac19",
+  "reward": 0,
+  "omit": false,
+  "title": "One Small Step",
+  "desc": "Plant the seeds for a green tomorrow"
+ },
+ {
+  "index": 20,
+  "id": "Ach_OneGiantLeap",
+  "sprite": "ac20",
+  "reward": 5,
+  "omit": false,
+  "title": "One Giant Leap",
+  "desc": "Build 30 trees"
+ },
+ {
+  "index": 21,
+  "id": "Ach_DontPanic",
+  "sprite": "ac21",
+  "reward": 0,
+  "omit": false,
+  "title": "Don't Panic",
+  "desc": "Perform an act of demolition"
+ },
+ {
+  "index": 22,
+  "id": "Ach_MoverAndShaker",
+  "sprite": "ac22",
+  "reward": 1,
+  "omit": false,
+  "title": "Mover and Shaker",
+  "desc": "Move a building"
+ },
+ {
+  "index": 23,
+  "id": "Ach_Worker-Holic",
+  "sprite": "ac23",
+  "reward": 3,
+  "omit": false,
+  "title": "Worker-Holic",
+  "desc": "Fill a 6-slot building with workers"
+ },
+ {
+  "index": 24,
+  "id": "Ach_WarpSpeed",
+  "sprite": "ac24",
+  "reward": 1,
+  "omit": false,
+  "title": "Warp Speed",
+  "desc": "Change the background at the Observatory"
+ },
+ {
+  "index": 25,
+  "id": "Ach_SocialExperiment",
+  "sprite": "ac25",
+  "reward": 1,
+  "omit": true,
+  "title": "Social Experiment",
+  "desc": "Share a formula"
+ },
+ {
+  "index": 26,
+  "id": "Ach_SocialButterfly",
+  "sprite": "ac26",
+  "reward": 3,
+  "omit": true,
+  "title": "Social Butterfly",
+  "desc": "Share 10 formulae"
+ },
+ {
+  "index": 27,
+  "id": "Ach_Overtime",
+  "sprite": "ac27",
+  "reward": 1,
+  "omit": false,
+  "title": "Overtime",
+  "desc": "Upgrade a building"
+ },
+ {
+  "index": 28,
+  "id": "Ach_MassProduction",
+  "sprite": "ac28",
+  "reward": 10,
+  "omit": false,
+  "title": "Mass Production",
+  "desc": "Perform 50 upgrades"
+ },
+ {
+  "index": 29,
+  "id": "Ach_MinerProgress",
+  "sprite": "ac29",
+  "reward": 0,
+  "omit": false,
+  "title": "Miner Progress",
+  "desc": "Find Utopium in the Mine"
+ },
+ {
+  "index": 30,
+  "id": "Ach_MajorMiner",
+  "sprite": "ac30",
+  "reward": 3,
+  "omit": false,
+  "title": "Major Miner",
+  "desc": "Conduct 20 mining operations"
+ },
+ {
+  "index": 31,
+  "id": "Ach_IgnoranceIsBliss",
+  "sprite": "ac31",
+  "reward": 1,
+  "omit": false,
+  "title": "Ignorance is Bliss",
+  "desc": "Turn off the news feed"
+ },
+ {
+  "index": 32,
+  "id": "Ach_BountyHunter",
+  "sprite": "ac32",
+  "reward": 0,
+  "omit": false,
+  "title": "Bounty Hunter",
+  "desc": "Visit the credits"
+ },
+ {
+  "index": 33,
+  "id": "Ach_MedalOfHonor",
+  "sprite": "ac33",
+  "reward": 1,
+  "omit": false,
+  "title": "Medal Of Honor",
+  "desc": "Visit the achievements"
+ },
+ {
+  "index": 34,
+  "id": "Ach_GameTheory",
+  "sprite": "ac34",
+  "reward": 1,
+  "omit": true,
+  "title": "Game Theory",
+  "desc": "hang out at the business Center for 10 seconds"
+ },
+ {
+  "index": 35,
+  "id": "Ach_LongTermPlanning",
+  "sprite": "ac35",
+  "reward": 1,
+  "omit": true,
+  "title": "Long Term Planning",
+  "desc": "Tap on the \"iAp\" button at the Enterprise"
+ },
+ {
+  "index": 36,
+  "id": "Ach_EarlyAdopter",
+  "sprite": "ac36",
+  "reward": 1,
+  "omit": false,
+  "title": "Early Adopter",
+  "desc": "Adopt an animal from the Animal Shelter"
+ },
+ {
+  "index": 37,
+  "id": "Ach_LargeHearted",
+  "sprite": "ac37",
+  "reward": 2,
+  "omit": false,
+  "title": "Large Hearted",
+  "desc": "Complete 20 adoptions from the Animal Shelter"
+ },
+ {
+  "index": 38,
+  "id": "Ach_LoveBug",
+  "sprite": "ac38",
+  "reward": 1,
+  "omit": false,
+  "title": "Love Bug",
+  "desc": "Perform an upgrade at the Research Lab"
+ },
+ {
+  "index": 39,
+  "id": "Ach_AllMyLovin",
+  "sprite": "ac39",
+  "reward": 10,
+  "omit": false,
+  "title": "All My Lovin'",
+  "desc": "Fill all possible hearts at the Research Lab"
+ },
+ {
+  "index": 40,
+  "id": "Ach_CupidsCollection",
+  "sprite": "ac40",
+  "reward": 1,
+  "omit": true,
+  "title": "Cupid's Collection",
+  "desc": "Discover all jobs on the Matchmaker's page"
+ },
+ {
+  "index": 41,
+  "id": "Ach_BearyWellDone",
+  "sprite": "ac41",
+  "reward": 1,
+  "omit": true,
+  "title": "Beary Well Done",
+  "desc": "Discover all jobs on the Mascot's page"
+ },
+ {
+  "index": 42,
+  "id": "Ach_SpliceNSplice",
+  "sprite": "ac42",
+  "reward": 1,
+  "omit": true,
+  "title": "Splice n Splice",
+  "desc": "Discovered all jobs on the Samura's page"
+ },
+ {
+  "index": 43,
+  "id": "Ach_BeastForLast",
+  "sprite": "ac43",
+  "reward": 3,
+  "omit": true,
+  "title": "Beast for Last",
+  "desc": "Rescue all tier 5 Animals (Orange)"
+ },
+ {
+  "index": 44,
+  "id": "Ach_MostlyHarmless",
+  "sprite": "ac44",
+  "reward": 5,
+  "omit": true,
+  "title": "Mostly Harmless",
+  "desc": "Unlock the Hitchhiker gene"
+ },
+ {
+  "index": 45,
+  "id": "Ach_HighSpirits",
+  "sprite": "ac45",
+  "reward": 1,
+  "omit": false,
+  "title": "High Spirits",
+  "desc": "Raise your city spirit up to maximum"
+ },
+ {
+  "index": 46,
+  "id": "Ach_SecretService",
+  "sprite": "ac46",
+  "reward": 0,
+  "omit": true,
+  "title": "Secret Service",
+  "desc": "Splice a secret combination"
+ },
+ {
+  "index": 47,
+  "id": "Ach_Unearthed",
+  "sprite": "ac47",
+  "reward": 5,
+  "omit": true,
+  "title": "Unearthed",
+  "desc": "Splice all secret combinations"
+ },
+ {
+  "index": 48,
+  "id": "Ach_SubordinateClaws",
+  "sprite": "ac48",
+  "reward": 0,
+  "omit": true,
+  "title": "Subordinate Claws",
+  "desc": "Play the Claw 5 times at the Arcade"
+ },
+ {
+  "index": 49,
+  "id": "Ach_SantaClaws",
+  "sprite": "ac49",
+  "reward": 10,
+  "omit": true,
+  "title": "Santa Claws",
+  "desc": "Spend a lot of time at the Arcade"
+ },
+ {
+  "index": 50,
+  "id": "Ach_HeartWorker",
+  "sprite": "ac50",
+  "reward": 0,
+  "omit": true,
+  "title": "Heart Worker",
+  "desc": "Stockpile 20 Hearts"
+ },
+ {
+  "index": 51,
+  "id": "Ach_HeartHoarder",
+  "sprite": "ac51",
+  "reward": 3,
+  "omit": true,
+  "title": "Heart Hoarder",
+  "desc": "Stockpile 500 Hearts"
+ },
+ {
+  "index": 52,
+  "id": "Ach_CheckedIn",
+  "sprite": "ac52",
+  "reward": 0,
+  "omit": false,
+  "title": "Checked In",
+  "desc": "Move a resident to the Hotel"
+ },
+ {
+  "index": 53,
+  "id": "Ach_NoVacancy",
+  "sprite": "ac53",
+  "reward": 1,
+  "omit": false,
+  "title": "No Vacancy",
+  "desc": "Move 6 residents to the Hotel at once"
+ },
+ {
+  "index": 54,
+  "id": "Ach_MissionPossible",
+  "sprite": "ac54",
+  "reward": 0,
+  "omit": true,
+  "title": "Mission Possible",
+  "desc": "Complete 5 missions"
+ },
+ {
+  "index": 55,
+  "id": "Ach_MissionImprobable",
+  "sprite": "ac55",
+  "reward": 3,
+  "omit": true,
+  "title": "Mission Improbable",
+  "desc": "Complete 50 missions"
+ },
+ {
+  "index": 56,
+  "id": "Ach_LimitedUnlimited",
+  "sprite": "ac56",
+  "reward": 2,
+  "omit": true,
+  "title": "Limited Unlimited",
+  "desc": "Splice 20 level 2 jobs"
+ },
+ {
+  "index": 57,
+  "id": "Ach_OohShiny",
+  "sprite": "ac57",
+  "reward": 5,
+  "omit": true,
+  "title": "Ooh Shiny",
+  "desc": "Splice 20 level 3 jobs"
+ },
+ {
+  "index": 58,
+  "id": "Ach_OCD",
+  "sprite": "ac58",
+  "reward": 20,
+  "omit": true,
+  "title": "OCD",
+  "desc": "Complete your collectors' edition set"
+ },
+ {
+  "index": 59,
+  "id": "Ach_AltarVista",
+  "sprite": "ac59",
+  "reward": 0,
+  "omit": true,
+  "title": "Altar Vista",
+  "desc": "Use the Altar"
+ },
+ {
+  "index": 60,
+  "id": "Ach_Altar-NativeTherapy",
+  "sprite": "ac60",
+  "reward": 5,
+  "omit": true,
+  "title": "Altar-Native Therapy",
+  "desc": "Use the Altar 5 times"
+ },
+ {
+  "index": 61,
+  "id": "Ach_MakeKatyProud",
+  "sprite": "ac61",
+  "reward": 1,
+  "omit": true,
+  "title": "Make Katy Proud",
+  "desc": "Put on a fireworks display"
+ },
+ {
+  "index": 62,
+  "id": "Ach_NotADropToDrink",
+  "sprite": "ac62",
+  "reward": 1,
+  "omit": true,
+  "title": "Not A Drop To Drink",
+  "desc": "Build 10 Water tiles"
+ },
+ {
+  "index": 63,
+  "id": "Ach_KeepOff",
+  "sprite": "ac63",
+  "reward": 1,
+  "omit": true,
+  "title": "Keep Off",
+  "desc": "Build 10 Grass tiles"
+ },
+ {
+  "index": 64,
+  "id": "Ach_GamblinMan",
+  "sprite": "ac64",
+  "reward": 1,
+  "omit": true,
+  "title": "Gamblin' Man",
+  "desc": "Spin the Casino 5 times"
+ },
+ {
+  "index": 65,
+  "id": "Ach_RollinDeep",
+  "sprite": "ac65",
+  "reward": 1,
+  "omit": true,
+  "title": "Rollin' Deep",
+  "desc": "Spin the Casino 50 times"
+ },
+ {
+  "index": 66,
+  "id": "Ach_MythBuster",
+  "sprite": "ac66",
+  "reward": 2,
+  "omit": true,
+  "title": "Myth Buster",
+  "desc": "Splice a Secret Animal"
+ },
+ {
+  "index": 67,
+  "id": "Ach_MotherOfMonsters",
+  "sprite": "ac67",
+  "reward": 10,
+  "omit": true,
+  "title": "Mother of Monsters",
+  "desc": "Splice 20 Secret Animals"
+ },
+ {
+  "index": 68,
+  "id": "Ach_BredAndBartered",
+  "sprite": "ac68",
+  "reward": 0,
+  "omit": true,
+  "title": "Bred and Bartered",
+  "desc": "Trade 5 times"
+ },
+ {
+  "index": 69,
+  "id": "Ach_Swapaholic",
+  "sprite": "ac69",
+  "reward": 0,
+  "omit": true,
+  "title": "Swapaholic",
+  "desc": "Trade 50 times"
+ },
+ {
+  "index": 70,
+  "id": "Ach_ImmodestProposal",
+  "sprite": "ac70",
+  "reward": 1,
+  "omit": true,
+  "title": "Immodest Proposal",
+  "desc": "Make a trading offer"
+ },
+ {
+  "index": 71,
+  "id": "Ach_NosyNeighbour",
+  "sprite": "ac71",
+  "reward": 0,
+  "omit": true,
+  "title": "Nosy Neighbour",
+  "desc": "Visit 10 Cities"
+ },
+ {
+  "index": 72,
+  "id": "Ach_GiftHorse",
+  "sprite": "ac72",
+  "reward": 0,
+  "omit": true,
+  "title": "Gift Horse",
+  "desc": "Collect 50 gifts from your friends"
+ },
+ {
+  "index": 73,
+  "id": "Ach_TheTruthIsOutThere",
+  "sprite": "ac73",
+  "reward": 0,
+  "omit": true,
+  "title": "The Truth is Out There",
+  "desc": "Sign in to online services"
+ },
+ {
+  "index": 74,
+  "id": "Ach_AGameOfClones",
+  "sprite": "ac74",
+  "reward": 10,
+  "omit": true,
+  "title": "A Game of Clones",
+  "desc": "Grow your population to 500"
+ },
+ {
+  "index": 75,
+  "id": "Ach_ShoreThing",
+  "sprite": "ac75",
+  "reward": 1,
+  "omit": true,
+  "title": "Shore Thing",
+  "desc": "Build 20 Shore decorations"
+ },
+ {
+  "index": 76,
+  "id": "Ach_VeteranMode",
+  "sprite": "ac76",
+  "reward": 0,
+  "omit": true,
+  "title": "Veteran Mode",
+  "desc": "Used the Casino/Astro Church Strategy"
+ }
+]

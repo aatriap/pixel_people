@@ -1,0 +1,178 @@
+{
+ "seasons": {
+  "THAW": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1
+  ],
+  "SWELL": [
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "HARVEST": [
+   3,
+   3,
+   3,
+   3,
+   3,
+   3,
+   3
+  ],
+  "FROST": [
+   4,
+   4,
+   4,
+   4,
+   4,
+   4,
+   4
+  ]
+ },
+ "events": [
+  {
+   "name": "Halloween",
+   "season": "HARVEST",
+   "month": 10,
+   "day": 31,
+   "weeks": 1
+  },
+  {
+   "name": "Christmas",
+   "season": "FROST",
+   "month": 12,
+   "day": 9,
+   "weeks": 2
+  }
+ ],
+ "layouts": {
+  "1": [
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   }
+  ],
+  "2": [
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   }
+  ],
+  "3": [
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "chroma",
+    "n": 10
+   }
+  ],
+  "4": [
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "chroma",
+    "n": 10
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   },
+   {
+    "kind": "utopium",
+    "n": 1
+   },
+   {
+    "kind": "gift",
+    "n": 1
+   }
+  ]
+ }
+}

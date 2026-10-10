@@ -15,6 +15,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -35,6 +37,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -55,6 +59,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -75,6 +81,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -95,6 +103,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -115,6 +125,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -132,6 +144,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -153,6 +167,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -173,6 +189,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -194,6 +212,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -212,6 +232,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -232,6 +254,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -249,6 +273,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Hippopotamus",
+  "parent2": "Horse",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -268,6 +294,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Horse",
+  "parent2": "Chicken",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -286,6 +314,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Cow",
+  "parent2": "Stag",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -306,6 +336,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Cow",
+  "parent2": "Cheetah",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -323,6 +355,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Horse",
+  "parent2": "Dodo",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -342,6 +376,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Horse",
+  "parent2": "Panda",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -359,6 +395,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Horse",
+  "parent2": "Pig",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -378,6 +416,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Llama",
+  "parent2": "Llama",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -394,6 +434,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Mouse",
+  "parent2": "Moose",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -411,6 +453,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Donkey",
+  "parent2": "Donkey",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -428,6 +472,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Horse",
+  "parent2": "Goat",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -445,6 +491,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Cow",
+  "parent2": "Walrus",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -463,6 +511,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Parrot",
+  "parent2": "Pig",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -481,6 +531,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Chicken",
+  "parent2": "Flamingo",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -500,6 +552,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Mouse",
+  "parent2": "Cheetah",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -517,6 +571,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Cow",
+  "parent2": "Cow",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -536,6 +592,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Zebra",
+  "parent2": "Tabby Cat",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -556,6 +614,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Tiger",
+  "parent2": "Tiger",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -575,6 +635,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Bat",
+  "parent2": "Tiger",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -594,6 +656,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Tiger",
+  "parent2": "Horse",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -611,6 +675,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Horse",
+  "parent2": "Snake",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -628,6 +694,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Hippopotamus",
+  "parent2": "Unicorn",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -645,6 +713,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Sea Lion",
+  "parent2": "Poodle",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -663,6 +733,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Sea Lion",
+  "parent2": "Pug",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -679,6 +751,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Zebra",
+  "parent2": "Brown Bear",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -697,6 +771,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Brown Bear",
+  "parent2": "Harp Seal",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -715,6 +791,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Wolf",
+  "parent2": "Bull",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -732,6 +810,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Brown Bear",
+  "parent2": "Camel",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -748,6 +828,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Brown Bear",
+  "parent2": "Squirrel",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -766,6 +848,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Unicorn",
+  "parent2": "Brown Bear",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -786,6 +870,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "Snail",
+  "parent2": "Snake",
   "cost": 25,
   "omit": false,
   "droppable": true
@@ -802,6 +888,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Wolf",
+  "parent2": "Chow Chow",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -820,6 +908,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Stag",
+  "parent2": "Dragon",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -838,6 +928,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Brown Bear",
+  "parent2": "Octopus",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -857,6 +949,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Chimpanzee",
+  "parent2": "Elephant",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -875,6 +969,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Orangutan",
+  "parent2": "Octopus",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -891,6 +987,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Toucan",
+  "parent2": "Polar Bear",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -909,6 +1007,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Elephant",
+  "parent2": "Elephant",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -927,6 +1027,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Blue Whale",
+  "parent2": "Panda",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -945,6 +1047,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "Snake",
+  "parent2": "Tortoise",
   "cost": 25,
   "omit": false,
   "droppable": true
@@ -962,6 +1066,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Chicken",
+  "parent2": "Bat",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -978,6 +1084,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Parrot",
+  "parent2": "Parrot",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -997,6 +1105,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "Chicken",
+  "parent2": "Gummy Bear",
   "cost": 25,
   "omit": false,
   "droppable": true
@@ -1012,6 +1122,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Parrot",
+  "parent2": "Rhinoceros",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1028,6 +1140,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Lion",
+  "parent2": "Parrot",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1046,6 +1160,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "Tiger",
+  "parent2": "Toucan",
   "cost": 25,
   "omit": false,
   "droppable": true
@@ -1061,6 +1177,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Zebra",
+  "parent2": "Red Panda",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1076,6 +1194,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Panda",
+  "parent2": "Fox",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1093,6 +1213,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Donkey",
+  "parent2": "Horse",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1110,6 +1232,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Goat",
+  "parent2": "Poodle",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1126,6 +1250,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Elephant",
+  "parent2": "Chicken",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1145,6 +1271,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "Chimpanzee",
+  "parent2": "Trout",
   "cost": 25,
   "omit": false,
   "droppable": true
@@ -1162,6 +1290,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "Chameleon",
+  "parent2": "Platypus",
   "cost": 25,
   "omit": false,
   "droppable": true
@@ -1178,6 +1308,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Snake",
+  "parent2": "Mouse",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1194,6 +1326,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Owl",
+  "parent2": "Mouse",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1209,6 +1343,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Chicken",
+  "parent2": "Unicorn",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1226,6 +1362,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Unicorn",
+  "parent2": "Snake",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1243,6 +1381,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Bull",
+  "parent2": "Moose",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1259,6 +1399,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Mouse",
+  "parent2": "Blue Whale",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1275,6 +1417,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Chicken",
+  "parent2": "Pig",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1290,6 +1434,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Mouse",
+  "parent2": "Fox",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1304,6 +1450,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Duck",
+  "parent2": "Fox",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1319,6 +1467,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Trout",
+  "parent2": "Squirrel",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1334,6 +1484,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Lion",
+  "parent2": "Otter",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1351,6 +1503,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Lion",
+  "parent2": "Wolf",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1370,6 +1524,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -1386,6 +1542,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Snake",
+  "parent2": "Chameleon",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1401,6 +1559,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Duck",
+  "parent2": "Eurasian Beaver",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1416,6 +1576,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Horse",
+  "parent2": "Eagle",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1431,6 +1593,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Lion",
+  "parent2": "Eagle",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1447,6 +1611,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Dragon",
+  "parent2": "Flamingo",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1462,6 +1628,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snake",
+  "parent2": "Cerberus",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1477,6 +1645,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Direwolf",
+  "parent2": "Wolf",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1492,6 +1662,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Dragon",
+  "parent2": "Panda",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1507,6 +1679,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Orca",
+  "parent2": "Snake",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1522,6 +1696,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Polar Bear",
+  "parent2": "Gorilla",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1538,6 +1714,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Koala",
+  "parent2": "Red Panda",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1555,6 +1733,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "Harp Seal",
+  "parent2": "Unicorn",
   "cost": 25,
   "omit": false,
   "droppable": true
@@ -1571,6 +1751,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Trout",
+  "parent2": "Lion",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1587,6 +1769,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Tom Cat",
+  "parent2": "Oriental Dragon",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1603,6 +1787,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Octopus",
+  "parent2": "Dragon",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1619,6 +1805,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Tiger",
+  "parent2": "Elephant",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1636,6 +1824,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Wolf",
+  "parent2": "Tiger",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1651,6 +1841,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Lion",
+  "parent2": "Chimpanzee",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1666,6 +1858,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Elephant",
+  "parent2": "Sheep",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1681,6 +1875,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Lion",
+  "parent2": "Goat",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1696,6 +1892,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Panther",
+  "parent2": "Crocodile",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1711,6 +1909,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Goat",
+  "parent2": "Eagle",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -1728,6 +1928,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Owl",
+  "parent2": "Panther",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1746,6 +1948,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Horse",
+  "parent2": "Panther",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1764,6 +1968,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Toucan",
+  "parent2": "Bat",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1781,6 +1987,8 @@
   "seasons": [
    "HARVEST"
   ],
+  "parent1": "Spider",
+  "parent2": "Bat",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1800,6 +2008,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Rabbit",
+  "parent2": "Gummy Bear",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1817,6 +2027,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Donkey",
+  "parent2": "Mousedeer",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1833,6 +2045,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Donkey",
+  "parent2": "Duck",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1849,6 +2063,8 @@
   "seasons": [
    "THAW"
   ],
+  "parent1": "Trout",
+  "parent2": "Harp Seal",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1864,6 +2080,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Lovebird",
+  "parent2": "Duck",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1882,6 +2100,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Parrot",
+  "parent2": "Flamingo",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1898,6 +2118,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "Mouse",
+  "parent2": "Platypus",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1914,6 +2136,8 @@
   "seasons": [
    "SWELL"
   ],
+  "parent1": "White Bass",
+  "parent2": "Mute Swan",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1932,6 +2156,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Fox",
+  "parent2": "Polar Bear",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1950,6 +2176,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Blue Whale",
+  "parent2": "Polar Bear",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1966,6 +2194,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Penguin",
+  "parent2": "Penguin",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -1984,6 +2214,8 @@
   "seasons": [
    "FROST"
   ],
+  "parent1": "Moose",
+  "parent2": "Moose",
   "cost": 45,
   "omit": false,
   "droppable": true
@@ -2000,6 +2232,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Macaw",
+  "parent2": "Flamingo",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2015,6 +2249,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Crocodile",
+  "parent2": "Chameleon",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2031,6 +2267,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Raccoon",
+  "parent2": "Tortoise",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2046,6 +2284,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Trout",
+  "parent2": "Macaw",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2061,6 +2301,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snake",
+  "parent2": "Stingray",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2076,6 +2318,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Trout",
+  "parent2": "Scorpion",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2092,6 +2336,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Spider",
+  "parent2": "Pangolin",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2107,6 +2353,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Tortoise",
+  "parent2": "Squirrel",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2124,6 +2372,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Bull",
+  "parent2": "Brown Bear",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2139,6 +2389,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Chameleon",
+  "parent2": "Snakehead Fish",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2154,6 +2406,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Trout",
+  "parent2": "Snake",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2171,6 +2425,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Squirrel",
+  "parent2": "Snake",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2186,6 +2442,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Spider",
+  "parent2": "Stag",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2201,6 +2459,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Ant",
+  "parent2": "Squirrel",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2215,6 +2475,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snake",
+  "parent2": "Spider",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2231,6 +2493,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Eagle",
+  "parent2": "Buffalo",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2249,6 +2513,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Spider",
+  "parent2": "Chimpanzee",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2264,6 +2530,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Stingray",
+  "parent2": "Panda",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2279,6 +2547,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Mole",
+  "parent2": "Elephant",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2295,6 +2565,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Squirrel",
+  "parent2": "Ostrich",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2310,6 +2582,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Turkey",
+  "parent2": "Cheetah",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2325,6 +2599,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Albatross",
+  "parent2": "Kangaroo",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2341,6 +2617,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snakehead Fish",
+  "parent2": "Praying Mantis",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2357,6 +2635,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hammerhead Shark",
+  "parent2": "Polar Bear",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2373,6 +2653,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hammerhead Shark",
+  "parent2": "Tiger",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2388,6 +2670,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snakehead Fish",
+  "parent2": "Narwhal",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2405,6 +2689,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Carp",
+  "parent2": "Hyena",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2420,6 +2706,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Turkey",
+  "parent2": "Piranha",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2437,6 +2725,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hyena",
+  "parent2": "Koala",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2455,6 +2745,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Gorilla",
+  "parent2": "Red Panda",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2471,6 +2763,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Spider",
+  "parent2": "Scorpion",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2487,6 +2781,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Scorpion",
+  "parent2": "Tortoise",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2502,6 +2798,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snail",
+  "parent2": "Koala",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2517,6 +2815,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Mouse",
+  "parent2": "Parrot",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2533,6 +2833,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Scorpion",
+  "parent2": "Parrot",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2549,6 +2851,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Honey Bee",
+  "parent2": "Swallow",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2565,6 +2869,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Pigeon",
+  "parent2": "Ant",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2580,6 +2886,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Stingray",
+  "parent2": "Mole",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2595,6 +2903,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Stingray",
+  "parent2": "Carp",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2613,6 +2923,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Rhinoceros",
+  "parent2": "Black Mare",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2630,6 +2942,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Cow",
+  "parent2": "Dolphin",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2646,6 +2960,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Squirrel",
+  "parent2": "Bat",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2665,6 +2981,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Wooly Mammoth",
+  "parent2": "Rhinoceros",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2682,6 +3000,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Direwolf",
+  "parent2": "Arctic Fox",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2696,6 +3016,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Gecko",
+  "parent2": "Crocodile",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -2710,6 +3032,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Monitor Lizard",
+  "parent2": "Rattlesnake",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2725,6 +3049,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Honey Bee",
+  "parent2": "Crab",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2741,6 +3067,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Honey Bee",
+  "parent2": "Peacock",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2757,6 +3085,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Orca",
+  "parent2": "Bull",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2773,6 +3103,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Dolphin",
+  "parent2": "Blue Whale",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2789,6 +3121,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Penguin",
+  "parent2": "Toucan",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2806,6 +3140,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Great White Shark",
+  "parent2": "Sabertooth",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2822,6 +3158,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Pig",
+  "parent2": "Bull",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2836,6 +3174,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Ant",
+  "parent2": "Scorpion",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2852,6 +3192,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Scarab",
+  "parent2": "Lovebird",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2867,6 +3209,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Stag",
+  "parent2": "Scarab",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2882,6 +3226,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Praying Mantis",
+  "parent2": "Kangaroo",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2897,6 +3243,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Sailfish",
+  "parent2": "Cow",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2911,6 +3259,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Sailfish",
+  "parent2": "Golden Goose",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2927,6 +3277,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Honey Bee",
+  "parent2": "Scorpion",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -2942,6 +3294,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Spider",
+  "parent2": "Gorilla",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2958,6 +3312,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Raccoon",
+  "parent2": "Humboldt Squid",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -2973,6 +3329,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Squirrel",
+  "parent2": "Tiger",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -2987,6 +3345,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Rattlesnake",
+  "parent2": "Humboldt Squid",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3004,6 +3364,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Pangolin",
+  "parent2": "Snail",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3019,6 +3381,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Great White Shark",
+  "parent2": "Hippopotamus",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3035,6 +3399,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Basking Shark",
+  "parent2": "Blue Whale",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3052,6 +3418,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Stag",
+  "parent2": "Ostrich",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3067,6 +3435,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Carp",
+  "parent2": "Zebra",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3083,6 +3453,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Crocodile",
+  "parent2": "Wild Boar",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3100,6 +3472,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Koala",
+  "parent2": "Squirrel",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3116,6 +3490,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hippopotamus",
+  "parent2": "Pig",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3131,6 +3507,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Owl",
+  "parent2": "Hummingbird",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3147,6 +3525,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Spider Monkey",
+  "parent2": "Squirrel",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3163,6 +3543,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Opossum",
+  "parent2": "Mouse",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3179,6 +3561,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Horse",
+  "parent2": "Snakehead Fish",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3194,6 +3578,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Octopus",
+  "parent2": "Sperm Whale",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3209,6 +3595,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Humboldt Squid",
+  "parent2": "Carp",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3223,6 +3611,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snake",
+  "parent2": "Elephant",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3238,6 +3628,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Python",
+  "parent2": "Beringian Wolf",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3258,6 +3650,8 @@
    "HARVEST",
    "FROST"
   ],
+  "parent1": "",
+  "parent2": "",
   "cost": 8,
   "omit": false,
   "droppable": true
@@ -3273,6 +3667,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Alligator",
+  "parent2": "Pigeon",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3288,6 +3684,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Tengu",
+  "parent2": "Wild Boar",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3303,6 +3701,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Pug",
+  "parent2": "Pygmy Possum",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3319,6 +3719,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Wolf",
+  "parent2": "Raccoon",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3334,6 +3736,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Elephant",
+  "parent2": "Donkey",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3349,6 +3753,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Stag Beetle",
+  "parent2": "Mouse",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3364,6 +3770,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Moose",
+  "parent2": "Spider Monkey",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3379,6 +3787,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Buraq",
+  "parent2": "Loch Ness Monster",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3394,6 +3804,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Turkey",
+  "parent2": "Arctic Fox",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3409,6 +3821,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Butterfly",
+  "parent2": "Golden Retriever",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3424,6 +3838,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Pug",
+  "parent2": "Ushi Oni",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3439,6 +3855,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Corgi",
+  "parent2": "Giraffe",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3454,6 +3872,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hyena",
+  "parent2": "Anansi",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3468,6 +3888,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Bicorn",
+  "parent2": "Wyvern",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3482,6 +3904,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Stag",
+  "parent2": "Albatross",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3496,6 +3920,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Peryton",
+  "parent2": "Golden Goose",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3510,6 +3936,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hippocamp",
+  "parent2": "Sphinx",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3524,6 +3952,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Dolphin",
+  "parent2": "Chameleon",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3538,6 +3968,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Ant",
+  "parent2": "Lion",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3552,6 +3984,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Anansi",
+  "parent2": "Shachihoko",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3566,6 +4000,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Black Spider",
+  "parent2": "Aqrabuamelu",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3580,6 +4016,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Chimpanzee",
+  "parent2": "Scorpion",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3594,6 +4032,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Feng Huang",
+  "parent2": "Bat",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3608,6 +4048,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Belgian Shepherd",
+  "parent2": "Eagle",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3622,6 +4064,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hydra",
+  "parent2": "Peacock",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3636,6 +4080,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Cockatrice",
+  "parent2": "Chamrosh",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3650,6 +4096,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Chamrosh",
+  "parent2": "Buraq",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3664,6 +4112,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Ratatoskr",
+  "parent2": "Ushi Oni",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3678,6 +4128,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Cow",
+  "parent2": "Panther",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3692,6 +4144,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Bicorn",
+  "parent2": "Tsuchigumo",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3706,6 +4160,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Wolf",
+  "parent2": "Crocodile",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3720,6 +4176,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Belgian Shepherd",
+  "parent2": "Spider Monkey",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3734,6 +4192,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Shug Monkey",
+  "parent2": "Bunyip",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3748,6 +4208,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Goat",
+  "parent2": "French Angelfish",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -3762,6 +4224,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Pegasus",
+  "parent2": "Sphinx",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3776,6 +4240,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Black Mare",
+  "parent2": "Seahorse",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3790,6 +4256,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hydra",
+  "parent2": "Buraq",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3804,6 +4272,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Sphinx",
+  "parent2": "Scorpion",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3818,6 +4288,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Panther",
+  "parent2": "Porcupine",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3832,6 +4304,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Carp",
+  "parent2": "Tiger",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3846,6 +4320,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Sea Lion",
+  "parent2": "Sausage Dog",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3860,6 +4336,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Shen",
+  "parent2": "Lusca",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3874,6 +4352,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Snail",
+  "parent2": "Dragon",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3888,6 +4368,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Megalodon",
+  "parent2": "Octopus",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3902,6 +4384,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Weasel",
+  "parent2": "Rattlesnake",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3916,6 +4400,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Electric Eel",
+  "parent2": "Ramidreju",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3930,6 +4416,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Taweret",
+  "parent2": "Elephant",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -3944,6 +4432,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Baku",
+  "parent2": "Kutabe",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -3958,6 +4448,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Hippopotamus",
+  "parent2": "Afanc",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3972,6 +4464,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Yeti",
+  "parent2": "Blue Whale",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -3986,6 +4480,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Tortoise",
+  "parent2": "Rattlesnake",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -4000,6 +4496,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Toad",
+  "parent2": "Afanc",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -4014,6 +4512,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Beluga Whale",
+  "parent2": "Gecko",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -4028,6 +4528,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Sha",
+  "parent2": "Dragon",
   "cost": 150,
   "omit": false,
   "droppable": false
@@ -4042,6 +4544,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Narwhal",
+  "parent2": "Squirrel",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -4056,6 +4560,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Crocodile",
+  "parent2": "Eurasian Beaver",
   "cost": 80,
   "omit": false,
   "droppable": false
@@ -4070,6 +4576,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Cockatrice",
+  "parent2": "Peacock",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -4084,6 +4592,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Kirin",
+  "parent2": "Manticore",
   "cost": 170,
   "omit": false,
   "droppable": false
@@ -4098,6 +4608,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Mishipeshu",
+  "parent2": "Rattlesnake",
   "cost": 160,
   "omit": false,
   "droppable": false
@@ -4115,6 +4627,8 @@
   "seasons": [
    "NONE"
   ],
+  "parent1": "Orca",
+  "parent2": "Sea Lion",
   "cost": 80,
   "omit": false,
   "droppable": false
