@@ -1,7 +1,7 @@
 // Game rules on top of GameState. No Phaser here: everything is plain TS and unit-testable.
 import {
   JOB, JOBS, WORKPLACE, RESIDENCE, DECOR_BY, PATH, TREE, LAND, Cost, POD, TERRAIN_BY, CREDITS,
-  kindOf, footprint, landUse,
+  kindOf, footprint, landUse, jobDisplay,
 } from './data';
 import {
   arrivalTime, buildingCps, buildingTime, coinGen, constructionRushCost, landRow, landUpgradeCost,
@@ -18,6 +18,8 @@ import { PACK_ITEM, Shop } from './shop';
 import { TUTORIAL, TUTORIAL_UTOPIUM, TutAction } from './tutorial';
 
 export const FREE_COOLDOWN = 24 * 3600;
+/** How far (in tiles) from existing buildings the grid reaches. */
+export const BUILD_REACH = 2;
 /** Tutorial steps that only show something; a later real action may pass them (web). */
 const SOFT_TUT = new Set<TutAction>(['next', 'openSite', 'openAC', 'tapPortrait', 'spliceMe', 'card']);
 
@@ -54,7 +56,8 @@ const PATH_FEATURE: Record<string, number> = {
 };
 
 export const RESEARCH_COST = [10, 20, 30, 50, 80, 90, 120];
-export const HEART_MAX = 10;
+/** Hearts on the HUD bar; filling it delivers a surprise (wiki Heart: "11 hearts before bonuses"). */
+export const HEART_BAR = 11;
 export const HOTEL_ROOMS = 6;
 export const DUPLICATE_UTOPIUM = 20;
 export const LAW_FIRM_UTOPIUM = 40;
@@ -65,8 +68,8 @@ export const REVEAL_UTOPIUM = 5;
 export const SPACE_BGS = 6;
 /** Special genes handed out by processUnlockSpecialJobs (02 §3.8). */
 export const SPECIAL_GENE_POOL = ['Dreamer', 'Salesman', 'Explorer'];
-/** Pumps needed to open a stored heart (inferido: the residence heart had to be "pumped" until full). */
-export const HEART_PUMPS = 5;
+/** Seconds the HOLD button must be held for the residence heart to grow to full size (inferido). */
+export const HEART_HOLD_SEC = 1.6;
 
 export interface Result { ok: boolean; msg?: string }
 const tzOffset = (now: number) => -new Date(now * 1000).getTimezoneOffset() * 60;
@@ -260,13 +263,39 @@ export class Game {
     return m;
   }
 
-  /** cBuildManager::canPlaceTileAt: only checks that every footprint cell is free. */
+  /** cBuildManager::canPlaceTileAt: every footprint cell is free and within reach of the city. */
   canPlaceAt(type: string, x: number, y: number, flip = false, ignore?: string): boolean {
     const occ = this.occupied();
-    return footprint(type, flip).every(([dx, dy]) => {
-      const o = occ.get(`${x + dx},${y + dy}`);
-      return o === undefined || o === ignore;
-    });
+    const cells = footprint(type, flip).map(([dx, dy]) => [x + dx, y + dy] as [number, number]);
+    if (!cells.every(([i, j]) => { const o = occ.get(`${i},${j}`); return o === undefined || o === ignore; })) return false;
+    return !this.reachRule || cells.every(([i, j]) => this.inReach(i, j, occ, ignore));
+  }
+
+  /** Why canPlaceAt said no. */
+  placeError(type: string, x: number, y: number, flip = false, ignore?: string): string {
+    const occ = this.occupied();
+    const free = footprint(type, flip).every(([dx, dy]) => { const o = occ.get(`${x + dx},${y + dy}`); return o === undefined || o === ignore; });
+    return free ? 'TOO FAR FROM THE CITY' : 'SPACE OCCUPIED';
+  }
+
+  /** Tests that lay out scattered cities turn the reach rule off. */
+  reachRule = true;
+
+  /**
+   * The buildable grid only reaches BUILD_REACH cells around what is already built (4.20: the grid lines stop
+   * two tiles away from the city and farther spots can't be tapped). An empty map is all in reach.
+   */
+  inReach(i: number, j: number, occ = this.occupied(), ignore?: string): boolean {
+    let any = false;
+    for (const id of occ.values()) if (id !== ignore) { any = true; break; }
+    if (!any) return true;
+    for (let di = -BUILD_REACH; di <= BUILD_REACH; di++) {
+      for (let dj = -BUILD_REACH; dj <= BUILD_REACH; dj++) {
+        const o = occ.get(`${i + di},${j + dj}`);
+        if (o !== undefined && o !== ignore) return true;
+      }
+    }
+    return false;
   }
 
   landUpgradeCost(): number {
@@ -297,6 +326,17 @@ export class Game {
     return null;
   }
 
+  /**
+   * Splicer list fading (web, inferido): true while some job not discovered yet can still be spliced from this gene
+   * and another known gene. Known genes with nothing left to discover are drawn faded.
+   */
+  hasNewRecipes(gene: string): boolean {
+    const known = new Set(this.state.unlockedJobs);
+    return JOBS.some((j) => !known.has(j.name)
+      && ((j.parent1 === gene && known.has(j.parent2)) || (j.parent2 === gene && known.has(j.parent1)))
+      && this.validate(j.parent1, j.parent2) === j.name);
+  }
+
   /** landLimitReached(job): only Workplace 1 matters, and only if none exists yet. */
   landLimitReached(job: string): boolean {
     const wp = JOB.get(job)?.workplaces[0];
@@ -322,6 +362,10 @@ export class Game {
     const s = this.state.slots[slotIdx];
     if (!s || s.state !== 3) return fail('NO CLONE READY TO SPLICE');
     if (!this.state.unlockedJobs.includes(a) || !this.state.unlockedJobs.includes(b)) return fail('UNKNOWN GENE');
+    // web: the tutorial only goes on with the Mechanic gene (the mine), so any other pair would leave it stuck
+    if (this.tutorialActive() && !((a === 'Mayor' && b === 'Mechanic') || (a === 'Mechanic' && b === 'Mayor'))) {
+      return fail('SPLICE THE MAYOR WITH THE MECHANIC');
+    }
     const job = this.validate(a, b);
     if (!job) return fail('NO GENETIC MATCH');
     if (this.state.slots.some((x) => x.state === 4 && x.job === job)) return fail('JOB IS STILL SPLICING');
@@ -373,6 +417,17 @@ export class Game {
   vacantWorkplace(type: string, job: string): Building | undefined {
     return this.state.buildings.find((b) => b.type === type && this.isBuilt(b)
       && !this.workers(b).some((p) => p.job === job));
+  }
+
+  /** Character popup: move an employed clone to a vacant workplace of another type it can work in (web). */
+  relocateWorker(peepId: string, workplaceType: string): Result {
+    const p = this.peep(peepId);
+    if (!p || !p.job || !JOB.get(p.job)?.workplaces.includes(workplaceType)) return fail('CANNOT WORK THERE');
+    if (p.work && this.building(p.work)?.type === workplaceType) return fail('ALREADY WORKING THERE');
+    const b = this.vacantWorkplace(workplaceType, p.job);
+    if (!b) return fail('NO VACANCY');
+    p.work = b.id;
+    return ok(`${jobDisplay(p.job).toUpperCase()} RELOCATED`);
   }
 
   assignClone(slotIdx: number, workplaceType: string): Result {
@@ -489,7 +544,7 @@ export class Game {
     if (PACK_ITEM.has(type) && !this.shop.packUnlocked(type)) return fail('BUY IT AT THE TV STATION FIRST');
     const cost = this.placementCost(type);
     if (!cost) return fail('NOT AVAILABLE');
-    if (!this.canPlaceAt(type, x, y, flip)) return fail('SPACE OCCUPIED');
+    if (!this.canPlaceAt(type, x, y, flip)) return fail(this.placeError(type, x, y, flip));
     const land = landUse(type);
     if (land > this.freeLand()) return fail('EXPAND TO BUILD MORE');
     if (!this.canAfford(cost)) {
@@ -522,7 +577,7 @@ export class Game {
   placeFromInventory(index: number, x: number, y: number, flip: boolean, now = Math.floor(Date.now() / 1000)): Result {
     const it = this.state.inventory[index];
     if (!it) return fail('NOT AVAILABLE');
-    if (!this.canPlaceAt(it.type, x, y, flip)) return fail('SPACE OCCUPIED');
+    if (!this.canPlaceAt(it.type, x, y, flip)) return fail(this.placeError(it.type, x, y, flip));
     const land = landUse(it.type);
     if (land > this.freeLand()) return fail('EXPAND TO BUILD MORE');
     this.state.landUsed += land;
@@ -605,7 +660,7 @@ export class Game {
   moveBuilding(id: string, x: number, y: number): Result {
     const b = this.building(id);
     if (!b) return fail('');
-    if (!this.canPlaceAt(b.type, x, y, b.flip, b.id)) return fail('SPACE OCCUPIED');
+    if (!this.canPlaceAt(b.type, x, y, b.flip, b.id)) return fail(this.placeError(b.type, x, y, b.flip, b.id));
     const moved = b.x !== x || b.y !== y;
     b.x = x; b.y = y;
     if (moved) this.achievements.complete(ACH.MOVER);
@@ -852,7 +907,7 @@ export class Game {
     this.state.utopium -= cost;
     this.state.researchLevel += 1;
     this.state.spiritLimit += 1;
-    this.state.heartCount = Math.min(HEART_MAX, this.state.heartCount + 1);
+    this.addHeart(this.state.lastTick);
     return ok(`RESEARCH LEVEL ${this.state.researchLevel}`);
   }
 
@@ -908,7 +963,6 @@ export class Game {
     if (this.heartNext === -2) this.startHeartCooldown(now, true);
     if (s.hearts.on && !this.building(s.hearts.on)) s.hearts.on = null;
     if (s.landUsed < 22 || s.hearts.on || this.heartNext < 0 || now < this.heartNext) return;
-    if (s.heartCount >= HEART_MAX && !this.instantHearts()) return; // inferido: storage full, no new hearts
     const homes = this.residencesBuilt();
     if (!homes.length) return;
     const b = homes[Math.floor(this.rng() * homes.length)];
@@ -917,27 +971,26 @@ export class Game {
     this.events.push({ type: 'heart', building: b.id });
   }
 
-  /** Tap the heart above a house: stored (max 10), or opened at once after the First Wonder. */
-  tapHeart(now: number): Result {
+  /**
+   * Collect the heart above a house: the residence popup's HOLD button grew it to full size (instantly after the
+   * First Wonder). It fills one heart of the HUD bar; a full bar delivers the "With Love" surprise (getHeartReward)
+   * and the bar restarts at the Research Lab level (resetHeartCount: CURRENT_HEART_COUNT = RESEARCH_LAB_LEVEL).
+   */
+  collectHeart(now: number): Result {
     const s = this.state;
     if (!s.hearts.on) return fail('');
     s.hearts.on = null;
     this.startHeartCooldown(now, false);
-    if (this.instantHearts()) {
-      this.queuePacket(getHeartReward(this.rng, s.level, this.season(this.local(now))));
-      return ok();
-    }
-    s.heartCount = Math.min(HEART_MAX, s.heartCount + 1);
-    return ok('+1 HEART');
+    return this.addHeart(now);
   }
 
-  /** Open a stored heart (after pumping it): getHeartReward. */
-  openHeart(now: number): Result {
+  private addHeart(now: number): Result {
     const s = this.state;
-    if (s.heartCount < 1) return fail('NO HEARTS');
-    s.heartCount -= 1;
-    this.queuePacket(getHeartReward(this.rng, s.level, this.season(this.local(now))));
-    return ok();
+    s.heartCount += 1;
+    if (s.heartCount < HEART_BAR) return ok();
+    s.heartCount = Math.min(s.researchLevel, HEART_BAR - 1);
+    this.queuePacket({ ...getHeartReward(this.rng, s.level, this.season(this.local(now))), love: true });
+    return ok('FULL');
   }
 
   // ---------------------------------------------------------------- trees (03 §4)

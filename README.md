@@ -16,7 +16,7 @@ npx vite preview   # serve dist/
 ```
 
 To install it on an iPhone, open the dev or preview URL in Safari, then choose Share > Add to Home Screen.
-The save lives in the browser's localStorage. **⚙ Settings** has music and sound, SKIP TUTORIAL, EXPORT / IMPORT
+The save lives in the browser's localStorage. **Settings** (SETTINGS button in the Town Hall popup) has music and sound, SKIP TUTORIAL, EXPORT / IMPORT
 (a `.json` file, to move a city between a PC and an iPhone: on iPhone EXPORT opens the share sheet, choose "Save to Files")
 and RESET GAME (asks for confirmation). A new game starts in the tutorial; nothing is saved until the tutorial ends,
 as in the original. Saves from milestones 1 and 2 load with the tutorial already done.
@@ -25,11 +25,22 @@ as in the original. Saves from milestones 1 and 2 load with the tutorial already
 
 - Drag to pan the city. Use the mouse wheel or pinch to zoom.
 - Tap a building to open it. Tapping an idle workplace that has workers restarts its shift for free.
-- **CLONES** opens the Arrival Center, which has 3 slots. From there you rush arrivals, splice and assign jobs.
-- **BUILD** lists houses, decor, paths and trees. Tap the map to place one.
+- Tap the Arrival Center building to open it (3 slots). From there you rush arrivals, splice, and tap a clone to see its
+  card and pick a workplace.
+- Tap free land near the city (the grid reaches two tiles from what is built) for **LAND USAGE**: **BUILD** (residential,
+  plus the workplace categories once the Building Firm allows duplicates), **EXPAND** and **LANDSCAPE** (trees, decor,
+  paths). Pick an item to see its card, then **BUILD** puts it on the spot you tapped.
+- Reward envelopes open by sliding the scissors along "cut here to open"; the card shows what was inside.
 - **EXPAND** buys +10 land (the level-up card applies it). With the Law Firm you can also expand for 40 utopium.
-- Side buttons: **hearts** (stored hearts; pump one to open it), **HQ** (missions, once Utopia HQ is built), **DAY** (calendar reward),
-  **animals**, **ACH** (achievements), **EDIT** (tap a building, then MOVE / FLIP / STORE / DELETE) and **MUSIC** (mute is saved).
+- HUD as in 4.20, with no extra buttons: utopium, discovered jobs (n/450, opens the gallery; the cat button there
+  switches to animals) and coins on the top bar; the 11-heart bar under it; the calendar and "back to the Town Hall"
+  buttons and the Utopia News bar with the SPIRIT WATCH and LAND WATCH at the bottom (tap LAND WATCH to expand).
+  Missions are in Utopia HQ, achievements in the Police Station and settings in the Town Hall.
+- Hearts: tap a heart over a house, then hold the heart button until the big heart fills. The 11th heart sends a
+  "Special Delivery With Love" envelope on its own. After the First Wonder hearts are collected with a single tap.
+- Every building popup ends with **DELETE · MOVE** (plus FLIP and STORE): MOVE, then tap the new spot.
+- Splicer: pick a gene group on each side, then a gene. Faded genes have nothing new left to discover with the genes
+  you know. During the tutorial only MAYOR + MECHANIC can be spliced, so it can't get stuck.
 - Tap the coins counter to trade utopium for coins (also at the Town Hall and the TV Station).
 - Guests walk on the roads: the one with the gene icon gives a special gene, the "?" one shows the mini-quests (COLLECT when done).
 - Rewards (hearts, gifts, missions, the shelter, level-ups) arrive as cards, one at a time; the reward is applied when the card closes.

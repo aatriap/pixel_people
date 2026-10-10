@@ -1,14 +1,14 @@
 // HTML overlay: HUD, menus and popups. Uses the game's UI sprites and the 04b03 font.
 import {
-  Game, ComboKind, FREE_COOLDOWN, F, HEART_MAX, HEART_PUMPS, HOTEL_ROOMS, DUPLICATE_UTOPIUM, LAW_FIRM_UTOPIUM,
+  Game, ComboKind, F, HEART_BAR, HOTEL_ROOMS, DUPLICATE_UTOPIUM, LAW_FIRM_UTOPIUM,
   ENTERPRISE_UTOPIUM, PET_STORE_UTOPIUM,
 } from '../logic/game';
 import {
-  ANIMAL, DECOR, JOB, JOB_BY_ID, MISSION, PATHS, RESIDENCES, STRINGS, TREES, WORKPLACE, Cost, POD,
+  ANIMAL, DECOR, JOB, JOBS, JOB_BY_ID, MISSION, PATHS, RESIDENCES, STRINGS, TREES, WORKPLACE, Cost, POD,
   displayName, jobDisplay, kindOf, landUse,
 } from '../logic/data';
 import { constructionRushCost, landRow, timeTillNoon, timeRushCost } from '../logic/formulas';
-import { LAND } from '../logic/data';
+import { LAND, RESIDENCE, WORKPLACES } from '../logic/data';
 import type { CityScene } from '../render/CityScene';
 import { nowSec } from '../logic/save';
 import { sfx } from './sound';
@@ -17,6 +17,8 @@ export { fmtNum, fmtTime } from './dom';
 import type { Music } from './music';
 import { SEASONS, calendarAt } from '../logic/calendar';
 import { Extras } from './m3';
+import { CAT_COLORS, groupColor } from './colors';
+import { Classic } from './classic';
 import { footprintBox } from '../render/iso';
 const footprintCells = (t: string, x: number, y: number, f: boolean) => footprintBox(t, x, y, f).cells as [number, number][];
 import { TUTORIAL } from '../logic/tutorial';
@@ -34,6 +36,9 @@ type PlaceMode =
   | { kind: 'wonder' }
   | { kind: 'move'; id: string };
 
+/** HeaderTop "78/450": discovered jobs out of the professions (the 23 special genes are not counted). */
+const JOB_TOTAL = JOBS.filter((j) => j.group !== 'Special').length;
+
 const COMBO_IMG: Record<ComboKind, string> = {
   none: 'Splice_NoCombo', old: 'Splice_OldCombo', new: 'Splice_NewCombo', evil: 'Splice_EvilCombo',
 };
@@ -47,15 +52,18 @@ export class UI {
   buildType: string | null = null;
   private placeMode: PlaceMode = { kind: 'buy' };
   editing = false;
+  private moveFromPopup = false;
   private editSel: string | null = null;
   private confirmDelete = false;
 
   x: Extras;
+  c: Classic;
   private tutShown = -2;
   private newsAt = 0;
 
   constructor(public game: Game, public scene: CityScene, public onChange: () => void, public music: Music) {
     this.x = new Extras(this);
+    this.c = new Classic(this);
     this.buildHud();
   }
 
@@ -66,55 +74,40 @@ export class UI {
     const root = $('#ui');
     root.innerHTML = `
       <div class="hud">
-        <div class="bar">
-          <div class="pill" title="Utopium"><img src="assets/ui/Utopium.png"><span id="h-uto"></span></div>
-          <div class="pill" title="Coins" id="p-coins"><img src="assets/ui/Coin.png"><span id="h-coins"></span></div>
-          <div class="pill" title="Chroma"><img src="assets/ui/Chroma.png"><span id="h-chroma"></span></div>
+        <div class="topbar">
+          <div class="tb-left" title="Utopium"><button class="tb-plus" id="p-plus" title="Get coins"></button><img src="assets/ui/Utopium.png"><span id="h-uto"></span></div>
+          <button class="tb-mid" id="p-jobs" title="Gallery"><span id="h-jobs"></span></button>
+          <div class="tb-right" title="Coins" id="p-coins"><span id="h-coins"></span><img src="assets/ui/Coin.png"></div>
         </div>
-        <div class="bar small">
-          <div class="pill" title="Land used / limit">LAND <span id="h-land"></span></div>
-          <div class="pill" title="Civic spirit / limit">SPIRIT <span id="h-spirit"></span></div>
-          <div class="pill" title="Population / housing">POP <span id="h-pop"></span></div>
-          <div class="pill" title="Coins per second">CPS <span id="h-cps"></span></div>
-        </div>
+        <div class="hudrow"><button class="hearts-row" id="s-heart" title="Hearts"></button></div>
       </div>
-      <div class="side">
-        <button class="sidebtn" id="s-heart" title="Hearts"><img src="assets/ui/notif-heart.png"><span id="h-hearts"></span></button>
-        <button class="sidebtn" id="s-missions" title="Missions"><img src="assets/ui/MissionBoxHighlight.png"><span>HQ</span></button>
-        <button class="sidebtn" id="s-cal" title="Calendar"><img id="s-cal-img" src="assets/ui/SeasonArt_Thaw.png"><span>DAY</span></button>
-        <button class="sidebtn" id="s-animals" title="Animals"><img src="assets/ui/AnimalSilhouette.png"><span id="h-animals"></span></button>
-        <button class="sidebtn" id="s-ach" title="Achievements"><img src="assets/ui/ach/ac1.png"><span id="h-ach">ACH</span></button>
-        <button class="sidebtn" id="s-edit" title="Edit"><img src="assets/ui/Movebtn.png"><span>EDIT</span></button>
-        <button class="sidebtn" id="s-music" title="Music"><span id="h-music">BGM</span></button>
-      </div>
-      <div id="spiritwatch" class="hidden"><div class="gauge"><div class="fill" id="sw-fill"></div><img src="assets/ui/SpiritWatch.png"></div><span id="h-sw"></span></div>
       <div id="pending"></div>
-      <div id="news" class="hidden"><span class="nb">LIVE</span><div class="track"><span id="news-text"></span></div></div>
+      <div class="footer420">
+        <button class="cbtn cal" id="s-cal" title="Calendar"></button>
+        <div class="fbar">
+          <button class="cbtn home" id="f-home" title="Back to the Town Hall"></button>
+          <img class="nb" src="assets/ui/UNNewsbar.png">
+          <div id="news" class="track"><span id="news-text"></span></div>
+          <div class="watches">
+            <div id="spiritwatch" class="watch spirit hidden"><span id="h-sw"></span></div>
+            <button class="watch land" id="f-land" title="Land used / limit"><span id="h-land"></span></button>
+          </div>
+        </div>
+      </div>
       <div id="breaking" class="hidden"></div>
       <div id="buildbar" class="hidden"></div>
-      <div class="footer">
-        <button class="sprbtn b-build" id="f-build">BUILD</button>
-        <button class="sprbtn b-splice" id="f-ac">CLONES</button>
-        <button class="sprbtn b-expand" id="f-expand">EXPAND</button>
-        <button class="iconbtn" id="f-menu" title="Settings">⚙</button>
-      </div>
       <div id="toast" class="hidden"></div>
       <div id="tut" class="hidden"></div>
       <div id="modal" class="hidden"></div>`;
     const on = (id: string, f: () => void) => { $(id).onclick = () => { sfx('tap_01'); f(); }; };
-    on('#f-build', () => this.openBuildMenu());
-    on('#f-ac', () => this.openArrivalCenter());
-    on('#f-expand', () => this.openExpand());
-    on('#f-menu', () => this.x.openSettings());
-    on('#s-ach', () => this.x.openAchievements());
     on('#p-coins', () => { if (!this.game.tutorialActive()) this.x.openExchange(); });
-    on('#s-heart', () => this.openHearts());
-    on('#s-missions', () => this.openMissions());
+    on('#p-plus', () => { if (!this.game.tutorialActive()) this.x.openExchange(); });
+    on('#p-jobs', () => { if (!this.game.tutorialActive()) this.c.openGallery(); });
+    on('#s-heart', () => { const on = this.s.hearts.on; if (on) this.scene.focusOn(on); });
     on('#s-cal', () => this.x.openCalendar());
-    on('#s-animals', () => this.openAnimals());
-    on('#s-edit', () => (this.editing ? this.endEdit() : this.startEdit()));
-    on('#s-music', () => { this.s.musicMuted = !this.s.musicMuted; this.music.setMuted(this.s.musicMuted); this.onChange(); });
-    $('#modal').addEventListener('click', (e) => { if (e.target === $('#modal')) this.close(); });
+    on('#f-home', () => { const th = this.s.buildings.find((b) => b.type === 'Town Hall'); if (th) this.scene.focusOn(th.id); });
+    on('#f-land', () => { if (!this.game.tutorialActive()) this.openExpand(); });
+    $('#modal').addEventListener('click', (e) => { if (e.target === $('#modal') && this.panelKind !== 'envelope') this.close(); });
   }
 
   update() {
@@ -122,26 +115,22 @@ export class UI {
     const now = nowSec();
     $('#h-coins').textContent = fmtNum(s.coins);
     $('#h-uto').textContent = fmtNum(s.utopium);
-    $('#h-chroma').textContent = fmtNum(s.chroma);
     $('#h-land').textContent = `${s.landUsed}/${s.landLimit}`;
     $('#h-land').classList.toggle('warn', g.freeLand() <= 3);
-    $('#h-spirit').textContent = `${s.spirit}/${s.spiritLimit}`;
-    $('#h-pop').textContent = `${g.population()}/${g.populationLimit()}`;
-    $('#h-cps').textContent = fmtNum(g.totalCps());
-    $('#h-hearts').textContent = `${s.heartCount}/${HEART_MAX}`;
-    $('#s-heart').classList.toggle('glow', s.heartCount > 0);
-    $('#h-animals').textContent = `${Object.values(s.animals).reduce((a, b) => a + b, 0)}`;
-    $('#h-music').textContent = s.musicMuted ? 'MUTED' : 'MUSIC';
-    $('#s-music').classList.toggle('off', s.musicMuted);
-    const ms = g.missions;
-    $('#s-missions').classList.toggle('hidden', !ms.unlocked());
-    $('#s-missions').classList.toggle('glow', ms.unlocked() && ms.active().some((a) => ms.canComplete(a)));
+    $('#h-jobs').textContent = `${s.unlockedJobs.length}/${JOB_TOTAL}`;
+    // the heart bar: permanent Research Lab hearts first, then the ones collected from houses
+    const hearts = $('#s-heart');
+    const hk = `${s.heartCount}|${s.researchLevel}`;
+    if (hearts.dataset.n !== hk) {
+      hearts.dataset.n = hk;
+      hearts.innerHTML = '';
+      for (let k = 0; k < HEART_BAR; k++) {
+        const img = k < Math.min(s.researchLevel, s.heartCount) ? 'HUDHeartupgrade' : k < s.heartCount ? 'HUDHeart' : 'HUDHeartmissing';
+        hearts.append(h('img', { src: `assets/ui/${img}.png` }));
+      }
+    }
+    hearts.classList.toggle('glow', !!s.hearts.on);
     $('#s-cal').classList.toggle('glow', s.dailyGift);
-    const season = calendarAt(g.local(now)).season;
-    ($('#s-cal-img') as HTMLImageElement).src = `assets/ui/SeasonArt_${season >= 0 ? SEASONS[season][0] + SEASONS[season].slice(1).toLowerCase() : 'Thaw'}.png`;
-    $('#s-edit').classList.toggle('on', this.editing);
-    const acReady = s.slots.some((x) => x.state === 3 || x.state === 5);
-    $('#f-ac').classList.toggle('glow', acReady);
     const pend = $('#pending');
     pend.innerHTML = '';
     if (!this.buildType && !this.editing) {
@@ -152,17 +141,15 @@ export class UI {
       // (a new-job card may replace the Arrival Center, as in milestone 1)
       if (s.packets.length && (!this.panel || (this.panelKind === 'ARRIVAL CENTER' && s.packets[0].type === 0))) this.showPacket(s.packets[0]);
     }
-    $('#h-ach').textContent = `${g.achievements.pendingCount() || 'ACH'}`;
-    $('#s-ach').classList.toggle('glow', g.achievements.pendingCount() > 0);
     // Funeral Parlor: spirit watch
     $('#spiritwatch').classList.toggle('hidden', !s.spiritWatch || g.tutorialActive());
-    $('#h-sw').textContent = `${s.spirit}/${s.spiritLimit} · ${Math.trunc(g.discount() * 100)}% OFF`;
-    $('#sw-fill').style.width = `${Math.min(1, s.spirit / Math.max(1, s.spiritLimit)) * 90}%`;
+    $('#h-sw').textContent = `${s.spirit}/${s.spiritLimit}`;
     // Observatory background
     const bg = `url("assets/ui/bg${s.spaceBg}.png")`;
     if ($('#game').style.backgroundImage !== bg) $('#game').style.backgroundImage = bg;
     // News Agency: live news feed
-    $('#news').classList.toggle('hidden', !s.newsFeed || g.tutorialActive() || !!this.buildType || this.editing);
+    document.body.classList.toggle('placing', !!this.buildType || this.editing);
+    $('#news-text').classList.toggle('hidden', !s.newsFeed || g.tutorialActive());
     if (s.newsFeed && now >= this.newsAt) {
       this.newsAt = now + 16;
       const t = $('#news-text');
@@ -192,7 +179,6 @@ export class UI {
         el.classList.add('hidden');
         this.scene.setMarker(null);
         this.tutShown = -1;
-        for (const id of ['#f-ac', '#f-build', '#f-expand']) ($(id) as HTMLButtonElement).disabled = false;
       }
       return;
     }
@@ -225,17 +211,12 @@ export class UI {
     this.scene.setMarker(mark, !!st.hand || step === 1 || step === 16 || step === 22);
     // highlight the control the step is about
     const sel: Record<number, string> = {
-      3: 'button[data-k="bld-rush"]', 17: 'button[data-k="bld-rush"]', 5: '#f-ac', 18: '#f-ac', 7: 'button[data-k^="arr"]',
-      8: '.slot .portrait.tap', 19: '.slot .portrait.tap', 9: 'button[data-k^="spl"]', 11: '.gene[data-job="Mayor"]',
-      12: '.gene[data-job="Mechanic"]', 13: 'button[data-k="splice-go"]', 20: 'button[data-k^="as"][data-k$="Utopium Mine"]',
-      15: 'button[data-k="disc-place"]',
+      3: 'button[data-k="bld-rush"]', 17: 'button[data-k="bld-rush"]', 7: 'button[data-k^="arr"]',
+      8: '.acslot.tap', 19: '.acslot.tap', 9: 'button[data-k^="spl"]', 11: '.spcol.l .gene[data-job="Mayor"]',
+      12: '.spcol.r .gene[data-job="Mechanic"]', 13: 'button[data-k="splice-go"]', 20: 'button[data-k^="as"][data-k$="Utopium Mine"]',
+      14: '.env-handle', 15: 'button[data-k="disc-place"]',
     };
     if (sel[step]) document.querySelectorAll(sel[step]).forEach((e) => e.classList.add('tut-target'));
-    // gating: only the Arrival Center button and the settings stay usable
-    const acSteps = [5, 6, 7, 8, 9, 10, 11, 12, 13, 18, 19, 20];
-    ($('#f-ac') as HTMLButtonElement).disabled = !acSteps.includes(step);
-    ($('#f-build') as HTMLButtonElement).disabled = true;
-    ($('#f-expand') as HTMLButtonElement).disabled = true;
   }
 
   toast(msg: string, bad = false) {
@@ -249,7 +230,7 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- modal plumbing
-  open(title: string, body: HTMLElement, refresh?: () => void, cls = '', onClose?: () => void) {
+  open(title: string, body: HTMLElement, refresh?: () => void, cls = '', onClose?: () => void, kind = '') {
     const m = $('#modal');
     m.innerHTML = '';
     const close = h('button', { class: 'close', title: 'Close' });
@@ -258,7 +239,7 @@ export class UI {
     m.append(p);
     m.classList.remove('hidden');
     this.panel = p;
-    this.panelKind = cls.includes('card') ? 'card' : cls.includes('splicer') ? 'splicer' : title;
+    this.panelKind = kind || (cls.includes('envelope') ? 'envelope' : cls.includes('card') ? 'card' : cls.includes('splicer') ? 'splicer' : title);
     this.panelRefresh = refresh ?? null;
     this.onPanelClose = onClose ?? null;
     refresh?.();
@@ -294,6 +275,7 @@ export class UI {
   private packetArt(p: Packet): string {
     if (p.id.startsWith('mission:') || p.type === 9 || p.type === 16) return 'MissionPacket';
     if (p.id === 'gift') return 'GIFTpacket';
+    if (p.love) return 'LOVEpacket'; // the full heart bar's "Special Delivery: With Love"
     switch (p.type) {
       case 0: return 'NewJobDiscovered';
       case 1: return 'SpecialPacket';
@@ -305,11 +287,101 @@ export class UI {
     }
   }
 
+  /** A packet arrives as the envelope itself: slide the scissors along "cut here to open" to tear it, then the card shows. */
   showPacket(p: Packet) {
-    if (p.type === 0) { this.showDiscovery(p.id); return; }
+    this.openEnvelope(this.packetArt(p), () => (p.type === 0 ? this.showDiscovery(p.id) : this.revealPacket(p)));
+  }
+
+  private openEnvelope(art: string, reveal: () => void) {
+    const src = `assets/ui/packets/${art}.png`;
+    const env = h('div', { class: 'env' },
+      h('div', { class: 'env-top', style: `background-image:url('${src}')` }),
+      h('div', { class: 'env-bot', style: `background-image:url('${src}')` }));
+    const label = h('img', { class: 'env-label', src: 'assets/ui/packets/NewJobSlidetoReveal.png', draggable: 'false' });
+    const handle = h('img', { class: 'env-handle', src: 'assets/ui/packets/NewJobSlider.png', draggable: 'false' });
+    const cut = h('div', { class: 'env-cut' });
+    env.append(cut, label, handle);
+    const START = 0.169;
+    let drag: { x0: number; w: number } | null = null;
+    let done = false;
+    const setPos = (f: number) => {
+      handle.style.left = `${f * 100}%`;
+      cut.style.width = `${Math.max(0, f - START) * 100}%`;
+      label.style.opacity = `${1 - Math.min(1, (f - START) * 3)}`;
+    };
+    const open = () => {
+      done = true;
+      sfx('Rip.m4a');
+      env.classList.add('torn');
+      window.setTimeout(reveal, 420);
+    };
+    env.addEventListener('pointerdown', (e) => {
+      if (done) return;
+      const r = env.getBoundingClientRect();
+      if (e.clientY < r.top + r.height * 0.72) return; // grab along the cut line only
+      drag = { x0: e.clientX - (parseFloat(handle.style.left || `${START * 100}`) / 100) * r.width, w: r.width };
+      env.setPointerCapture(e.pointerId);
+      handle.classList.add('held');
+      e.preventDefault();
+    });
+    env.addEventListener('pointermove', (e) => {
+      if (!drag || done) return;
+      const f = Math.max(START, Math.min(0.95, (e.clientX - drag.x0) / drag.w));
+      setPos(f);
+      if (f >= 0.8) { drag = null; handle.classList.remove('held'); setPos(0.95); open(); }
+    });
+    const release = () => {
+      if (!drag || done) return;
+      drag = null;
+      handle.classList.remove('held');
+      handle.classList.add('back');
+      setPos(START);
+      window.setTimeout(() => handle.classList.remove('back'), 250);
+    };
+    env.addEventListener('pointerup', release);
+    env.addEventListener('pointercancel', release);
+    setPos(START);
+    this.open('', h('div', { class: 'envwrap' }, env), undefined, 'envelope');
+  }
+
+  /** The card frame of 4.20 (CharacterSplicingFrame tinted per card): top line, dark window, foot line. */
+  private cardFrame(color: string, top: (HTMLElement | string)[], win: (HTMLElement | string)[], foot: string, corner?: HTMLElement): HTMLElement {
+    const f = h('div', { class: 'cframe', style: `--fc:${color}` },
+      h('div', { class: 'ctop' }, ...top), h('div', { class: 'cwin' }, ...win), h('div', { class: 'cfoot' }, foot));
+    if (corner) f.append(corner);
+    return f;
+  }
+
+  private jobCard(job: string, head: string, color: string): HTMLElement {
+    const jd = JOB.get(job)!;
+    const peep = this.s.peeps.find((q) => q.job === job);
+    return this.cardFrame(color, [], [
+      h('div', { class: 'chead' }, head),
+      h('img', { class: 'cimg job', src: this.scene.clonePortrait(job, !!peep?.female, 108) }),
+      h('div', { class: 'cname' }, jobDisplay(job)),
+      h('div', { class: 'csub' }, peep?.female ? jd.femaleName : jd.maleName),
+    ], (jd.quote ?? '').toUpperCase(), h('img', { class: 'ccorner', src: 'assets/ui/Level1-Corner.png' }));
+  }
+
+  private animalCard(name: string, head: string): HTMLElement {
+    const a = ANIMAL.get(name);
+    const seasons = (a?.seasons ?? []).filter((x) => x !== 'NONE');
+    const when = !seasons.length || seasons.length >= 4 ? (STRINGS.Card_AnimalAnySeason ?? 'ANY SEASON')
+      : (STRINGS.Card_AnimalSeason ?? 'MORE FREQUENT DURING %s').replace('%s', seasons.join(' & '));
+    const img = this.animalImg(name, 120);
+    img.classList.add('cimg');
+    return this.cardFrame('#e6dc10', [h('div', { class: 'cseason' }, when), h('div', { class: 'ctier' }, `${STRINGS.Card_Tier ?? 'Tier '}${a?.tier ?? '?'}`)], [
+      h('div', { class: 'cx' }, `x${this.s.animals[name] ?? 1}`),
+      h('div', { class: 'chead' }, head),
+      img,
+      h('div', { class: 'cname' }, name),
+      h('div', { class: 'csub' }, a?.latin ?? ''),
+    ], (STRINGS.Card_AnimalCategory ?? 'CATEGORY: %s').replace('%s', (a?.categories ?? []).join(', ')));
+  }
+
+  private revealPacket(p: Packet) {
     const g = this.game;
-    const body = h('div', { class: 'card' });
-    body.append(h('img', { class: 'packet', src: `assets/ui/packets/${this.packetArt(p)}.png` }));
+    const body = h('div', { class: 'card2' });
     let title = 'YOU GOT A PRESENT!';
     if (p.id.startsWith('mission:')) {
       const md = MISSION.get(p.id.slice(8));
@@ -317,59 +389,63 @@ export class UI {
     } else if (p.id === 'heart') title = STRINGS[`Heart_Quote${Math.abs(p.value) % 6}`] ?? 'LOVE!';
     else if (p.id === 'gift') title = 'A GIFT!';
     const big = (icon: string, text: string) => h('div', { class: 'bigreward' }, h('img', { src: icon }), text);
+    const win: (HTMLElement | string)[] = [];
+    let color = '#3cb4e6';
+    let foot = (STRINGS.Card_Congrats ?? 'CONGRATULATIONS!');
+    let frame: HTMLElement | null = null;
     switch (p.type) {
-      case 1: body.append(h('img', { class: 'big', src: this.scene.clonePortrait(p.id, false, 108) }),
-        h('div', { class: 'jobname' }, jobDisplay(p.id).toUpperCase()), h('div', {}, 'SPECIAL GENE UNLOCKED!')); title = 'SPECIAL GENE!'; break;
+      case 1:
+        frame = this.jobCard(p.id, (STRINGS.Card_SpecialGeneFound_Sub ?? 'SPECIAL GENE FOUND').toUpperCase(), '#e0283c');
+        break;
       case 2: {
         const row = landRow(LAND, this.s.level);
-        title = 'LEVEL UP!';
-        body.append(h('div', { class: 'jobname' }, `LAND LEVEL ${this.s.level + 1}`),
-          h('div', {}, `+${row.land} LAND · +${row.utopium} UTOPIUM`));
+        title = 'LEVEL UP!'; color = '#9a5ae0';
+        win.push(h('img', { class: 'cimg land', src: 'assets/ui/LandscapeMenuIcon.png' }), h('div', { class: 'cname' }, `LEVEL ${this.s.level + 1}`),
+          h('div', { class: 'csub' }, `+${row.land} ${STRINGS.Card_Expand_Land ?? 'LAND'} · +${row.utopium} ${STRINGS.Card_Expand_Utopium ?? 'UTOPIUM'}`));
+        foot = STRINGS.Card_Expand_Quote ?? foot;
         break;
       }
       case 3: case 14: {
-        const a = ANIMAL.get(p.id);
-        if (!this.s.animals[p.id]) title = 'NEW ANIMAL DISCOVERED!';
-        if (p.type === 14) title = this.s.animalRecipes.includes(p.id) ? 'ALTAR SPLICE!' : 'NEW RECIPE!';
-        body.append(this.animalImg(p.id, 96), h('div', { class: 'jobname' }, p.id.toUpperCase()),
-          h('div', {}, `TIER ${a?.tier ?? '?'} · ${(a?.categories ?? []).join(', ').toUpperCase()}`));
+        const head = p.type === 14 ? (this.s.animalRecipes.includes(p.id) ? (STRINGS.Card_AnimalSplicedAtTheAltar ?? 'SPLICED AT THE ALTAR') : 'NEW RECIPE!')
+          : (STRINGS.Card_SpecialDelivery ?? 'SPECIAL DELIVERY').replace(/\\n/g, ' ');
+        frame = this.animalCard(p.id, head);
         break;
       }
       case 50: {
         const [skin, bld] = p.id.split('~');
-        title = (STRINGS.Card_Gacha_Title ?? 'NEW SKIN UNLOCKED').toUpperCase();
-        body.append(h('img', { class: 'wp', src: this.scene.workplaceThumb(skin, 120) }),
-          h('div', { class: 'jobname' }, displayName(bld).toUpperCase()), h('div', {}, (STRINGS.Card_Gacha_Desc ?? '').toUpperCase()));
+        title = (STRINGS.Card_Gacha_Title ?? 'NEW SKIN UNLOCKED').toUpperCase(); color = '#e07a1e';
+        win.push(h('img', { class: 'cimg', src: this.scene.workplaceThumb(skin, 120) }), h('div', { class: 'cname' }, displayName(bld)));
+        foot = (STRINGS.Card_Gacha_Desc ?? '').toUpperCase();
         break;
       }
-      case 4: body.append(big('assets/ui/Coin.png', `+${fmtNum(p.value)} COINS`)); break;
-      case 5: body.append(big('assets/ui/Utopium.png', `+${p.value} UTOPIUM`)); break;
-      case 15: body.append(big('assets/ui/Chroma.png', `+${p.value} CHROMA`)); break;
+      case 4: color = '#e6b41e'; win.push(big('assets/ui/Coin.png', `+${fmtNum(p.value)} COINS`)); break;
+      case 5: color = '#e0409a'; win.push(big('assets/ui/Utopium.png', `+${p.value} UTOPIUM`)); break;
+      case 15: color = '#40c8e0'; win.push(big('assets/ui/Chroma.png', `+${p.value} CHROMA`)); break;
       case 6: case 7:
-        title = 'NEW BUILDING!';
-        body.append(h('img', { class: 'wp', src: this.scene.workplaceThumb(p.id, 120) }),
-          h('div', { class: 'jobname' }, displayName(p.id).toUpperCase()));
+        title = 'NEW BUILDING!'; color = '#3cc85a';
+        win.push(h('img', { class: 'cimg', src: this.scene.workplaceThumb(p.id, 120) }), h('div', { class: 'cname' }, displayName(p.id)));
         break;
-      case 9: body.append(h('div', { class: 'jobname' }, 'NEW COMBOS!'), h('div', {}, `${p.value} NEW RECIPES IN THE SPLICER`)); break;
+      case 9: win.push(h('div', { class: 'cname' }, 'NEW COMBOS!'), h('div', { class: 'csub' }, `${p.value} NEW RECIPES IN THE SPLICER`)); break;
       case 10: {
-        title = '9 ANIMALS PACK!';
+        title = '9 ANIMALS PACK!'; color = '#e6dc10';
         const grid = h('div', { class: 'agrid' });
         for (const a of p.id.split('+')) grid.append(h('div', {}, this.animalImg(a, 44), h('small', {}, a.toUpperCase())));
-        body.append(grid);
+        win.push(grid);
         break;
       }
       case 16: {
         const w = wonderOf(p.id);
         const name = (STRINGS[`${w.key}_DisplayName`] ?? w.key).toUpperCase();
         const last = w.part === WONDER_PARTS[w.key];
-        title = last ? 'WONDER COMPLETE!' : `${name} PART ${w.part}`;
-        body.append(h('img', { class: 'wp', src: this.scene.workplaceThumb(p.id, 120) }),
-          h('div', { class: 'jobname' }, last
+        title = last ? 'WONDER COMPLETE!' : `${name} PART ${w.part}`; color = '#e6b41e';
+        win.push(h('img', { class: 'cimg', src: this.scene.workplaceThumb(p.id, 120) }),
+          h('div', { class: 'csub' }, last
             ? (STRINGS.Wonder_Completed ?? '%s %s').replace('%s', name).replace('%s', STRINGS[`${w.key}_Completed`] ?? '')
             : `PART ${w.part} OF ${WONDER_PARTS[w.key]} COMPLETE!`));
         break;
       }
     }
+    body.append(frame ?? this.cardFrame(color, [], [h('div', { class: 'chead' }, title), ...win], foot));
     const apply = () => {
       const q = g.closePacket();
       sfx('correct_03');
@@ -377,86 +453,11 @@ export class UI {
       if (q && (q.type === 6 || q.type === 7)) this.startInventoryPlace(this.s.inventory.length - 1);
     };
     body.append(btn(p.type === 6 || p.type === 7 ? 'PLACE IT' : 'COLLECT', 'b-green', () => this.close(), false, 'pkt-collect'));
-    sfx('Rip.m4a');
-    this.open(title, body, undefined, 'card', apply);
+    this.open('', body, undefined, 'card', apply);
   }
 
   // ---------------------------------------------------------------- arrival center + splicer
-  openArrivalCenter() {
-    const body = h('div', { class: 'slots' });
-    const refresh = () => {
-      const now = nowSec();
-      body.innerHTML = '';
-      const g = this.game;
-      body.append(h('div', { class: 'hint' },
-        `ARRIVAL TIME ${fmtTime(g.arrivalTime())} · SPLICE TIME ${fmtTime(g.splicingDuration())} · ${g.jobsUnlocked} JOBS`));
-      this.s.slots.forEach((slot, idx) => {
-        const peep = slot.peep ? g.peep(slot.peep) : undefined;
-        const row = h('div', { class: 'slot' });
-        const port = h('div', { class: 'portrait' });
-        const info = h('div', { class: 'info' });
-        const actions = h('div', { class: 'actions' });
-        switch (slot.state) {
-          case 0:
-          case 1:
-            port.append(h('img', { src: 'assets/ui/build-moar-house.png' }));
-            info.append(h('b', {}, slot.state === 1 ? 'IN QUEUE' : 'EMPTY'),
-              h('div', {}, g.firstVacantResidence() ? 'WAITING FOR THE NEXT CLONE' : 'BUILD MORE HOUSES'));
-            if (!g.firstVacantResidence()) actions.append(btn('BUILD', 'b-orange small', () => this.openBuildMenu('res')));
-            break;
-          case 2: {
-            port.append(h('img', { src: 'assets/ui/WaitingClone.png' }));
-            const left = slot.end - now;
-            info.append(h('b', {}, 'CLONE ARRIVING'), h('div', {}, fmtTime(left)), this.progress(1 - left / Math.max(1, slot.end - slot.start)));
-            actions.append(btn(`RUSH ${timeRushCost(left)}u`, 'b-pink small', () => this.act(g.rushArrival(idx, nowSec())), false, `arr${idx}`));
-            break;
-          }
-          case 3:
-            port.append(h('img', { src: this.scene.clonePortrait(null, !!peep?.female) }));
-            info.append(h('b', {}, 'NEW CLONE'), h('div', {}, 'READY TO SPLICE'));
-            port.classList.add('tap');
-            port.addEventListener('click', () => { if (g.tut('tapPortrait')) { sfx('tap_01'); this.onChange(); } });
-            actions.append(btn('SPLICE ME', 'b-green small', () => { g.tut('tapPortrait'); g.tut('spliceMe'); this.openSplicer(idx); }, false, `spl${idx}`));
-            break;
-          case 4: {
-            port.append(h('img', { src: 'assets/ui/SplicingClone.png' }));
-            const left = slot.end - now;
-            info.append(h('b', {}, `SPLICING ${jobDisplay(slot.job!).toUpperCase()}`), h('div', {}, fmtTime(left)),
-              this.progress(1 - left / Math.max(1, slot.end - slot.start)));
-            actions.append(btn(`RUSH ${timeRushCost(left)}u`, 'b-pink small', () => this.act(g.rushSplice(idx, nowSec())), false, `rspl${idx}`));
-            actions.append(this.freeButton(this.s.freeSpliceReadyAt, () => this.act(g.freeSplice(idx, nowSec())), `free${idx}`));
-            break;
-          }
-          case 5: {
-            port.append(h('img', { src: this.scene.clonePortrait(slot.job, !!peep?.female) }));
-            const jd = JOB.get(slot.job!)!;
-            info.append(h('b', {}, jobDisplay(slot.job!).toUpperCase()), h('div', {}, 'NEEDS A WORKPLACE'));
-            port.classList.add('tap');
-            port.addEventListener('click', () => { if (g.tut('tapPortrait')) { sfx('tap_01'); this.onChange(); } });
-            const vac = g.missions.vacancyFor(slot.job!);
-            if (vac) {
-              actions.append(btn(`MISSION: ${MISSION.get(vac.mission.id)!.name.toUpperCase()}`, 'b-pink small',
-                () => { if (this.act(g.missions.deliverClone(idx))) sfx('correct_03'); }, false, `mis${idx}`));
-            }
-            for (const wp of jd.workplaces) {
-              const exists = g.doesBuildingExist(wp);
-              const vacant = g.vacantWorkplace(wp, slot.job!);
-              const pending = this.s.pendingWorkplaces.includes(wp);
-              const label = displayName(wp).toUpperCase();
-              if (vacant) actions.append(btn(label, 'b-green small', () => { if (this.act(g.assignClone(idx, wp), `${jobDisplay(slot.job!).toUpperCase()} HIRED`)) sfx('correct_03'); }, false, `as${idx}${wp}`));
-              else if (pending) actions.append(btn(`PLACE ${label}`, 'b-orange small', () => this.startBuild(wp), false, `pl${idx}${wp}`));
-              else actions.append(btn(exists ? `${label}: NO VACANCY` : `${label}: TO BE DISCOVERED`, 'b-grey small', () => {}, true));
-            }
-            break;
-          }
-        }
-        row.append(port, info, actions);
-        body.append(row);
-      });
-    };
-    if (this.game.tut('openAC')) this.onChange();
-    this.open('ARRIVAL CENTER', body, refresh);
-  }
+  openArrivalCenter() { this.c.openArrivalCenter(); }
 
   progress(f: number): HTMLElement {
     const bar = h('div', { class: 'progress' });
@@ -470,72 +471,105 @@ export class UI {
     return btn('FREE?', 'b-free small', onUse, false, key);
   }
 
+  /**
+   * cSplicerPopup: one gene list on each side. Each list shows the gene groups first; tapping a group
+   * lists its genes (with BACK). Genes with nothing new left to discover are faded (web, inferido).
+   */
   openSplicer(slotIdx: number) {
-    const sel: (string | null)[] = [null, null];
-    const body = h('div', { class: 'splicer' });
     const g = this.game;
-    const genes = h('div', { class: 'genes' });
-    const top = h('div', { class: 'splicetop' });
+    const sel: (string | null)[] = [null, null];
+    const tut = g.tutorialActive();
     const groups = new Map<string, string[]>();
     for (const j of this.s.unlockedJobs) {
       const grp = JOB.get(j)?.group ?? 'Other';
       groups.set(grp, [...(groups.get(grp) ?? []), j]);
     }
-    const render = () => {
+    const fresh = new Map(this.s.unlockedJobs.map((j) => [j, g.hasNewRecipes(j)] as [string, boolean]));
+    // in the tutorial the left list is the Mayor and the right one the Mechanic (the mine is the next step)
+    const only: (string | null)[] = tut ? ['Mayor', 'Mechanic'] : [null, null];
+    const open: (string | null)[] = only.map((j) => (j ? JOB.get(j)?.group ?? null : null));
+    const body = h('div', { class: 'splicer2' });
+    const top = h('div', { class: 'sp-top' });
+    const info = h('div', { class: 'sp-info' });
+    const cols = [h('div', { class: 'spcol l' }), h('div', { class: 'spcol r' })];
+    const color = (j: string | null) => groupColor(j ? JOB.get(j)?.group ?? '' : '');
+    const renderTop = () => {
       top.innerHTML = '';
-      const pick = (k: 0 | 1) => {
+      const box = (k: 0 | 1) => {
         const j = sel[k];
-        const d = h('div', { class: `pick ${j ? 'on' : ''}` });
-        d.append(j ? h('img', { src: this.scene.clonePortrait(j, false) }) : h('span', {}, '?'), h('div', {}, j ? jobDisplay(j).toUpperCase() : 'GENE'));
-        d.addEventListener('click', () => { sel[k] = null; render(); });
+        const d = h('div', { class: `sp-box ${j ? 'on' : ''}`, style: j ? `background:${color(j)}` : '' });
+        if (j) d.append(h('img', { src: this.scene.clonePortrait(j, false, 72) }));
+        d.addEventListener('click', () => { if (sel[k]) { sel[k] = null; render(); } });
         return d;
       };
-      const info = g.combo(sel[0], sel[1]);
-      const mid = h('div', { class: 'combo' }, h('img', { src: `assets/ui/${COMBO_IMG[info.kind]}.png` }));
-      const text = info.kind === 'none' ? (sel[0] && sel[1] ? 'NO GENETIC MATCH' : 'SELECT GENETIC MATERIAL')
-        : info.kind === 'old' ? `KNOWN: ${jobDisplay(info.job!).toUpperCase()}` : 'NEW GENETIC MATCH FOUND!';
-      const land = info.landRequired ? `LAND REQUIRED: ${info.landRequired}` : '';
-      const spliceBtn = btn(`SPLICE (${fmtTime(g.splicingDuration())})`, 'b-green', () => {
+      const c = g.combo(sel[0], sel[1]);
+      const vial = h('button', { class: 'sp-vial', 'data-k': 'splice-go' }, h('img', { src: `assets/ui/${COMBO_IMG[c.kind]}.png` })) as HTMLButtonElement;
+      vial.disabled = c.kind === 'none';
+      handlersSet('splice-go', () => {
         if (this.act(g.startSplice(slotIdx, sel[0]!, sel[1]!, nowSec()))) { sfx('extra_05'); this.openArrivalCenter(); }
-      }, info.kind === 'none', 'splice-go');
-      top.append(pick(0), mid, pick(1), h('div', { class: 'combotext' }, text, land ? h('div', { class: 'land' }, land) : null), spliceBtn);
-      genes.querySelectorAll('.gene').forEach((el) => {
-        const j = (el as HTMLElement).dataset.job!;
-        el.classList.toggle('on', sel.includes(j));
       });
+      top.append(box(0), vial, box(1));
+      info.innerHTML = '';
+      const text = c.kind === 'none' ? (sel[0] && sel[1] ? 'NO GENETIC MATCH' : '')
+        : c.kind === 'old' ? `KNOWN: ${jobDisplay(c.job!).toUpperCase()}` : 'NEW GENETIC MATCH FOUND!';
+      if (c.landRequired) info.append(h('div', { class: 'land' }, `LAND REQUIRED: ${c.landRequired}`));
+      if (text) info.append(h('div', {}, text));
+      if (c.kind !== 'none') info.append(h('div', { class: 'time' }, `TAP THE VIAL TO SPLICE (${fmtTime(g.splicingDuration())})`));
+      info.append(h('div', { class: 'sp-title' }, 'SELECT GENETIC MATERIAL'));
     };
-    for (const [grp, jobs] of [...groups.entries()].sort()) {
-      const sec = h('div', { class: 'group' }, h('div', { class: 'gname' }, grp.toUpperCase()));
-      for (const j of jobs.sort()) {
-        const el = h('div', { class: 'gene' }, h('img', { src: this.scene.clonePortrait(j, false) }), h('span', {}, jobDisplay(j).toUpperCase()));
-        el.dataset.job = j;
-        el.addEventListener('click', () => {
-          sfx('tap_01');
-          if (sel[0] === null) sel[0] = j; else if (sel[1] === null) sel[1] = j; else { sel[0] = sel[1]; sel[1] = j; }
-          if (j === 'Mayor' && g.tut('pickMayor')) this.onChange();
-          if (j === 'Mechanic' && g.tut('pickMechanic')) this.onChange();
-          render();
-        });
-        sec.append(el);
+    const renderCol = (k: 0 | 1) => {
+      const col = cols[k];
+      col.innerHTML = '';
+      const list = h('div', { class: 'sp-list' });
+      const grp = open[k];
+      if (!grp) {
+        // groups that still hold something to discover go first, faded ones last; alphabetical within each part
+        const live = (jobs: string[]) => jobs.some((j) => fresh.get(j));
+        const sorted = [...groups.entries()].sort(([a, ja], [b, jb]) => Number(live(jb)) - Number(live(ja)) || a.localeCompare(b));
+        for (const [name, jobs] of sorted) {
+          const b = h('button', { class: `sp-btn grp ${live(jobs) ? '' : 'dim'}`, style: `background:${groupColor(name)}`, 'data-grp': name }, name.toUpperCase());
+          b.addEventListener('click', () => { sfx('tap_01'); open[k] = name; renderCol(k); });
+          list.append(b);
+        }
+      } else {
+        const back = h('button', { class: 'sp-btn back', style: `color:${groupColor(grp)}` }, 'BACK');
+        back.addEventListener('click', () => { sfx('tap_01'); open[k] = null; renderCol(k); });
+        if (!only[k]) list.append(back);
+        const genes = [...(groups.get(grp) ?? [])]
+          .sort((x, y) => Number(!!fresh.get(y)) - Number(!!fresh.get(x)) || jobDisplay(x).localeCompare(jobDisplay(y)));
+        for (const j of genes) {
+          const b = h('button', {
+            class: `sp-btn gene ${fresh.get(j) ? '' : 'dim'} ${sel[k] === j ? 'on' : ''}`,
+            style: `background:${groupColor(grp)}`, 'data-job': j,
+          }, jobDisplay(j).toUpperCase()) as HTMLButtonElement;
+          b.disabled = !!only[k] && only[k] !== j;
+          b.addEventListener('click', () => {
+            sfx('tap_01');
+            sel[k] = j;
+            if (tut) {
+              let changed = false;
+              if (sel.includes('Mayor')) changed = g.tut('pickMayor') || changed;
+              if (sel.includes('Mechanic')) changed = g.tut('pickMechanic') || changed;
+              if (changed) this.onChange();
+            }
+            render();
+          });
+          list.append(b);
+        }
       }
-      genes.append(sec);
-    }
-    body.append(top, h('div', { class: 'hint' }, 'TIP: TRY SPLICING TWO OF THE SAME TYPE OF GENE'), genes);
-    this.open('SPLICER', body, undefined, 'wide splicer');
+      col.append(list);
+    };
+    const render = () => { renderTop(); renderCol(0); renderCol(1); };
+    body.append(this.backButton(() => this.openArrivalCenter()), top, info, h('div', { class: 'sp-cols' }, ...cols),
+      h('div', { class: 'hint' }, 'TIP: TRY SPLICING TWO OF THE SAME TYPE OF GENE'));
+    this.open('SPLICER', body, undefined, 'splicer');
     render();
   }
 
   /** Card of packet type 0 (new job discovered). Closing it consumes the packet. */
   showDiscovery(job: string) {
-    const jd = JOB.get(job)!;
-    const wp = jd.workplaces[0];
-    const body = h('div', { class: 'card' },
-      h('div', { class: 'eureka' }, 'NEW JOB DISCOVERED!'),
-      h('img', { class: 'big', src: this.scene.clonePortrait(job, false, 108) }),
-      h('div', { class: 'jobname' }, jobDisplay(job).toUpperCase()),
-      h('div', { class: 'quote' }, `"${jd.quote}"`),
-      h('div', {}, `${jd.group.toUpperCase()} · WORKS AT ${jd.workplaces.map((w) => displayName(w).toUpperCase()).join(', ')}`),
-    );
+    const wp = JOB.get(job)!.workplaces[0];
+    const body = h('div', { class: 'card2' }, this.jobCard(job, (STRINGS.Card_JobFound ?? 'GENETIC MATCH FOUND').toUpperCase(), '#1ec88c'));
     let placeAfter = false;
     const tut = this.game.tutorialActive();
     this.game.tut('card');
@@ -546,15 +580,14 @@ export class UI {
       if (placeAfter && !tut) this.startBuild(wp); // in the tutorial, step 16 starts it on the flashing square
     };
     if (wp && this.s.pendingWorkplaces.includes(wp)) {
-      body.append(h('img', { class: 'wp', src: this.scene.workplaceThumb(wp, 120) }),
-        h('div', {}, `FREE ${displayName(wp).toUpperCase()}! IT ONLY NEEDS ${WORKPLACE.get(wp)?.size ?? 1} LAND.`));
+      body.append(h('div', { class: 'cnote' }, `FREE ${displayName(wp).toUpperCase()}! IT ONLY NEEDS ${WORKPLACE.get(wp)?.size ?? 1} LAND.`));
       body.append(btn('PLACE IT NOW', 'b-green', () => { placeAfter = true; this.close(); }, false, 'disc-place'));
       if (!tut) body.append(btn('LATER', 'b-grey small', () => this.close()));
     } else {
       body.append(btn('OK', 'b-green', () => this.close()));
     }
     sfx('discovery_04');
-    this.open('EUREKA!', body, undefined, 'card', done);
+    this.open('', body, undefined, 'card', done);
   }
 
   // ---------------------------------------------------------------- building popups
@@ -567,6 +600,8 @@ export class UI {
     const kind = kindOf(b.type);
     if (kind === 'wonder' && g.state.missions.wonder?.id === b.type) return this.openMission(b.type);
     if (b.buildEnd >= 0 && g.tut('openSite')) this.onChange();
+    if (b.buildEnd < 0 && kind === 'workplace') return this.c.openWorkplace(id);
+    if (b.buildEnd < 0 && kind === 'residence') return this.c.openResidence(id);
     const body = h('div', { class: 'bldg' });
     const refresh = () => {
       const now = nowSec();
@@ -627,7 +662,6 @@ export class UI {
         const res = g.residents(b2);
         const cap = RESIDENCES.find((r) => r.name === b2.type)!.population;
         body.append(h('div', {}, `RESIDENTS ${res.length}/${cap}`));
-        if (this.s.hearts.on === id) body.append(btn('COLLECT HEART', 'b-pink', () => { this.close(); this.tapHeartOn(); }));
         const paint = this.x.paintRow(b2);
         if (paint) body.append(paint);
         const list = h('div', { class: 'jobs' });
@@ -653,7 +687,52 @@ export class UI {
           h('div', { class: 'hint' }, g.missions.wonderPartDone(b2.type) ? 'COMPLETE' : 'IN PROGRESS'));
       }
     };
-    this.open(displayName(b.type).toUpperCase(), body, refresh);
+    // the original popup's bottom bar: DELETE · MOVE (plus FLIP and STORE from edit mode)
+    let sure = false;
+    const withTools = () => {
+      refresh();
+      const b2 = g.building(id);
+      if (!b2 || g.tutorialActive() || !this.panel) return;
+      const blocker = g.removeBlocker(b2);
+      const bar = h('div', { class: 'row popup-tools' });
+      bar.append(
+        btn(sure ? 'SURE?' : 'DELETE', 'b-pink small', () => {
+          if (!sure) { sure = true; withTools(); return; }
+          sure = false;
+          if (this.act(g.deleteBuilding(id))) { sfx('Construction_sound'); this.close(); }
+        }, !!blocker, `pt-del${id}`),
+        btn('MOVE', 'b-green small', () => this.startMove(id), false, `pt-move${id}`));
+      if (g.featureUnlocked(F.FLIP)) bar.append(btn('FLIP', 'b-orange small', () => this.act(g.flipBuilding(id)), false, `pt-flip${id}`));
+      if (g.isBuilt(b2)) bar.append(btn('STORE', 'b-grey small', () => { if (this.act(g.storeBuilding(id))) this.close(); }, !!blocker, `pt-store${id}`));
+      body.append(bar);
+      if (blocker) body.append(h('div', { class: 'hint' }, blocker));
+    };
+    this.open(displayName(b.type).toUpperCase(), body, withTools);
+  }
+
+  /** MOVE from a building popup: tap the new spot (edit mode underneath, closed again once it moved). */
+  startMove(id: string) {
+    const b = this.game.building(id);
+    if (!b) return;
+    this.startEdit();
+    this.editTap(id);
+    this.moveFromPopup = true;
+    this.beginMove(b);
+  }
+
+  private beginMove(b: { id: string; type: string; flip: boolean }) {
+    this.buildType = b.type;
+    this.placeMode = { kind: 'move', id: b.id };
+    this.scene.setBuildMode(b.type, b.flip, b.id);
+    const small = $('#buildbar').querySelector('small');
+    if (small) small.textContent = 'TAP THE NEW SPOT';
+  }
+
+  /** Special buttons of a building, including the milestone 3 ones (shown under the popup's header text). */
+  specialRow(type: string, id: string): HTMLElement {
+    const sp = this.specialButtons(type, id);
+    this.x.specialButtons(type, sp);
+    return sp;
   }
 
   /** The special-function button of each special building (03 §3.2). */
@@ -723,34 +802,24 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- hearts
-  tapHeartOn() {
+  /** A heart over a house was tapped: after the First Wonder it is collected at once, otherwise the house opens to HOLD it. */
+  tapHeartOn(id: string) {
     const g = this.game;
-    if (this.act(g.tapHeart(nowSec()))) sfx('recharge_10');
+    if (!g.instantHearts()) { this.openBuilding(id); return; }
+    if (this.act(g.collectHeart(nowSec()))) sfx('recharge_10');
   }
 
-  /** Stored hearts are opened by pumping them (inferido: HEART_PUMPS taps), instantly after the First Wonder. */
-  openHearts() {
-    const g = this.game;
-    let pumps = 0;
-    const body = h('div', { class: 'hearts' });
-    const refresh = () => {
-      body.innerHTML = '';
-      body.append(h('div', {}, `STORED HEARTS: ${this.s.heartCount}/${HEART_MAX}`),
-        h('div', { class: 'hint' }, this.s.landUsed < 22 ? 'HEARTS APPEAR OVER HOUSES ONCE YOUR CITY USES 22 LAND.'
-          : 'TAP THE HEARTS THAT APPEAR OVER HOUSES TO STORE THEM.'));
-      const need = g.instantHearts() ? 1 : HEART_PUMPS;
-      const heart = h('button', { class: 'bigheart', 'data-k': 'pump' });
-      heart.append(h('img', { src: 'assets/ui/notif-heart.png', style: `transform: scale(${1 + pumps * 0.12})` }));
-      handlersSet('pump', () => {
-        if (this.s.heartCount < 1) { this.toast('NO HEARTS', true); return; }
-        pumps += 1;
-        if (pumps >= need) { pumps = 0; this.act(g.openHeart(nowSec())); this.close(); return; }
-        refresh();
-      });
-      body.append(heart, this.progress(pumps / need), h('div', { class: 'hint' }, need > 1 ? `PUMP THE HEART (${pumps}/${need})` : 'TAP TO OPEN'));
-    };
-    this.open('LOVE', body, undefined);
-    refresh();
+  /** Gallery: a discovered job's card; closing it goes back to the gallery page. */
+  showJobCard(job: string, back: () => void) {
+    const body = h('div', { class: 'card2' }, this.jobCard(job, (STRINGS.Gallery_Title ?? 'GALLERY').toUpperCase(), groupColor(JOB.get(job)?.group ?? '')));
+    body.append(btn('OK', 'b-green', () => this.close(), false, 'card-ok'));
+    this.open('', body, undefined, 'card', back);
+  }
+
+  showAnimalCard(name: string, back: () => void) {
+    const body = h('div', { class: 'card2' }, this.animalCard(name, (STRINGS.Gallery_Title ?? 'GALLERY').toUpperCase()));
+    body.append(btn('OK', 'b-green', () => this.close(), false, 'card-ok'));
+    this.open('', body, undefined, 'card', back);
   }
 
   // ---------------------------------------------------------------- missions (04 §1)
@@ -896,87 +965,194 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- calendar + animals
-  openAnimals() {
-    const body = h('div', { class: 'animals' });
-    const names = Object.keys(this.s.animals).filter((n) => this.s.animals[n] > 0).sort();
-    if (!names.length) body.append(h('div', {}, 'NO ANIMALS YET. COLLECT HEARTS, ADOPT AT THE ANIMAL SHELTER OR OPEN GIFTS.'));
-    const grid = h('div', { class: 'agrid' });
-    for (const n of names) grid.append(h('div', { class: 'acell' }, this.animalImg(n, 44), h('small', {}, `${n.toUpperCase()} x${this.s.animals[n]}`)));
-    body.append(grid);
-    this.open('ANIMALS', body, undefined, 'wide');
+  openAnimals() { this.c.openGallery('animals'); }
+
+  // ---------------------------------------------------------------- land menu and build menus (4.20 layout)
+  /** The free cell the player tapped; BUILD from the land menu places the item right there. */
+  private buildCell: [number, number] | null = null;
+
+  /** The scene reports a tap on a cell with no building: open the land menu when the spot is free and in reach. */
+  tapLand(i: number, j: number) {
+    const g = this.game;
+    if (this.editing || this.buildType || this.panel || g.tutorialActive()) return;
+    if (g.occupied().has(`${i},${j}`) || (g.reachRule && !g.inReach(i, j))) return;
+    sfx('tap_01');
+    this.openLandMenu([i, j]);
   }
 
-  // ---------------------------------------------------------------- build menu
-  openBuildMenu(tab: 'res' | 'decor' | 'path' | 'tree' | 'store' = 'res') {
-    const g = this.game;
-    const body = h('div', { class: 'buildmenu' });
-    const tabs = h('div', { class: 'tabs' });
-    const list = h('div', { class: 'items' });
-    const tabsDef: [typeof tab, string][] = [['res', 'HOUSES'], ['decor', 'DECOR'], ['path', 'PATHS'], ['tree', 'TREES'], ['store', 'STORAGE']];
-    const lockMsg: Record<string, [number, string]> = {
-      decor: [F.DECOR, 'BUILD A PARK TO UNLOCK DECOR'], path: [F.ROADS, 'BUILD A CONSTRUCTION YARD TO UNLOCK ROADS'],
-      tree: [F.TREES, 'BUILD A NURSERY TO UNLOCK TREES'],
-    };
-    const show = (t: typeof tab) => {
-      tabs.querySelectorAll('button').forEach((b) => b.classList.toggle('on', (b as HTMLElement).dataset.t === t));
-      list.innerHTML = '';
-      if (t === 'store') {
-        if (!this.s.inventory.length) list.append(h('div', { class: 'hint' }, 'STORED AND REWARD BUILDINGS SHOW UP HERE.'));
-        this.s.inventory.forEach((it, i) => {
-          const card = h('div', { class: 'item' }, h('img', { src: this.scene.workplaceThumb(it.type, 72) }),
-            h('div', { class: 'iname' }, displayName(it.type).toUpperCase()), costLine({ coins: 0, utopium: 0, chroma: 0 }, landUse(it.type)));
-          card.addEventListener('click', () => { sfx('tap_01'); this.close(); this.startInventoryPlace(i); });
-          list.append(card);
-        });
-        return;
-      }
-      const lock = lockMsg[t];
-      if (lock && !g.featureUnlocked(lock[0])) {
-        list.append(h('div', { class: 'locked' }, h('img', { src: 'assets/ui/status_lock.png' }), lock[1]));
-        if (t !== 'path') return;
-      }
-      const items: { type: string; cost: Cost | null; extra?: string; spirit?: number }[] = [];
-      if (t === 'res') {
-        for (const r of RESIDENCES) {
-          if (!this.scene.hasFrame(r.name)) continue;
-          if (/^iap|^AGResidence|^Special/.test(r.name) && !(PACK_ITEM.has(r.name) && g.shop.packUnlocked(r.name))) continue;
-          if (!r.cost.coins && !r.cost.utopium && !r.cost.chroma) continue;
-          items.push({ type: r.name, cost: r.cost, extra: `${r.population} BEDS · ${fmtTime(g.buildTime(r.name))}` });
-        }
-      } else if (t === 'decor') {
-        const cats = ['Basic', 'Inspiring', 'Spectacular', 'Magnificent', 'Chroma (Normal)'];
-        for (const d of DECOR) {
-          const pack = PACK_ITEM.has(d.name);
-          if ((pack ? !g.shop.packUnlocked(d.name) : !cats.includes(d.category)) || !d.cost || !this.scene.hasFrame(d.name)) continue;
-          items.push({ type: d.name, cost: d.cost, spirit: d.spirit, extra: d.category.toUpperCase() });
-        }
-      } else if (t === 'path') {
-        for (const p of PATHS) if (p.cost && this.scene.hasFrame(p.name) && g.typeUnlocked(p.name)) items.push({ type: p.name, cost: p.cost, extra: p.pathType.toUpperCase() });
-      } else {
-        for (const tr of TREES) {
-          const pack = PACK_ITEM.has(tr.name) && g.shop.packUnlocked(tr.name);
-          if (tr.cost && (/^Tree\d+$/.test(tr.name) || pack) && this.scene.hasFrame(tr.name)) items.push({ type: tr.name, cost: tr.cost });
-        }
-      }
-      for (const it of items) {
-        const can = g.canAfford(it.cost!) && landUse(it.type) <= g.freeLand();
-        const card = h('div', { class: `item ${can ? '' : 'dim'}` },
-          h('img', { src: this.scene.workplaceThumb(it.type, 72) }),
-          h('div', { class: 'iname' }, displayName(it.type).toUpperCase()),
-          costLine(it.cost, landUse(it.type), it.spirit),
-          it.extra ? h('small', {}, it.extra) : null);
-        card.addEventListener('click', () => { sfx('tap_01'); this.close(); this.startBuild(it.type); });
-        list.append(card);
-      }
-    };
-    for (const [t, label] of tabsDef) {
-      const b = btn(label, 'tab', () => show(t));
-      b.dataset.t = t;
-      tabs.append(b);
+  /** Tap on a free spot of the grid: LAND USAGE with BUILD / EXPAND / LANDSCAPE. */
+  openLandMenu(cell: [number, number] | null) {
+    this.buildCell = cell;
+    const s = this.s;
+    const body = h('div', { class: 'm2 landmenu' });
+    body.append(h('div', { class: 'm2head' }, 'LAND USAGE:', h('br'), `${s.landUsed}/${s.landLimit}`),
+      h('img', { class: 'landart', src: 'assets/ui/LandscapeMenuIcon.png' }),
+      btn('BUILD', 'b-orange big', () => this.openBuildCats(), false, 'lm-build'),
+      btn('EXPAND', 'b-yellow big', () => this.openExpand(), false, 'lm-expand'),
+      btn('LANDSCAPE', 'b-green big', () => this.openLandscapeCats(), false, 'lm-land'));
+    this.open('', body, undefined, 'm-olive');
+  }
+
+  /** Coloured list buttons, as in the 4.20 build menus. */
+  private menuList(title: string, rows: { label: string; color: string; dim?: boolean; onClick: () => void }[],
+    back: (() => void) | null, cls = 'm-olive') {
+    const body = h('div', { class: 'm2' });
+    body.append(h('div', { class: 'm2head' }, title));
+    if (back) body.append(this.backButton(back));
+    const list = h('div', { class: 'm2list' });
+    for (const r of rows) {
+      const b = h('button', { class: `m2btn ${r.dim ? 'dim' : ''}`, style: `--c:${r.color}` }, r.label);
+      b.addEventListener('click', () => { sfx('tap_01'); r.onClick(); });
+      list.append(b);
     }
-    body.append(tabs, list);
-    this.open('BUILD', body, undefined, 'wide');
-    show(tab);
+    if (!rows.length) list.append(h('div', { class: 'hint' }, 'NOTHING HERE YET'));
+    body.append(list);
+    this.open('', body, undefined, cls);
+  }
+
+  private backButton(onBack: () => void): HTMLElement {
+    const b = h('button', { class: 'backbtn', title: 'Back' });
+    b.addEventListener('click', () => { sfx('tap_01'); onBack(); });
+    return b;
+  }
+
+  /** BUILD: residential, the workplace categories once the Building Firm allows duplicates, and storage. */
+  openBuildCats() {
+    const g = this.game;
+    const rows = [{ label: STRINGS.BuildMenu_Category_0 ?? 'RESIDENTIAL', color: CAT_COLORS.RESIDENTIAL, onClick: () => this.openItems('res') }];
+    if (g.featureUnlocked(F.DUPLICATE)) {
+      for (let k = 1; k <= 7; k++) {
+        const cat = STRINGS[`BuildMenu_Category_${k}`];
+        if (!cat || !this.buildItems(`wp:${cat}`).length) continue;
+        rows.push({ label: cat, color: CAT_COLORS[cat] ?? '#5a4a8a', onClick: () => this.openItems(`wp:${cat}`) });
+      }
+    }
+    if (this.s.inventory.length) rows.push({ label: 'STORAGE', color: CAT_COLORS.STORAGE, onClick: () => this.openStorage() });
+    this.menuList('BUILDINGS', rows, () => this.openLandMenu(this.buildCell));
+  }
+
+  /** LANDSCAPE: trees, decor (by category) and paths, each behind its unlocking building. */
+  openLandscapeCats() {
+    const g = this.game;
+    const lock = (f: number, msg: string, open: () => void) => () => (g.featureUnlocked(f) ? open() : this.toast(msg, true));
+    this.menuList('LANDSCAPE', [
+      { label: STRINGS.Landscape_Category_0 ?? 'TREE', color: CAT_COLORS.TREE, dim: !g.featureUnlocked(F.TREES),
+        onClick: lock(F.TREES, 'BUILD A NURSERY TO UNLOCK TREES', () => this.openItems('tree')) },
+      { label: STRINGS.Landscape_Category_1 ?? 'DECOR', color: CAT_COLORS.DECOR, dim: !g.featureUnlocked(F.DECOR),
+        onClick: lock(F.DECOR, 'BUILD A PARK TO UNLOCK DECOR', () => this.openDecorCats()) },
+      { label: STRINGS.Landscape_Category_2 ?? 'PATH', color: CAT_COLORS.PATH, onClick: () => this.openItems('path') },
+    ], () => this.openLandMenu(this.buildCell));
+  }
+
+  private openDecorCats() {
+    const cats = [...new Set(this.buildItems('decor').map((it) => it.group!))];
+    this.menuList('DECOR', cats.map((c) => ({
+      label: (STRINGS[`Landscape_Category_${c}`] ?? c).toUpperCase(), color: CAT_COLORS.DECOR, onClick: () => this.openItems(`decor:${c}`),
+    })), () => this.openLandscapeCats());
+  }
+
+  private openStorage() {
+    this.menuList('STORAGE', this.s.inventory.map((it, i) => ({
+      label: displayName(it.type), color: CAT_COLORS.STORAGE, onClick: () => { this.close(); this.startInventoryPlace(i); },
+    })), () => this.openBuildCats());
+  }
+
+  /** Items of a build list: 'res', 'wp:<CATEGORY>', 'decor', 'decor:<category>', 'path' or 'tree'. */
+  private buildItems(t: string): { type: string; cost: Cost; group?: string }[] {
+    const g = this.game;
+    const items: { type: string; cost: Cost; group?: string }[] = [];
+    if (t === 'res') {
+      for (const r of RESIDENCES) {
+        if (!this.scene.hasFrame(r.name)) continue;
+        if (/^iap|^AGResidence|^Special/.test(r.name) && !(PACK_ITEM.has(r.name) && g.shop.packUnlocked(r.name))) continue;
+        if (!r.cost.coins && !r.cost.utopium && !r.cost.chroma) continue;
+        items.push({ type: r.name, cost: r.cost });
+      }
+    } else if (t.startsWith('wp:')) {
+      const cat = t.slice(3);
+      for (const w of WORKPLACES) {
+        if (w.category === cat && g.canDuplicate(w.name) && this.scene.hasFrame(w.name)) items.push({ type: w.name, cost: g.placementCost(w.name)! });
+      }
+    } else if (t.startsWith('decor')) {
+      const cats = ['Basic', 'Inspiring', 'Spectacular', 'Magnificent', 'Chroma (Normal)'];
+      for (const d of DECOR) {
+        const pack = PACK_ITEM.has(d.name);
+        if ((pack ? !g.shop.packUnlocked(d.name) : !cats.includes(d.category)) || !d.cost || !this.scene.hasFrame(d.name)) continue;
+        const group = pack ? 'Special' : d.category.replace(' (Normal)', '');
+        if (t.includes(':') && t.slice(6) !== group) continue;
+        items.push({ type: d.name, cost: d.cost, group });
+      }
+    } else if (t === 'path') {
+      for (const p of PATHS) if (p.cost && this.scene.hasFrame(p.name) && g.typeUnlocked(p.name)) items.push({ type: p.name, cost: p.cost });
+    } else if (t === 'tree') {
+      for (const tr of TREES) {
+        const pack = PACK_ITEM.has(tr.name) && g.shop.packUnlocked(tr.name);
+        if (tr.cost && (/^Tree\d+$/.test(tr.name) || pack) && this.scene.hasFrame(tr.name)) items.push({ type: tr.name, cost: tr.cost });
+      }
+    }
+    return items;
+  }
+
+  /** A list of item names; tapping one opens its card. Kept for callers that ask for a tab (Arrival Center: 'res'). */
+  openBuildMenu(tab: 'res' | 'decor' | 'path' | 'tree' | 'store' = 'res') {
+    this.buildCell = null;
+    if (tab === 'store') this.openStorage(); else this.openItems(tab);
+  }
+
+  private openItems(t: string) {
+    const g = this.game;
+    const color = t === 'res' ? CAT_COLORS.RESIDENTIAL : t.startsWith('wp:') ? CAT_COLORS[t.slice(3)] ?? '#5a4a8a'
+      : t.startsWith('decor') ? CAT_COLORS.DECOR : t === 'path' ? CAT_COLORS.PATH : CAT_COLORS.TREE;
+    const title = t === 'res' || t.startsWith('wp:') ? 'BUILDINGS' : t.startsWith('decor') ? 'DECOR' : t === 'path' ? 'PATH' : 'TREE';
+    const back = t === 'res' || t.startsWith('wp:') ? () => this.openBuildCats()
+      : t.startsWith('decor:') ? () => this.openDecorCats() : () => this.openLandscapeCats();
+    this.menuList(title, this.buildItems(t).map((it) => ({
+      label: displayName(it.type), color, dim: !g.canAfford(it.cost) || landUse(it.type) > g.freeLand(),
+      onClick: () => this.openItemCard(it.type, it.cost, color, () => this.openItems(t)),
+    })), back);
+  }
+
+  /** The item card: picture, description, build time, capacity, land cost, price and BUILD. */
+  private openItemCard(type: string, cost: Cost, color: string, back: () => void) {
+    const g = this.game;
+    const kind = kindOf(type);
+    const body = h('div', { class: 'm2 itemcard' });
+    const head = kind === 'residence' ? (STRINGS.BuildMenu_Category_0 ?? 'RESIDENTIAL') : kind === 'workplace'
+      ? WORKPLACE.get(type)?.category ?? 'BUILDING' : kind.toUpperCase();
+    body.append(h('div', { class: 'm2head dim' }, head), this.backButton(back),
+      h('img', { class: 'bigthumb', src: this.scene.workplaceThumb(type, 200) }),
+      h('div', { class: 'iname' }, displayName(type).toUpperCase()));
+    const desc = buildPreview(type);
+    if (desc) body.append(h('div', { class: 'desc' }, desc));
+    const stats = h('div', { class: 'stats' });
+    if (kind === 'residence' || kind === 'workplace') stats.append(h('div', {}, `Build Time: ${fmtTime(g.buildTime(type))}`));
+    if (kind === 'residence') stats.append(h('div', {}, `Capacity: ${RESIDENCE.get(type)?.population ?? 0}`));
+    if (kind === 'decor') stats.append(h('div', {}, `Civic Spirit: +${DECOR.find((d) => d.name === type)?.spirit ?? 0}`));
+    stats.append(h('div', {}, `Land Cost: ${landUse(type)}`));
+    if (cost.utopium) stats.append(h('div', { class: 'price' }, `${cost.utopium}U`));
+    if (cost.chroma) stats.append(h('div', { class: 'price' }, `${cost.chroma} CHROMA`));
+    if (cost.coins || (!cost.utopium && !cost.chroma)) stats.append(h('div', { class: 'price' }, cost.coins ? `${fmtNum(cost.coins)} COINS` : 'FREE'));
+    body.append(stats, btn('BUILD', 'b-orange big', () => this.buildHere(type), false, 'ic-build'));
+    this.open('', body, undefined, 'm-card');
+    (this.panel as HTMLElement).style.setProperty('--c', color);
+  }
+
+  /** BUILD on the item card: straight onto the tapped spot when it fits, otherwise pick a spot on the map. */
+  private buildHere(type: string) {
+    const g = this.game;
+    const cell = this.buildCell;
+    this.close();
+    const k = kindOf(type);
+    if (cell && g.canPlaceAt(type, cell[0], cell[1])) {
+      const r = g.place(type, cell[0], cell[1], false, nowSec());
+      if (!this.act(r)) return;
+      sfx(k === 'path' ? 'tap_01' : 'Construction_sound');
+      this.buildCell = null;
+      // paths, trees and decor keep the placing mode so a row can be laid tap after tap
+      if (k === 'path' || k === 'tree' || k === 'decor') this.startBuild(type);
+      return;
+    }
+    this.startBuild(type);
   }
 
   private showBar(type: string, text: string, cost: HTMLElement | null) {
@@ -1031,7 +1207,13 @@ export class UI {
     const g = this.game;
     const mode = this.placeMode;
     if (mode.kind === 'move') {
-      if (this.act(g.moveBuilding(mode.id, i, j))) { sfx('Construction_sound'); this.buildType = null; this.scene.setBuildMode(null); this.renderEditBar(); }
+      if (this.act(g.moveBuilding(mode.id, i, j))) {
+        sfx('Construction_sound');
+        this.buildType = null;
+        this.placeMode = { kind: 'buy' };
+        this.scene.setBuildMode(null);
+        if (this.moveFromPopup) this.endEdit(); else this.renderEditBar();
+      }
       return;
     }
     if (mode.kind === 'inventory') {
@@ -1067,6 +1249,7 @@ export class UI {
 
   endEdit(refresh = true) {
     this.editing = false;
+    this.moveFromPopup = false;
     this.editSel = null;
     this.scene.select(null);
     this.buildType = null;
@@ -1094,12 +1277,7 @@ export class UI {
         btn('DONE', 'b-grey small', () => this.endEdit(), false, 'edit-done'));
       return;
     }
-    const doMove = () => {
-      this.buildType = b.type;
-      this.placeMode = { kind: 'move', id: b.id };
-      this.scene.setBuildMode(b.type, b.flip, b.id);
-      bar.querySelector('small')!.textContent = 'TAP THE NEW SPOT';
-    };
+    const doMove = () => this.beginMove(b);
     const blocker = g.removeBlocker(b);
     bar.append(h('img', { src: this.scene.workplaceThumb(b.type, 40) }),
       h('div', { class: 'bname' }, displayName(b.type).toUpperCase(), h('br'), h('small', {}, blocker ? blocker.replace('YOU CANNOT DELETE ', 'CANNOT REMOVE ') : 'NO REFUNDS ON DELETE')));
@@ -1118,28 +1296,49 @@ export class UI {
 
   // ---------------------------------------------------------------- land
   openExpand() {
-    const body = h('div', { class: 'expand' });
+    const body = h('div', { class: 'm2 expand2' });
     const refresh = () => {
       const g = this.game;
       const row = landRow(LAND, this.s.level);
       const cost = g.landUpgradeCost();
+      const quotes = Object.keys(STRINGS).filter((k) => k.startsWith('TerrainUpgrade_Quote')).sort();
+      const quote = quotes.length ? STRINGS[quotes[this.s.level % quotes.length]] : '';
+      const blocked = g.levelUpPending();
       body.innerHTML = '';
       body.append(
-        h('div', {}, `LAND LEVEL ${this.s.level}`),
-        h('div', {}, `LAND ${this.s.landUsed}/${this.s.landLimit} → ${this.s.landUsed}/${this.s.landLimit + row.land}`),
-        h('div', {}, `REWARD: +${row.land} LAND, +${row.utopium} UTOPIUM`),
-        h('div', { class: 'hint' }, `SPIRIT DISCOUNT ${(g.discount() * 100).toFixed(1)}% (BASE ${fmtNum(row.cost)})`),
-        costLine({ coins: cost, utopium: 0, chroma: 0 }),
-        btn('EXPAND', 'b-yellow', () => { if (this.act(g.expandLand())) { sfx('discovery_04'); this.close(); } }, this.s.coins < cost || g.levelUpPending(), 'expand'),
+        h('div', { class: 'm2head' }, 'LAND USAGE:', h('br'), `${this.s.landUsed}/${this.s.landLimit}`),
+        h('img', { class: 'landart', src: 'assets/ui/LandscapeMenuIcon.png' }),
+        h('div', { class: 'lvl' }, `LEVEL${this.s.level + 1}`),
+        h('div', { class: 'quote' }, `"${quote}"`),
+        h('div', { class: 'rewards' }, 'REWARDS:', h('br'), `+${row.land} LAND, +${row.utopium} UTOPIUM`),
       );
+      const yb = h('button', { class: 'xbtn yellow', 'data-k': 'expand' },
+        h('span', { class: 'xl' }, 'EXPAND'), h('span', { class: 'xp' }, h('img', { src: 'assets/ui/Coin.png' }), fmtNum(cost)),
+        h('span', { class: 'xd' }, `DISCOUNT: ${(g.discount() * 100).toFixed(2)}%`)) as HTMLButtonElement;
+      yb.disabled = this.s.coins < cost || blocked;
+      handlersSet('expand', () => { if (this.act(g.expandLand())) { sfx('discovery_04'); this.close(); } });
+      body.append(yb);
       if (g.featureUnlocked(F.LAW_FIRM)) {
-        body.append(h('div', { class: 'hint' }, 'LAW FIRM: LEGAL LOOPHOLES LET YOU LEVEL UP WITH UTOPIUM'),
-          btn(`EXPAND FOR ${LAW_FIRM_UTOPIUM}u`, 'b-pink', () => { if (this.act(g.expandWithUtopium())) { sfx('discovery_04'); this.close(); } }, this.s.utopium < LAW_FIRM_UTOPIUM || g.levelUpPending(), 'expand-u'));
+        const pb = h('button', { class: 'xbtn pink', 'data-k': 'expand-u' },
+          h('span', { class: 'xl' }, 'EXPAND'), h('span', { class: 'xp' }, h('img', { src: 'assets/ui/Utopium.png' }), `${LAW_FIRM_UTOPIUM}`),
+          h('span', { class: 'xd' }, 'LEGAL LOOPHOLE')) as HTMLButtonElement;
+        pb.disabled = this.s.utopium < LAW_FIRM_UTOPIUM || blocked;
+        handlersSet('expand-u', () => { if (this.act(g.expandWithUtopium())) { sfx('discovery_04'); this.close(); } });
+        body.append(pb);
       }
+      if (blocked) body.append(h('div', { class: 'hint lt' }, 'LEVEL UP FIRST'));
     };
-    this.open('EXPAND UTOPIA', body, refresh);
+    this.open('', body, refresh, 'm-olive');
   }
 
+
+}
+
+/** "<Name>_BuildPreview" from text_english (the key's case differs for some buildings). */
+function buildPreview(type: string): string {
+  const k = `${type}_BuildPreview`.toLowerCase();
+  for (const [key, v] of Object.entries(STRINGS)) if (key.toLowerCase() === k) return v;
+  return '';
 }
 
 function md0Title(id: string): string {

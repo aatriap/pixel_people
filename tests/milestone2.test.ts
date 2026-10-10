@@ -16,6 +16,7 @@ const T0 = DAY0 + 9 * 3600;
 
 function game(seed = 1, now = T0): Game {
   const g = Game.fresh(now);
+  g.reachRule = false; // these tests scatter buildings far apart
   g.rng = seeded(seed);
   g.localOffset = () => 0;
   return g;
@@ -126,7 +127,7 @@ describe('hearts (notes.md)', () => {
     g.state.landUsed = 22;
     g.tick(T0 + 5);
     expect(g.state.hearts.on).toBe('Residence1_1');
-    expect(g.tapHeart(T0 + 6).ok).toBe(true);
+    expect(g.collectHeart(T0 + 6).ok).toBe(true);
     expect(g.state.heartCount).toBe(1);
     expect(g.heartNext - (T0 + 6)).toBeGreaterThanOrEqual(5);
     expect(g.heartNext - (T0 + 6)).toBeLessThanOrEqual(10);
@@ -143,23 +144,21 @@ describe('hearts (notes.md)', () => {
     g.tick(T0 + 3);
     expect(g.state.hearts.on).not.toBeNull();
   });
-  it('stores at most 10 and opening one queues getHeartReward', () => {
+  it('the 11th heart fills the bar: a "With Love" getHeartReward packet and the bar restarts at the lab level', () => {
     const g = game(4);
     g.state.landUsed = 30;
-    g.state.heartCount = 10;
+    g.state.heartCount = 9;
+    g.state.researchLevel = 2;
     g.tick(T0); g.tick(T0 + 20);
-    expect(g.state.hearts.on).toBeNull(); // storage full
-    expect(g.openHeart(T0 + 20).ok).toBe(true);
-    expect(g.state.heartCount).toBe(9);
-    expect([3, 4]).toContain(g.state.packets[0].type);
-  });
-  it('after the First Wonder a tapped heart opens at once', () => {
-    const g = game(4);
-    g.state.missions.wonderMap.Monument = 9;
+    expect(g.state.hearts.on).not.toBeNull(); // a full bar never stops new hearts
+    expect(g.collectHeart(T0 + 20).ok).toBe(true);
+    expect(g.state.heartCount).toBe(10);
+    expect(g.state.packets.length).toBe(0);
     g.state.hearts.on = 'Residence1_1';
-    g.tapHeart(T0);
-    expect(g.state.heartCount).toBe(0);
-    expect(g.state.packets.length).toBe(1);
+    expect(g.collectHeart(T0 + 21).msg).toBe('FULL');
+    expect(g.state.heartCount).toBe(2);
+    expect([3, 4]).toContain(g.state.packets[0].type);
+    expect(g.state.packets[0].love).toBe(true);
   });
   it('getHeartReward: coins only below land level 4, ranges per heartEarnedCoin', () => {
     const rng = seeded(9);

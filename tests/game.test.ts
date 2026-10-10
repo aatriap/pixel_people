@@ -140,10 +140,15 @@ describe('building and land', () => {
     const g = Game.fresh(T0);
     expect(g.place('Residence1', 0, 0, false, T0).msg).toBe('SPACE OCCUPIED'); // Arrival Center
     expect(g.place('Residence1', 1, 1, false, T0).msg).toBe('SPACE OCCUPIED'); // its 2x2 footprint
-    expect(g.place('Residence1', 30, 30, false, T0).ok).toBe(true);
+    // the grid only reaches 2 tiles around the city
+    expect(g.place('Residence1', 30, 30, false, T0).msg).toBe('TOO FAR FROM THE CITY');
+    expect(g.place('Residence1', 3, 3, false, T0).ok).toBe(true);
+    expect(g.place('Residence1', 6, 3, false, T0).ok).toBe(false);
+    expect(g.place('Residence1', 5, 3, false, T0).ok).toBe(true);
   });
   it('decor adds spirit and land; paths use no land', () => {
     const g = Game.fresh(T0);
+    g.reachRule = false;
     // milestone 2: decor needs the Park (feature 0) and roads the Construction Yard (feature 5)
     expect(g.place('Bush1', 5, 5, false, T0).msg).toBe('LOCKED');
     g.state.buildings.push({ id: 'Park_x', type: 'Park', x: 20, y: 20, flip: false, buildStart: -1, buildEnd: -1, shiftStart: -1, level: 1 });

@@ -128,7 +128,7 @@ def main():
     com += collect('always_on_screen_ui/always_on_screen', ['Notif-Clone', 'Notif-NewJob', 'Notif-House', 'Utopium',
                                                             'notif-heart', 'notification_tree', 'Notif-Utopium',
                                                             'Notif-Gift', 'Notif-Empty', 'notif_specialgene',
-                                                            'Notif-Hint', 'Notif-NewSkin'],
+                                                            'Notif-Hint', 'Notif-NewSkin', 'GroundTileBig_1'],
                    'always_on_screen_ui/sprites/')
     # milestone 2: wonders (one 1x1 tile per part), the Mission Pod and the animals
     wonders = ['MonumentPart%d' % i for i in range(1, 10)] + ['Monument3Part%d' % i for i in range(1, 5)] + \
@@ -155,6 +155,7 @@ def main():
     for j in jobs:
         for s in ('M', 'F'):
             cn += ['%d%s' % (j['id'], s), '%d%s_L' % (j['id'], s)]
+        cn.append('%d' % j['id'])  # special genes (1001...): one unisex outfit drawn over Male1/Female1
     chars = [(n, im) for n, im in ((n, frame('characters/_characters_ss', 'characters/%s.png' % n)) for n in
                                    cn + ['CloneMale', 'FemaleClone', 'Male1', 'Female1', '2001', '2001_L', '2005',
                                          '2005_L']) if im is not None]
@@ -189,15 +190,19 @@ def main():
                              'KRPack_BoxArt', 'CTPack_BoxArt', 'XmasPack_BoxArt', 'NaturePack_BoxArt',
                              'HalloweenPack_BoxArt', 'THPack_BoxArt', 'SaveButton', 'BusinessBg', 'HintPerson',
                              'Gallery_Arrow_button', 'ToAltarButton', 'Casino_Spin', 'Casino_Spin_Pressed',
-                             'NewJobGlow', 'status_star', 'Special Building Button2', 'BoxBlue', 'BoxPurple'],
+                             'NewJobGlow', 'status_star', 'Special Building Button2', 'BoxBlue', 'BoxPurple',
+                             # improvements 2: land menu, expand, reward cards
+                             'CharacterSplicingFrame', 'LandscapeMenuIcon', 'Expand_Pink', 'Expand_Pink_pressed'],
         'tutorial/_tutorial_ss': ['narrator_box', 'mouth_shape_1', 'mouth_shape_2', 'mouth_shape_3', 'mouth_shape_4',
                                   'mouth_shape_5'],
         'localization/english/image_english': ['TutorialNextbtn_normal', 'TutorialNextbtn_pressed', 'SpiritWatch',
-                                               'breaking_news_1', 'UNNewsbar'],
+                                               'breaking_news_1', 'UNNewsbar', 'LandWatch', 'Level1-Corner', 'UtopiaCorp'],
     }
     ui['always_on_screen_ui/always_on_screen'] += ['Season_Thaw', 'Season_Swell', 'Season_Harvest', 'Season_Frost',
                                                    'Season_Calendar', 'GiftPacket', 'NewsFeedBar', 'notif_specialgene',
-                                                   'Notif-Hint', 'Notif-NewSkin']
+                                                   'Notif-Hint', 'Notif-NewSkin', 'HUDHeartmissing',
+                                                   'ReturnTownHall_button', 'ReturnTownHall_pressed',
+                                                   'Season_Calendar_pressed', 'UITopBar_IPX_extension']
     prefix = {'always_on_screen_ui/always_on_screen': 'always_on_screen_ui/sprites/', 'popups/_popupsSS': 'popups/',
               'tutorial/_tutorial_ss': 'tutorial/sprites/',
               'localization/english/image_english': 'localization/english/'}
@@ -227,7 +232,10 @@ def main():
     for n in ('GIFTpacket', 'LevelUpPacket', 'LOVEpacket', 'NewAnimalDiscovered', 'NewJobDiscovered', 'SpecialPacket',
               'MissionPacket', 'NineAnimalsPacket', 'ShopPacket', 'ArcadePacket'):
         im = frame('pack_opening_ui/sprites/_pack_opening_ss', 'pack_opening_ui/sprites/%s-hd.png' % n)
-        im.resize((240, 360), Image.LANCZOS).save(os.path.join(OUT, 'ui', 'packets', n + '.png'), optimize=True)
+        im.resize((400, 600), Image.LANCZOS).save(os.path.join(OUT, 'ui', 'packets', n + '.png'), optimize=True)
+    for n in ('NewJobSlider', 'NewJobSlidetoReveal'):  # the "slide to open" handle and label
+        frame('pack_opening_ui/sprites/_pack_opening_ss', 'pack_opening_ui/sprites/%s-hd.png' % n).save(
+            os.path.join(OUT, 'ui', 'packets', n + '.png'))
     # background music (06: the .m4a versions) and the packet "rip" sound
     os.makedirs(os.path.join(OUT, 'music'))
     for n in ('Outer Space Theme RMX 1', 'Outer Space Theme RMX 2', 'Small Town Far In Space', 'Outer Space'):
@@ -246,8 +254,44 @@ def main():
         ic = icon.resize((size, size), Image.NEAREST if size % icon.width == 0 else Image.LANCZOS)
         bg.alpha_composite(ic)
         bg.convert('RGB').save(os.path.join(pub, fn))
+    hud_extras()
     print('pages', manifest)
     print('missing (no sprite in the APK):', missing)
 
 
-main()
+def hud_extras():
+    """4.20 HUD round: popup frames, clone card, vacant slot, residence heart, gallery (single PNGs in ui/)."""
+    ui = os.path.join(OUT, 'ui')
+    want = {
+        'popups/_popupsSS': ('popups/', ['BusinessdescriptionBox', 'CharacterJobBox', 'CharacterJobBoxempty',
+                                         'JobAvailableBG', 'EvacuateButton', 'EvacuateButton_Pressed', 'HeartBG',
+                                         'CurrentlyEmployed', 'Gallery_Arrow_pressed', 'BoxRed']),
+        'localization/english/image_english': ('localization/english/', ['HeartFG', 'HeartFGPressed']),
+        'always_on_screen_ui/always_on_screen': ('always_on_screen_ui/sprites/', ['HUDHeartupgrade']),
+        'gallery_ui/sprites/_gallery_ss': ('gallery_ui/sprites/', ['Animal_Button', 'Animal_Button_Pressed',
+                                                                    'Human-Button', 'Human-Button-Pressed',
+                                                                    'Gallery_Close_Button', 'Gallery_Close_Pressed']),
+    }
+    for sp, (prefix, names) in want.items():
+        for n in names:
+            im = frame(sp, prefix + n + '.png')
+            if im is not None:
+                im.save(os.path.join(ui, n.replace(' ', '_') + '.png'))
+            else:
+                print('missing', n)
+    # gallery background: the teal tile for jobs, and a pink copy for animals (the 4.20 animal gallery is pink)
+    tile = Image.open(os.path.join(RES, 'gallery_ui/sprites/Gallery_BG_tile.png')).convert('RGB')
+    tile.save(os.path.join(ui, 'Gallery_BG_tile.png'))
+    pink = Image.new('RGB', tile.size)
+    base = tile.getpixel((0, 0))
+    for y in range(tile.height):
+        for x in range(tile.width):
+            r, g, b = tile.getpixel((x, y))
+            k = (r + g + b) / max(1, sum(base))  # brightness relative to the tile's background
+            pink.putpixel((x, y), tuple(min(255, int(c * k)) for c in (240, 96, 104)))
+    pink.save(os.path.join(ui, 'Gallery_BG_tile_pink.png'))
+    shutil.copy(os.path.join(RES, 'Sins.ttf'), os.path.join(OUT, 'fonts', 'Sins.ttf'))
+
+
+if __name__ == '__main__':
+    main()

@@ -40,7 +40,7 @@ export interface PathData { name: string; displayName: string; cost: Cost | null
 export interface TreeData { name: string; displayName: string; cost: Cost | null; landCost: number }
 export interface LandRow { level: number; cost: number; land: number; utopium: number }
 export interface AnimalData {
-  id: number; name: string; tier: number; categories: string[]; seasons: string[]; cost: number;
+  id: number; name: string; latin?: string; tier: number; categories: string[]; seasons: string[]; cost: number;
   omit: boolean; droppable: boolean; parent1: string; parent2: string;
 }
 export interface MissionData {

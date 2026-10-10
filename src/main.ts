@@ -47,7 +47,7 @@ async function start() {
         const b = game.building(id);
         if (!b) return;
         if (ui.editing) { ui.editTap(id); return; }
-        if (game.state.hearts.on === id) { ui.tapHeartOn(); changed(); return; }
+        if (game.state.hearts.on === id) { ui.tapHeartOn(id); changed(); return; }
         // tutorial step 22: "tap on the mine to start work there"
         if (b.type === 'Utopium Mine' && game.state.tutorial === 22 && game.tapWorkplace(id, nowSec()).ok) { sfx('recharge_10'); changed(); return; }
         if (b.treeReady && kindOf(b.type) === 'tree') { game.tapTree(id, nowSec()); flushEvents(); changed(); return; }
@@ -58,7 +58,7 @@ async function start() {
         ui.openBuilding(id);
       },
       onPlace: (type: string, i: number, j: number) => ui.place(type, i, j),
-      onTapEmpty: () => undefined,
+      onTapEmpty: (i: number, j: number) => ui.tapLand(i, j),
       onTapGuest: (code: number, job?: string) => { if (!ui.editing && !ui.buildType) ui.x.onGuest(code, job); },
       onReady: () => ready(),
     },
