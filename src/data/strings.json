@@ -1,0 +1,19 @@
+{
+ "Splicer_Success": "SUCCESS!",
+ "Splicer_GeneticMatchFound": "GENETIC MATCH FOUND",
+ "Splicer_Splicing": "SPLICING...",
+ "Splicer_StillSplicing": "JOB IS STILL SPLICING",
+ "Splicer_StillAssigning": "THIS JOB IS WAITING FOR ASSIGNMENT",
+ "Splicer_LandLimitReached": "UTOPIA NEEDS MORE LAND",
+ "Splicer_SelectText": "SELECT GENETIC MATERIAL",
+ "Splicer_Tip": "TIP: TRY SPLICING TWO OF THE\\nSAME TYPE OF GENE",
+ "Splicer_LandRequired": "Land Required: ",
+ "Splicer_Mission": "MISSION: CREATE %s",
+ "Splicer_SentToRocket": "CLONE SENT TO MISSION POD",
+ "Splicer_SentToVessel": "CLONE SENT TO EXPEDITION",
+ "Splicer_Back": "BACK",
+ "Splicer_Cost": "COST",
+ "SplicerPopup_TimeRemain": "TIME REMAINING: %s",
+ "Insufficient_Coin_Notif": "NOT ENOUGH COINS",
+ "LandLimitReached_Notif": "EXPAND TO BUILD MORE"
+}

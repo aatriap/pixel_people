@@ -1,0 +1,122 @@
+[
+ {
+  "name": "Tree1",
+  "displayName": "Dimension Tree",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "Tree2",
+  "displayName": "Andromeda Oak",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "Tree3",
+  "displayName": "Mercurial Olive",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "Tree4",
+  "displayName": "Jupiter Juniper",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "Tree5",
+  "displayName": "Sunny Spruce",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "Tree6",
+  "displayName": "Plutonian Pine",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "Tree7",
+  "displayName": "Parsec Palm",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "Tree101",
+  "displayName": "ASTRO TREE",
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 200
+  },
+  "landCost": 0
+ },
+ {
+  "name": "SpecialTree1",
+  "displayName": "Whopping Woods",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "SpecialTree2",
+  "displayName": "Yawning Glen",
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1
+ },
+ {
+  "name": "SeasonalTree",
+  "displayName": "Cepheid Blossom",
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 200
+  },
+  "landCost": 0
+ },
+ {
+  "name": "JapTree1",
+  "displayName": "Bluemoon Bamboo",
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 200
+  },
+  "landCost": 0
+ }
+]

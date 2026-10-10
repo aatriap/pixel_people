@@ -1,0 +1,254 @@
+[
+ {
+  "level": 1,
+  "cost": 10000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 2,
+  "cost": 25000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 3,
+  "cost": 80000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 4,
+  "cost": 150000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 5,
+  "cost": 260000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 6,
+  "cost": 490000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 7,
+  "cost": 960000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 8,
+  "cost": 1800000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 9,
+  "cost": 3200000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 10,
+  "cost": 5400000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 11,
+  "cost": 9000000,
+  "land": 10,
+  "utopium": 1
+ },
+ {
+  "level": 12,
+  "cost": 14000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 13,
+  "cost": 22000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 14,
+  "cost": 34000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 15,
+  "cost": 49000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 16,
+  "cost": 70000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 17,
+  "cost": 94000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 18,
+  "cost": 120000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 19,
+  "cost": 140000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 20,
+  "cost": 160000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 21,
+  "cost": 180000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 22,
+  "cost": 200000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 23,
+  "cost": 220000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 24,
+  "cost": 240000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 25,
+  "cost": 260000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 26,
+  "cost": 280000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 27,
+  "cost": 300000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 28,
+  "cost": 320000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 29,
+  "cost": 340000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 30,
+  "cost": 360000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 31,
+  "cost": 380000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 32,
+  "cost": 400000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 33,
+  "cost": 420000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 34,
+  "cost": 440000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 35,
+  "cost": 460000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 36,
+  "cost": 480000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 37,
+  "cost": 500000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 38,
+  "cost": 520000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 39,
+  "cost": 540000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 40,
+  "cost": 560000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 41,
+  "cost": 580000000,
+  "land": 10,
+  "utopium": 2
+ },
+ {
+  "level": 42,
+  "cost": 600000000,
+  "land": 10,
+  "utopium": 2
+ }
+]

@@ -1,0 +1,790 @@
+[
+ {
+  "name": "Residence1",
+  "displayName": "Rocky Mansions",
+  "population": 2,
+  "baseConstructionSec": 240,
+  "cost": {
+   "coins": 5000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "costType": "Cash",
+  "landCost": 1,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "Residence4",
+  "displayName": "Terra Terrace",
+  "population": 4,
+  "baseConstructionSec": 480,
+  "cost": {
+   "coins": 12000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "costType": "Cash",
+  "landCost": 2,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "Residence7",
+  "displayName": "Solar Nexus",
+  "population": 6,
+  "baseConstructionSec": 960,
+  "cost": {
+   "coins": 20000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "costType": "Cash",
+  "landCost": 3,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    -1,
+    0
+   ],
+   [
+    0,
+    -1
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "Residence3",
+  "displayName": "Atomic Cottage",
+  "population": 4,
+  "baseConstructionSec": 7200,
+  "cost": {
+   "coins": 30000,
+   "utopium": 3,
+   "chroma": 0
+  },
+  "costType": "CashUtopium",
+  "landCost": 1,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "Residence6",
+  "displayName": "Heavenly House",
+  "population": 6,
+  "baseConstructionSec": 10800,
+  "cost": {
+   "coins": 50000,
+   "utopium": 3,
+   "chroma": 0
+  },
+  "costType": "CashUtopium",
+  "landCost": 2,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "Residence2",
+  "displayName": "Shiny Tower",
+  "population": 6,
+  "baseConstructionSec": 86400,
+  "cost": {
+   "coins": 200000,
+   "utopium": 6,
+   "chroma": 0
+  },
+  "costType": "CashUtopium",
+  "landCost": 1,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "AGResidence1",
+  "displayName": "MANOR OF SPEAKING",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 5,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "AGResidence2",
+  "displayName": "PRECARIOUS HEIGHTS",
+  "population": 4,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 100
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "AGResidence3",
+  "displayName": "GLASS HOUSE",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "costType": "Cash",
+  "landCost": 0,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "AGResidence4",
+  "displayName": "UTOPIAN MANSION",
+  "population": 4,
+  "baseConstructionSec": 0,
+  "cost": {
+   "coins": 0,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "costType": "Cash",
+  "landCost": 0,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "SpecialResidence1",
+  "displayName": "Glassy Tower",
+  "population": 6,
+  "baseConstructionSec": 86400,
+  "cost": {
+   "coins": 200000,
+   "utopium": 6,
+   "chroma": 0
+  },
+  "costType": "CashUtopium",
+  "landCost": 1,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "SpecialResidence2",
+  "displayName": "Stack Tower",
+  "population": 6,
+  "baseConstructionSec": 86400,
+  "cost": {
+   "coins": 200000,
+   "utopium": 6,
+   "chroma": 0
+  },
+  "costType": "CashUtopium",
+  "landCost": 1,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "noniapHouseLoft1",
+  "displayName": "Lofty Heights",
+  "population": 4,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 100
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseLoft2",
+  "displayName": "Hearty Loft",
+  "population": 4,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 100
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseTrailer1",
+  "displayName": "Residential Vehicle",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseTrailer2",
+  "displayName": "Parked Trailer",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseTent1",
+  "displayName": "Single Tent",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseTent2",
+  "displayName": "Twin Tents",
+  "population": 4,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 100
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseBouncyCastle1",
+  "displayName": "Bouncy Castle",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseBouncyCastle2",
+  "displayName": "Jumpy Fort",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseTech1",
+  "displayName": "Home Wreckage",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "noniapHouseTech2",
+  "displayName": "Recycled Residence",
+  "population": 2,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 50
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "iapHouseTower",
+  "displayName": "Tall House",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "iapHouseYacht",
+  "displayName": "Love Boat",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "iapHouseYacht2",
+  "displayName": "Yacht House",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "iapHouseVilla",
+  "displayName": "Super Manse",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "iapHouseTownhouse",
+  "displayName": "Town House",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "iapHouseBoathouse",
+  "displayName": "Boat House",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "EarthDayHouse1",
+  "displayName": "Guinigi Towers",
+  "population": 4,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 100
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "EarthDayHouse2",
+  "displayName": "Capsule Model 1",
+  "population": 4,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 100
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "EarthDayHouse3",
+  "displayName": "Bagend Bungalow",
+  "population": 4,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 100
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "EarthDayHouse4",
+  "displayName": "The Tevat",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "KorResidence1",
+  "displayName": "Duplex Complex",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ },
+ {
+  "name": "SpecialResidence3",
+  "displayName": "Alleviative Abode",
+  "population": 6,
+  "baseConstructionSec": 86400,
+  "cost": {
+   "coins": 200000,
+   "utopium": 6,
+   "chroma": 0
+  },
+  "costType": "CashUtopium",
+  "landCost": 1,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "SpecialResidence4",
+  "displayName": "Heritage Home",
+  "population": 4,
+  "baseConstructionSec": 7200,
+  "cost": {
+   "coins": 30000,
+   "utopium": 3,
+   "chroma": 0
+  },
+  "costType": "CashUtopium",
+  "landCost": 1,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Land"
+ },
+ {
+  "name": "JapResidence1",
+  "displayName": "Sento Residence",
+  "population": 6,
+  "baseConstructionSec": 120,
+  "cost": {
+   "coins": 0,
+   "utopium": 15,
+   "chroma": 200
+  },
+  "costType": "UtopiumChroma",
+  "landCost": 0,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ],
+  "kind": "Astro"
+ }
+]

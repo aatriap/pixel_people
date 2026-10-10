@@ -1,0 +1,23 @@
+{
+  "name": "pixel-people-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "build-data": "python3 scripts/build-data.py",
+    "build-assets": "python3 scripts/build-assets.py"
+  },
+  "devDependencies": {
+    "playwright-core": "1.56.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.3"
+  },
+  "dependencies": {
+    "phaser": "^3.90.0"
+  }
+}

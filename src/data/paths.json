@@ -1,0 +1,68 @@
+[
+ {
+  "name": "PlainR",
+  "displayName": "Roadways",
+  "cost": {
+   "coins": 1000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "pathType": "Road"
+ },
+ {
+  "name": "PlainW",
+  "displayName": "Waterways",
+  "cost": {
+   "coins": 5000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "pathType": "Waterways"
+ },
+ {
+  "name": "DirtR",
+  "displayName": "Lost Woods",
+  "cost": {
+   "coins": 1000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "pathType": "Dirtroad"
+ },
+ {
+  "name": "RailR",
+  "displayName": "Railroads",
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "pathType": "Railroad"
+ },
+ {
+  "name": "IceWallR",
+  "displayName": "Ice Walls",
+  "cost": {
+   "coins": 15000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "pathType": "IceWall"
+ },
+ {
+  "name": "SkyR",
+  "displayName": "ATAS Highstreet",
+  "cost": {
+   "coins": 1000000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 0,
+  "pathType": "Skyroad"
+ }
+]

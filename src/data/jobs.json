@@ -1,0 +1,7688 @@
+[
+ {
+  "id": 1,
+  "name": "Mayor",
+  "displayName": "Mayor",
+  "parent1": "DEFAULT",
+  "parent2": "DEFAULT",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Adam Zappel",
+  "femaleName": "Eve Newyear",
+  "quote": "HOW ON EARTH WAS I CREATED?",
+  "workplaces": [
+   "Town Hall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 2,
+  "name": "Mechanic",
+  "displayName": "Mechanic",
+  "parent1": "DEFAULT",
+  "parent2": "DEFAULT",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Adam Baum",
+  "femaleName": "Eve Jobs",
+  "quote": "SPLICE SPLICE SPLICE, THAT'S ALL THEY EVER ASK",
+  "workplaces": [
+   "SpacePort"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 3,
+  "name": "Engineer",
+  "displayName": "Engineer",
+  "parent1": "Mayor",
+  "parent2": "Mechanic",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Cameron Shaft",
+  "femaleName": "Anna Logue",
+  "quote": "BEAM ME DOWN, SCOTTY!",
+  "workplaces": [
+   "Utopium Mine",
+   "Auto Shop"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 4,
+  "name": "Sheriff",
+  "displayName": "Sheriff",
+  "parent1": "Mayor",
+  "parent2": "Mayor",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Chuck Walker",
+  "femaleName": "Laura Norder",
+  "quote": "THIS TOWN AIN'T BIG ENOUGH FOR TWO OF US",
+  "workplaces": [
+   "Sheriffs Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 5,
+  "name": "Architect",
+  "displayName": "Architect",
+  "parent1": "Mayor",
+  "parent2": "Engineer",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Bill Ding",
+  "femaleName": "Renee Saunce",
+  "quote": "I WILL NEVER TELL YOU HOW I MET YOUR MOTHER",
+  "workplaces": [
+   "Town Hall",
+   "Building Firm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 6,
+  "name": "Landscaper",
+  "displayName": "Landscaper",
+  "parent1": "Assistant",
+  "parent2": "Architect",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Toby Airey",
+  "femaleName": "Mary Gould",
+  "quote": "THERE'S A ZOMBIE ON MY LAWN!",
+  "workplaces": [
+   "Nursery",
+   "Funeral Parlor"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 7,
+  "name": "Deputy",
+  "displayName": "Deputy",
+  "parent1": "Assistant",
+  "parent2": "Sheriff",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Justin Case",
+  "femaleName": "Justine Case",
+  "quote": "NOBODY IS GOING TO SHOOT THE SHERIFF ON MY WATCH",
+  "workplaces": [
+   "Sheriffs Office",
+   "Police Station",
+   "Fire Station"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 8,
+  "name": "Gardener",
+  "displayName": "Gardener",
+  "parent1": "Landscaper",
+  "parent2": "Deputy",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Chris Anthemum",
+  "femaleName": "Rose Bush",
+  "quote": "WELL, IT'S ABOUT THYME",
+  "workplaces": [
+   "Nursery",
+   "Greenhouse",
+   "Hedge Fund"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 9,
+  "name": "Mechanical_Engineer",
+  "displayName": "Mechanical Engineer",
+  "parent1": "Mechanic",
+  "parent2": "Engineer",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Andy Friese",
+  "femaleName": "Anita Gere",
+  "quote": "MY JOB IS A SHEAR DELIGHT",
+  "workplaces": [
+   "Construction Yard",
+   "Auto Shop"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 10,
+  "name": "Botanist",
+  "displayName": "Botanist",
+  "parent1": "Farmer",
+  "parent2": "Farmer",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Walter Mellon",
+  "femaleName": "Jasmine Woods",
+  "quote": "TIME TO LEAF IT ALL BEHIND",
+  "workplaces": [
+   "Greenhouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 11,
+  "name": "Park_Ranger",
+  "displayName": "Park Ranger",
+  "parent1": "Sheriff",
+  "parent2": "Landscaper",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Forrest Greening",
+  "femaleName": "Eva Gladys",
+  "quote": "I AM SMARTER THAN THE AVERAGE PARK RANGER",
+  "workplaces": [
+   "Park",
+   "Campsite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 12,
+  "name": "Firefighter",
+  "displayName": "Firefighter",
+  "parent1": "Mechanic",
+  "parent2": "Police_Officer",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Paul Slider",
+  "femaleName": "Helen Bach",
+  "quote": "HUG A FIREFIGHTER AND FEEL WARM ALL OVER",
+  "workplaces": [
+   "Fire Station",
+   "Bootcamp",
+   "FireworksFactory"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 13,
+  "name": "Farmer",
+  "displayName": "Farmer",
+  "parent1": "Engineer",
+  "parent2": "Gardener",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Brighton Earley",
+  "femaleName": "Corona Cobb",
+  "quote": "OLD FARMERS NEVER DIE, THEY JUST GO TO SEED",
+  "workplaces": [
+   "Farm",
+   "Market",
+   "Greenhouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 14,
+  "name": "Doctor",
+  "displayName": "Doctor",
+  "parent1": "Engineer",
+  "parent2": "Nurse",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Gregory Holmes",
+  "femaleName": "Sandra Gupta",
+  "quote": "HOW DO YOU LIKE THEM APPLES?",
+  "workplaces": [
+   "Clinic",
+   "Hospital",
+   "Gene Pool"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 15,
+  "name": "Nurse",
+  "displayName": "Nurse",
+  "parent1": "Homemaker",
+  "parent2": "Gardener",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Leon Downe",
+  "femaleName": "Diana Way",
+  "quote": "I CALL THE SHOTS",
+  "workplaces": [
+   "Clinic",
+   "Pharmacy",
+   "Hospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 16,
+  "name": "Police_Officer",
+  "displayName": "Police Officer",
+  "parent1": "Sheriff",
+  "parent2": "Sheriff",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Barry Cade",
+  "femaleName": "Macy Cannister",
+  "quote": "IF YOU RUN, YOU WILL ONLY GO TO JAIL TIRED",
+  "workplaces": [
+   "Police Station",
+   "Bank",
+   "Court"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 17,
+  "name": "Vet",
+  "displayName": "Vet",
+  "parent1": "Park_Ranger",
+  "parent2": "Doctor",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Doug Breeder",
+  "femaleName": "Ruby Schott",
+  "quote": "IF YOU DON'T KNOW WHAT SOAP TASTES LIKE, YOUVE NEVER WASHED A DOG",
+  "workplaces": [
+   "Animal Shelter",
+   "Pet Store"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 18,
+  "name": "Homemaker",
+  "displayName": "Homemaker",
+  "parent1": "Farmer",
+  "parent2": "Gardener",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Bradley Dunne",
+  "femaleName": "Agatha Stewart",
+  "quote": "HOME IS WHEREVER I'M WITH YOU",
+  "workplaces": [
+   "Market",
+   "Farm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 19,
+  "name": "Zoologist",
+  "displayName": "Zoologist",
+  "parent1": "Botanist",
+  "parent2": "Vet",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Brock O'Dile",
+  "femaleName": "Reena Soros",
+  "quote": "AN EGG IS ONLY A HENS WAY OF MAKING ANOTHER EGG",
+  "workplaces": [
+   "Research Facility",
+   "Animal Shelter",
+   "Aquarium"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 20,
+  "name": "Plumber",
+  "displayName": "Plumber",
+  "parent1": "Engineer",
+  "parent2": "Assistant",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Peter Piper",
+  "femaleName": "Mary Piper",
+  "quote": "MY PRINCESS IS ON ANOTHER PLANET",
+  "workplaces": [
+   "Central Square",
+   "Fast Food"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 21,
+  "name": "Fishmonger",
+  "displayName": "Fishmonger",
+  "parent1": "Farmer",
+  "parent2": "Plumber",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Gill Huntsman",
+  "femaleName": "Brooke Waters",
+  "quote": "A BAD DAY OF FISHING IS STILL BETTER THAN A GOOD DAY AT THE OFFICE",
+  "workplaces": [
+   "Lake",
+   "Market"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 22,
+  "name": "Animal_Trainer",
+  "displayName": "Animal Trainer",
+  "parent1": "Sheriff",
+  "parent2": "Vet",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Tom Katz",
+  "femaleName": "Kitty Katz",
+  "quote": "THE MORE I KNOW ABOUT PEOPLE, THE MORE I LIKE DOGS",
+  "workplaces": [
+   "Animal Shelter",
+   "Pet Store"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 23,
+  "name": "Milkmonger",
+  "displayName": "Milkmonger",
+  "parent1": "Farmer",
+  "parent2": "Animal_Trainer",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Moose Moore",
+  "femaleName": "Leia Pasteur",
+  "quote": "NEVER CRY OVER SPILT MILK, IT MAY HAVE BEEN POISONED.",
+  "workplaces": [
+   "Market",
+   "Ice Cream Stand"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 24,
+  "name": "Artist",
+  "displayName": "Artist",
+  "parent1": "Architect",
+  "parent2": "Dreamer",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Winston Van Gogh",
+  "femaleName": "Wendy Warhall",
+  "quote": "EARTH WITHOUT ART WOULD JUST BE... EH",
+  "workplaces": [
+   "Art Gallery",
+   "Arcade"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 25,
+  "name": "Photographer",
+  "displayName": "Photographer",
+  "parent1": "Mechanic",
+  "parent2": "Artist",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Ian Staygram",
+  "femaleName": "Winsta Graham",
+  "quote": "VINTAGE PICTURES FOR A BILLION DOLLARS",
+  "workplaces": [
+   "Photo Studio",
+   "Wedding Planner",
+   "Art Gallery"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 26,
+  "name": "Dentist",
+  "displayName": "Dentist",
+  "parent1": "Doctor",
+  "parent2": "Artist",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Sirius D'Kaye",
+  "femaleName": "Ginger Whitehouse",
+  "quote": "DENTISTS HAVE FILLINGS TOO",
+  "workplaces": [
+   "Dentists Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 27,
+  "name": "Radiologist",
+  "displayName": "Radiologist",
+  "parent1": "Doctor",
+  "parent2": "Photographer",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Xavier Ray",
+  "femaleName": "Claire Beams",
+  "quote": "THIS IS THE FUTURE? WHERE ARE MY XRAY GLASSES?!",
+  "workplaces": [
+   "Hospital",
+   "Dentists Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 28,
+  "name": "Cook",
+  "displayName": "Cook",
+  "parent1": "Homemaker",
+  "parent2": "Fishmonger",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "X. Benedict",
+  "femaleName": "Francesca Furter",
+  "quote": "FOOD IS AN IMPORTANT PART OF A BALANCED DIET",
+  "workplaces": [
+   "Fast Food",
+   "Diner"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 29,
+  "name": "Chef",
+  "displayName": "Chef",
+  "parent1": "Artist",
+  "parent2": "Cook",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Albert Fresco",
+  "femaleName": "Alla Dente",
+  "quote": "IF AT FIRST YOU DON'T SUCCEED, ORDER PIZZA",
+  "workplaces": [
+   "Restaurant"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 30,
+  "name": "Zookeeper",
+  "displayName": "Zookeeper",
+  "parent1": "Animal_Trainer",
+  "parent2": "Park_Ranger",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Ali Gaiter",
+  "femaleName": "Anna Konda",
+  "quote": "THIS CITY IS NOT A CONCRETE JUNGLE. IT'S A HUMAN ZOO.",
+  "workplaces": [
+   "Park"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 31,
+  "name": "Construction_Worker",
+  "displayName": "Construction Worker",
+  "parent1": "Mechanical_Engineer",
+  "parent2": "Deputy",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Jack Hummer",
+  "femaleName": "Jacqueline Hammer",
+  "quote": "UTOPIA WAS NOT BUILT IN A DAY",
+  "workplaces": [
+   "Construction Yard"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 32,
+  "name": "Car_Designer",
+  "displayName": "Car Designer",
+  "parent1": "Mechanical_Engineer",
+  "parent2": "Artist",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Alfred Romeo",
+  "femaleName": "Astrid Martin",
+  "quote": "NEVER LEND YOUR CAR TO ANYONE TO WHOM YOU HAVE GIVEN BIRTH",
+  "workplaces": [
+   "Auto Shop"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 33,
+  "name": "Athlete",
+  "displayName": "Athlete",
+  "parent1": "Construction_Worker",
+  "parent2": "Farmer",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Stanley Cupp",
+  "femaleName": "Florence Griffin",
+  "quote": "I USED TO HAVE A FEAR OF HURDLES, BUT I GOT OVER IT",
+  "workplaces": [
+   "Stadium"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 34,
+  "name": "Greengrocer",
+  "displayName": "Greengrocer",
+  "parent1": "Farmer",
+  "parent2": "Salesman",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Corey Anderson",
+  "femaleName": "Hazel Nutt",
+  "quote": "TIME FLIES LIKE AN ARROW, FRUIT FLIES LIKE A BANANA",
+  "workplaces": [
+   "Market",
+   "Ninja HQ"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 35,
+  "name": "Interior_Designer",
+  "displayName": "Interior Designer",
+  "parent1": "Architect",
+  "parent2": "Artist",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Ike Iyer",
+  "femaleName": "Shanda Lear",
+  "quote": "HOME IS WHERE THE ART IS",
+  "workplaces": [
+   "Art Gallery"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 36,
+  "name": "Olympic_Swimmer",
+  "displayName": "Olympic Swimmer",
+  "parent1": "Athlete",
+  "parent2": "Fishmonger",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Brian Thorpe",
+  "femaleName": "Michelle Phelps",
+  "quote": "CHLORINE IS MY PERFUME OF CHOICE",
+  "workplaces": [
+   "Swimming Pool"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 37,
+  "name": "Painter",
+  "displayName": "Painter",
+  "parent1": "Artist",
+  "parent2": "Construction_Worker",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Jason Pollack",
+  "femaleName": "Barbara Ross",
+  "quote": "PAINTING IS JUST ANOTHER WAY OF KEEPING A DIARY",
+  "workplaces": [
+   "Construction Yard",
+   "Building Firm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 38,
+  "name": "Hotel_Manager",
+  "displayName": "Hotel Manager",
+  "parent1": "Homemaker",
+  "parent2": "Salesman",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Habo Hilton",
+  "femaleName": "Venus Hilton",
+  "quote": "YOU CAN CHECK OUT ANY TIME YOU LIKE, BUT YOU CAN NEVER LEAVE",
+  "workplaces": [
+   "Hotel",
+   "Spa"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 39,
+  "name": "Valet",
+  "displayName": "Valet",
+  "parent1": "Car_Designer",
+  "parent2": "Hotel_Manager",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Ford Parker",
+  "femaleName": "Ella Vader",
+  "quote": "WHY ARE THERE SO MANY ROADS WHEN NO ONE HAS CARS?",
+  "workplaces": [
+   "Hotel",
+   "Theatre",
+   "ServiceFirm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 40,
+  "name": "Pilot",
+  "displayName": "Pilot",
+  "parent1": "Valet",
+  "parent2": "Mechanic",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Perez Schute",
+  "femaleName": "May Verich",
+  "quote": "MY SECOND LOVE IS FLYING. MY FIRST IS LANDING.",
+  "workplaces": [
+   "Airport"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 41,
+  "name": "Flight_Attendant",
+  "displayName": "Flight Attendant",
+  "parent1": "Pilot",
+  "parent2": "Waiter",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Miles Hyrule",
+  "femaleName": "Cybil Fassner",
+  "quote": "THANK YOU FOR FLYING UTOPIA EXPRESS. WE ENJOYED TAKING YOU FOR A RIDE",
+  "workplaces": [
+   "Airport"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 42,
+  "name": "Aerospace_Engineer",
+  "displayName": "Aerospace Engineer",
+  "parent1": "Mechanical_Engineer",
+  "parent2": "Pilot",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Arthur Burner",
+  "femaleName": "Daniela Bernoulli",
+  "quote": "YOU'RE NOT FLYING. YOU'RE JUST FALLING WITH STYLE!",
+  "workplaces": [
+   "Observatory",
+   "Space Admin"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 43,
+  "name": "Art_Dealer",
+  "displayName": "Art Dealer",
+  "parent1": "Artist",
+  "parent2": "Salesman",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Arthur Major",
+  "femaleName": "Christie Zale",
+  "quote": "GREAT ARTISTS CAN ALWAYS DRAW A CROWD",
+  "workplaces": [
+   "Art Gallery"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 44,
+  "name": "Industrialist",
+  "displayName": "Industrialist",
+  "parent1": "Salesman",
+  "parent2": "Salesman",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Robin Banks",
+  "femaleName": "Iona Bentley",
+  "quote": "WORK FASCINATES ME. I CAN SIT AND WATCH IT FOR HOURS!",
+  "workplaces": [
+   "Enterprise",
+   "Golf Course",
+   "ApplianceManufacturer"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 45,
+  "name": "Jockey",
+  "displayName": "Jockey",
+  "parent1": "Animal_Trainer",
+  "parent2": "Valet",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Orson Spurs",
+  "femaleName": "Wendy Ryder",
+  "quote": "BEING  BORN IN A STABLE DOES NOT MAKE ONE A HORSE",
+  "workplaces": [
+   "Stable"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 46,
+  "name": "Marine_Biologist",
+  "displayName": "Marine Biologist",
+  "parent1": "Vet",
+  "parent2": "Olympic_Swimmer",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Tad Pohl",
+  "femaleName": "Amanda Ray",
+  "quote": "KEEP FRIENDS CLOSE, KEEP ANEMONES CLOSER.",
+  "workplaces": [
+   "Aquarium"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 47,
+  "name": "Real_Estate_Agent",
+  "displayName": "Real Estate Agent",
+  "parent1": "Architect",
+  "parent2": "Salesman",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Lewis Price",
+  "femaleName": "Lois Price",
+  "quote": "THE PRICE OF LAND HERE IS ASTRONOMICAL",
+  "workplaces": [
+   "Building Firm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 48,
+  "name": "Soldier",
+  "displayName": "Soldier",
+  "parent1": "Police_Officer",
+  "parent2": "Explorer",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Rick O'Shea",
+  "femaleName": "Private Patty",
+  "quote": "DRAFT BEER, NOT PEOPLE",
+  "workplaces": [
+   "Bootcamp"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 49,
+  "name": "Waiter",
+  "displayName": "Waiter",
+  "parent1": "Cook",
+  "parent2": "Assistant",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Trey Woscher",
+  "femaleName": "Clara Tables",
+  "quote": "I'D BE FAMOUS BY NOW IF I WASN'T SUCH A GOOD WAITRESS",
+  "workplaces": [
+   "Diner",
+   "Restaurant"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 50,
+  "name": "Philosopher",
+  "displayName": "Philosopher",
+  "parent1": "Dreamer",
+  "parent2": "Dreamer",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Noah Lotte",
+  "femaleName": "Heidi Claire",
+  "quote": "EARTH IS DEAD. AND A WITTY QUOTE PROVES NOTHING.",
+  "workplaces": [
+   "University"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 51,
+  "name": "Detective",
+  "displayName": "Detective",
+  "parent1": "Police_Officer",
+  "parent2": "Philosopher",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Mitch Tracey",
+  "femaleName": "Shirley Watson",
+  "quote": "THERE IS NOTHING AS DECEPTIVE AS AN OBVIOUS FACT",
+  "workplaces": [
+   "Police Station",
+   "Forensic Lab",
+   "Law Firm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 52,
+  "name": "Lawyer",
+  "displayName": "Lawyer",
+  "parent1": "Sheriff",
+  "parent2": "Salesman",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Alvin Mcbeal",
+  "femaleName": "Sue Swift",
+  "quote": "MAKE CRIME PAY. BECOME A LAWYER.",
+  "workplaces": [
+   "Law Firm",
+   "Court",
+   "Publishing House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 53,
+  "name": "Marine",
+  "displayName": "Marine",
+  "parent1": "Soldier",
+  "parent2": "Olympic_Swimmer",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Joe Howser",
+  "femaleName": "Jane Scarlett",
+  "quote": "ALWAYS FAITHFUL, TO HUMANITY, TO OUR PLANET",
+  "workplaces": [
+   "Bootcamp"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 54,
+  "name": "Judge",
+  "displayName": "Judge",
+  "parent1": "Lawyer",
+  "parent2": "Sheriff",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Gill Tee",
+  "femaleName": "Judy Schuss",
+  "quote": "IF YOU LAID ALL OF OUR LAWS END TO END, THERE WOULD BE NO END",
+  "workplaces": [
+   "Court"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 55,
+  "name": "Secretary",
+  "displayName": "Secretary",
+  "parent1": "Mayor",
+  "parent2": "Deputy",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Phil Cabinet",
+  "femaleName": "Pepper Werk",
+  "quote": "MY BOSS FREQUENTLY GETS LOST IN THOUGHT. IT'S UNFAMILIAR TERRITORY.",
+  "workplaces": [
+   "Bank",
+   "Enterprise",
+   "Financial Center"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 56,
+  "name": "Writer",
+  "displayName": "Writer",
+  "parent1": "Secretary",
+  "parent2": "Dreamer",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Jorge Martinez",
+  "femaleName": "Rhoda Booke",
+  "quote": "IF TELEVISION BROUGHT WRITING TO A NEW LOW, THEN HOW ABOUT GAMING?",
+  "workplaces": [
+   "TV Station",
+   "Cafe",
+   "Publishing House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 57,
+  "name": "Poet",
+  "displayName": "Poet",
+  "parent1": "Writer",
+  "parent2": "Dreamer",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Emmanuel Coleridge",
+  "femaleName": "Amelia Bronte",
+  "quote": "BREATHE IN EXPERIENCE. BREATH OUT POETRY",
+  "workplaces": [
+   "Cafe",
+   "Art Gallery",
+   "Library"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 58,
+  "name": "Paramedic",
+  "displayName": "Paramedic",
+  "parent1": "Police_Officer",
+  "parent2": "Doctor",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Justin Thyme",
+  "femaleName": "Justina Giffy",
+  "quote": "WE'RE BETTER PREPARED THIS TIME AROUND",
+  "workplaces": [
+   "Fire Station"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 59,
+  "name": "Lifeguard",
+  "displayName": "Lifeguard",
+  "parent1": "Olympic_Swimmer",
+  "parent2": "Paramedic",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Rich Buchanon",
+  "femaleName": "Angela Anderson",
+  "quote": "SEVEN DAYS OF NO SWIMMING MAKES ONE WEAK",
+  "workplaces": [
+   "Swimming Pool",
+   "Beach House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 60,
+  "name": "Model",
+  "displayName": "Model",
+  "parent1": "Photographer",
+  "parent2": "Lifeguard",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Orlando Doom",
+  "femaleName": "Barb E. Dahl",
+  "quote": "WE LIVE NOT ACCORDING TO REASON BUT ACCORDING TO FASHION",
+  "workplaces": [
+   "Fashion Studio",
+   "Photo Studio",
+   "Disco"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 61,
+  "name": "Swimsuit_Model",
+  "displayName": "Swimsuit Model",
+  "parent1": "Model",
+  "parent2": "Olympic_Swimmer",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Abraham Crombie",
+  "femaleName": "Tanya Hide",
+  "quote": "THIS TOWN REALLY NEEDS A BEACH",
+  "workplaces": [
+   "Fashion Studio",
+   "Swimming Pool",
+   "Beach House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 62,
+  "name": "Reporter",
+  "displayName": "Reporter",
+  "parent1": "Detective",
+  "parent2": "Writer",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Henderson Cooper",
+  "femaleName": "Sab Channel",
+  "quote": "FREEDOM OF THE PRESS IS LIMITED TO THOSE WHO OWN ONE",
+  "workplaces": [
+   "TV Station",
+   "News Bureau"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 63,
+  "name": "Ballet_Dancer",
+  "displayName": "Ballet Dancer",
+  "parent1": "Athlete",
+  "parent2": "Artist",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Dan Saul-Knight",
+  "femaleName": "Rina Belle",
+  "quote": "NICE MEN MARRY DANCERS. REAL MEN BECOME DANCERS.",
+  "workplaces": [
+   "Dance Studio"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 64,
+  "name": "Martial_Artist",
+  "displayName": "Martial Artist",
+  "parent1": "Ballet_Dancer",
+  "parent2": "Soldier",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Bryce Loo",
+  "femaleName": "Lucy Lee",
+  "quote": "I DO THIS JUST FOR KICKS",
+  "workplaces": [
+   "Dojo"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 65,
+  "name": "Sushi_Chef",
+  "displayName": "Sushi Chef",
+  "parent1": "Chef",
+  "parent2": "Martial_Artist",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Terry Aki",
+  "femaleName": "Anne Agi",
+  "quote": "SHE SELLS SUSHI SHELLS BY THE SEA SHORE",
+  "workplaces": [
+   "Sushi Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 66,
+  "name": "Food_Critic",
+  "displayName": "Food Critic",
+  "parent1": "Cook",
+  "parent2": "Reporter",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Eaton Wright",
+  "femaleName": "Liv Goode",
+  "quote": "PUNS ABOUT FOOD SHOULD BE TAKEN IN GEST",
+  "workplaces": [
+   "News Bureau"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 67,
+  "name": "General",
+  "displayName": "General",
+  "parent1": "Marine",
+  "parent2": "Soldier",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Warren Peese",
+  "femaleName": "Neve Sarandah",
+  "quote": "NEVER TRUST AN OFFICER WITH A MAP",
+  "workplaces": [
+   "Bootcamp"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 68,
+  "name": "Actor",
+  "displayName": "Actor",
+  "parent1": "Director",
+  "parent2": "Model",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "George Cloney",
+  "femaleName": "Holly Voode",
+  "quote": "ARE ACTORS THE OPPOSITE OF PEOPLE?",
+  "workplaces": [
+   "Theatre",
+   "Film Studio"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 69,
+  "name": "Flight_Controller",
+  "displayName": "Flight Controller",
+  "parent1": "Architect",
+  "parent2": "Pilot",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Jett Pastonby",
+  "femaleName": "Jett Pastonby",
+  "quote": "THE ONLY TIME YOU HAVE TOO MUCH FUEL IS WHEN YOURE ON FIRE",
+  "workplaces": [
+   "Airport"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 70,
+  "name": "Calligrapher",
+  "displayName": "Calligrapher",
+  "parent1": "Writer",
+  "parent2": "Artist",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Otto Graff",
+  "femaleName": "Callie Kravitz",
+  "quote": "THERE ARE NO SECOND CHANCES IN CALLIGRAPHY",
+  "workplaces": [
+   "Art Gallery"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 71,
+  "name": "Cameraman",
+  "displayName": "Cameraman",
+  "parent1": "Photographer",
+  "parent2": "Mechanic",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Phil Maker",
+  "femaleName": "Michelle Bay",
+  "quote": "WE'RE LOSING DAYLIGHT",
+  "workplaces": [
+   "TV Station",
+   "Photo Studio",
+   "Broadcast Station"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 72,
+  "name": "Cheerleader",
+  "displayName": "Cheerleader",
+  "parent1": "Athlete",
+  "parent2": "Ballet_Dancer",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Tom Pomm",
+  "femaleName": "Sarah Ragh",
+  "quote": "RAH RAH RAH",
+  "workplaces": [
+   "Stadium",
+   "Dance Studio"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 73,
+  "name": "Coach",
+  "displayName": "Coach",
+  "parent1": "Athlete",
+  "parent2": "Athlete",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Jim Laucher",
+  "femaleName": "Alexis Friggason",
+  "quote": "IF LOSING IS LEARNING, WE'RE GETTING A GREAT EDUCATION",
+  "workplaces": [
+   "Stadium"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 74,
+  "name": "Courier",
+  "displayName": "Courier",
+  "parent1": "Mailman",
+  "parent2": "Salesman",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Dusty Rhodes",
+  "femaleName": "Freda Express",
+  "quote": "OVERNIGHT DELIVERY IS EASY WHEN THERE'S NO NIGHT",
+  "workplaces": [
+   "Post Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 75,
+  "name": "Director",
+  "displayName": "Director",
+  "parent1": "Cameraman",
+  "parent2": "Cameraman",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Devan Spielburg",
+  "femaleName": "Martina Scorcese",
+  "quote": "IF ONLY WE LEARNT MORE ABOUT AVERTING DISASTER FROM MOVIES",
+  "workplaces": [
+   "Film Studio",
+   "Theatre"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 76,
+  "name": "Florist",
+  "displayName": "Florist",
+  "parent1": "Farmer",
+  "parent2": "Botanist",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Dan D'Lyons",
+  "femaleName": "Sherry Blossom",
+  "quote": "ROSES ARE #FF0000, VIOLETS ARE #0000FF",
+  "workplaces": [
+   "Flower Shop",
+   "Nursery",
+   "Market"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 77,
+  "name": "Gravedigger",
+  "displayName": "Gravedigger",
+  "parent1": "Farmer",
+  "parent2": "Soldier",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Doug Pitts",
+  "femaleName": "Morry Bund",
+  "quote": "THIS JOB IS THE PITS",
+  "workplaces": [
+   "Funeral Parlor"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 78,
+  "name": "Mailman",
+  "displayName": "Mailman",
+  "parent1": "Reporter",
+  "parent2": "Valet",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Marc Post",
+  "femaleName": "June Parcell",
+  "quote": "THIS IS SUCH A MAIL DOMINATED PROFESSION",
+  "workplaces": [
+   "Post Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 79,
+  "name": "Miner",
+  "displayName": "Miner",
+  "parent1": "Gravedigger",
+  "parent2": "Explorer",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Cole Diggs",
+  "femaleName": "Jem Stoan",
+  "quote": "THEY WON'T LET ME INTO THE BAR COZ I'M A MINER",
+  "workplaces": [
+   "Utopium Mine"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 80,
+  "name": "Cattle_Rustler",
+  "displayName": "Cattle Rustler",
+  "parent1": "Jockey",
+  "parent2": "Animal_Trainer",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Brandon Knox",
+  "femaleName": "Brenda Cattel",
+  "quote": "DON'T YOU COME INTO MY TOWN AND STIRRUP TROUBLE",
+  "workplaces": [
+   "Stable",
+   "Stadium"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 81,
+  "name": "Postmaster_General",
+  "displayName": "Postmaster General",
+  "parent1": "Mailman",
+  "parent2": "General",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Philip Lately",
+  "femaleName": "Philipa Lately",
+  "quote": "EMAIL IS JUST ANOTHER FAD, LIKE THE TELEPHONE",
+  "workplaces": [
+   "Post Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 82,
+  "name": "Stunt_Double",
+  "displayName": "Stunt Double",
+  "parent1": "Actor",
+  "parent2": "Martial_Artist",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Oliver Sutton",
+  "femaleName": "Barb Dwyer",
+  "quote": "THE SECRET OF A FLYING KICK IS TO FALL AND MISS THE GROUND",
+  "workplaces": [
+   "Film Studio"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 83,
+  "name": "Programmer",
+  "displayName": "Programmer",
+  "parent1": "Mathematician",
+  "parent2": "Engineer",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Chuck Cabbage",
+  "femaleName": "Willa Gates",
+  "quote": "BUGS COME IN THROUGH OPEN WINDOWS",
+  "workplaces": [
+   "IT Services",
+   "Arcade"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 84,
+  "name": "Game_Designer",
+  "displayName": "Game Designer",
+  "parent1": "Programmer",
+  "parent2": "Artist",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Brave Marsh",
+  "femaleName": "Gladys Kim",
+  "quote": "ALL WORK AND NO PLAY",
+  "workplaces": [
+   "Arcade"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 85,
+  "name": "Mathematician",
+  "displayName": "Mathematician",
+  "parent1": "Philosopher",
+  "parent2": "Scientist",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Bertrand Castle",
+  "femaleName": "Bertha Russel",
+  "quote": "DECIMALS HAVE A POINT",
+  "workplaces": [
+   "University",
+   "Financial Center",
+   "IT Services"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 86,
+  "name": "Scientist",
+  "displayName": "Scientist",
+  "parent1": "Philosopher",
+  "parent2": "Engineer",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Miller Graham",
+  "femaleName": "Milly Graham",
+  "quote": "I ONCE TOLD A CHEMISTRY JOKE. THERE WAS NO REACTION.",
+  "workplaces": [
+   "Research Facility",
+   "Gene Pool"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 87,
+  "name": "Physicist",
+  "displayName": "Physicist",
+  "parent1": "Scientist",
+  "parent2": "Mathematician",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Wilbert Epstein",
+  "femaleName": "Mary Curry",
+  "quote": "NEUTRONS EAT FREE OF CHARGE",
+  "workplaces": [
+   "University"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 88,
+  "name": "Astronomer",
+  "displayName": "Astronomer",
+  "parent1": "Physicist",
+  "parent2": "Dreamer",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Seymour Stars",
+  "femaleName": "Stella Eventide",
+  "quote": "KINDLY STOP DIVIDING BY ZERO",
+  "workplaces": [
+   "Observatory",
+   "Space Admin"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 89,
+  "name": "Astronaut",
+  "displayName": "Astronaut",
+  "parent1": "Pilot",
+  "parent2": "Astronomer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Neil Legstrong",
+  "femaleName": "Kelly Chawla",
+  "quote": "UNAFRAID OF THE DARK",
+  "workplaces": [
+   "Space Admin"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 90,
+  "name": "Geneticist",
+  "displayName": "Geneticist",
+  "parent1": "Scientist",
+  "parent2": "Doctor",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Gene Poole",
+  "femaleName": "Jean Poole",
+  "quote": "PLEASE DON'T ASK ME WHERE I BUY MY JEANS",
+  "workplaces": [
+   "Gene Pool"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 91,
+  "name": "Cryptozoologist",
+  "displayName": "Cryptozoologist",
+  "parent1": "Zookeeper",
+  "parent2": "Detective",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Marshall Mellow",
+  "femaleName": "Holly Mackerel",
+  "quote": "I SWEAR I'VE SEEN AN ABOMINABLE SNOWMAN IN THESE PARTS",
+  "workplaces": [
+   "Research Facility",
+   "Tavern"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 92,
+  "name": "Accountant",
+  "displayName": "Accountant",
+  "parent1": "Secretary",
+  "parent2": "Mathematician",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Pound Fullish",
+  "femaleName": "Penny Wise",
+  "quote": "DOING IT BY THE BOOKS",
+  "workplaces": [
+   "Financial Center",
+   "Bank",
+   "Pharmacy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 93,
+  "name": "Editor",
+  "displayName": "Editor",
+  "parent1": "Writer",
+  "parent2": "Writer",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Jerry Stein",
+  "femaleName": "Paige Turner",
+  "quote": "EVERY VISION HAS AN EQUAL AND OPPOSITE REVISION",
+  "workplaces": [
+   "Publishing House",
+   "Library"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 94,
+  "name": "Librarian",
+  "displayName": "Librarian",
+  "parent1": "Writer",
+  "parent2": "Poet",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Noah Noyes",
+  "femaleName": "Constance Eylens",
+  "quote": "A ROOM WITHOUT BOOKS IS A BODY WITHOUT SOUL",
+  "workplaces": [
+   "Library"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 95,
+  "name": "Historian",
+  "displayName": "Historian",
+  "parent1": "Philosopher",
+  "parent2": "Librarian",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "William Bison",
+  "femaleName": "Anne Teak",
+  "quote": "HISTORY IS GOSSIP WELL TOLD",
+  "workplaces": [
+   "Museum",
+   "Antique Store"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 96,
+  "name": "Archaeologist",
+  "displayName": "Archaeologist",
+  "parent1": "Historian",
+  "parent2": "Explorer",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Montana Jones",
+  "femaleName": "Clara Voight",
+  "quote": "I REALLY DIG THIS JOB",
+  "workplaces": [
+   "Museum",
+   "Pyramid"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 97,
+  "name": "Super_Hero",
+  "displayName": "Super Hero",
+  "parent1": "Soldier",
+  "parent2": "Geneticist",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Mister Utopia",
+  "femaleName": "Miss Demeanor",
+  "quote": "SOME ASSEMBLY REQUIRED",
+  "workplaces": [
+   "Hero Mansion"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 98,
+  "name": "Atomic_Hero",
+  "displayName": "Atomic Hero",
+  "parent1": "Radiologist",
+  "parent2": "General",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Bruce Brooklyn",
+  "femaleName": "Sheela Smasher",
+  "quote": "ME UNHAPPY. ME DESTROY!",
+  "workplaces": [
+   "Hero Mansion"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 99,
+  "name": "Ancient_Hero",
+  "displayName": "Ancient Hero",
+  "parent1": "Preacher",
+  "parent2": "Weather_Reporter",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Zeus Olympios",
+  "femaleName": "Andromeda Athenos",
+  "quote": "THIS IS ALL GREEK TO ME",
+  "workplaces": [
+   "Hero Mansion",
+   "Astro Church"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 100,
+  "name": "Choreographer",
+  "displayName": "Choreographer",
+  "parent1": "Ballet_Dancer",
+  "parent2": "Director",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Eshkol Wachmann",
+  "femaleName": "Giselle Ivanov",
+  "quote": "DANCING IS A VERTICAL EXPRESSION OF A HORIZONTAL DESIRE",
+  "workplaces": [
+   "Dance Studio"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 101,
+  "name": "Pharmacist",
+  "displayName": "Pharmacist",
+  "parent1": "Doctor",
+  "parent2": "Salesman",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Bill D'Spencer",
+  "femaleName": "Molly Kuehl",
+  "quote": "BE NICE TO ME. I DISPENSE THE HAPPY PILLS.",
+  "workplaces": [
+   "Pharmacy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 102,
+  "name": "CSI",
+  "displayName": "CSI",
+  "parent1": "Detective",
+  "parent2": "Photographer",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Hiroshi Kane",
+  "femaleName": "Dana Caruso",
+  "quote": "SEARCHING FOR FRESH PRINTS IN BEL-AIR",
+  "workplaces": [
+   "Forensic Lab"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 103,
+  "name": "Forensic_Scientist",
+  "displayName": "Forensic Scientist",
+  "parent1": "Detective",
+  "parent2": "Scientist",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Gotye Prince",
+  "femaleName": "Amanda Katsch",
+  "quote": "YOU CAN TELL A LOT ABOUT A PERSON BY READING HIS BIOGRAPHY",
+  "workplaces": [
+   "Forensic Lab"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 104,
+  "name": "Physiotherapist",
+  "displayName": "Physiotherapist",
+  "parent1": "Athlete",
+  "parent2": "Doctor",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Nick Payne",
+  "femaleName": "Ophelia Payne",
+  "quote": "LOOK AFTER YOUR POSTURE, EVEN WHEN GAMING",
+  "workplaces": [
+   "Spa",
+   "Clinic",
+   "Arena"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 105,
+  "name": "Coroner",
+  "displayName": "Coroner",
+  "parent1": "Gravedigger",
+  "parent2": "Doctor",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Paul Barer",
+  "femaleName": "Paula Barer",
+  "quote": "SPEAKING ILL OF THE DEAD IS A GRAVE MISTAKE",
+  "workplaces": [
+   "Funeral Parlor",
+   "Forensic Lab"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 106,
+  "name": "Anti_Hero",
+  "displayName": "Anti Hero",
+  "parent1": "Gravedigger",
+  "parent2": "Super_Hero",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Wayne Howlett",
+  "femaleName": "Spectra Garner",
+  "quote": "I AM THE ONLY HERO THIS CITY NEEDS, BUB.",
+  "workplaces": [
+   "Hero Mansion"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 107,
+  "name": "Wrestler",
+  "displayName": "Wrestler",
+  "parent1": "Athlete",
+  "parent2": "Actor",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Ricky Rourke",
+  "femaleName": "Candy Savage",
+  "quote": "SOME CALL THEM OPPONENTS, I CALL THEM VICTIMS",
+  "workplaces": [
+   "Arena"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 108,
+  "name": "Clown",
+  "displayName": "Clown",
+  "parent1": "Comic",
+  "parent2": "Painter",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Joseph Kerr",
+  "femaleName": "Josephine King",
+  "quote": "JESTER 'NOTHER DAY AT THE CIRCUS",
+  "workplaces": [
+   "Circus",
+   "Carnival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 109,
+  "name": "Paleontologist",
+  "displayName": "Paleontologist",
+  "parent1": "Archaeologist",
+  "parent2": "Cryptozoologist",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Tyrone Suarez",
+  "femaleName": "Diana Suarez",
+  "quote": "IF ONLY THEY HAD CLONES TOO",
+  "workplaces": [
+   "Museum"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 110,
+  "name": "Geologist",
+  "displayName": "Geologist",
+  "parent1": "Miner",
+  "parent2": "Scientist",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Sandy Marsh",
+  "femaleName": "Mandy Marsh",
+  "quote": "THIS CAREER ROCKS",
+  "workplaces": [
+   "Observatory",
+   "Utopium Mine"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 111,
+  "name": "Break_Dancer",
+  "displayName": "Break Dancer",
+  "parent1": "Ballet_Dancer",
+  "parent2": "Rapper",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Buster Moove",
+  "femaleName": "Deborah Stepper",
+  "quote": "DANCE FIRST, THINK LATER. THAT'S THE NATURAL ORDER",
+  "workplaces": [
+   "Dance Studio",
+   "Disco"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 112,
+  "name": "Captain",
+  "displayName": "Captain",
+  "parent1": "Fishmonger",
+  "parent2": "Sheriff",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Evan Keel",
+  "femaleName": "Claire Waters",
+  "quote": "LIFE TASTES BETTER WITH A PINCH OF SALT",
+  "workplaces": [
+   "Lake",
+   "Marina"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 113,
+  "name": "Weather_Reporter",
+  "displayName": "Weather Reporter",
+  "parent1": "Reporter",
+  "parent2": "Geologist",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "August Schauer",
+  "femaleName": "April Schauer",
+  "quote": "DO I LOOK LIKE A PSYCHIC?",
+  "workplaces": [
+   "News Bureau"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 114,
+  "name": "Comic",
+  "displayName": "Comic",
+  "parent1": "Actor",
+  "parent2": "Poet",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Hugh Morris",
+  "femaleName": "Wanda Silverberg",
+  "quote": "READING THESE LINES IS SHEER PUN-ISHMENT",
+  "workplaces": [
+   "Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 115,
+  "name": "Disc_Jockey",
+  "displayName": "Disc Jockey",
+  "parent1": "Jockey",
+  "parent2": "Choreographer",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Mr. Killexx",
+  "femaleName": "Miss Skillet",
+  "quote": "WUBB WUBB WUBB",
+  "workplaces": [
+   "Radio Station",
+   "Dance Studio"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 116,
+  "name": "First_Mate",
+  "displayName": "First Mate",
+  "parent1": "Captain",
+  "parent2": "Deputy",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Rowan Skiff",
+  "femaleName": "Temperance Moore",
+  "quote": "AYE AYE SIR",
+  "workplaces": [
+   "Lake"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 117,
+  "name": "Buccaneer",
+  "displayName": "Buccaneer",
+  "parent1": "Captain",
+  "parent2": "Explorer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Yoho Howe",
+  "femaleName": "Yoho Howe",
+  "quote": "WHY JOIN THE NAVY WHEN YOU CAN BE A PIRATE",
+  "workplaces": [
+   "Tavern",
+   "Cave"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 118,
+  "name": "Preacher",
+  "displayName": "Preacher",
+  "parent1": "Philosopher",
+  "parent2": "Dreamer",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Ryan Carnation",
+  "femaleName": "Ria Carnation",
+  "quote": "RELIGION IS THE UTOPIATE OF THE MASSES",
+  "workplaces": [
+   "Astro Church"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 119,
+  "name": "Rapper",
+  "displayName": "Rapper",
+  "parent1": "Poet",
+  "parent2": "Disc_Jockey",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Six-T Peso",
+  "femaleName": "Vicky Minja",
+  "quote": "GAMERS GONNA GAME. CLONERS GONNA CLONE.",
+  "workplaces": [
+   "Dance Studio",
+   "Disco"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 120,
+  "name": "Receptionist",
+  "displayName": "Receptionist",
+  "parent1": "Secretary",
+  "parent2": "Model",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Jim Bernard",
+  "femaleName": "Erin Beasely",
+  "quote": "UTOPIA CORP. HOW MAY I HELP YOU?",
+  "workplaces": [
+   "Hotel",
+   "Enterprise",
+   "Dentists Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 121,
+  "name": "Songwriter",
+  "displayName": "Songwriter",
+  "parent1": "Poet",
+  "parent2": "Poet",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Mike Reinhart",
+  "femaleName": "Dee Minor",
+  "quote": "TWINKLE TWINKLE LITTLE STAR, HOW I WONDER WHAT WE ARE",
+  "workplaces": [
+   "Radio Station",
+   "Restaurant"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 122,
+  "name": "Taxidermist",
+  "displayName": "Taxidermist",
+  "parent1": "Vet",
+  "parent2": "Coroner",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Buck Tester",
+  "femaleName": "Emma Balmer",
+  "quote": "ONLY GET THE GOOD STUFF",
+  "workplaces": [
+   "Park"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 123,
+  "name": "Vocalist",
+  "displayName": "Vocalist",
+  "parent1": "Songwriter",
+  "parent2": "Actor",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Chip Monk",
+  "femaleName": "Carrie Oakey",
+  "quote": "I'M GOING TO BE A STAR",
+  "workplaces": [
+   "Radio Station",
+   "Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 124,
+  "name": "Assistant",
+  "displayName": "Assistant",
+  "parent1": "Mechanic",
+  "parent2": "Mechanic",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Nestor Cadbury",
+  "femaleName": "Sheila Blige",
+  "quote": "GET A HUMANITIES DEGREE THEY SAID",
+  "workplaces": [
+   "Town Hall",
+   "Law Firm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 125,
+  "name": "Footballer",
+  "displayName": "Footballer",
+  "parent1": "Athlete",
+  "parent2": "Cheerleader",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Tim Elbow",
+  "femaleName": "Eliza Womanning",
+  "quote": "THERE IS NO CLONE IN TEAM",
+  "workplaces": [
+   "Stadium"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 126,
+  "name": "Shepherd",
+  "displayName": "Shepherd",
+  "parent1": "Animal_Trainer",
+  "parent2": "Milkmonger",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Bertram Lambert",
+  "femaleName": "Beau Peeph",
+  "quote": "WHY DON'T SHEEP SHRINK WHEN IT RAINS?",
+  "workplaces": [
+   "Stable"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 127,
+  "name": "Winemaker",
+  "displayName": "Winemaker",
+  "parent1": "Farmer",
+  "parent2": "Dreamer",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Bud Wiser",
+  "femaleName": "Sandra Miguel",
+  "quote": "I'M GIVING GRAPES A NEW LEASE ON LIFE",
+  "workplaces": [
+   "Farm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 128,
+  "name": "Baker",
+  "displayName": "Baker",
+  "parent1": "Cook",
+  "parent2": "Homemaker",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Brad Levin",
+  "femaleName": "Anita Bagel",
+  "quote": "THIS CAKE IS NO LIE",
+  "workplaces": [
+   "Central Square",
+   "Cafe"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 129,
+  "name": "Carpenter",
+  "displayName": "Carpenter",
+  "parent1": "Shepherd",
+  "parent2": "Homemaker",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Tim Burr",
+  "femaleName": "Nelly Todewall",
+  "quote": "THERE'S NO OTHER JOB I WOOD DO",
+  "workplaces": [
+   "Central Square",
+   "Lumber Mill"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 130,
+  "name": "Janitor",
+  "displayName": "Janitor",
+  "parent1": "Plumber",
+  "parent2": "Construction_Worker",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Jan Itor",
+  "femaleName": "Jan Itor",
+  "quote": "TIME'S FUN WHEN YOU'RE HAVING FLIES",
+  "workplaces": [
+   "Central Square",
+   "Diner",
+   "Fast Food"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 131,
+  "name": "Ninja",
+  "displayName": "Ninja",
+  "parent1": "Martial_Artist",
+  "parent2": "Soldier",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Kage Arashi",
+  "femaleName": "Suri Ken",
+  "quote": "EVERYTHING IS A WEAPON, OR NOTHING IS",
+  "workplaces": [
+   "Ninja HQ",
+   "Dojo"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 132,
+  "name": "Referee",
+  "displayName": "Referee",
+  "parent1": "Coach",
+  "parent2": "Judge",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Lionel Scrimmage",
+  "femaleName": "Lyna Scrimmage",
+  "quote": "SPORT IS THE GREAT EQUALIZER. UNLESS YOU'RE TERRIBLE AT IT.",
+  "workplaces": [
+   "Stadium",
+   "Arena"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 133,
+  "name": "Secret_Agent",
+  "displayName": "Secret Agent",
+  "parent1": "Ninja",
+  "parent2": "Detective",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Mickey Furry",
+  "femaleName": "Violet Johansson",
+  "quote": "LICENSED TO THRILL",
+  "workplaces": [
+   "Ninja HQ",
+   "Hero Mansion"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 134,
+  "name": "Sensei",
+  "displayName": "Sensei",
+  "parent1": "Martial_Artist",
+  "parent2": "Philosopher",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Miyagi Yojimbo",
+  "femaleName": "Alisha Takanawa",
+  "quote": "TEACHERS OPEN THE DOOR, BUT YOU MUST ENTER IT YOURSELF",
+  "workplaces": [
+   "Dojo"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 135,
+  "name": "Deep_Sea_Diver",
+  "displayName": "Deep Sea Diver",
+  "parent1": "Marine_Biologist",
+  "parent2": "Explorer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Rob Mallard",
+  "femaleName": "Eileen Dover",
+  "quote": "I FEEL TERRIBLY USEFUL IN A PLACE LIKE THIS",
+  "workplaces": [
+   "Tavern",
+   "Aquarium"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 136,
+  "name": "Watchmaker",
+  "displayName": "Watchmaker",
+  "parent1": "Historian",
+  "parent2": "Mechanic",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Dick Tocke",
+  "femaleName": "Phillipa Patek",
+  "quote": "TIME IS A GREAT TEACHER. BUT IT UNFORTUNATELY KILLS ALL ITS PUPILS",
+  "workplaces": [
+   "Central Square",
+   "Doomsday Clock"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 137,
+  "name": "Time_Traveller",
+  "displayName": "Time Traveller",
+  "parent1": "Watchmaker",
+  "parent2": "Explorer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Doctor When",
+  "femaleName": "Doctor When",
+  "quote": "WHO DO YOU THINK INVENTED THE RUSH BUTTON?",
+  "workplaces": [
+   "Tavern",
+   "Doomsday Clock"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 138,
+  "name": "Tailor",
+  "displayName": "Tailor",
+  "parent1": "Model",
+  "parent2": "Artist",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Manny Kinn",
+  "femaleName": "Manny Kinn",
+  "quote": "DON'T USE A TAILOR. SUIT YOURSELF.",
+  "workplaces": [
+   "Central Square",
+   "Fashion Studio",
+   "Wedding Planner"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 139,
+  "name": "Ringmaster",
+  "displayName": "Ringmaster",
+  "parent1": "Animal_Trainer",
+  "parent2": "Clown",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Elroy Sigfried",
+  "femaleName": "Joy Zigfried",
+  "quote": "IF YOU LOVE SOMETHING, LET IT GO. UNLESS IT'S A LION.",
+  "workplaces": [
+   "Circus"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 140,
+  "name": "Oracle",
+  "displayName": "Oracle",
+  "parent1": "Philosopher",
+  "parent2": "Preacher",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Primo Nixon",
+  "femaleName": "Krystal Balle",
+  "quote": "I SEE DARK TIMES AHEAD. IN A FUTURE UPDATE MAYBE.",
+  "workplaces": [
+   "Fortune Teller",
+   "Astro Church"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 141,
+  "name": "Matador",
+  "displayName": "Matador",
+  "parent1": "Animal_Trainer",
+  "parent2": "Wrestler",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Frito Santana",
+  "femaleName": "Frida Santaria",
+  "quote": "GRABBING LIFE BY THE HORNS",
+  "workplaces": [
+   "Circus"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 142,
+  "name": "Magician",
+  "displayName": "Magician",
+  "parent1": "Accountant",
+  "parent2": "Accountant",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Larry Houdini",
+  "femaleName": "Kristina Angel",
+  "quote": "PRESS X AND I SHALL DISAPPEAR! PRESTO!",
+  "workplaces": [
+   "Circus",
+   "School of Magic"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 143,
+  "name": "Bartender",
+  "displayName": "Bartender",
+  "parent1": "Winemaker",
+  "parent2": "Salesman",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Roman Koch",
+  "femaleName": "Brandy Koch",
+  "quote": "A GIN AND TONIC IS ALL YOU NEED",
+  "workplaces": [
+   "Tavern",
+   "Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 144,
+  "name": "Barista",
+  "displayName": "Barista",
+  "parent1": "Bartender",
+  "parent2": "Waiter",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Tal Black",
+  "femaleName": "Dee Kaffin",
+  "quote": "IF PARADISE HAD A FLAVOR, IT WOULD BE COFFEE!",
+  "workplaces": [
+   "Cafe",
+   "Organic Cafe"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 145,
+  "name": "Wizard",
+  "displayName": "Wizard",
+  "parent1": "Magician",
+  "parent2": "Scientist",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Merlin Greybeard",
+  "femaleName": "Avery Kedavra",
+  "quote": "MAGIC IS JUST SCIENCE WE DON'T UNDERSTAND",
+  "workplaces": [
+   "School of Magic"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 146,
+  "name": "Apprentice",
+  "displayName": "Apprentice",
+  "parent1": "Wizard",
+  "parent2": "Assistant",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "William Hogworth",
+  "femaleName": "Emilia Lionheart",
+  "quote": "ALL I GET TO DO IS MOP THE FLOORS",
+  "workplaces": [
+   "School of Magic"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 147,
+  "name": "System_Admin",
+  "displayName": "System Admin",
+  "parent1": "Programmer",
+  "parent2": "Programmer",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Sydney Burnette",
+  "femaleName": "Sydney Burnette",
+  "quote": "01000111 01000101 01000101 01001011",
+  "workplaces": [
+   "IT Services"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 148,
+  "name": "Genie",
+  "displayName": "Genie",
+  "parent1": "Magician",
+  "parent2": "Magician",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Benjamin Dyinn",
+  "femaleName": "Desiree Trois",
+  "quote": "BE CAREFUL WHAT YOU WISH FOR",
+  "workplaces": [
+   "Tavern",
+   "Fortune Teller",
+   "Circus"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 149,
+  "name": "Wedding_Planner",
+  "displayName": "Wedding Planner",
+  "parent1": "Winemaker",
+  "parent2": "Baker",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "E. Lopez",
+  "femaleName": "Holly Matrimony",
+  "quote": "MARRIAGE SAVES SPACE",
+  "workplaces": [
+   "Wedding Planner",
+   "Dating Agency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 150,
+  "name": "Centaur",
+  "displayName": "Centaur",
+  "parent1": "Mutant",
+  "parent2": "Jockey",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Thomas Equinas",
+  "femaleName": "Yuni Cornsareal",
+  "quote": "HOUSTON, WE HAVE A PROBLEM",
+  "workplaces": [
+   "Altar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 1001,
+  "name": "Dreamer",
+  "displayName": "Dreamer",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "GENETIC BY-PRODUCT, APPEARS AT RANDOM IN GENE BANK",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1002,
+  "name": "Salesman",
+  "displayName": "Salesman",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "GENETIC BY-PRODUCT, APPEARS AT RANDOM IN GENE BANK",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1003,
+  "name": "Explorer",
+  "displayName": "Explorer",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "GENETIC BY-PRODUCT, APPEARS AT RANDOM IN GENE BANK",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1004,
+  "name": "Mutant",
+  "displayName": "Mutant",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "GENETIC BY-PRODUCT, APPEARS AT RANDOM IN GENE BANK",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1005,
+  "name": "Romantic",
+  "displayName": "Romantic",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "HELLO VALENTINE",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1006,
+  "name": "Bureaucrat",
+  "displayName": "Bureaucrat",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Ships free with Utopia version 1.3",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1007,
+  "name": "Musician",
+  "displayName": "Musician",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MSSION: WONDERLAND to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1008,
+  "name": "Sports_Star",
+  "displayName": "Sports Star",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: TEAM NAMES to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1009,
+  "name": "Jack_Frost",
+  "displayName": "Jack Frost",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: ICE AND FIRE to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1010,
+  "name": "Foodie",
+  "displayName": "Foodie",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: GASTRONOMIA to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1011,
+  "name": "Socialite",
+  "displayName": "Socialite",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: PARTY ANIMALS to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1012,
+  "name": "Strongman",
+  "displayName": "Strongman",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: BEAST OF BURDEN to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1013,
+  "name": "Guru",
+  "displayName": "Guru",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: OBEDIENCE SCHOOL to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1014,
+  "name": "Hitch_Hiker",
+  "displayName": "Hitch Hiker",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: THNX 4 THE FISH to unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1016,
+  "name": "Abomination",
+  "displayName": "Abomination",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "Complete MISSION: GHOST IN THE MACHINE to Unlock",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1017,
+  "name": "Holiday_Spirit",
+  "displayName": "Holiday Spirit",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "I AM THE BEGINNING AND END OF HOLIDAYS",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1018,
+  "name": "Fairy_Godmother",
+  "displayName": "Fairy Godmother",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "ARRIVED HERE AFTER VISITING A FARAWAY PRINCESS",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1019,
+  "name": "Crusader",
+  "displayName": "Crusader",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "NOTHING. EVERYTHING.",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1022,
+  "name": "Amazon",
+  "displayName": "Amazon",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "BE CAREFUL IN THE WORLD OF CLONES",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1023,
+  "name": "Hipster",
+  "displayName": "Hipster",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "BE THE CHANGE UTOPIA DESERVES",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1024,
+  "name": "Role_Player",
+  "displayName": "Role Player",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "DICE GUYS FINISH FIRST.",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1025,
+  "name": "Sage",
+  "displayName": "Sage",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "PLACEHOLDER",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 1026,
+  "name": "Virtuoso",
+  "displayName": "Virtuoso",
+  "parent1": "",
+  "parent2": "",
+  "group": "Special",
+  "type": "Special",
+  "maleName": "",
+  "femaleName": "",
+  "quote": "PLACEHOLDER",
+  "workplaces": [],
+  "requires": ""
+ },
+ {
+  "id": 156,
+  "name": "Wedding_Singer",
+  "displayName": "Wedding Singer",
+  "parent1": "Romantic",
+  "parent2": "Vocalist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Aden Zandler",
+  "femaleName": "Dee Sharpe",
+  "quote": "SOMEBODY'S GOTTA REPLACE THAT DJ",
+  "workplaces": [
+   "Wedding Planner"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 157,
+  "name": "Jeweller",
+  "displayName": "Jeweller",
+  "parent1": "Romantic",
+  "parent2": "Miner",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "M. A. ROALD",
+  "femaleName": "Tiffany Ceaux",
+  "quote": "IF YOU LIKE IT THEN YOU SHOULD PUT A RING ON IT",
+  "workplaces": [
+   "Wedding Planner"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 158,
+  "name": "Chocolatier",
+  "displayName": "Chocolatier",
+  "parent1": "Romantic",
+  "parent2": "Baker",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Billy Bonker",
+  "femaleName": "Lady Godiver",
+  "quote": "I MUST BE NEW HERE",
+  "workplaces": [
+   "Flower Shop",
+   "Ice Cream Stand"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 159,
+  "name": "Matchmaker",
+  "displayName": "Matchmaker",
+  "parent1": "Romantic",
+  "parent2": "Engineer",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Seth Meehup",
+  "femaleName": "May McMiamach",
+  "quote": "I'M WITH CUPID",
+  "workplaces": [
+   "Dating Agency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 160,
+  "name": "Dating_Advisor",
+  "displayName": "Dating Advisor",
+  "parent1": "Jeweller",
+  "parent2": "Chocolatier",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Romeo Montague",
+  "femaleName": "Juliet Capulet",
+  "quote": "THIS WILL END WELL",
+  "workplaces": [
+   "Dating Agency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 171,
+  "name": "Politician",
+  "displayName": "Politician",
+  "parent1": "Bureaucrat",
+  "parent2": "General",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Ronald Raygun",
+  "femaleName": "Michaela Velli",
+  "quote": "CHANGE WE CAN BELIEVE IN, ONE UPDATE AT A TIME",
+  "workplaces": [
+   "MissionControl"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 172,
+  "name": "Civil_Servant",
+  "displayName": "Civil Servant",
+  "parent1": "Bureaucrat",
+  "parent2": "Secretary",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Job Desker",
+  "femaleName": "Leslie Perkins",
+  "quote": "NO MATTER HOW MUCH YOU PUSH THE ENVELOPE, IT'LL STILL BE STATIONERY",
+  "workplaces": [
+   "MissionControl",
+   "Pawn Shop",
+   "Port Authority"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 173,
+  "name": "Officer",
+  "displayName": "Officer",
+  "parent1": "Civil_Servant",
+  "parent2": "Assistant",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Jim Schrute",
+  "femaleName": "Angela Martinez",
+  "quote": "THAT'S WHAT SHE SAID",
+  "workplaces": [
+   "MissionControl",
+   "Pawn Shop"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 174,
+  "name": "Insurance_Agent",
+  "displayName": "Insurance Agent",
+  "parent1": "Salesman",
+  "parent2": "Bureaucrat",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Ted Ductible",
+  "femaleName": "Anne Uity",
+  "quote": "COVERAGE FOR ALL POST-SPLICING CONDITIONS",
+  "workplaces": [
+   "Clinic",
+   "Hospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 175,
+  "name": "Federal_Agent",
+  "displayName": "Federal Agent",
+  "parent1": "Secret_Agent",
+  "parent2": "Politician",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Eisen Ears",
+  "femaleName": "Sue Specious",
+  "quote": "THE TRUTH IS IN HERE",
+  "workplaces": [
+   "Forensic Lab"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 176,
+  "name": "Conductor",
+  "displayName": "Conductor",
+  "parent1": "Musician",
+  "parent2": "Sheriff",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Kapil Meister",
+  "femaleName": "Keira Nomy",
+  "quote": "TUBA OR NOT TUBA, THAT IS THE QUESTION",
+  "workplaces": [
+   "ConcertHall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 177,
+  "name": "Drummer",
+  "displayName": "Drummer",
+  "parent1": "Musician",
+  "parent2": "Watchmaker",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Tambo Reen",
+  "femaleName": "Germaine Gripp",
+  "quote": "I HIT MY HEAD ON THE SNARE AND NOW I HAVE A PERCUSSION",
+  "workplaces": [
+   "Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 178,
+  "name": "Bassist",
+  "displayName": "Bassist",
+  "parent1": "Guitarist",
+  "parent2": "Deputy",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Sonny Gibbs",
+  "femaleName": "Pam Muter",
+  "quote": "ALL YOUR BASS ARE BELONG TO US",
+  "workplaces": [
+   "Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 179,
+  "name": "Guitarist",
+  "displayName": "Guitarist",
+  "parent1": "Musician",
+  "parent2": "Songwriter",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Fred Capo",
+  "femaleName": "Rosy Gunnes",
+  "quote": "STRINGS ATTACHED",
+  "workplaces": [
+   "Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 180,
+  "name": "Pianist",
+  "displayName": "Pianist",
+  "parent1": "Musician",
+  "parent2": "Programmer",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Moe Sartre",
+  "femaleName": "Indy Minor",
+  "quote": "NO I WILL NOT PLAY CANON IN D",
+  "workplaces": [
+   "ConcertHall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 181,
+  "name": "Violinist",
+  "displayName": "Violinist",
+  "parent1": "Guitarist",
+  "parent2": "Bassist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Bario Large",
+  "femaleName": "Portia Mento",
+  "quote": "THIS COULD BE TREBLE",
+  "workplaces": [
+   "ConcertHall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 182,
+  "name": "Gamer",
+  "displayName": "Gamer",
+  "parent1": "Programmer",
+  "parent2": "Sports_Star",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "L33T Haxxor",
+  "femaleName": "L33T Haxxor",
+  "quote": "STAY A WHILE, AND LISTEN",
+  "workplaces": [
+   "Tech Park"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 183,
+  "name": "Basketballer",
+  "displayName": "Basketballer",
+  "parent1": "Sports_Star",
+  "parent2": "Greengrocer",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Michael Amman",
+  "femaleName": "Colbie Bryant",
+  "quote": "I TRIED BEING A FISHERMAN BUT I GOT NOTHING BUT NET",
+  "workplaces": [
+   "Recreation Center"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 184,
+  "name": "Baseballer",
+  "displayName": "Baseballer",
+  "parent1": "Sports_Star",
+  "parent2": "Carpenter",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Homer Runne",
+  "femaleName": "Bambi Neaux",
+  "quote": "I WONDERED WHY THE BASEBALL KEPT GETTING BIGGER. THEN IT HIT ME.",
+  "workplaces": [
+   "Baseball Diamond"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 185,
+  "name": "Soccer_Star",
+  "displayName": "Soccer Star",
+  "parent1": "Sports_Star",
+  "parent2": "Actor",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Connor Kix",
+  "femaleName": "Clea Rance",
+  "quote": "YOU'LL NEVER SPLICE ALONE",
+  "workplaces": [
+   "Recreation Center"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 186,
+  "name": "Tennis_Player",
+  "displayName": "Tennis Player",
+  "parent1": "Sports_Star",
+  "parent2": "Sports_Star",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Todd Laver",
+  "femaleName": "Maria Supernova",
+  "quote": "Bjorn to be wild",
+  "workplaces": [
+   "Recreation Center"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 187,
+  "name": "Golfer",
+  "displayName": "Golfer",
+  "parent1": "Sports_Star",
+  "parent2": "Bartender",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Chip Mulligan",
+  "femaleName": "Alba Trosse",
+  "quote": "This game is driving a wedge into my relationships",
+  "workplaces": [
+   "Golf Course"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 188,
+  "name": "Caddie",
+  "displayName": "Caddie",
+  "parent1": "Golfer",
+  "parent2": "Philosopher",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Parry Putt",
+  "femaleName": "Sandy Wej",
+  "quote": "I Like Big Putts And I Cannot Lie",
+  "workplaces": [
+   "Golf Course"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 189,
+  "name": "Racecar_Driver",
+  "displayName": "Racecar Driver",
+  "parent1": "Sports_Star",
+  "parent2": "Valet",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Ray Surrex",
+  "femaleName": "Tsuiso Chicane",
+  "quote": "Have you read my auto biography?",
+  "workplaces": [
+   "Auto Shop"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 190,
+  "name": "Mascot",
+  "displayName": "Mascot",
+  "parent1": "Caddie",
+  "parent2": "Cheerleader",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Beary Bear",
+  "femaleName": "Beary Bear",
+  "quote": "Question. What kind of bear is best?",
+  "workplaces": [
+   "Recreation Center",
+   "Campsite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 191,
+  "name": "Figure_Skater",
+  "displayName": "Figure Skater",
+  "parent1": "Jack_Frost",
+  "parent2": "Ballet_Dancer",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Bauer Biellman",
+  "femaleName": "Betsy Squatte",
+  "quote": "Ice Guys Finish First",
+  "workplaces": [
+   "Winter Park"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 192,
+  "name": "Skier",
+  "displayName": "Skier",
+  "parent1": "Figure_Skater",
+  "parent2": "Mountain_Climber",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Ice Racingski",
+  "femaleName": "Eva Lanche",
+  "quote": "If you break your watch skiing, you’re gonna have a bad time",
+  "workplaces": [
+   "Winter Park",
+   "Ski Lodge"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 193,
+  "name": "Mountain_Climber",
+  "displayName": "Mountain Climber",
+  "parent1": "Jack_Frost",
+  "parent2": "Miner",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Albert Pine",
+  "femaleName": "Alice Pine",
+  "quote": "An avalanche is snow place to be",
+  "workplaces": [
+   "Winter Park"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 194,
+  "name": "Ice_Fisher",
+  "displayName": "Ice Fisher",
+  "parent1": "Fishmonger",
+  "parent2": "Figure_Skater",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "S. Keamo",
+  "femaleName": "S. Keamo",
+  "quote": "Ice Ice Maybe",
+  "workplaces": [
+   "Winter Park"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 195,
+  "name": "Pizza_Guy",
+  "displayName": "Pizza Guy",
+  "parent1": "Foodie",
+  "parent2": "Courier",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Moe Zarella",
+  "femaleName": "Pepper Rooney",
+  "quote": "Make me one with everything",
+  "workplaces": [
+   "Fast Food"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 196,
+  "name": "Sommelier",
+  "displayName": "Sommelier",
+  "parent1": "Foodie",
+  "parent2": "Winemaker",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Anthony Bordeaux",
+  "femaleName": "Sherry Vermouth",
+  "quote": "A day without wine could be better",
+  "workplaces": [
+   "Restaurant"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 197,
+  "name": "Ice_Cream_Seller",
+  "displayName": "Ice Cream Seller",
+  "parent1": "Foodie",
+  "parent2": "Jack_Frost",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Neal Politan",
+  "femaleName": "Jill Lato",
+  "quote": "Every day is sundae",
+  "workplaces": [
+   "Ice Cream Stand",
+   "Winter Park",
+   "Diner"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 198,
+  "name": "Celebrity_Chef",
+  "displayName": "Celebrity Chef",
+  "parent1": "Sommelier",
+  "parent2": "Chef",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Ramson Gorday",
+  "femaleName": "Nigella Lawesome",
+  "quote": "You can make some grate things with cheese",
+  "workplaces": [
+   "Restaurant",
+   "Sushi Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 199,
+  "name": "Butler",
+  "displayName": "Butler",
+  "parent1": "Sommelier",
+  "parent2": "Valet",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Alfred Caine",
+  "femaleName": "Robin Doubtfire",
+  "quote": "It wasn’t me",
+  "workplaces": [
+   "Hero Mansion"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 200,
+  "name": "Cosmetic_Surgeon",
+  "displayName": "Cosmetic Surgeon",
+  "parent1": "Socialite",
+  "parent2": "Doctor",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Nick Tucker",
+  "femaleName": "Beau Toxx",
+  "quote": "Rhinoplasty is great if no one nose better",
+  "workplaces": [
+   "Hospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 201,
+  "name": "Cardiologist",
+  "displayName": "Cardiologist",
+  "parent1": "Cosmetic_Surgeon",
+  "parent2": "Romantic",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Perry Cardium",
+  "femaleName": "Veena Cava",
+  "quote": "Don’t skip a beat",
+  "workplaces": [
+   "Hospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 202,
+  "name": "Bouncer",
+  "displayName": "Bouncer",
+  "parent1": "Socialite",
+  "parent2": "Bodybuilder",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Baracus Lang",
+  "femaleName": "Dora Stopper",
+  "quote": "You shall not pass",
+  "workplaces": [
+   "Disco"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 203,
+  "name": "Party_Animal",
+  "displayName": "Party Animal",
+  "parent1": "Socialite",
+  "parent2": "Animal_Trainer",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Patty Rocker",
+  "femaleName": "Nikki Parisian",
+  "quote": "I am extremely attractive and aware of this fact",
+  "workplaces": [
+   "Disco"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 204,
+  "name": "Gambler",
+  "displayName": "Gambler",
+  "parent1": "Party_Animal",
+  "parent2": "Mathematician",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Hugh Roller",
+  "femaleName": "Becca Rat",
+  "quote": "I know when to walk away",
+  "workplaces": [
+   "Casino"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 205,
+  "name": "Croupier",
+  "displayName": "Croupier",
+  "parent1": "Gambler",
+  "parent2": "Valet",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Jack Spades",
+  "femaleName": "Carla Monte",
+  "quote": "The House Always Wins",
+  "workplaces": [
+   "Casino"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 206,
+  "name": "Investor",
+  "displayName": "Investor",
+  "parent1": "Gambler",
+  "parent2": "Industrialist",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Warren Alacarte",
+  "femaleName": "Goldie Sachs",
+  "quote": "I used to be a banker but I lost interest",
+  "workplaces": [
+   "Tech Park",
+   "Hedge Fund"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 207,
+  "name": "Bodybuilder",
+  "displayName": "Bodybuilder",
+  "parent1": "Strongman",
+  "parent2": "Model",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Sven Svenson",
+  "femaleName": "Hera Cules",
+  "quote": "Got a sewing machine? Coz I’m Ripped",
+  "workplaces": [
+   "Gym"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 208,
+  "name": "Gym_Instructor",
+  "displayName": "Gym Instructor",
+  "parent1": "Bodybuilder",
+  "parent2": "Guru",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Phil Lattes",
+  "femaleName": "Callie Stenicks",
+  "quote": "Be careful eating seafood, you might pull a mussel",
+  "workplaces": [
+   "Gym",
+   "Spa"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 209,
+  "name": "Sumo_Wrestler",
+  "displayName": "Sumo Wrestler",
+  "parent1": "Bodybuilder",
+  "parent2": "Sushi_Chef",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Nick Odamashi",
+  "femaleName": "Joan Okuchi",
+  "quote": "Don’t turn your back on me",
+  "workplaces": [
+   "Dojo",
+   "Arena"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 210,
+  "name": "Samurai",
+  "displayName": "Samurai",
+  "parent1": "Sumo_Wrestler",
+  "parent2": "Soldier",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Henry Akuji",
+  "femaleName": "Jen Puku",
+  "quote": "Splice and dice",
+  "workplaces": [
+   "Dojo",
+   "Sushi Bar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 211,
+  "name": "Gymnast",
+  "displayName": "Gymnast",
+  "parent1": "Gym_Instructor",
+  "parent2": "Athlete",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Hans Spring",
+  "femaleName": "Summer Sault",
+  "quote": "I’m not impressed",
+  "workplaces": [
+   "Gym"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 212,
+  "name": "Boxer",
+  "displayName": "Boxer",
+  "parent1": "Gym_Instructor",
+  "parent2": "Martial_Artist",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Hay Macher",
+  "femaleName": "Hillary Fitzgerald",
+  "quote": "I've got the best punchline",
+  "workplaces": [
+   "Arena",
+   "Gym"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 213,
+  "name": "Acrobat",
+  "displayName": "Acrobat",
+  "parent1": "Gymnast",
+  "parent2": "Ringmaster",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Pierre Pablo",
+  "femaleName": "Connie Torsion",
+  "quote": "Not the document editing kind",
+  "workplaces": [
+   "Casino",
+   "Circus"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 214,
+  "name": "Professor",
+  "displayName": "Professor",
+  "parent1": "Guru",
+  "parent2": "Scientist",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Calvin Cueless",
+  "femaleName": "Aretha Metick",
+  "quote": "My new theory on inertia doesn't seem to be gaining momentum.",
+  "workplaces": [
+   "University"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 215,
+  "name": "Talkshow_Host",
+  "displayName": "Talkshow Host",
+  "parent1": "Guru",
+  "parent2": "Actor",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Lawrence Regent",
+  "femaleName": "Winfra Oprey",
+  "quote": "You get a clone! You get clone! Everybody gets a clone!",
+  "workplaces": [
+   "Broadcast Station"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 216,
+  "name": "News_Anchor",
+  "displayName": "News Anchor",
+  "parent1": "Talkshow_Host",
+  "parent2": "Reporter",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Anderson Blitzer",
+  "femaleName": "Katie Amanpour",
+  "quote": "The search for truthiness continues",
+  "workplaces": [
+   "Broadcast Station"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 217,
+  "name": "Entrepreneur",
+  "displayName": "Entrepreneur",
+  "parent1": "Guru",
+  "parent2": "Programmer",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Zark Muckerberg",
+  "femaleName": "Maya Marissa",
+  "quote": "I'm CEO",
+  "workplaces": [
+   "Tech Park"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 218,
+  "name": "Travel_Agent",
+  "displayName": "Travel Agent",
+  "parent1": "Tour_Guide",
+  "parent2": "Pilot",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Fjord Cruise",
+  "femaleName": "Ria Miles",
+  "quote": "Getting sick at an airport could be a terminal illness",
+  "workplaces": [
+   "Travel Agency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 219,
+  "name": "Tour_Guide",
+  "displayName": "Tour Guide",
+  "parent1": "Hitch_Hiker",
+  "parent2": "Salesman",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Trip Edweisser",
+  "femaleName": "Lolly Planitt",
+  "quote": "What Tokyo so long?",
+  "workplaces": [
+   "Travel Agency",
+   "Palace"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 220,
+  "name": "Cyclist",
+  "displayName": "Cyclist",
+  "parent1": "Hitch_Hiker",
+  "parent2": "Courier",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Will O’Drome",
+  "femaleName": "Cadence Chainring",
+  "quote": "Bicycles need stands because they’re two tyred",
+  "workplaces": [
+   "Recreation Center",
+   "Gym"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 221,
+  "name": "Skateboarder",
+  "displayName": "Skateboarder",
+  "parent1": "Cyclist",
+  "parent2": "Skier",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Ollie Goofyfoot",
+  "femaleName": "Nollie Noseslide",
+  "quote": "Can’t we all just get a long board",
+  "workplaces": [
+   "Recreation Center"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 222,
+  "name": "Treehugger",
+  "displayName": "Treehugger",
+  "parent1": "Hitch_Hiker",
+  "parent2": "Guru",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Om Moonjava",
+  "femaleName": "Dharma Earthchild",
+  "quote": "Can vegetarians eat animal crackers?",
+  "workplaces": [
+   "Flower Shop",
+   "Campsite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 223,
+  "name": "Star_Commander",
+  "displayName": "Star Commander",
+  "parent1": "Travel_Agent",
+  "parent2": "Astronaut",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Pat Peckard",
+  "femaleName": "May Kitso",
+  "quote": "Engage!",
+  "workplaces": [
+   "Space Admin"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 224,
+  "name": "Mounted_Police",
+  "displayName": "Mounted Police",
+  "parent1": "Cyclist",
+  "parent2": "Sheriff",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Sam Klondike",
+  "femaleName": "Regina Ryot",
+  "quote": "NOW SHOWING: THE FULL MOUNTIE",
+  "workplaces": [
+   "Sheriffs Office",
+   "Stable",
+   "Campsite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 225,
+  "name": "Tourist",
+  "displayName": "Tourist",
+  "parent1": "Tour_Guide",
+  "parent2": "Travel_Agent",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Wallie Sandiego",
+  "femaleName": "Valda Sandiego",
+  "quote": "The grand canyon was just gorges",
+  "workplaces": [
+   "Travel Agency",
+   "Palace"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 227,
+  "name": "Catcher",
+  "displayName": "Catcher",
+  "parent1": "Baseballer",
+  "parent2": "Police_Officer",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Mitt Glover",
+  "femaleName": "Stella Base",
+  "quote": "I'M HAVING A BALL",
+  "workplaces": [
+   "Baseball Diamond"
+  ],
+  "requires": "MI_BruteForce"
+ },
+ {
+  "id": 228,
+  "name": "Statistician",
+  "displayName": "Statistician",
+  "parent1": "Mathematician",
+  "parent2": "Reporter",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Neil Hypothesis",
+  "femaleName": "Norma Lize",
+  "quote": "YOU ARE THREE SIGMA FROM THE MEAN",
+  "workplaces": [
+   "Baseball Diamond"
+  ],
+  "requires": "MI_HighlySpecialized"
+ },
+ {
+  "id": 229,
+  "name": "Ventrilogquist",
+  "displayName": "Ventrilogquist",
+  "parent1": "Carpenter",
+  "parent2": "Actor",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Ahmed Dunham",
+  "femaleName": "Pippa Teer",
+  "quote": "I'M WRITING A BOOK. IT'S CALLED VENTRILOQUISM FOR DUMMIES",
+  "workplaces": [
+   "Theatre"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 230,
+  "name": "Masseuse",
+  "displayName": "Masseuse",
+  "parent1": "Physiotherapist",
+  "parent2": "Strongman",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Ian Flammation",
+  "femaleName": "Tara Peutic",
+  "quote": "I KNEAD NEW CUSTOMERS",
+  "workplaces": [
+   "Spa"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 231,
+  "name": "Chemist",
+  "displayName": "Chemist",
+  "parent1": "Scientist",
+  "parent2": "Bartender",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Perry Ordic",
+  "femaleName": "Ellie Mental",
+  "quote": "I'VE GOT MY ION YOU",
+  "workplaces": [
+   "Chemical Plant",
+   "FireworksFactory"
+  ],
+  "requires": "MI_HighlySpecialized"
+ },
+ {
+  "id": 232,
+  "name": "Hazmat",
+  "displayName": "Hazmat",
+  "parent1": "Chemist",
+  "parent2": "Stunt_Double",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Matt Hazard",
+  "femaleName": "Kate Alyst",
+  "quote": "LESSON 1: NEVER LICK THE SPOON",
+  "workplaces": [
+   "Chemical Plant",
+   "Space Admin"
+  ],
+  "requires": "MI_HighlySpecialized"
+ },
+ {
+  "id": 233,
+  "name": "Investment_Banker",
+  "displayName": "Investment Banker",
+  "parent1": "Salesman",
+  "parent2": "Gambler",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Davy Dends",
+  "femaleName": "Fleur Closure",
+  "quote": "OPTIMISM IS WHEN I IRON FIVE SHIRTS ON A SUNDAY EVENING",
+  "workplaces": [
+   "Hedge Fund"
+  ],
+  "requires": "MI_HighlySpecialized"
+ },
+ {
+  "id": 234,
+  "name": "Mime",
+  "displayName": "Mime",
+  "parent1": "Actor",
+  "parent2": "Librarian",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Pantois Mummiere",
+  "femaleName": "Emma Tatere",
+  "quote": "NULL",
+  "workplaces": [
+   "Carnival"
+  ],
+  "requires": "MI_HighlySpecialized"
+ },
+ {
+  "id": 235,
+  "name": "Optometrist",
+  "displayName": "Optometrist",
+  "parent1": "Astronomer",
+  "parent2": "Doctor",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Mike Opia",
+  "femaleName": "Astrid Matism",
+  "quote": "OPTOMETRISTS LIVE LONG BECAUSE THEY DILATE",
+  "workplaces": [
+   "Clinic"
+  ],
+  "requires": "MI_HighlySpecialized"
+ },
+ {
+  "id": 236,
+  "name": "Surfer",
+  "displayName": "Surfer",
+  "parent1": "Skateboarder",
+  "parent2": "Olympic_Swimmer",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Billy Bong",
+  "femaleName": "Mal Leboux",
+  "quote": "WHEN I'M RIDING THE WAVES, I'M NEVER BOARD",
+  "workplaces": [
+   "Beach House"
+  ],
+  "requires": "MI_BruteForce"
+ },
+ {
+  "id": 237,
+  "name": "Butcher",
+  "displayName": "Butcher",
+  "parent1": "Cattle_Rustler",
+  "parent2": "Cook",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Brett Wurst",
+  "femaleName": "Winnie Schnitzel",
+  "quote": "NICE TO MEAT YOU",
+  "workplaces": [
+   "Fast Food"
+  ],
+  "requires": "MI_BruteForce"
+ },
+ {
+  "id": 238,
+  "name": "Hockey_Player",
+  "displayName": "Hockey Player",
+  "parent1": "Wrestler",
+  "parent2": "Figure_Skater",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Deke Puckerman",
+  "femaleName": "Shinny Puckerman",
+  "quote": "IT'S ABOUT TIME WE BROKE THE ICE",
+  "workplaces": [
+   "Winter Park"
+  ],
+  "requires": "MI_BruteForce"
+ },
+ {
+  "id": 239,
+  "name": "Sports_Fan",
+  "displayName": "Sports Fan",
+  "parent1": "Athlete",
+  "parent2": "Statistician",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Barney Hulligan",
+  "femaleName": "Holly Gunnes",
+  "quote": "WHO'S ON FIRST?",
+  "workplaces": [
+   "Arena"
+  ],
+  "requires": "MI_BruteForce"
+ },
+ {
+  "id": 240,
+  "name": "Lumberjack",
+  "displayName": "Lumberjack",
+  "parent1": "Carpenter",
+  "parent2": "Strongman",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Sawyer Loggs",
+  "femaleName": "Mae Hogany",
+  "quote": "YEW COMPLETE ME",
+  "workplaces": [
+   "Lumber Mill"
+  ],
+  "requires": "MI_BruteForce"
+ },
+ {
+  "id": 241,
+  "name": "Pyrotechnician",
+  "displayName": "Pyrotechnician",
+  "parent1": "Wizard",
+  "parent2": "Chemist",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Roman Candle",
+  "femaleName": "Diana Mite",
+  "quote": "CAN'T WAIT FOR THE DAY I GET FIRED.",
+  "workplaces": [
+   "FireworksFactory",
+   "Carnival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 242,
+  "name": "Tattoo_Artist",
+  "displayName": "Tattoo Artist",
+  "parent1": "Calligrapher",
+  "parent2": "Punk_Rocker",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Flinch Inkwell",
+  "femaleName": "Tina Needle",
+  "quote": "A proud employee of Utopia Ink",
+  "workplaces": [
+   "Gas Station"
+  ],
+  "requires": "MI_FastNFurriest"
+ },
+ {
+  "id": 243,
+  "name": "Biker",
+  "displayName": "Biker",
+  "parent1": "Cyclist",
+  "parent2": "Strongman",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "David Harlson",
+  "femaleName": "Hailey Davidson",
+  "quote": "Motorcyclists love hogging the road",
+  "workplaces": [
+   "Gas Station"
+  ],
+  "requires": "MI_FastNFurriest"
+ },
+ {
+  "id": 244,
+  "name": "Gas_Filler",
+  "displayName": "Gas Filler",
+  "parent1": "Valet",
+  "parent2": "Janitor",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Moe Bill",
+  "femaleName": "Shelly Burton",
+  "quote": "Do cars driven late at night burn midnight oil?",
+  "workplaces": [
+   "Gas Station"
+  ],
+  "requires": "MI_FastNFurriest"
+ },
+ {
+  "id": 245,
+  "name": "Car_Washer",
+  "displayName": "Car Washer",
+  "parent1": "Janitor",
+  "parent2": "Model",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Sir Waxalot",
+  "femaleName": "Shiny Bonnette",
+  "quote": "Grime doesn't pay!",
+  "workplaces": [
+   "Gas Station",
+   "Auto Shop"
+  ],
+  "requires": "MI_FastNFurriest"
+ },
+ {
+  "id": 246,
+  "name": "Hair_Stylist",
+  "displayName": "Hair Stylist",
+  "parent1": "Model",
+  "parent2": "Gardener",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Harry Cutter",
+  "femaleName": "Barbara Schop",
+  "quote": "Toupee or not toupee. That is the question.",
+  "workplaces": [
+   "Barber Shop",
+   "Gas Station"
+  ],
+  "requires": "MI_FastNFurriest"
+ },
+ {
+  "id": 247,
+  "name": "Sea_Dog",
+  "displayName": "Sea Dog",
+  "parent1": "Captain",
+  "parent2": "Buccaneer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Navy Jones",
+  "femaleName": "Daisy Jones",
+  "quote": "Old sailors never die, they just get a little dinghy",
+  "workplaces": [
+   "Docks"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 248,
+  "name": "Sailor",
+  "displayName": "Sailor",
+  "parent1": "Sea_Dog",
+  "parent2": "First_Mate",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Albert Ross",
+  "femaleName": "Doll Drums",
+  "quote": "I won't try on a new hat. I'm afraid of cap sizing.",
+  "workplaces": [
+   "Docks",
+   "Port Authority"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 249,
+  "name": "Dock_Hand",
+  "displayName": "Dock Hand",
+  "parent1": "Sailor",
+  "parent2": "Strongman",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Steve Dore",
+  "femaleName": "Carey-Ann Loade",
+  "quote": "What keeps a dock floating above water? Pier pressure!",
+  "workplaces": [
+   "Docks"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 250,
+  "name": "Boat_Racer",
+  "displayName": "Boat Racer",
+  "parent1": "Racecar_Driver",
+  "parent2": "Sailor",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Evan Keel",
+  "femaleName": "Hydra Plane",
+  "quote": "A leak in the back of a boat is a stern warning",
+  "workplaces": [
+   "Marina"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 251,
+  "name": "Sailing_Instructor",
+  "displayName": "Sailing Instructor",
+  "parent1": "Sailor",
+  "parent2": "Coach",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Ray Gatta",
+  "femaleName": "Portia Starboard",
+  "quote": "I'm on a boat.",
+  "workplaces": [
+   "Marina",
+   "Swimming Pool"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 252,
+  "name": "Lighthouse_Keeper",
+  "displayName": "Lighthouse Keeper",
+  "parent1": "Astronomer",
+  "parent2": "Electrician",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Foggy Knight",
+  "femaleName": "Beau Beacon",
+  "quote": "There's always a man, a city, a lighthouse",
+  "workplaces": [
+   "Lighthouse"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 253,
+  "name": "Cartographer",
+  "displayName": "Cartographer",
+  "parent1": "Calligrapher",
+  "parent2": "Explorer",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Azi Muthal",
+  "femaleName": "Bonne Mercator",
+  "quote": "The world is flat",
+  "workplaces": [
+   "Lighthouse"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 254,
+  "name": "Castaway",
+  "displayName": "Castaway",
+  "parent1": "Explorer",
+  "parent2": "Sailor",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Cruz O'Robinson",
+  "femaleName": "Anita Resqueue",
+  "quote": "I was wearing red and blue before I got marooned.",
+  "workplaces": [
+   "Island"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 255,
+  "name": "Tribal",
+  "displayName": "Tribal",
+  "parent1": "Farmer",
+  "parent2": "Fishmonger",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Kane Nibble",
+  "femaleName": "Abby Regine",
+  "quote": "Do comedians taste funny?",
+  "workplaces": [
+   "Island"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 256,
+  "name": "Treasure_Hunter",
+  "displayName": "Treasure Hunter",
+  "parent1": "Jeweller",
+  "parent2": "Buccaneer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Dub Bloons",
+  "femaleName": "Goldie Kerr",
+  "quote": "Long live the pirate bay!",
+  "workplaces": [
+   "Island",
+   "Cave"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 257,
+  "name": "Mermaid",
+  "displayName": "Mermaid",
+  "parent1": "Lifeguard",
+  "parent2": "Mutant",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Seamus Mann",
+  "femaleName": "Sirena Song",
+  "quote": "I thought we were orbiting closer to Neptune",
+  "workplaces": [
+   "Lighthouse"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 258,
+  "name": "Musketeer",
+  "displayName": "Musketeer",
+  "parent1": "Fencer",
+  "parent2": "Historian",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Allesandro Domez",
+  "femaleName": "Dora Tanyan",
+  "quote": "En Garde, we thrust",
+  "workplaces": [
+   "Antique Store"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 259,
+  "name": "Emperor",
+  "displayName": "Emperor",
+  "parent1": "Mayor",
+  "parent2": "Historian",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Leo Patra",
+  "femaleName": "Julie Seizher",
+  "quote": "The Sun never sets on the Utopian Empire",
+  "workplaces": [
+   "Antique Store",
+   "Palace"
+  ],
+  "requires": "MI_ThePlotThickens"
+ },
+ {
+  "id": 260,
+  "name": "Fencer",
+  "displayName": "Fencer",
+  "parent1": "Ballet_Dancer",
+  "parent2": "Ninja",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Parry Rapiere",
+  "femaleName": "E.P. Riposte",
+  "quote": "What's the point of all this?",
+  "workplaces": [
+   "Dojo"
+  ],
+  "requires": "MI_WheresMyH2O"
+ },
+ {
+  "id": 261,
+  "name": "Lawn_Gnome",
+  "displayName": "Lawn Gnome",
+  "parent1": "Gardener",
+  "parent2": "Wizard",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Gnome Chomsky",
+  "femaleName": "Marge Gauntlette",
+  "quote": "OH GNOME, YOU DIDN'T!",
+  "workplaces": [
+   "Secret Hideout"
+  ],
+  "requires": "MI_WheresMyH2O"
+ },
+ {
+  "id": 262,
+  "name": "Punk_Rocker",
+  "displayName": "Punk Rocker",
+  "parent1": "Guitarist",
+  "parent2": "Hair_Stylist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Rramone Anarky",
+  "femaleName": "Blondie Hart",
+  "quote": "My favorite stance is the resist stance.",
+  "workplaces": [
+   "Outdoor Stage"
+  ],
+  "requires": "MI_WheresMyH2O"
+ },
+ {
+  "id": 263,
+  "name": "Mariachi",
+  "displayName": "Mariachi",
+  "parent1": "Guitarist",
+  "parent2": "Cattle_Rustler",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Jaili Sciense",
+  "femaleName": "Lola Vargas",
+  "quote": "Lead singer and guitarist for the new band \"Juan Direction\"",
+  "workplaces": [
+   "Outdoor Stage",
+   "Diner"
+  ],
+  "requires": "MI_WheresMyH2O"
+ },
+ {
+  "id": 264,
+  "name": "Rockstar",
+  "displayName": "Rockstar",
+  "parent1": "Guitarist",
+  "parent2": "Vocalist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Bismillah Figaro",
+  "femaleName": "Joanna Jetson",
+  "quote": "Is this the real life or is this just fanstasy",
+  "workplaces": [
+   "Outdoor Stage"
+  ],
+  "requires": "MI_WheresMyH2O"
+ },
+ {
+  "id": 265,
+  "name": "Electrician",
+  "displayName": "Electrician",
+  "parent1": "Mechanic",
+  "parent2": "Assistant",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Alec Trickle",
+  "femaleName": "Macy Deecy",
+  "quote": "Resistance is futile",
+  "workplaces": [
+   "Telephone Company",
+   "ApplianceManufacturer"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 266,
+  "name": "Telephone_Operator",
+  "displayName": "Telephone Operator",
+  "parent1": "Receptionist",
+  "parent2": "Electrician",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Ronald Numbah",
+  "femaleName": "Anne Gaged",
+  "quote": "Today our oldest phone died. There will be no reception.",
+  "workplaces": [
+   "Telephone Company"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 267,
+  "name": "Cashier",
+  "displayName": "Cashier",
+  "parent1": "Salesman",
+  "parent2": "Assistant",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "John. E. Cash",
+  "femaleName": "Peyton Sofmoney",
+  "quote": "Double your money by folding it over and putting it back in your pocket",
+  "workplaces": [
+   "Pet Store",
+   "Gas Station",
+   "Pharmacy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 268,
+  "name": "Bee_Keeper",
+  "displayName": "Bee Keeper",
+  "parent1": "Farmer",
+  "parent2": "Entomologist",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "A.B. Shaker",
+  "femaleName": "Honey Coombs",
+  "quote": "Buzz for assistance",
+  "workplaces": [
+   "Apiary"
+  ],
+  "requires": "MI_HighlySpecialized"
+ },
+ {
+  "id": 269,
+  "name": "Entomologist",
+  "displayName": "Entomologist",
+  "parent1": "Programmer",
+  "parent2": "Scientist",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "X.O. Skellington",
+  "femaleName": "Tara Antula",
+  "quote": "It's hard to fall ill with all these anty bodies around me",
+  "workplaces": [
+   "Apiary",
+   "University"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 270,
+  "name": "Bell_Ringer",
+  "displayName": "Bell Ringer",
+  "parent1": "Watchmaker",
+  "parent2": "Strongman",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Moe D'Quasi",
+  "femaleName": "Victoria Hugo",
+  "quote": "A hungry clock goes back four seconds",
+  "workplaces": [
+   "Doomsday Clock"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 271,
+  "name": "Security_Guard",
+  "displayName": "Security Guard",
+  "parent1": "Police_Officer",
+  "parent2": "Assistant",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Saif Keeper",
+  "femaleName": "Dora Mann",
+  "quote": "A good pun is its own reword.",
+  "workplaces": [
+   "Telephone Company",
+   "Film Studio",
+   "Airport"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 272,
+  "name": "Minotaur",
+  "displayName": "Minotaur",
+  "parent1": "Matador",
+  "parent2": "Mutant",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Bull Hornby",
+  "femaleName": "Tara Bull",
+  "quote": "Raising the steaks",
+  "workplaces": [
+   "Altar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 273,
+  "name": "Tooth_Fairy",
+  "displayName": "Tooth Fairy",
+  "parent1": "Dentist",
+  "parent2": "Bee_Keeper",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Cole Gate",
+  "femaleName": "Kay Nyne",
+  "quote": "Putting your money where your mouth is",
+  "workplaces": [
+   "Dentists Office"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 274,
+  "name": "Eagle_Scout",
+  "displayName": "Eagle Scout",
+  "parent1": "Park_Ranger",
+  "parent2": "Explorer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Cam Poree",
+  "femaleName": "Jem Boree",
+  "quote": "Be Prepared",
+  "workplaces": [
+   "Campsite"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 275,
+  "name": "Camp_Counsellor",
+  "displayName": "Camp Counsellor",
+  "parent1": "Eagle_Scout",
+  "parent2": "Homemaker",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Rocky Smores",
+  "femaleName": "Marsha Mellow",
+  "quote": "Summer camp is always in tents",
+  "workplaces": [
+   "Campsite"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 276,
+  "name": "Outlaw",
+  "displayName": "Outlaw",
+  "parent1": "Lumberjack",
+  "parent2": "Ninja",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Robin Hood",
+  "femaleName": "Robyn Hood",
+  "quote": "Robin the rich, givin to the poor!",
+  "workplaces": [
+   "Lumber Mill"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 277,
+  "name": "Caveman",
+  "displayName": "Caveman",
+  "parent1": "Strongman",
+  "parent2": "Tribal",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Trog Lodite",
+  "femaleName": "Nan Derthal",
+  "quote": "Our way is the old way",
+  "workplaces": [
+   "Cave",
+   "ServiceFirm"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 278,
+  "name": "Crashtest_Dummy",
+  "displayName": "Crashtest Dummy",
+  "parent1": "Stunt_Double",
+  "parent2": "Valet",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Johnny Noface",
+  "femaleName": "Anne Droid",
+  "quote": "Seriously, Dude, where are all the cars?",
+  "workplaces": [
+   "Auto Shop"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 279,
+  "name": "Oil_Driller",
+  "displayName": "Oil Driller",
+  "parent1": "Construction_Worker",
+  "parent2": "Deep_Sea_Diver",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Pete Roleum",
+  "femaleName": "Kera Seene",
+  "quote": "This is such a boring job.",
+  "workplaces": [
+   "Oil Rig"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 280,
+  "name": "Vigilante",
+  "displayName": "Vigilante",
+  "parent1": "Detective",
+  "parent2": "Martial_Artist",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Fox Mann",
+  "femaleName": "Beth Mann",
+  "quote": "Am I the hero Utopia deserves?",
+  "workplaces": [
+   "Cave"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 281,
+  "name": "Rock_Climber",
+  "displayName": "Rock Climber",
+  "parent1": "Mountain_Climber",
+  "parent2": "Stunt_Double",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Des Sender",
+  "femaleName": "Kara Biner",
+  "quote": "At first I was shy, but then I got boulder.",
+  "workplaces": [
+   "Cave"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 282,
+  "name": "Welder",
+  "displayName": "Welder",
+  "parent1": "Pyrotechnician",
+  "parent2": "Mechanic",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Matt Allergy",
+  "femaleName": "Solda Ring",
+  "quote": "The welding profession is purely riveting!",
+  "workplaces": [
+   "Space Admin",
+   "Oil Rig"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 283,
+  "name": "Oil_Baron",
+  "displayName": "Oil Baron",
+  "parent1": "Oil_Driller",
+  "parent2": "Investor",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Paul Lutian",
+  "femaleName": "Kay Nyne",
+  "quote": "Oil's well that ends well.",
+  "workplaces": [
+   "Oil Rig"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 284,
+  "name": "Barber",
+  "displayName": "Barber",
+  "parent1": "Hair_Stylist",
+  "parent2": "Apprentice",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Kurt Short",
+  "femaleName": "Jill Lette",
+  "quote": "Do evil rabbits have bad hare days?",
+  "workplaces": [
+   "Barber Shop"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 285,
+  "name": "Acapella_Singer",
+  "displayName": "Acapella Singer",
+  "parent1": "Vocalist",
+  "parent2": "Bassist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Chris Shendo",
+  "femaleName": "Tam Bourine",
+  "quote": "If you can't find a partner, you gotta duet yourself!",
+  "workplaces": [
+   "Barber Shop"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 286,
+  "name": "Merchant",
+  "displayName": "Merchant",
+  "parent1": "Salesman",
+  "parent2": "Sailor",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Bart Barter",
+  "femaleName": "Marcella Polo",
+  "quote": "Making a boat out of stone would be a hardship",
+  "workplaces": [
+   "Port Authority"
+  ],
+  "requires": "MI_BakersDozen"
+ },
+ {
+  "id": 287,
+  "name": "Ambassador",
+  "displayName": "Ambassador",
+  "parent1": "Salesman",
+  "parent2": "Mayor",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Ike O'Mishner",
+  "femaleName": "Polly Tickle",
+  "quote": "A tall clone isn't always one of high standing.",
+  "workplaces": [
+   "Pawn Shop"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 289,
+  "name": "Vampire",
+  "displayName": "Vampire",
+  "parent1": "Abomination",
+  "parent2": "Cardiologist",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Drake Yuler",
+  "femaleName": "Dawn Fearer",
+  "quote": "This job sucks",
+  "workplaces": [
+   "Dark Tower"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 290,
+  "name": "Monster",
+  "displayName": "Monster",
+  "parent1": "Mad_Scientist",
+  "parent2": "Henchman",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Levi Athan",
+  "femaleName": "Mona Strauss",
+  "quote": "Don't feed me. Or i'll be goblin.",
+  "workplaces": [
+   "Laboratory"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 291,
+  "name": "Werewolf",
+  "displayName": "Werewolf",
+  "parent1": "Abomination",
+  "parent2": "Mutant",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Howland Moone",
+  "femaleName": "Feral Fawcett",
+  "quote": "Werewolves have great tails to tell. - Oscar Wild",
+  "workplaces": [
+   "Dark Tower"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 292,
+  "name": "Mummy",
+  "displayName": "Mummy",
+  "parent1": "Archaeologist",
+  "parent2": "Vampire",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Ahmaliven Kicken",
+  "femaleName": "Carmen Tuten",
+  "quote": "The worst part of a vacation is all that unwinding.",
+  "workplaces": [
+   "Pyramid"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 293,
+  "name": "Mad_Scientist",
+  "displayName": "Mad Scientist",
+  "parent1": "Scientist",
+  "parent2": "Abomination",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Frank Einstein",
+  "femaleName": "Marie Shellie",
+  "quote": "It's Alive!",
+  "workplaces": [
+   "Laboratory"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 294,
+  "name": "Henchman",
+  "displayName": "Henchman",
+  "parent1": "Mad_Scientist",
+  "parent2": "Bell_Ringer",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Igor Beavor",
+  "femaleName": "Pulda Switch",
+  "quote": "Pull the switch he said. It will be fine, he said.",
+  "workplaces": [
+   "Laboratory"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 295,
+  "name": "Supervillain",
+  "displayName": "Supervillain",
+  "parent1": "Mad_Scientist",
+  "parent2": "Super_Hero",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Des Pickable",
+  "femaleName": "Evelyn Tent",
+  "quote": "Planning another apocalypse like there's no tomorrow.",
+  "workplaces": [
+   "Evil Lair"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 296,
+  "name": "Thief",
+  "displayName": "Thief",
+  "parent1": "Henchman",
+  "parent2": "Henchman",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Nick Pockett",
+  "femaleName": "Kat Burgler",
+  "quote": "Thefts at parking garages are wrong on so many levels",
+  "workplaces": [
+   "Evil Lair"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 297,
+  "name": "Assassin",
+  "displayName": "Assassin",
+  "parent1": "Ninja",
+  "parent2": "Thief",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Dexter Minator",
+  "femaleName": "Faye Tality",
+  "quote": "If I broke a clock, would I be charged for killing time?",
+  "workplaces": [
+   "Evil Lair"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 298,
+  "name": "Bandit",
+  "displayName": "Bandit",
+  "parent1": "Cattle_Rustler",
+  "parent2": "Assassin",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Stieg Cupp",
+  "femaleName": "Bonnie Clyde",
+  "quote": "I'm just here to stirrup trouble",
+  "workplaces": [
+   "Stable"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 299,
+  "name": "Arsonist",
+  "displayName": "Arsonist",
+  "parent1": "Pyrotechnician",
+  "parent2": "Thief",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Sirius Burns",
+  "femaleName": "Diana Mite",
+  "quote": "I personally find fire drills quite alarming",
+  "workplaces": [
+   "Chemical Plant"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 300,
+  "name": "CEO",
+  "displayName": "CEO",
+  "parent1": "Industrialist",
+  "parent2": "Supervillain",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "The Mann",
+  "femaleName": "Lady Bosse",
+  "quote": "Drop a brownie on a calculator, and everyone thinks you're fudging the numbers",
+  "workplaces": [
+   "Golf Course"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 301,
+  "name": "Ghost",
+  "displayName": "Ghost",
+  "parent1": "Gravedigger",
+  "parent2": "Mummy",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Ben Shee",
+  "femaleName": "Esther Real",
+  "quote": "The average ghost is mean spirited.",
+  "workplaces": [
+   "Haunted House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 302,
+  "name": "Skeleton",
+  "displayName": "Skeleton",
+  "parent1": "Radiologist",
+  "parent2": "Ghost",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Jack Marrow",
+  "femaleName": "Skully McRibs",
+  "quote": "Skeleton jokes are not far from humerus.",
+  "workplaces": [
+   "Haunted House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 303,
+  "name": "Witch",
+  "displayName": "Witch",
+  "parent1": "Chemist",
+  "parent2": "Abomination",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Toylen Trouble",
+  "femaleName": "Sabrina Charm",
+  "quote": "Use a spell checker to tell which witch is which",
+  "workplaces": [
+   "Dark Tower"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 304,
+  "name": "Troll",
+  "displayName": "Troll",
+  "parent1": "Programmer",
+  "parent2": "Witch",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Andatha Brijez",
+  "femaleName": "Dolly Voodoo",
+  "quote": "They see me trollin. They hatin.",
+  "workplaces": [
+   "Cave"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 305,
+  "name": "Jack-O-Lantern",
+  "displayName": "Jack-O-Lantern",
+  "parent1": "Greengrocer",
+  "parent2": "Abomination",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Picker Boo",
+  "femaleName": "Tricia Treat",
+  "quote": "Courage is wearing your costume, not just on Halloween",
+  "workplaces": [
+   "Haunted House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 307,
+  "name": "Slasher",
+  "displayName": "Slasher",
+  "parent1": "Samurai",
+  "parent2": "Assassin",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Jason Knightmare",
+  "femaleName": "Freda Friday",
+  "quote": "I know who you cloned last summer.",
+  "workplaces": [
+   "Evil Lair"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 308,
+  "name": "Overlord",
+  "displayName": "Overlord",
+  "parent1": "Supervillain",
+  "parent2": "Politician",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Dirk Lorde",
+  "femaleName": "Mal Licious",
+  "quote": "Demons are a ghoul's best friend",
+  "workplaces": [
+   "Evil Lair"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 309,
+  "name": "Monster_Hunter",
+  "displayName": "Monster Hunter",
+  "parent1": "Monster",
+  "parent2": "Lumberjack",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Jaeger Huntsman",
+  "femaleName": "Sara Slayer",
+  "quote": "I forgot how to hunt with a boomerang. Then it came back to me.",
+  "workplaces": [
+   "Secret Hideout"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 310,
+  "name": "Exterminator",
+  "displayName": "Exterminator",
+  "parent1": "Monster_Hunter",
+  "parent2": "Entomologist",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Gus Buster",
+  "femaleName": "Terri Minator",
+  "quote": "Who you gonna call? Support@lambdamugames.com",
+  "workplaces": [
+   "Apiary"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 311,
+  "name": "Cyclops",
+  "displayName": "Cyclops",
+  "parent1": "Optometrist",
+  "parent2": "Monster",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Perry Lax",
+  "femaleName": "Maya Opia",
+  "quote": "An eye for an eye would make me blind",
+  "workplaces": [
+   "Altar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 313,
+  "name": "Ice_Lord",
+  "displayName": "Ice Lord",
+  "parent1": "Guardian",
+  "parent2": "General",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Axel Froze",
+  "femaleName": "Kuhl Beans",
+  "quote": "Shovelry is dead",
+  "workplaces": [
+   "Winter Fort"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 314,
+  "name": "Guardian",
+  "displayName": "Guardian",
+  "parent1": "Toy_Soldier",
+  "parent2": "Security_Guard",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Hugh Shalnotpaz",
+  "femaleName": "Dee Fendor",
+  "quote": "And just ice for all!",
+  "workplaces": [
+   "Winter Fort"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 315,
+  "name": "Snow_Elemental",
+  "displayName": "Snow Elemental",
+  "parent1": "Ice_Lord",
+  "parent2": "Mutant",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Walker White",
+  "femaleName": "Kyra Jennix",
+  "quote": "Icy Dead People",
+  "workplaces": [
+   "Mountain"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 316,
+  "name": "Sherpa",
+  "displayName": "Sherpa",
+  "parent1": "Snow_Elemental",
+  "parent2": "Mountain_Climber",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Nate Paul",
+  "femaleName": "Kate Mandu",
+  "quote": "Everyday I'm Shovelling",
+  "workplaces": [
+   "Mountain"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 317,
+  "name": "Alpine_Rescue",
+  "displayName": "Alpine Rescue",
+  "parent1": "Sherpa",
+  "parent2": "Paramedic",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "Monty Kneer",
+  "femaleName": "Eva Lanche",
+  "quote": "An avalanche is snow place to be",
+  "workplaces": [
+   "Mountain"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 318,
+  "name": "Snowboarder",
+  "displayName": "Snowboarder",
+  "parent1": "Sports_Star",
+  "parent2": "Sherpa",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Alf Pipe",
+  "femaleName": "Freya Styler",
+  "quote": "No room for cold feet",
+  "workplaces": [
+   "Ski Lodge"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 319,
+  "name": "Toy_Maker",
+  "displayName": "Toy Maker",
+  "parent1": "Holiday_Spirit",
+  "parent2": "Carpenter",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Nicholas Claus",
+  "femaleName": "Nikita Claus",
+  "quote": "Chimneys make me claustrophobic",
+  "workplaces": [
+   "Toy Factory"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 320,
+  "name": "Elf",
+  "displayName": "Elf",
+  "parent1": "Toy_Maker",
+  "parent2": "Apprentice",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Chris Massey",
+  "femaleName": "Tina Baum",
+  "quote": "You could call me a subordinate claus",
+  "workplaces": [
+   "Toy Factory"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 321,
+  "name": "Toy_Soldier",
+  "displayName": "Toy Soldier",
+  "parent1": "Toy_Maker",
+  "parent2": "Soldier",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Newt Cracker",
+  "femaleName": "Nita Cracker",
+  "quote": "Eat one ice cream and they call you a desserter",
+  "workplaces": [
+   "Toy Factory"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 322,
+  "name": "Viking",
+  "displayName": "Viking",
+  "parent1": "Strongman",
+  "parent2": "Snow_Elemental",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Fjord Prefect",
+  "femaleName": "Norah Wegian",
+  "quote": "Vikings communicate via norse code",
+  "workplaces": [
+   "Winter Fort"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 325,
+  "name": "Regent",
+  "displayName": "Regent",
+  "parent1": "Fairy_Godmother",
+  "parent2": "Politician",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "King Domkum",
+  "femaleName": "Queen Tissential",
+  "quote": "Uprisings can be a peasant surprise!",
+  "workplaces": [
+   "CloudCastle"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 326,
+  "name": "Successor",
+  "displayName": "Successor",
+  "parent1": "Regent",
+  "parent2": "Apprentice",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Prince Cloning",
+  "femaleName": "Princess Utopina",
+  "quote": "Grooming successors can be a heir-raising experience!",
+  "workplaces": [
+   "CloudCastle"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 327,
+  "name": "Big_Bad_Wolf",
+  "displayName": "Big Bad Wolf",
+  "parent1": "Werewolf",
+  "parent2": "Fairy_Godmother",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Houghen Pough",
+  "femaleName": "Granny Bigtooth",
+  "quote": "Borrowing too much money has turned me into a loan wolf.",
+  "workplaces": [
+   "CabinWoods"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 328,
+  "name": "Puppet",
+  "displayName": "Puppet",
+  "parent1": "Toy_Soldier",
+  "parent2": "Fairy_Godmother",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Pete Gnocchio",
+  "femaleName": "Marion Ethe",
+  "quote": "Strings sold separately",
+  "workplaces": [
+   "CandyHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 329,
+  "name": "Jungle_Dweller",
+  "displayName": "Jungle Dweller",
+  "parent1": "Caveman",
+  "parent2": "Fairy_Godmother",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Mo Gully",
+  "femaleName": "Tara Zahn",
+  "quote": "Swinging through the jungles is truly devine",
+  "workplaces": [
+   "CabinWoods"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 330,
+  "name": "Swashbuckler",
+  "displayName": "Swashbuckler",
+  "parent1": "Buccaneer",
+  "parent2": "Regent",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Sind Bahd",
+  "femaleName": "Cindy Badd",
+  "quote": "High sea what you did there!",
+  "workplaces": [
+   "PirateShip"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 331,
+  "name": "Hooded_Rider",
+  "displayName": "Hooded Rider",
+  "parent1": "Eagle_Scout",
+  "parent2": "Big_Bad_Wolf",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Little Red",
+  "femaleName": "Little Red",
+  "quote": "Riding through the woods is no walk in the park!",
+  "workplaces": [
+   "CabinWoods"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 332,
+  "name": "Piper",
+  "displayName": "Piper",
+  "parent1": "Exterminator",
+  "parent2": "Fairy_Godmother",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Ratten Fanger",
+  "femaleName": "Hama Lynn",
+  "quote": "My pipe dreams normally just go down the sewers",
+  "workplaces": [
+   "PirateShip"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 333,
+  "name": "Knight",
+  "displayName": "Knight",
+  "parent1": "Crusader",
+  "parent2": "Successor",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Sir Endipity",
+  "femaleName": "Lady Fingers",
+  "quote": "Surprises is the knight in charge of awards",
+  "workplaces": [
+   "HighTower"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 334,
+  "name": "Adventurer",
+  "displayName": "Adventurer",
+  "parent1": "Explorer",
+  "parent2": "Hooded_Rider",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Pietro Panini",
+  "femaleName": "Goldy Lochs",
+  "quote": "Not all who wander are lost",
+  "workplaces": [
+   "HighTower",
+   "PirateShip"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 335,
+  "name": "Sculptor",
+  "displayName": "Sculptor",
+  "parent1": "Artist",
+  "parent2": "Knight",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Clay Mulder",
+  "femaleName": "Sarah Micks",
+  "quote": "Finishing a wall sculpture can be a relief",
+  "workplaces": [
+   "WarriorTemple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 336,
+  "name": "Bean_Farmer",
+  "displayName": "Bean Farmer",
+  "parent1": "Farmer",
+  "parent2": "Fairy_Godmother",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Jack Benimble",
+  "femaleName": "Jac Offaltraydes",
+  "quote": "You could say that I'm nobody but a has been",
+  "workplaces": [
+   "CloudCastle"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 337,
+  "name": "Giant",
+  "displayName": "Giant",
+  "parent1": "Bean_Farmer",
+  "parent2": "Cyclops",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Gul Liver",
+  "femaleName": "Fifi Fophum",
+  "quote": "This job came with big shoes to fill",
+  "workplaces": [
+   "CloudCastle"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 338,
+  "name": "Wonderlander",
+  "displayName": "Wonderlander",
+  "parent1": "Adventurer",
+  "parent2": "Dreamer",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Matt Hatter",
+  "femaleName": "Alice Wunderkind",
+  "quote": "It is frabjuous day for galumphing",
+  "workplaces": [
+   "CandyHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 339,
+  "name": "Gingerbread_Clone",
+  "displayName": "Gingerbread Clone",
+  "parent1": "Baker",
+  "parent2": "Puppet",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Kooky Kutter",
+  "femaleName": "Miss Biskitte",
+  "quote": "Seeing a broken cookie always makes me feel crummy",
+  "workplaces": [
+   "CandyHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 340,
+  "name": "Submariner",
+  "displayName": "Submariner",
+  "parent1": "Adventurer",
+  "parent2": "Deep_Sea_Diver",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Captain Nemo",
+  "femaleName": "Captain Nima",
+  "quote": "Exploring the unfathomable depths of Utopia!",
+  "workplaces": [
+   "PirateShip"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 341,
+  "name": "Gladiator",
+  "displayName": "Gladiator",
+  "parent1": "Knight",
+  "parent2": "Wrestler",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Morrie Tury",
+  "femaleName": "Arena Franklin",
+  "quote": "We take great pride in looking after our lions",
+  "workplaces": [
+   "WarriorTemple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 342,
+  "name": "Sun_Priest",
+  "displayName": "Sun Priest",
+  "parent1": "Preacher",
+  "parent2": "Hermit",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Matthew Pichu",
+  "femaleName": "Maya Napocalypse",
+  "quote": "Some clones just have a flare for this job",
+  "workplaces": [
+   "WarriorTemple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 343,
+  "name": "Dwarf",
+  "displayName": "Dwarf",
+  "parent1": "Giant",
+  "parent2": "Giant",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Mike Roscopic",
+  "femaleName": "Minnie Skewl",
+  "quote": "Dwarven mines are full of short cuts",
+  "workplaces": [
+   "CabinWoods"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 344,
+  "name": "Hermit",
+  "displayName": "Hermit",
+  "parent1": "Librarian",
+  "parent2": "Jungle_Dweller",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Chip Van Winkle",
+  "femaleName": "Solly Terri",
+  "quote": "If hermits drove cars they'd be charged with recluse driving",
+  "workplaces": [
+   "WarriorTemple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 345,
+  "name": "Hair_Model",
+  "displayName": "Hair Model",
+  "parent1": "Hair_Stylist",
+  "parent2": "Successor",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Thor Real",
+  "femaleName": "Rapunzel Rapunzelle",
+  "quote": "Getting my hair colored is the highlight of my day",
+  "workplaces": [
+   "HighTower"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 346,
+  "name": "Housekeeper",
+  "displayName": "Housekeeper",
+  "parent1": "Homemaker",
+  "parent2": "Fairy_Godmother",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Jimminy Sweepe",
+  "femaleName": "Cindy Rella",
+  "quote": "Maid in Utopia",
+  "workplaces": [
+   "CandyHouse",
+   "ServiceFirm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 347,
+  "name": "Shoe_Maker",
+  "displayName": "Shoe Maker",
+  "parent1": "Sculptor",
+  "parent2": "Tailor",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Moe Cassin",
+  "femaleName": "Stella Toes",
+  "quote": "Make one bad shoe and you'll be given the boot",
+  "workplaces": [
+   "CabinWoods"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 348,
+  "name": "Base_Jumper",
+  "displayName": "Base Jumper",
+  "parent1": "Stunt_Double",
+  "parent2": "Adventurer",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Phoenix Baumgartner",
+  "femaleName": "Vera Tigo",
+  "quote": "Skipping school to bungee jump will get you suspended",
+  "workplaces": [
+   "HighTower"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 350,
+  "name": "Playwright",
+  "displayName": "Playwright",
+  "parent1": "Bard",
+  "parent2": "Writer",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Shaquille Speare",
+  "femaleName": "Shae Cuspierre",
+  "quote": "Time to get my act together",
+  "workplaces": [
+   "Publishing House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 351,
+  "name": "Perfume_Maker",
+  "displayName": "Perfume Maker",
+  "parent1": "Romantic",
+  "parent2": "Chemist",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Odie Cologne",
+  "femaleName": "Deoda Rant",
+  "quote": "A broken perfume bottle is out of odor",
+  "workplaces": [
+   "SouvenirStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 352,
+  "name": "Bard",
+  "displayName": "Bard",
+  "parent1": "Romantic",
+  "parent2": "Poet",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Minster L",
+  "femaleName": "Ally Terration",
+  "quote": "I wanted to be a bagpiper but I couldn't reed music",
+  "workplaces": [
+   "Inn"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 353,
+  "name": "Newlywed",
+  "displayName": "Newlywed",
+  "parent1": "Romantic",
+  "parent2": "Romantic",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Ken Summation",
+  "femaleName": "Honey Moone",
+  "quote": "To make it to your wedding, just be at the rite place at the rite time",
+  "workplaces": [
+   "WeddingChapel"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 356,
+  "name": "Blacksmith",
+  "displayName": "Blacksmith",
+  "parent1": "Crusader",
+  "parent2": "Apprentice",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "George LaForge",
+  "femaleName": "Anne Ville",
+  "quote": "I got my anvil for a real steel",
+  "workplaces": [
+   "SouvenirStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 357,
+  "name": "Freedom_Fighter",
+  "displayName": "Freedom Fighter",
+  "parent1": "Crusader",
+  "parent2": "Politician",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "River Lution",
+  "femaleName": "Libby Bertie",
+  "quote": "You may take our fries, but you will never take our freedom!",
+  "workplaces": [
+   "SouvenirStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 358,
+  "name": "Metalhead",
+  "displayName": "Metalhead",
+  "parent1": "Blacksmith",
+  "parent2": "Musician",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Ed Banger",
+  "femaleName": "Megan Deth",
+  "quote": "Nothing else matters.",
+  "workplaces": [
+   "Outdoor Stage"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 359,
+  "name": "Juggler",
+  "displayName": "Juggler",
+  "parent1": "Clown",
+  "parent2": "Crusader",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Ace Synchronous",
+  "femaleName": "Toss Whedon",
+  "quote": "To kill a circus in one fell swoop, always aim for the juggler",
+  "workplaces": [
+   "Outdoor Stage"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 360,
+  "name": "Bagpiper",
+  "displayName": "Bagpiper",
+  "parent1": "Juggler",
+  "parent2": "Piper",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Reed Blover",
+  "femaleName": "North Humbria",
+  "quote": "Playing the bagpipes can sometimes sound off-kilter",
+  "workplaces": [
+   "Outdoor Stage"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 361,
+  "name": "Train_Conductor",
+  "displayName": "Train Conductor",
+  "parent1": "Engine_Driver",
+  "parent2": "Bureaucrat",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Shunt Wisely",
+  "femaleName": "Olla Board",
+  "quote": "Is a ticket checker on a maglev train called a superconductor?",
+  "workplaces": [
+   "TrainStation"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 364,
+  "name": "Makeup_Artist",
+  "displayName": "Makeup Artist",
+  "parent1": "Artist",
+  "parent2": "Dating_Advisor",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Lawry Hall",
+  "femaleName": "Connie Sealer",
+  "quote": "If you miss a beauty class you can always do a remedial session.",
+  "workplaces": [
+   "Fashion Studio"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 365,
+  "name": "Engine_Driver",
+  "displayName": "Engine Driver",
+  "parent1": "Blacksmith",
+  "parent2": "Engineer",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "Iain Horz",
+  "femaleName": "Luka Motiv",
+  "quote": "To drive a train, just make sure you never lose track",
+  "workplaces": [
+   "TrainStation"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 377,
+  "name": "Warrior",
+  "displayName": "Warrior",
+  "parent1": "Amazon",
+  "parent2": "Gladiator",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Finn Ishum",
+  "femaleName": "Faye Tality",
+  "quote": "Your clone is mine!",
+  "workplaces": [
+   "WarriorTemple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 378,
+  "name": "Online_Shopper",
+  "displayName": "Online Shopper",
+  "parent1": "Amazon",
+  "parent2": "Amazon",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "Phillip Descartes",
+  "femaleName": "Friday Black",
+  "quote": "Shopaholics never die, they just sale away...",
+  "workplaces": [
+   "SouvenirStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 379,
+  "name": "Forester",
+  "displayName": "Forester",
+  "parent1": "Amazon",
+  "parent2": "Park_Ranger",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Iko System",
+  "femaleName": "Sylvia Culture",
+  "quote": "After winter, most trees are relieved",
+  "workplaces": [
+   "CabinWoods"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 380,
+  "name": "Cliff_Diver",
+  "displayName": "Cliff Diver",
+  "parent1": "Amazon",
+  "parent2": "Adventurer",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "Cliff Diva",
+  "femaleName": "Adriana Lynn",
+  "quote": "My friend threatenend to jump of a cliff. I called it a bluff.",
+  "workplaces": [
+   "Island"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 383,
+  "name": "Yoga_Instructor",
+  "displayName": "Yoga Instructor",
+  "parent1": "Guru",
+  "parent2": "Balloon_Twister",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Vinnie Asa",
+  "femaleName": "Dawn Wardog",
+  "quote": "I don't think I can hold this position much longer.",
+  "workplaces": [
+   "Spa"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 384,
+  "name": "Dog_Walker",
+  "displayName": "Dog Walker",
+  "parent1": "Frisbee_Player",
+  "parent2": "Animal_Trainer",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Al Seshan",
+  "femaleName": "Jermaine Shepard",
+  "quote": "Every dog has potential, you just have to unleash it.",
+  "workplaces": [
+   "Thrift Store"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 385,
+  "name": "Whisky_Blender",
+  "displayName": "Whisky Blender",
+  "parent1": "Organic_Farmer",
+  "parent2": "Winemaker",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Glenn Quidditch",
+  "femaleName": "Jackie Danielle",
+  "quote": "All's well that blends well.",
+  "workplaces": [
+   "Distillery"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 386,
+  "name": "Frisbee_Player",
+  "displayName": "Frisbee Player",
+  "parent1": "Hipster",
+  "parent2": "Athlete",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "Chuck Callahan",
+  "femaleName": "Leia Hout",
+  "quote": "I was wondering why the disc kept getting bigger, and then it hit me.",
+  "workplaces": [
+   "Thrift Store"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 387,
+  "name": "Graffiti_Artist",
+  "displayName": "Graffiti Artist",
+  "parent1": "Balloon_Twister",
+  "parent2": "Painter",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Tag Handstyle",
+  "femaleName": "Wanda Lizum",
+  "quote": "Once you're into graffit, vandalism is just a stone's throw away.",
+  "workplaces": [
+   "Thrift Store"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 388,
+  "name": "Organic_Farmer",
+  "displayName": "Organic Farmer",
+  "parent1": "Hipster",
+  "parent2": "Farmer",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Seuss Tenable",
+  "femaleName": "Aggie Culture",
+  "quote": "Are we all just GMO's?",
+  "workplaces": [
+   "Organic Cafe",
+   "Distillery"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 389,
+  "name": "Juicer",
+  "displayName": "Juicer",
+  "parent1": "Whisky_Blender",
+  "parent2": "Organic_Farmer",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Mick Situp",
+  "femaleName": "Sloan Presser",
+  "quote": "Juicing isn't supposed to be appealing.",
+  "workplaces": [
+   "Organic Cafe",
+   "Bazaar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 390,
+  "name": "Balloon_Twister",
+  "displayName": "Balloon Twister",
+  "parent1": "Hipster",
+  "parent2": "Clown",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Tristan Tern",
+  "femaleName": "Haley Yum",
+  "quote": "I hate pop music.",
+  "workplaces": [
+   "Bazaar",
+   "SouvenirStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 391,
+  "name": "Manicurist",
+  "displayName": "Manicurist",
+  "parent1": "Graffiti_Artist",
+  "parent2": "Calligrapher",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Moyes Chorizo",
+  "femaleName": "Nelsa Lone",
+  "quote": "Totally nailed that job interview!",
+  "workplaces": [
+   "Fashion Studio",
+   "Bazaar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 392,
+  "name": "Indie_Musician",
+  "displayName": "Indie Musician",
+  "parent1": "Whisky_Blender",
+  "parent2": "Guitarist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Ander Ground",
+  "femaleName": "Yoko Lelly",
+  "quote": "Home is wherever I'm with U",
+  "workplaces": [
+   "Thrift Store",
+   "Cafe"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 393,
+  "name": "Auctioneer",
+  "displayName": "Auctioneer",
+  "parent1": "Role_Player",
+  "parent2": "Salesman",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Hayes Bidder",
+  "femaleName": "Gwen Gowingon",
+  "quote": "A good auctioneer always looks forbidding.",
+  "workplaces": [
+   "Auction House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 394,
+  "name": "Barbarian",
+  "displayName": "Barbarian",
+  "parent1": "Role_Player",
+  "parent2": "Warrior",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Conan Oberyn",
+  "femaleName": "Barbara Yan",
+  "quote": "The middle earth barbie.",
+  "workplaces": [
+   "Auction House",
+   "Inn"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 395,
+  "name": "Monk",
+  "displayName": "Monk",
+  "parent1": "Barbarian",
+  "parent2": "Martial_Artist",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Moe Nastri",
+  "femaleName": "Delilah Ma",
+  "quote": "I got nerfed.",
+  "workplaces": [
+   "Guild Hall",
+   "Auction House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 396,
+  "name": "Cleric",
+  "displayName": "Cleric",
+  "parent1": "Role_Player",
+  "parent2": "Doctor",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Riley Juss",
+  "femaleName": "Anita Heeler",
+  "quote": "For the last time, Don't stand in the fire!",
+  "workplaces": [
+   "Guild Hall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 397,
+  "name": "Paladin",
+  "displayName": "Paladin",
+  "parent1": "Cleric",
+  "parent2": "Knight",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Lawful Goode",
+  "femaleName": "Holly Knight",
+  "quote": "I've got Bubble Hearth on macro.",
+  "workplaces": [
+   "Auction House"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 398,
+  "name": "Dragon_Tamer",
+  "displayName": "Dragon Tamer",
+  "parent1": "Monk",
+  "parent2": "Cryptozoologist",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "Drake Ryder",
+  "femaleName": "Sarah Pentine",
+  "quote": "Clones cannot be mothers of dragons.",
+  "workplaces": [
+   "Guild Hall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 399,
+  "name": "Rogue",
+  "displayName": "Rogue",
+  "parent1": "Role_Player",
+  "parent2": "Ninja",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Dexter Ritty",
+  "femaleName": "Becky Stabber",
+  "quote": "When you play the game of clones, you win or you die!",
+  "workplaces": [
+   "Ninja HQ",
+   "Guild Hall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 400,
+  "name": "Necromancer",
+  "displayName": "Necromancer",
+  "parent1": "Cleric",
+  "parent2": "Coroner",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Ander Whirled",
+  "femaleName": "Shae Dopreest",
+  "quote": "Not to be confused with Dracula, the neck romancer.",
+  "workplaces": [
+   "Guild Hall"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 401,
+  "name": "Executive_Producer",
+  "displayName": "Executive Producer",
+  "parent1": "Party_Animal",
+  "parent2": "Publicist",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Gould Wynn",
+  "femaleName": "Mirah Max",
+  "quote": "IT'S NOT A JOB. IT'S A TITLE.",
+  "workplaces": [
+   "EntertainmentAcademy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 402,
+  "name": "Megastar",
+  "displayName": "Megastar",
+  "parent1": "Mogul",
+  "parent2": "Pop_Icon",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Elvis Jackson",
+  "femaleName": "Madge Riri",
+  "quote": "HAVE YOU SEEN MY CHILDHOOD?",
+  "workplaces": [
+   "EntertainmentAcademy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 403,
+  "name": "Pop_Icon",
+  "displayName": "Pop Icon",
+  "parent1": "Break_Dancer",
+  "parent2": "Fashion_Designer",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Just Belieber",
+  "femaleName": "Gaddy Lala",
+  "quote": "I GET NERVOUS WHEN I DON'T GET NERVOUS.",
+  "workplaces": [
+   "EntertainmentAcademy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 404,
+  "name": "Synthpop_Artist",
+  "displayName": "Synthpop Artist",
+  "parent1": "Pop_Icon",
+  "parent2": "Programmer",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "Boy Depeche",
+  "femaleName": "Roux Lennox",
+  "quote": "I HAVE ALWAYS FELT A LITTLE HOMELESS. IT'S A STRANGE THING.",
+  "workplaces": [
+   "EntertainmentAcademy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 405,
+  "name": "Talent_Show_Judge",
+  "displayName": "Talent Show Judge",
+  "parent1": "Megastar",
+  "parent2": "Vampire",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Randy Cowell",
+  "femaleName": "Paula Aguilera",
+  "quote": "IT'S A NO FROM ME DAWG.",
+  "workplaces": [
+   "EntertainmentAcademy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 406,
+  "name": "Mogul",
+  "displayName": "Mogul",
+  "parent1": "Executive_Producer",
+  "parent2": "Overlord",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Rupert Bloomberg",
+  "femaleName": "Oprah Knowles",
+  "quote": "I HAVE THE BEST JOB I COULD POSSIBLY HAVE.",
+  "workplaces": [
+   "ParkEstate",
+   "EntertainmentAcademy"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 407,
+  "name": "Voiceover_Artist",
+  "displayName": "Voiceover Artist",
+  "parent1": "Sage",
+  "parent2": "Ventrilogquist",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Dizzem Bodeed",
+  "femaleName": "Nier Raytor",
+  "quote": "IN A WORLD...",
+  "workplaces": [
+   "ProductionSuite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 408,
+  "name": "Foley_Artist",
+  "displayName": "Foley Artist",
+  "parent1": "Propsmaster",
+  "parent2": "Voiceover_Artist",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Hess Effex",
+  "femaleName": "Oanama Topiah",
+  "quote": "MY WORK IS THAT MUCH EASIER NOW THAT WE HAVE SQUARE WATERMELONS.",
+  "workplaces": [
+   "ProductionSuite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 409,
+  "name": "CGI_Artist",
+  "displayName": "CGI Artist",
+  "parent1": "Foley_Artist",
+  "parent2": "Programmer",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Bay Bruckheimer",
+  "femaleName": "Patty Bigelow",
+  "quote": "A SPECIAL EFFECT WITHOUT A STORY IS A PRETTY BORING THING. A HUNDRED SPECIAL EFFECTS ON THE OTHER HAND...",
+  "workplaces": [
+   "ProductionSuite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 410,
+  "name": "Gofer",
+  "displayName": "Gofer",
+  "parent1": "Undiscovered_Talent",
+  "parent2": "Courier",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Dell E. Vahroo",
+  "femaleName": "Zoey Mato",
+  "quote": "SOME THINK I HAVE FELINE BALANCE BUT REALLY IT'S A DOG'S BODY.",
+  "workplaces": [
+   "ProductionSuite"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 411,
+  "name": "Fashion_Designer",
+  "displayName": "Fashion Designer",
+  "parent1": "Sage",
+  "parent2": "Tailor",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Yversace St. Armadior",
+  "femaleName": "Coco McCartney",
+  "quote": "UTAUT COUTURE IS FUN, FOOLISH, AND ALMOST UNBEARABLE.",
+  "workplaces": [
+   "TalentAgency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 412,
+  "name": "Talent_Manager",
+  "displayName": "Talent Manager",
+  "parent1": "Publicist",
+  "parent2": "Ringmaster",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "Gerry MacQuire",
+  "femaleName": "Princessa Carolynna",
+  "quote": "SHOW ME THE UTOPIUM!",
+  "workplaces": [
+   "TalentAgency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 413,
+  "name": "Stylist",
+  "displayName": "Stylist",
+  "parent1": "Fashion_Designer",
+  "parent2": "Makeup_Artist",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Penn Ashe",
+  "femaleName": "Janet Sequoia",
+  "quote": "I LET YOUR INNER CLONE SPEAK WITHOUT YOU SAYING ANYTHING.",
+  "workplaces": [
+   "TalentAgency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 414,
+  "name": "Publicist",
+  "displayName": "Publicist",
+  "parent1": "Stylist",
+  "parent2": "Cheerleader",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Sunshine Bragman",
+  "femaleName": "Ronni Besette",
+  "quote": "THERE'S SUCH A THING AS 'MEH' PUBLICITY.",
+  "workplaces": [
+   "TalentAgency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 415,
+  "name": "Undiscovered_Talent",
+  "displayName": "Undiscovered Talent",
+  "parent1": "Talent_Manager",
+  "parent2": "Barista",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Seb Gosling",
+  "femaleName": "Mia Stone",
+  "quote": "UTOPIA OF STARS, ARE YOU SHINING JUST FOR ME?",
+  "workplaces": [
+   "TalentAgency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 416,
+  "name": "Makeover_Artist",
+  "displayName": "Makeover Artist",
+  "parent1": "Cosmetic_Surgeon",
+  "parent2": "Stylist",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "Jai Kressley",
+  "femaleName": "Filicia Kyan",
+  "quote": "THE MOST IMPORTANT THING IS TO LOOK NATURAL, AND LOOKING NATURAL NEEDS MAKEUP.",
+  "workplaces": [
+   "TalentAgency"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 417,
+  "name": "Auteur",
+  "displayName": "Auteur",
+  "parent1": "Talent_Manager",
+  "parent2": "Director",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "Andrei Bresson",
+  "femaleName": "Chantel Varda",
+  "quote": "EVERYONE'S GOT A THEORY ABOUT MY WORK.",
+  "workplaces": [
+   "FilmFestival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 418,
+  "name": "A-List_Actor",
+  "displayName": "A-List Actor",
+  "parent1": "Actor",
+  "parent2": "Megastar",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Marlon Cruise",
+  "femaleName": "Marilyn Johansson",
+  "quote": "EVERYONE WANTED A PIECE OF ME SO I MADE MORE OF MYSELF.",
+  "workplaces": [
+   "FilmFestival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 419,
+  "name": "Thespian",
+  "displayName": "Thespian",
+  "parent1": "A-List_Actor",
+  "parent2": "Mad_Scientist",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Bale Day-Lewis",
+  "femaleName": "Cate Streep",
+  "quote": "THERE IS METHOD IN THE MADNESS.",
+  "workplaces": [
+   "Theatre",
+   "FilmFestival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 420,
+  "name": "Ingenue",
+  "displayName": "Ingenue",
+  "parent1": "Auteur",
+  "parent2": "Puppet",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Khan Deed",
+  "femaleName": "Niyah Eve",
+  "quote": "MOTHERSHIP SAW SOMETHING IN ME NOBODY ELSE EVER DID. MOTHERSHIP MADE ME SEE IT TOO.",
+  "workplaces": [
+   "FilmFestival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 421,
+  "name": "Film_Producer",
+  "displayName": "Film Producer",
+  "parent1": "Accountant",
+  "parent2": "Executive_Producer",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Bruckheimer Bay",
+  "femaleName": "Banks Bigelow",
+  "quote": "I BALANCE THE TENSION BETWEEN THE DIRECTOR'S VISION AND THE COIN PURSE.",
+  "workplaces": [
+   "FilmFestival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 422,
+  "name": "Paparazzi",
+  "displayName": "Paparazzi",
+  "parent1": "Publicist",
+  "parent2": "Thief",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Stollen Moment",
+  "femaleName": "Haiden Bush",
+  "quote": "I'M HOW THE BUZZ IS CREATED.",
+  "workplaces": [
+   "FilmFestival"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 423,
+  "name": "Tutor",
+  "displayName": "Tutor",
+  "parent1": "Coach",
+  "parent2": "Talent_Manager",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "Doya Ohmwerk",
+  "femaleName": "Phoenicia Sumz",
+  "quote": "SLASHING THROUGH THE EXAM, DOMINATING IT!",
+  "workplaces": [
+   "ServiceFirm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 424,
+  "name": "Art_Therapist",
+  "displayName": "Art Therapist",
+  "parent1": "Thespian",
+  "parent2": "Guru",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "Paintin Payne",
+  "femaleName": "Dolores Deorama",
+  "quote": "JUST THE CARE? ONLY CLONE? ILLS ANNOY.? UTOPIA!",
+  "workplaces": [
+   "ServiceFirm"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 425,
+  "name": "Heir",
+  "displayName": "Heir",
+  "parent1": "Mogul",
+  "parent2": "Successor",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Nuvoix Reech",
+  "femaleName": "Truss Fuhnd",
+  "quote": "MY SELF-PORTRAITS ARE METAPHORICAL.",
+  "workplaces": [
+   "ApplianceManufacturer",
+   "ParkEstate"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 426,
+  "name": "Crony",
+  "displayName": "Crony",
+  "parent1": "Mogul",
+  "parent2": "Caddie",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "Seeko Fent",
+  "femaleName": "Beaut Leekah",
+  "quote": "THIS CHAIN OF RECOMMENDATIONS IS THE BEST!",
+  "workplaces": [
+   "ParkEstate"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 427,
+  "name": "Pro-gamer",
+  "displayName": "Pro-gamer",
+  "parent1": "Gamer",
+  "parent2": "Streamer",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Mbah Hex",
+  "femaleName": "Gigi Norrie",
+  "quote": "WHEN PEOPLE CALL ME A TRYHARD I TELL THEM I'M HARDLY TRYING.",
+  "workplaces": [
+   "GamingHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 428,
+  "name": "Gameshow_Host",
+  "displayName": "Gameshow Host",
+  "parent1": "Talent_Show_Judge",
+  "parent2": "Talkshow_Host",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Sajak Trebek",
+  "femaleName": "Vanna Viera",
+  "quote": "WHAT'S BEHIND DOOR NUMBER 3? IT'S A GOAT!",
+  "workplaces": [
+   "GamingHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 429,
+  "name": "Streamer",
+  "displayName": "Streamer",
+  "parent1": "Social_Media_Influencer",
+  "parent2": "Sports_Caster",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "Tyfue Clickzy",
+  "femaleName": "Pokiplays Hafruit",
+  "quote": "PEOPLE RELATE TO ME EASILY BECAUSE MY WORK IS ALL STREAMER CONSCIOUSNESS.",
+  "workplaces": [
+   "GamingHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 430,
+  "name": "Sports_Caster",
+  "displayName": "Sports Caster",
+  "parent1": "Gameshow_Host",
+  "parent2": "Referee",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "Raydee Ta'rumble",
+  "femaleName": "Ann Fuego",
+  "quote": "MY PROFESSIONAL GOAL IS AROUND 10-12 'OS' AND 'AS'.",
+  "workplaces": [
+   "GamingHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 431,
+  "name": "Social_Media_Influencer",
+  "displayName": "Influencer",
+  "parent1": "Stylist",
+  "parent2": "Online_Shopper",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Jimmy Jeffree",
+  "femaleName": "Chiara Kattan",
+  "quote": "DOING UTOPIA A FAVOR AND BELIEVING IN MY GREATNESS.",
+  "workplaces": [
+   "GamingHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 432,
+  "name": "Mukbang_Streamer",
+  "displayName": "Mukbang Streamer",
+  "parent1": "Social_Media_Influencer",
+  "parent2": "Foodie",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "Banz Bendee",
+  "femaleName": "Dorothy Soo",
+  "quote": "I FEAST FOR YOUR EYES.",
+  "workplaces": [
+   "BBQRestaurant"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 433,
+  "name": "Barbecuer",
+  "displayName": "Barbecuer",
+  "parent1": "Chef",
+  "parent2": "Fencer",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "Mister Brown",
+  "femaleName": "Miss White",
+  "quote": "BARBECUE MAY NOT BE THE ROAD TO GALACTIC PEACE BUT IT'S A START.",
+  "workplaces": [
+   "BBQRestaurant"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 434,
+  "name": "Tech_Engineer",
+  "displayName": "Tech Engineer",
+  "parent1": "Hacker",
+  "parent2": "Engineer",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Samuel Tsung",
+  "femaleName": "Dia Saun",
+  "quote": "THE ONLY DIRTY THING I DO IS CODE.",
+  "workplaces": [
+   "ApplianceManufacturer"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 435,
+  "name": "Vizier",
+  "displayName": "Vizier",
+  "parent1": "Ventrilogquist",
+  "parent2": "Courtier",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Jafar Iznogoud",
+  "femaleName": "Melisandre Izzomean",
+  "quote": "THERE WAS A WANT AD FOR A DEVIOUS, PLOTTING, UNRELIABLE MADMAN FOR THE ROLE OF TRUSTED MINISTER AND I WAS THE ONLY APPLICANT.",
+  "workplaces": [
+   "Palace"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 436,
+  "name": "Courtier",
+  "displayName": "Courtier",
+  "parent1": "Crony",
+  "parent2": "Bureaucrat",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "Stu Ward",
+  "femaleName": "Cammy Rilla",
+  "quote": "YOU'RE IN THE GREAT GAME NOW, AND THE GREAT GAME IS TERRAFORMING.",
+  "workplaces": [
+   "Palace"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 437,
+  "name": "Propsmaster",
+  "displayName": "Propsmaster",
+  "parent1": "Interior_Designer",
+  "parent2": "Carpenter",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "Stryke D'stage",
+  "femaleName": "Mizz Ensenn",
+  "quote": "IT'S MY JOB TO PROP EVERYONE UP WHEN THEY'RE FEELING DRESSED DOWN.",
+  "workplaces": [
+   "Theatre"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 438,
+  "name": "Hacker",
+  "displayName": "Hacker",
+  "parent1": "Pro-gamer",
+  "parent2": "Programmer",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "Decko Cedio",
+  "femaleName": "Anaun Emuss",
+  "quote": "NO ONE CARED WHO I WAS UNTIL I PUT ON THE MASK.",
+  "workplaces": [
+   "GamingHouse"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 439,
+  "name": "Secret_Dispatcher",
+  "displayName": "Secret Dispatcher",
+  "parent1": "Secret_Agent",
+  "parent2": "Cosplayer",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MountainBase"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 440,
+  "name": "Magical_Student",
+  "displayName": "Magical Student",
+  "parent1": "Apprentice",
+  "parent2": "Space_Ranger",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MountainBase"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 441,
+  "name": "Kid_Robot",
+  "displayName": "Kid Robot",
+  "parent1": "Computer_Wiz",
+  "parent2": "Toy_Maker",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MountainBase"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 442,
+  "name": "Bike_Rider",
+  "displayName": "Bike Rider",
+  "parent1": "Biker",
+  "parent2": "Electronics_Refurbisher",
+  "group": "Sports",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MountainBase"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 443,
+  "name": "Metamorph",
+  "displayName": "Metamorph",
+  "parent1": "Bodybuilder",
+  "parent2": "Xenobiologist",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MountainBase"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 444,
+  "name": "Space_Ranger",
+  "displayName": "Space Ranger",
+  "parent1": "Crisis_Manager",
+  "parent2": "Star_Commander",
+  "group": "Explorers",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MountainBase"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 445,
+  "name": "Tech_Magnate",
+  "displayName": "Tech Magnate",
+  "parent1": "Mecha_Inventor",
+  "parent2": "Industrialist",
+  "group": "Business",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MechaHangar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 446,
+  "name": "Mecha_Pilot",
+  "displayName": "Mecha Pilot",
+  "parent1": "Mecha_Mechanic",
+  "parent2": "Pilot",
+  "group": "Transport",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MechaHangar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 447,
+  "name": "Mecha_Mechanic",
+  "displayName": "Mecha Mechanic",
+  "parent1": "Mechanical_Engineer",
+  "parent2": "Mecha_Inventor",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MechaHangar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 448,
+  "name": "Mecha_Inventor",
+  "displayName": "Mecha Inventor",
+  "parent1": "Exterminator",
+  "parent2": "Kaiju_Whisperer",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MechaHangar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 449,
+  "name": "Robo_Caller",
+  "displayName": "Robo Caller",
+  "parent1": "Mecha_Inventor",
+  "parent2": "System_Admin",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MechaHangar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 450,
+  "name": "Keyboard_Warrior",
+  "displayName": "Keyboard Warrior",
+  "parent1": "Robo_Caller",
+  "parent2": "Wrestler",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "MechaHangar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 451,
+  "name": "Xenolinguist",
+  "displayName": "Xenolinguist",
+  "parent1": "Xenobiologist",
+  "parent2": "Librarian",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "KaijuResearchCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 452,
+  "name": "Xenobiologist",
+  "displayName": "Xenobiologist",
+  "parent1": "Cryptozoologist",
+  "parent2": "Space_Ranger",
+  "group": "Academic",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "KaijuResearchCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 453,
+  "name": "Crisis_Manager",
+  "displayName": "Crisis Manager",
+  "parent1": "Improv_Drummer",
+  "parent2": "Zen_Gardener",
+  "group": "Administration",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "KaijuResearchCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 454,
+  "name": "Relief_Coordinator",
+  "displayName": "Relief Coordinator",
+  "parent1": "Crisis_Manager",
+  "parent2": "Paramedic",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "KaijuResearchCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 455,
+  "name": "Kaiju_Whisperer",
+  "displayName": "Kaiju Whisperer",
+  "parent1": "Xenolinguist",
+  "parent2": "Monster_Hunter",
+  "group": "Curious",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "KaijuResearchCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 456,
+  "name": "ER_Doctor",
+  "displayName": "ER Doctor",
+  "parent1": "Trauma_Surgeon",
+  "parent2": "Crisis_Manager",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "FieldHospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 457,
+  "name": "Trauma_Surgeon",
+  "displayName": "Trauma Surgeon",
+  "parent1": "EMT_Technician",
+  "parent2": "Doctor",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "FieldHospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 458,
+  "name": "Field_Engineer",
+  "displayName": "Field Engineer",
+  "parent1": "Relief_Coordinator",
+  "parent2": "Architect",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "FieldHospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 459,
+  "name": "Ambulance_Driver",
+  "displayName": "Ambulance Driver",
+  "parent1": "Racecar_Driver",
+  "parent2": "EMT_Technician",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "FieldHospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 460,
+  "name": "EMT_Technician",
+  "displayName": "EMT Technician",
+  "parent1": "Nurse",
+  "parent2": "Field_Engineer",
+  "group": "Medical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "FieldHospital"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 461,
+  "name": "Comic_Geek",
+  "displayName": "Comic Geek",
+  "parent1": "Book_Collector",
+  "parent2": "Graffiti_Artist",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ElectronicsDistrictAkiba"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 462,
+  "name": "Electronics_Refurbisher",
+  "displayName": "Gadget Refurbisher",
+  "parent1": "ER_Doctor",
+  "parent2": "Computer_Wiz",
+  "group": "Production",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ElectronicsDistrictAkiba"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 463,
+  "name": "Computer_Wiz",
+  "displayName": "Computer Wiz",
+  "parent1": "Hacker",
+  "parent2": "Tech_Magnate",
+  "group": "Technical",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ElectronicsDistrictAkiba"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 464,
+  "name": "Cosplay_Costumier",
+  "displayName": "Cosplay Costumier",
+  "parent1": "Fashion_Designer",
+  "parent2": "Magical_Student",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ElectronicsDistrictAkiba"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 465,
+  "name": "Cosplayer",
+  "displayName": "Cosplayer",
+  "parent1": "Cosplay_Costumier",
+  "parent2": "Makeup_Artist",
+  "group": "Performers",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ConventionCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 466,
+  "name": "Mangaka",
+  "displayName": "Mangaka",
+  "parent1": "Artist",
+  "parent2": "Comic_Geek",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ConventionCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 467,
+  "name": "Toy_Collector",
+  "displayName": "Toy Collector",
+  "parent1": "Toy_Maker",
+  "parent2": "Book_Collector",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ConventionCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 468,
+  "name": "Comics_Editor",
+  "displayName": "Comics Editor",
+  "parent1": "Publisher",
+  "parent2": "Mangaka",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ConventionCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 469,
+  "name": "Animator",
+  "displayName": "Animator",
+  "parent1": "Mangaka",
+  "parent2": "Choreographer",
+  "group": "Creative",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "ConventionCenter"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 470,
+  "name": "Imperial_Guard",
+  "displayName": "Imperial Guard",
+  "parent1": "Gatekeeper",
+  "parent2": "Knight",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Castle"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 471,
+  "name": "Shogun",
+  "displayName": "Shogun",
+  "parent1": "General",
+  "parent2": "Imperial_Guard",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Castle"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 472,
+  "name": "Gatekeeper",
+  "displayName": "Gatekeeper",
+  "parent1": "Store_Greeter",
+  "parent2": "Samurai",
+  "group": "Law",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Castle"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 473,
+  "name": "Priest",
+  "displayName": "Priest",
+  "parent1": "Monk",
+  "parent2": "Shrine_Attendant",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Temple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 474,
+  "name": "Shrine_Attendant",
+  "displayName": "Shrine Attendant",
+  "parent1": "Imperial_Guard",
+  "parent2": "Sun_Priest",
+  "group": "Enchanted",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Temple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 475,
+  "name": "Zen_Gardener",
+  "displayName": "Zen Gardener",
+  "parent1": "Priest",
+  "parent2": "Landscaper",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Temple"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 476,
+  "name": "Store_Greeter",
+  "displayName": "Store Greeter",
+  "parent1": "Crooner",
+  "parent2": "Receptionist",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "DepartmentStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 477,
+  "name": "Store_Manager",
+  "displayName": "Store Manager",
+  "parent1": "Store_Greeter",
+  "parent2": "Overlord",
+  "group": "Evil",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "DepartmentStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 478,
+  "name": "Clerk",
+  "displayName": "Clerk",
+  "parent1": "Director",
+  "parent2": "Comic_Geek",
+  "group": "Services",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "DepartmentStore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 479,
+  "name": "Book_Collector",
+  "displayName": "Book Collector",
+  "parent1": "Librarian",
+  "parent2": "Electronics_Refurbisher",
+  "group": "Resident",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Bookstore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 480,
+  "name": "Novelist",
+  "displayName": "Novelist",
+  "parent1": "Book_Collector",
+  "parent2": "Auteur",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Bookstore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 481,
+  "name": "Publisher",
+  "displayName": "Publisher",
+  "parent1": "Publicist",
+  "parent2": "Novelist",
+  "group": "Media",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "Bookstore"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 482,
+  "name": "Patissier",
+  "displayName": "Patissier",
+  "parent1": "Baker",
+  "parent2": "Store_Manager",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "DessertCafe"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 483,
+  "name": "Confiseur",
+  "displayName": "Confiseur",
+  "parent1": "Decorateur",
+  "parent2": "Toy_Maker",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "DessertCafe"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 484,
+  "name": "Decorateur",
+  "displayName": "Decorateur",
+  "parent1": "Patissier",
+  "parent2": "Cosplay_Costumier",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "DessertCafe"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 485,
+  "name": "Glacier",
+  "displayName": "Glacier",
+  "parent1": "Confiseur",
+  "parent2": "Jack_Frost",
+  "group": "Hospitality",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "DessertCafe"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 486,
+  "name": "Crooner",
+  "displayName": "Crooner",
+  "parent1": "Wedding_Singer",
+  "parent2": "Blues_Guitarist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "JazzBar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 487,
+  "name": "Improv_Drummer",
+  "displayName": "Improv Drummer",
+  "parent1": "Drummer",
+  "parent2": "Virtuoso",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "JazzBar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 488,
+  "name": "Blues_Guitarist",
+  "displayName": "Blues Guitarist",
+  "parent1": "Guitarist",
+  "parent2": "Improv_Drummer",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "JazzBar"
+  ],
+  "requires": ""
+ },
+ {
+  "id": 489,
+  "name": "Double_Bassist",
+  "displayName": "Double Bassist",
+  "parent1": "Bassist",
+  "parent2": "Bassist",
+  "group": "Music",
+  "type": "Normal",
+  "maleName": "placeholder placeholder",
+  "femaleName": "placeholder placeholder",
+  "quote": "placeholder",
+  "workplaces": [
+   "JazzBar"
+  ],
+  "requires": ""
+ }
+]

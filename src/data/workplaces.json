@@ -1,0 +1,4804 @@
+[
+ {
+  "name": "Airport",
+  "displayName": "Space Port",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "Pilot",
+   "Flight_Attendant",
+   "Flight_Controller",
+   "Security_Guard"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Animal Shelter",
+  "displayName": "Animal Shelter",
+  "workingTimeMin": 15,
+  "multiplier": 2,
+  "jobs": [
+   "Animal_Trainer",
+   "Vet",
+   "Zoologist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "Daily Free \"Surprise\" (Animal Pack)",
+  "buildType": "AnimalShelter",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Aquarium",
+  "displayName": "Aquarium",
+  "workingTimeMin": 30,
+  "multiplier": 3,
+  "jobs": [
+   "Marine_Biologist",
+   "Zoologist",
+   "Deep_Sea_Diver"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 28800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Arcade",
+  "displayName": "Arcade",
+  "workingTimeMin": 10,
+  "multiplier": 4,
+  "jobs": [
+   "Game_Designer",
+   "Programmer",
+   "Artist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "The Arcade has an interesting function where you can spin for a chance to win animals, Utopium, houses, trees and decor. The first spin each day is free while subsequent spins cost start from 500,000 up to 10,000,000 coins (depending on expansion level). Unique items that can be found are: an astrotree (Utopium Blossom), several astroglass decorations, three astroglass residential types and special Animal Packs. Animal packs can contain between 1 and 4 animals.",
+  "buildType": "Arcade",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Arena",
+  "displayName": "Arena",
+  "workingTimeMin": 15,
+  "multiplier": 2,
+  "jobs": [
+   "Wrestler",
+   "Referee",
+   "Physiotherapist",
+   "Boxer",
+   "Sumo_Wrestler",
+   "Sports_Fan"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Art Gallery",
+  "displayName": "Art Gallery",
+  "workingTimeMin": 30,
+  "multiplier": 2,
+  "jobs": [
+   "Art_Dealer",
+   "Artist",
+   "Calligrapher",
+   "Interior_Designer",
+   "Photographer",
+   "Poet"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 108000,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Auto Shop",
+  "displayName": "Auto Shop",
+  "workingTimeMin": 15,
+  "multiplier": 2,
+  "jobs": [
+   "Car_Designer",
+   "Mechanical_Engineer",
+   "Engineer",
+   "Racecar_Driver",
+   "Car_Washer",
+   "Crashtest_Dummy"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Bank",
+  "displayName": "Bank",
+  "workingTimeMin": 5,
+  "multiplier": 4,
+  "jobs": [
+   "Secretary",
+   "Accountant",
+   "Police_Officer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 21600,
+  "special": "Fully occupied buildings now produce twice as many coins",
+  "buildType": "Bank",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Bar",
+  "displayName": "Bar",
+  "workingTimeMin": 90,
+  "multiplier": 1,
+  "jobs": [
+   "Comic",
+   "Bartender",
+   "Vocalist",
+   "Bassist",
+   "Guitarist",
+   "Drummer"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Bootcamp",
+  "displayName": "Bunker",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "General",
+   "Marine",
+   "Soldier",
+   "Firefighter"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Building Firm",
+  "displayName": "Building Firm",
+  "workingTimeMin": 25,
+  "multiplier": 1,
+  "jobs": [
+   "Architect",
+   "Painter",
+   "Real_Estate_Agent"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 21600,
+  "special": "Existing buildings can now be replicated and empty duplicate buildings can be deleted. The first of any kind of building can never be deleted",
+  "buildType": "BuildingFirm",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Cafe",
+  "displayName": "Cafe",
+  "workingTimeMin": 20,
+  "multiplier": 3,
+  "jobs": [
+   "Barista",
+   "Poet",
+   "Writer",
+   "Baker",
+   "Indie_Musician"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Astro Church",
+  "displayName": "Astro Church",
+  "workingTimeMin": 20,
+  "multiplier": 2,
+  "jobs": [
+   "Preacher",
+   "Ancient_Hero",
+   "Oracle"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Circus",
+  "displayName": "Circus",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Clown",
+   "Matador",
+   "Ringmaster",
+   "Magician",
+   "Genie",
+   "Acrobat"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Clinic",
+  "displayName": "Clinic",
+  "workingTimeMin": 20,
+  "multiplier": 3,
+  "jobs": [
+   "Doctor",
+   "Nurse",
+   "Physiotherapist",
+   "Optometrist",
+   "Insurance_Agent"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Construction Yard",
+  "displayName": "Construction Yard",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Construction_Worker",
+   "Painter",
+   "Mechanical_Engineer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 14400,
+  "special": "Roads available for construction.",
+  "buildType": "ConstructionYard",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Court",
+  "displayName": "Courthouse",
+  "workingTimeMin": 30,
+  "multiplier": 2,
+  "jobs": [
+   "Judge",
+   "Lawyer",
+   "Police_Officer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 57600,
+  "special": "Access Gallery",
+  "buildType": "Courthouse",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Dance Studio",
+  "displayName": "Dance Studio",
+  "workingTimeMin": 15,
+  "multiplier": 2,
+  "jobs": [
+   "Choreographer",
+   "Ballet_Dancer",
+   "Break_Dancer",
+   "Rapper",
+   "Cheerleader",
+   "Disc_Jockey"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 108000,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Dentists Office",
+  "displayName": "Dentist's Office",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Dentist",
+   "Radiologist",
+   "Receptionist",
+   "Tooth_Fairy"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 21600,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Diner",
+  "displayName": "Diner",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Waiter",
+   "Cook",
+   "Janitor",
+   "Ice_Cream_Seller",
+   "Mariachi"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Dojo",
+  "displayName": "Dojo",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Martial_Artist",
+   "Ninja",
+   "Sensei",
+   "Sumo_Wrestler",
+   "Samurai",
+   "Fencer"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Enterprise",
+  "displayName": "Enterprise",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Industrialist",
+   "Secretary",
+   "Receptionist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 14400,
+  "special": "The button in this building allows you to purchase a onetime upgrade (for real cash) that doubles the working time of every building.",
+  "buildType": "Enterprise",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Farm",
+  "displayName": "Farm",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "Farmer",
+   "Homemaker",
+   "Winemaker"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "Bumper Season: The Farm uses stockpiled Hearts to double all building multipliers for an overall double in CPS for a limited time.",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Fashion Studio",
+  "displayName": "Fashion Studio",
+  "workingTimeMin": 15,
+  "multiplier": 3,
+  "jobs": [
+   "Model",
+   "Swimsuit_Model",
+   "Tailor",
+   "Manicurist",
+   "Makeup_Artist"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Fast Food",
+  "displayName": "Fast Food",
+  "workingTimeMin": 10,
+  "multiplier": 3,
+  "jobs": [
+   "Cook",
+   "Janitor",
+   "Plumber",
+   "Pizza_Guy",
+   "Butcher"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 28800,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Film Studio",
+  "displayName": "Film Studio",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "Director",
+   "Actor",
+   "Stunt_Double",
+   "Security_Guard"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Financial Center",
+  "displayName": "Business Center",
+  "workingTimeMin": 5,
+  "multiplier": 4,
+  "jobs": [
+   "Accountant",
+   "Secretary",
+   "Mathematician"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 57600,
+  "special": "View total CPS and other financial stats",
+  "buildType": "BusinessCenter",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Fire Station",
+  "displayName": "Fire Station",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Firefighter",
+   "Paramedic",
+   "Deputy"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Forensic Lab",
+  "displayName": "Forensic Lab",
+  "workingTimeMin": 90,
+  "multiplier": 1,
+  "jobs": [
+   "CSI",
+   "Forensic_Scientist",
+   "Detective",
+   "Federal_Agent",
+   "Coroner"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 72000,
+  "special": "",
+  "buildType": "Work",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Funeral Parlor",
+  "displayName": "Funeral Parlor",
+  "workingTimeMin": 20,
+  "multiplier": 2,
+  "jobs": [
+   "Coroner",
+   "Gravedigger",
+   "Landscaper"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "FuneralParlor",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Gene Pool",
+  "displayName": "Gene Pool",
+  "workingTimeMin": 10,
+  "multiplier": 4,
+  "jobs": [
+   "Geneticist",
+   "Scientist",
+   "Doctor"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Greenhouse",
+  "displayName": "Greenhouse",
+  "workingTimeMin": 5,
+  "multiplier": 2,
+  "jobs": [
+   "Botanist",
+   "Gardener",
+   "Farmer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 21600,
+  "special": "Unlocks Grass Terrain",
+  "buildType": "Greenhouse",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Hospital",
+  "displayName": "Hospital",
+  "workingTimeMin": 15,
+  "multiplier": 2,
+  "jobs": [
+   "Radiologist",
+   "Nurse",
+   "Doctor",
+   "Cosmetic_Surgeon",
+   "Insurance_Agent",
+   "Cardiologist"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Hotel",
+  "displayName": "Hotel Utopia",
+  "workingTimeMin": 15,
+  "multiplier": 2,
+  "jobs": [
+   "Receptionist",
+   "Hotel_Manager",
+   "Valet"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 86400,
+  "special": "Lets you temporarily store clones. See Vacationing",
+  "buildType": "Hotel",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "IT Services",
+  "displayName": "Tech Support",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Programmer",
+   "System_Admin",
+   "Mathematician"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "Unlocks the building Upgrade function",
+  "buildType": "TechSupport",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Lake",
+  "displayName": "Lakehouse",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Fishmonger",
+   "Captain",
+   "First_Mate"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 14400,
+  "special": "You may now build waterways in your town from the landscape menu.",
+  "buildType": "Lakehouse",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    -1,
+    0
+   ],
+   [
+    0,
+    -1
+   ]
+  ]
+ },
+ {
+  "name": "Law Firm",
+  "displayName": "Law Firm",
+  "workingTimeMin": 20,
+  "multiplier": 4,
+  "jobs": [
+   "Lawyer",
+   "Assistant",
+   "Detective"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 21600,
+  "special": "Legal loopholes create an alternate way to level up and expand. Cost: 40u",
+  "buildType": "LawFirm",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Library",
+  "displayName": "Library",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Librarian",
+   "Editor",
+   "Poet"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 57600,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Market",
+  "displayName": "Farmer's Market",
+  "workingTimeMin": 20,
+  "multiplier": 3,
+  "jobs": [
+   "Greengrocer",
+   "Milkmonger",
+   "Homemaker",
+   "Farmer",
+   "Florist",
+   "Fishmonger"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Utopium Mine",
+  "displayName": "Utopium Mine",
+  "workingTimeMin": 2,
+  "multiplier": 2,
+  "jobs": [
+   "Engineer",
+   "Miner",
+   "Geologist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 60,
+  "special": "The Utopium Mine will allow you harvest a free 1u - 2u per day. This building can be upgraded to a Newtopium Mine at the cost of real money.",
+  "buildType": "UtopiumMine",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Museum",
+  "displayName": "Museum",
+  "workingTimeMin": 20,
+  "multiplier": 2,
+  "jobs": [
+   "Archaeologist",
+   "Paleontologist",
+   "Historian"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 57600,
+  "special": "In the 1.80 update, the Museum got a special ability. Now there are a few special missions that can only be completed at the Museum. Once you complete a mission, you need to wait until midnight before you can start the next mission. There are 9 of them resulting in completing the First Wonder:",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "News Bureau",
+  "displayName": "News Agency",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Reporter",
+   "Weather_Reporter",
+   "Food_Critic"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "Enable or disable the Live Newsfeed from here",
+  "buildType": "NewsAgency",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Wedding Planner",
+  "displayName": "Weddings R Us",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Wedding_Planner",
+   "Photographer",
+   "Tailor",
+   "Wedding_Singer",
+   "Jeweller"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Nursery",
+  "displayName": "Nursery",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Landscaper",
+   "Gardener",
+   "Florist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 14400,
+  "special": "The Nursery building unlocks the ability of building Trees. Each \"normal\" tree costs 1 utopium (excluding the Astroglass tree). Besides this, the Nursery also provides trees which will spread near your Roads.",
+  "buildType": "Nursery",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Observatory",
+  "displayName": "Observatory",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Astronomer",
+   "Geologist",
+   "Aerospace_Engineer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 21600,
+  "special": "Change background",
+  "buildType": "Observatory",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Ad Agency",
+  "displayName": "Ad Agency",
+  "workingTimeMin": 5,
+  "multiplier": 1,
+  "jobs": [
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED"
+  ],
+  "maxOccupancy": 0,
+  "baseConstructionSec": 1,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "EMPTY",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Park",
+  "displayName": "Park",
+  "workingTimeMin": 5,
+  "multiplier": 3,
+  "jobs": [
+   "Zookeeper",
+   "Taxidermist",
+   "Park_Ranger"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 57600,
+  "special": "Decor construction is now available in the landscape menu",
+  "buildType": "Park",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Pharmacy",
+  "displayName": "Pharmacy",
+  "workingTimeMin": 10,
+  "multiplier": 4,
+  "jobs": [
+   "Pharmacist",
+   "Nurse",
+   "Accountant",
+   "Cashier"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Photo Studio",
+  "displayName": "Photo Shop",
+  "workingTimeMin": 15,
+  "multiplier": 3,
+  "jobs": [
+   "Photographer",
+   "Model",
+   "Cameraman"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Police Station",
+  "displayName": "Police Station",
+  "workingTimeMin": 3,
+  "multiplier": 4,
+  "jobs": [
+   "Detective",
+   "Police_Officer",
+   "Deputy"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 21600,
+  "special": "Clicking the building gives access to the achievements button which leads you to a list of all the achievements that you can, and have, earned as well as collecting the free bonus utopium for completeing them",
+  "buildType": "PoliceStation",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Post Office",
+  "displayName": "Post Office",
+  "workingTimeMin": 20,
+  "multiplier": 3,
+  "jobs": [
+   "Mailman",
+   "Postmaster_General",
+   "Courier"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 57600,
+  "special": "The Post Office shows the email address where you can ask for support. It shows: support (at) lambdamugames (dot) com",
+  "buildType": "PostOffice",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Publishing House",
+  "displayName": "Publishing House",
+  "workingTimeMin": 75,
+  "multiplier": 1,
+  "jobs": [
+   "Editor",
+   "Writer",
+   "Lawyer",
+   "Playwright"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Radio Station",
+  "displayName": "Radio Station",
+  "workingTimeMin": 75,
+  "multiplier": 1,
+  "jobs": [
+   "Disc_Jockey",
+   "Songwriter",
+   "Vocalist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 28800,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Research Facility",
+  "displayName": "Research Lab",
+  "workingTimeMin": 75,
+  "multiplier": 1,
+  "jobs": [
+   "Zoologist",
+   "Scientist",
+   "Cryptozoologist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 72000,
+  "special": "The Research Lab building gives the option of permanently reducing the number of hearts required for surprises by 1 at an increasing cost of Utopium per upgrade. While the first upgrades cost 10, 20 and 30 Utopium per heart, the next upgrades will cost 50, 70, 90 and 120 Utopium. When researched all of them, you'll only need 4 hearts for every special delivery.",
+  "buildType": "ResearchLab",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Restaurant",
+  "displayName": "Restaurant",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Chef",
+   "Waiter",
+   "Songwriter",
+   "Sommelier",
+   "Celebrity_Chef"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Sheriffs Office",
+  "displayName": "Sheriff's Office",
+  "workingTimeMin": 2,
+  "multiplier": 2,
+  "jobs": [
+   "Sheriff",
+   "Deputy",
+   "Mounted_Police"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 14400,
+  "special": "Sheriff's Office is a type of building. Allows access to the developer credits in the form of a mugs-gallery",
+  "buildType": "SherrifOffice",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Flower Shop",
+  "displayName": "Flower Shop",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Florist",
+   "Treehugger",
+   "Chocolatier"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "FlowerShop",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Spa",
+  "displayName": "Spa",
+  "workingTimeMin": 30,
+  "multiplier": 2,
+  "jobs": [
+   "Physiotherapist",
+   "Hotel_Manager",
+   "Masseuse",
+   "Gym_Instructor",
+   "Yoga_Instructor"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Space Admin",
+  "displayName": "Space Admin",
+  "workingTimeMin": 45,
+  "multiplier": 2,
+  "jobs": [
+   "Astronaut",
+   "Aerospace_Engineer",
+   "Astronomer",
+   "Star_Commander",
+   "Hazmat",
+   "Welder"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "SpacePort",
+  "displayName": "Arrival Center",
+  "workingTimeMin": 0,
+  "multiplier": 2,
+  "jobs": [
+   "Mechanic"
+  ],
+  "maxOccupancy": 1,
+  "baseConstructionSec": 0,
+  "special": "Duh~!",
+  "buildType": "ArrivalCenter",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Stable",
+  "displayName": "Stable",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Jockey",
+   "Cattle_Rustler",
+   "Shepherd",
+   "Mounted_Police",
+   "Bandit"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Stadium",
+  "displayName": "Stadium",
+  "workingTimeMin": 120,
+  "multiplier": 2,
+  "jobs": [
+   "Athlete",
+   "Cheerleader",
+   "Coach",
+   "Footballer",
+   "Referee",
+   "Cattle_Rustler"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Sushi Bar",
+  "displayName": "Sushi Bar",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Sushi_Chef",
+   "Samurai",
+   "Celebrity_Chef"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Swimming Pool",
+  "displayName": "Swimming Pool",
+  "workingTimeMin": 15,
+  "multiplier": 3,
+  "jobs": [
+   "Lifeguard",
+   "Olympic_Swimmer",
+   "Swimsuit_Model",
+   "Sailing_Instructor"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Tavern",
+  "displayName": "Tavern",
+  "workingTimeMin": 5,
+  "multiplier": 3,
+  "jobs": [
+   "Bartender",
+   "Buccaneer",
+   "Time_Traveller",
+   "Deep_Sea_Diver",
+   "Genie",
+   "Cryptozoologist"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 108000,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Theatre",
+  "displayName": "Theatre",
+  "workingTimeMin": 90,
+  "multiplier": 2,
+  "jobs": [
+   "Actor",
+   "Director",
+   "Valet",
+   "Ventrilogquist",
+   "Thespian",
+   "Propsmaster"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 36000,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Town Hall",
+  "displayName": "Town Hall",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Mayor",
+   "Assistant",
+   "Architect"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 1,
+  "special": "The Town Hall has three useful buttons not found in other profession buildings: hints, shop (currency exchange), and notifications",
+  "buildType": "TownHall",
+  "category": "ADMINISTRATION",
+  "buildable": false,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "TV Station",
+  "displayName": "TV Station",
+  "workingTimeMin": 45,
+  "multiplier": 1,
+  "jobs": [
+   "Reporter",
+   "Cameraman",
+   "Writer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "The TV Station has a special function in Utopia. Upon pressing 'Enter' you are taken to a list where you can view advertisements of third parties. Successfully complete one of the offers, and you'll be rewarded with Utopium.",
+  "buildType": "TVStation",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "University",
+  "displayName": "University",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Mathematician",
+   "Philosopher",
+   "Physicist",
+   "Professor",
+   "Entomologist"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Central Square",
+  "displayName": "City Square",
+  "workingTimeMin": 5,
+  "multiplier": 8,
+  "jobs": [
+   "Plumber",
+   "Baker",
+   "Carpenter",
+   "Watchmaker",
+   "Janitor",
+   "Tailor"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Hero Mansion",
+  "displayName": "Hero Mansion",
+  "workingTimeMin": 5,
+  "multiplier": 3,
+  "jobs": [
+   "Super_Hero",
+   "Atomic_Hero",
+   "Anti_Hero",
+   "Ancient_Hero",
+   "Secret_Agent",
+   "Butler"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 108000,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "School of Magic",
+  "displayName": "School of Magic",
+  "workingTimeMin": 15,
+  "multiplier": 3,
+  "jobs": [
+   "Wizard",
+   "Apprentice",
+   "Magician"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "Unlocks the building Flip function",
+  "buildType": "SchoolOfMagic",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Ninja HQ",
+  "displayName": "Ninja HQ",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Ninja",
+   "Secret_Agent",
+   "Greengrocer",
+   "Rogue"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Fortune Teller",
+  "displayName": "Fortune Teller",
+  "workingTimeMin": 20,
+  "multiplier": 2,
+  "jobs": [
+   "Oracle",
+   "Genie"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 14400,
+  "special": "Everyday the Fortune Teller will make a Daily Divination, in which it gives the combination for a (new) gene.",
+  "buildType": "FortuneTeller",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Altar",
+  "displayName": "Altar",
+  "workingTimeMin": 5,
+  "multiplier": 5,
+  "jobs": [
+   "Centaur",
+   "Minotaur",
+   "Cyclops"
+  ],
+  "maxOccupancy": 1,
+  "baseConstructionSec": 172800,
+  "special": "As of version 1.50, the Altar can be used to mutate a person to increase the person's productivity forever. Each mutation costs 1 Mutopium (upgrade the person from 1 cps to 2 cps) or 2 Mutopium (from 2 cps to 3 cps).",
+  "buildType": "Altar",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Dating Agency",
+  "displayName": "Dating Agency",
+  "workingTimeMin": 20,
+  "multiplier": 2,
+  "jobs": [
+   "Dating_Advisor",
+   "Matchmaker",
+   "Wedding_Planner"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 1080,
+  "special": "The Switch in the detailed view allows you to swap between the animation of coins being produced by your buildings and replacing them with hearts. This is an entirely cosmetic change♥",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "MissionControl",
+  "displayName": "Utopia HQ",
+  "workingTimeMin": 20,
+  "multiplier": 3,
+  "jobs": [
+   "Politician",
+   "Civil_Servant",
+   "Officer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "Missions are unlocked",
+  "buildType": "MissionControl",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Disco",
+  "displayName": "Disco",
+  "workingTimeMin": 20,
+  "multiplier": 2,
+  "jobs": [
+   "Bouncer",
+   "Party_Animal",
+   "Break_Dancer",
+   "Rapper",
+   "Model"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Casino",
+  "displayName": "Casino",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Gambler",
+   "Croupier",
+   "Acrobat"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "There are 2 types of spins. The Normal or Regular Spin and the VIP Spin. Every Normal Spin costs 2 million coins and there is a chance to win between 3mil and 80mil coins. Of course the chances to win 80mil are much smaller than the chances to win 3mil coins. The Normal Spin has a cool down of 4 hours. The VIP Spin costs the player real money. With the same odds to win as the Normal Spin, the winnings can be between 25 utopium and 500 utopium. There is no cool down on the VIP Spin.",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "ConcertHall",
+  "displayName": "Concert Hall",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Conductor",
+   "Pianist",
+   "Violinist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 86400,
+  "special": "When the Concert Hall is constructed (after splicing one of the required musician-related professions), a new musical score for Pixel People will be unlocked and can be heard as background music in addition to the two original tracks.",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Gym",
+  "displayName": "Gym",
+  "workingTimeMin": 20,
+  "multiplier": 4,
+  "jobs": [
+   "Gym_Instructor",
+   "Gymnast",
+   "Bodybuilder",
+   "Cyclist",
+   "Boxer"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Travel Agency",
+  "displayName": "Travel Agency",
+  "workingTimeMin": 30,
+  "multiplier": 2,
+  "jobs": [
+   "Travel_Agent",
+   "Tour_Guide",
+   "Tourist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Tech Park",
+  "displayName": "Tech Park",
+  "workingTimeMin": 30,
+  "multiplier": 3,
+  "jobs": [
+   "Entrepreneur",
+   "Gamer",
+   "Investor"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "BLOCKED",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    -1,
+    0
+   ],
+   [
+    0,
+    -1
+   ]
+  ]
+ },
+ {
+  "name": "Winter Park",
+  "displayName": "Snow Globe",
+  "workingTimeMin": 15,
+  "multiplier": 5,
+  "jobs": [
+   "Figure_Skater",
+   "Mountain_Climber",
+   "Skier",
+   "Ice_Fisher",
+   "Ice_Cream_Seller",
+   "Hockey_Player"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Baseball Diamond",
+  "displayName": "Ballpark",
+  "workingTimeMin": 30,
+  "multiplier": 3,
+  "jobs": [
+   "Baseballer",
+   "Statistician",
+   "Catcher"
+  ],
+  "maxOccupancy": 1,
+  "baseConstructionSec": 36000,
+  "special": "The Ballpark has a \"switch\" button that rounds the cash display, shortening the display to a 'ballpark' figure. It rounds your cash to the nearest thousand or million. Please note that \"Rough Estimates\" will always cap at 2147m, regardless of how many coins you actually have.",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Recreation Center",
+  "displayName": "Recreation Center",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Basketballer",
+   "Tennis_Player",
+   "Soccer_Star",
+   "Mascot",
+   "Cyclist",
+   "Skateboarder"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Golf Course",
+  "displayName": "Golf Club",
+  "workingTimeMin": 60,
+  "multiplier": 3,
+  "jobs": [
+   "Golfer",
+   "Caddie",
+   "Industrialist",
+   "CEO"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    -1,
+    0
+   ],
+   [
+    0,
+    -1
+   ]
+  ]
+ },
+ {
+  "name": "Broadcast Station",
+  "displayName": "Broadcast Station",
+  "workingTimeMin": 30,
+  "multiplier": 3,
+  "jobs": [
+   "Talkshow_Host",
+   "News_Anchor",
+   "Cameraman"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 36000,
+  "special": "Ability to hide idle News button",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Ice Cream Stand",
+  "displayName": "Ice Cream Stand",
+  "workingTimeMin": 20,
+  "multiplier": 3,
+  "jobs": [
+   "Ice_Cream_Seller",
+   "Milkmonger",
+   "Chocolatier"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Hedge Fund",
+  "displayName": "Hedge Fund",
+  "workingTimeMin": 30,
+  "multiplier": 3,
+  "jobs": [
+   "Investor",
+   "Investment_Banker",
+   "Gardener"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Lumber Mill",
+  "displayName": "Lumber Mill",
+  "workingTimeMin": 30,
+  "multiplier": 4,
+  "jobs": [
+   "Lumberjack",
+   "Carpenter",
+   "Outlaw"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "At the Lumber Mill the player can trigger the event Over Logging at the cost of coins. This event raises the daily Utopium harvesting limit from 25 to 50 Utopium. Event lasts till the day ends (12PM).",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Chemical Plant",
+  "displayName": "Chemical Plant",
+  "workingTimeMin": 120,
+  "multiplier": 2,
+  "jobs": [
+   "Chemist",
+   "Hazmat",
+   "Arsonist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "The event Utopium Leak can only be triggered at the Chemical Plant. It uses stockpiled Hearts to double all output from trees for a limited time.",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Beach House",
+  "displayName": "Beach House",
+  "workingTimeMin": 5,
+  "multiplier": 2,
+  "jobs": [
+   "Surfer",
+   "Lifeguard",
+   "Swimsuit_Model"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "Unlocks Shoreline decor",
+  "buildType": "BeachHouse",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Carnival",
+  "displayName": "Carnival",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Mime",
+   "Clown",
+   "Pyrotechnician"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "The Funfair event can only be triggered at the Carnival and uses Stockpiled Hearts to temporarily increase your Town Spirit by a certain amount, which depends on your expansion level. Activating this event also increases the maximum discount from 50% to 60% (the amount of max spirit needed does not change). Please note that this is only the case when the event is active.",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Secret Hideout",
+  "displayName": "Secret Hideout",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Monster_Hunter",
+   "Lawn_Gnome"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "Unlocks the first batch of secret jobs",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Ministry of Love",
+  "displayName": "Ministry of Love",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 1,
+  "special": "Add 10 hearts to your stockpile. Use up to 40 times per day.",
+  "buildType": "Work",
+  "category": "EMPTY",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "FireworksFactory",
+  "displayName": "Fireworks Factory",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Pyrotechnician",
+   "Firefighter",
+   "Chemist"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "At this building the event Fireworks can be triggered. It costs stockpiled hearts to activate.",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Gas Station",
+  "displayName": "Gas Station",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Tattoo_Artist",
+   "Biker",
+   "Gas_Filler",
+   "Car_Washer",
+   "Hair_Stylist",
+   "Cashier"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Telephone Company",
+  "displayName": "Telephone Company",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Electrician",
+   "Telephone_Operator",
+   "Security_Guard"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 86400,
+  "special": "Allows you to deposit a gift in your city and visit other mayors' cities.",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Pet Store",
+  "displayName": "Pet Store",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Cashier",
+   "Vet",
+   "Animal_Trainer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "Exchange Utopium and Animals with friends",
+  "buildType": "PetStore",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Apiary",
+  "displayName": "Apiary",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Bee_Keeper",
+   "Entomologist",
+   "Exterminator"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Docks",
+  "displayName": "Docks",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Sea_Dog",
+   "Sailor",
+   "Dock_Hand"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "The Docks unlocks a nifty type of Terrain: Open Water terrain. This will allow you to build them freely in your Utopia.",
+  "buildType": "Docks",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Marina",
+  "displayName": "Marina",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Boat_Racer",
+   "Sailing_Instructor",
+   "Captain"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Lighthouse",
+  "displayName": "Lighthouse",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Lighthouse_Keeper",
+   "Cartographer",
+   "Mermaid"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Island",
+  "displayName": "Island",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Castaway",
+   "Tribal",
+   "Treasure_Hunter",
+   "Cliff_Diver"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Antique Store",
+  "displayName": "Antique Store",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Musketeer",
+   "Emperor",
+   "Historian"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Doomsday Clock",
+  "displayName": "Doomsday Clock",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Bell_Ringer",
+   "Time_Traveller",
+   "Watchmaker"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 86400,
+  "special": "A clock counts how long you've had an active game session.",
+  "buildType": "DoomsdayClock",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Outdoor Stage",
+  "displayName": "Outdoor Stage",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Punk_Rocker",
+   "Mariachi",
+   "Rockstar",
+   "Metalhead",
+   "Juggler",
+   "Bagpiper"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Beacon",
+  "displayName": "Ministry of Hope",
+  "workingTimeMin": 0,
+  "multiplier": 2,
+  "jobs": [
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED"
+  ],
+  "maxOccupancy": 0,
+  "baseConstructionSec": 1,
+  "special": "NONE",
+  "buildType": "Work",
+  "category": "EMPTY",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Campsite",
+  "displayName": "Campsite",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Eagle_Scout",
+   "Camp_Counsellor",
+   "Mascot",
+   "Park_Ranger",
+   "Mounted_Police",
+   "Treehugger"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Cave",
+  "displayName": "Cave",
+  "workingTimeMin": 15,
+  "multiplier": 2,
+  "jobs": [
+   "Vigilante",
+   "Caveman",
+   "Buccaneer",
+   "Rock_Climber",
+   "Troll",
+   "Treasure_Hunter"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Oil Rig",
+  "displayName": "Oil Rig",
+  "workingTimeMin": 30,
+  "multiplier": 3,
+  "jobs": [
+   "Oil_Driller",
+   "Welder",
+   "Oil_Baron"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "When you have built the Oil Rig you will be able to build Offshore Decor. This is a special category of decor that contains 7 new types of decor.",
+  "buildType": "OilRig",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Barber Shop",
+  "displayName": "Barber Shop",
+  "workingTimeMin": 10,
+  "multiplier": 2,
+  "jobs": [
+   "Barber",
+   "Acapella_Singer",
+   "Hair_Stylist"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Port Authority",
+  "displayName": "Port Authority",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Civil_Servant",
+   "Merchant",
+   "Sailor"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "REMOVED",
+  "buildType": "PortAuthority",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Pawn Shop",
+  "displayName": "Embassy",
+  "workingTimeMin": 5,
+  "multiplier": 2,
+  "jobs": [
+   "Ambassador",
+   "Officer",
+   "Civil_Servant"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "You can send special gifts to your friends at the Embassy. You need to be linked with Facebook and have friends who also play this game in order to be able to use this option.",
+  "buildType": "Work",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Pyramid",
+  "displayName": "Pyramid",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Mummy",
+   "Archaeologist"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Haunted House",
+  "displayName": "Haunted House",
+  "workingTimeMin": 5,
+  "multiplier": 2,
+  "jobs": [
+   "Jack-O-Lantern",
+   "Ghost",
+   "Skeleton"
+  ],
+  "maxOccupancy": 1,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Dark Tower",
+  "displayName": "Dark Tower",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Werewolf",
+   "Witch",
+   "Vampire"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 43200,
+  "special": "At the Dark Tower the player can trigger the event Cover of Darkness at the cost of 2 hearts per minute.",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Evil Lair",
+  "displayName": "Evil Lair",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "Overlord",
+   "Thief",
+   "Assassin",
+   "Supervillain",
+   "Slasher"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Laboratory",
+  "displayName": "Laboratory",
+  "workingTimeMin": 20,
+  "multiplier": 2,
+  "jobs": [
+   "Monster",
+   "Mad_Scientist",
+   "Henchman"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 36000,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "A_Rival_Center",
+  "displayName": "A Rival Center",
+  "workingTimeMin": 10,
+  "multiplier": 2,
+  "jobs": [
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED"
+  ],
+  "maxOccupancy": 0,
+  "baseConstructionSec": 1,
+  "special": "More clone slots (Premium Building)",
+  "buildType": "ArrivalCenter",
+  "category": "",
+  "buildable": false,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Winter Fort",
+  "displayName": "Winter Fort",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Ice_Lord",
+   "Viking",
+   "Guardian"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "WinterFort",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Mountain",
+  "displayName": "Mountain",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Snow_Elemental",
+   "Alpine_Rescue",
+   "Sherpa"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "The Mountain unlocks the Frozen Shoreline Decor. The new types of decor can be found in the \"Build\" screen under: Landscape -> Decor -> Shoreline Decor.",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Ski Lodge",
+  "displayName": "Ski Lodge",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Snowboarder",
+   "Skier"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 172800,
+  "special": "Unlocks Snow Terrain",
+  "buildType": "SkiLodge",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Toy Factory",
+  "displayName": "Toy Factory",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Toy_Maker",
+   "Elf",
+   "Toy_Soldier"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "Ice Decor unlocked in the Landscape Menu",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Event Center",
+  "displayName": "Event Center",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Event Planner",
+   "Party Animal",
+   "BLOCKED",
+   "BLOCKED",
+   "BLOCKED"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 2880,
+  "special": "REMOVED",
+  "buildType": "Work",
+  "category": "",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "CloudCastle",
+  "displayName": "Cloud Castle",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Regent",
+   "Successor",
+   "Giant",
+   "Bean_Farmer"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "CabinWoods",
+  "displayName": "Wooded Cabin",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Jungle_Dweller",
+   "Big_Bad_Wolf",
+   "Hooded_Rider",
+   "Dwarf",
+   "Shoe_Maker",
+   "Forester"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "WarriorTemple",
+  "displayName": "Warrior Temple",
+  "workingTimeMin": 10,
+  "multiplier": 1,
+  "jobs": [
+   "Sun_Priest",
+   "Hermit",
+   "Sculptor",
+   "Gladiator",
+   "Warrior"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "CandyHouse",
+  "displayName": "Candy House",
+  "workingTimeMin": 10,
+  "multiplier": 1,
+  "jobs": [
+   "Housekeeper",
+   "Wonderlander",
+   "Gingerbread_Clone",
+   "Puppet"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "PirateShip",
+  "displayName": "Pirate Ship",
+  "workingTimeMin": 5,
+  "multiplier": 2,
+  "jobs": [
+   "Swashbuckler",
+   "Piper",
+   "Submariner",
+   "Adventurer"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "HighTower",
+  "displayName": "Ivory Tower",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Hair_Model",
+   "Adventurer",
+   "Base_Jumper",
+   "Knight"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "TrainStation",
+  "displayName": "Railroad Station",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Engine_Driver",
+   "Train_Conductor"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 172800,
+  "special": "Unlocks Railway Decor",
+  "buildType": "TrainStation",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "SouvenirStore",
+  "displayName": "Souvenir Store",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Blacksmith",
+   "Freedom_Fighter",
+   "Perfume_Maker",
+   "Balloon_Twister",
+   "Online_Shopper"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Inn",
+  "displayName": "Inn",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Bard",
+   "Barbarian"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "WeddingChapel",
+  "displayName": "Wedding Chapel",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Newlywed"
+  ],
+  "maxOccupancy": 1,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Training Ground",
+  "displayName": "Training Ground",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Goal Keeper",
+   "Soccer Fan"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 2880,
+  "special": "",
+  "buildType": "Decor",
+  "category": "",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Ticketing Booth",
+  "displayName": "Ticketing Booth",
+  "workingTimeMin": 30,
+  "multiplier": 1,
+  "jobs": [
+   "Bookmaker"
+  ],
+  "maxOccupancy": 1,
+  "baseConstructionSec": 2880,
+  "special": "",
+  "buildType": "Decor",
+  "category": "",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Trophy Room",
+  "displayName": "Trophy Room",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Steward"
+  ],
+  "maxOccupancy": 1,
+  "baseConstructionSec": 2880,
+  "special": "",
+  "buildType": "Decor",
+  "category": "",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Parade Float",
+  "displayName": "Parade Float",
+  "workingTimeMin": 5,
+  "multiplier": 2,
+  "jobs": [
+   "Masquerader",
+   "Samba Dancer"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 2880,
+  "special": "",
+  "buildType": "Decor",
+  "category": "",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Staging Area",
+  "displayName": "Staging Area",
+  "workingTimeMin": 10,
+  "multiplier": 1,
+  "jobs": [
+   "Marching Band Member",
+   "Street Performer"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 2880,
+  "special": "",
+  "buildType": "Decor",
+  "category": "",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Guild Hall",
+  "displayName": "Guild Hall",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Cleric",
+   "Monk",
+   "Dragon_Tamer",
+   "Necromancer",
+   "Rogue"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Auction House",
+  "displayName": "Auction House",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Auctioneer",
+   "Monk",
+   "Barbarian",
+   "Paladin"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 57600,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Bazaar",
+  "displayName": "Bazaar",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Balloon_Twister",
+   "Manicurist",
+   "Juicer"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Thrift Store",
+  "displayName": "Thrift Store",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Frisbee_Player",
+   "Dog_Walker",
+   "Graffiti_Artist",
+   "Indie_Musician"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Organic Cafe",
+  "displayName": "Organic Cafe",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "Organic_Farmer",
+   "Juicer",
+   "Barista"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "Distillery",
+  "displayName": "Distillery",
+  "workingTimeMin": 100,
+  "multiplier": 1,
+  "jobs": [
+   "Whisky_Blender",
+   "Organic_Farmer"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "EntertainmentAcademy",
+  "displayName": "Idol Academy",
+  "workingTimeMin": 240,
+  "multiplier": 1,
+  "jobs": [
+   "Executive_Producer",
+   "Megastar",
+   "Pop_Icon",
+   "Synthpop_Artist",
+   "Talent_Show_Judge",
+   "Mogul"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "ProductionSuite",
+  "displayName": "Production Suite",
+  "workingTimeMin": 60,
+  "multiplier": 2,
+  "jobs": [
+   "Voiceover_Artist",
+   "Foley_Artist",
+   "CGI_Artist",
+   "Gofer"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "TalentAgency",
+  "displayName": "Talent Agency",
+  "workingTimeMin": 30,
+  "multiplier": 2,
+  "jobs": [
+   "Talent_Manager",
+   "Fashion_Designer",
+   "Makeover_Artist",
+   "Publicist",
+   "Stylist",
+   "Undiscovered_Talent"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "FilmFestival",
+  "displayName": "Film Festival",
+  "workingTimeMin": 240,
+  "multiplier": 1,
+  "jobs": [
+   "Auteur",
+   "A-List_Actor",
+   "Thespian",
+   "Film_Producer",
+   "Ingenue",
+   "Paparazzi"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "CREATIVE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "ServiceFirm",
+  "displayName": "The Care Services",
+  "workingTimeMin": 30,
+  "multiplier": 2,
+  "jobs": [
+   "Housekeeper",
+   "Tutor",
+   "Art_Therapist",
+   "Valet",
+   "Caveman"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "ParkEstate",
+  "displayName": "Park Luxury Villa",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Mogul",
+   "Heir",
+   "Crony"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "Unlocks Sky Garden Path",
+  "buildType": "ParkEstate",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "GamingHouse",
+  "displayName": "Gaming House",
+  "workingTimeMin": 60,
+  "multiplier": 1,
+  "jobs": [
+   "Pro-gamer",
+   "Gameshow_Host",
+   "Streamer",
+   "Sports_Caster",
+   "Social_Media_Influencer",
+   "Hacker"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "BBQRestaurant",
+  "displayName": "Gogigui BBQ",
+  "workingTimeMin": 30,
+  "multiplier": 4,
+  "jobs": [
+   "Mukbang_Streamer",
+   "Barbecuer"
+  ],
+  "maxOccupancy": 2,
+  "baseConstructionSec": 43200,
+  "special": "",
+  "buildType": "Work",
+  "category": "F&B",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "ApplianceManufacturer",
+  "displayName": "Appliance Firm",
+  "workingTimeMin": 200,
+  "multiplier": 1,
+  "jobs": [
+   "Tech_Engineer",
+   "Industrialist",
+   "Electrician",
+   "Heir"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 129600,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    -1,
+    0
+   ],
+   [
+    0,
+    -1
+   ]
+  ]
+ },
+ {
+  "name": "Palace",
+  "displayName": "Palace",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "Emperor",
+   "Vizier",
+   "Courtier",
+   "Tour_Guide",
+   "Tourist"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "MountainBase",
+  "displayName": "UTO-NURV Fortress",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "Secret_Dispatcher",
+   "Magical_Student",
+   "Kid_Robot",
+   "Bike_Rider",
+   "Metamorph",
+   "Space_Ranger"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "MechaHangar",
+  "displayName": "UTO-NURV Hangar",
+  "workingTimeMin": 120,
+  "multiplier": 1,
+  "jobs": [
+   "Tech_Magnate",
+   "Mecha_Pilot",
+   "Mecha_Mechanic",
+   "Mecha_Inventor",
+   "Robo_Caller",
+   "Keyboard_Warrior"
+  ],
+  "maxOccupancy": 6,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "KaijuResearchCenter",
+  "displayName": "K.R.A.K.E.N Center",
+  "workingTimeMin": 120,
+  "multiplier": 2,
+  "jobs": [
+   "Xenolinguist",
+   "Xenobiologist",
+   "Crisis_Manager",
+   "Relief_Coordinator",
+   "Kaiju_Whisperer"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 129600,
+  "special": "",
+  "buildType": "Work",
+  "category": "SCIENCE",
+  "buildable": true,
+  "size": 3,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "FieldHospital",
+  "displayName": "Field Hospital",
+  "workingTimeMin": 20,
+  "multiplier": 1,
+  "jobs": [
+   "ER_Doctor",
+   "Trauma_Surgeon",
+   "Field_Engineer",
+   "Ambulance_Driver",
+   "EMT_Technician"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 129600,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    0,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "ElectronicsDistrictAkiba",
+  "displayName": "Utobara Denki-Gai",
+  "workingTimeMin": 60,
+  "multiplier": 6,
+  "jobs": [
+   "Comic_Geek",
+   "Electronics_Refurbisher",
+   "Computer_Wiz",
+   "Cosplay_Costumier"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "ConventionCenter",
+  "displayName": "Utopia Grand View",
+  "workingTimeMin": 240,
+  "multiplier": 1,
+  "jobs": [
+   "Cosplayer",
+   "Mangaka",
+   "Toy_Collector",
+   "Comics_Editor",
+   "Animator"
+  ],
+  "maxOccupancy": 5,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Castle",
+  "displayName": "Utoji Castle",
+  "workingTimeMin": 360,
+  "multiplier": 1,
+  "jobs": [
+   "Imperial_Guard",
+   "Shogun",
+   "Gatekeeper"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "ADMINISTRATION",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Temple",
+  "displayName": "Utoryuji Temple",
+  "workingTimeMin": 480,
+  "multiplier": 1,
+  "jobs": [
+   "Priest",
+   "Shrine_Attendant",
+   "Zen_Gardener"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 129600,
+  "special": "",
+  "buildType": "Work",
+  "category": "SERVICES",
+  "buildable": true,
+  "size": 2,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "DepartmentStore",
+  "displayName": "Utoshimaya D.S.",
+  "workingTimeMin": 60,
+  "multiplier": 4,
+  "jobs": [
+   "Store_Greeter",
+   "Store_Manager",
+   "Clerk"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 172800,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 4,
+  "cells": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    0,
+    1
+   ],
+   [
+    1,
+    1
+   ]
+  ]
+ },
+ {
+  "name": "Bookstore",
+  "displayName": "Ubocho Books",
+  "workingTimeMin": 60,
+  "multiplier": 4,
+  "jobs": [
+   "Book_Collector",
+   "Novelist",
+   "Publisher"
+  ],
+  "maxOccupancy": 3,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "DessertCafe",
+  "displayName": "Patisserie Ufeuille",
+  "workingTimeMin": 40,
+  "multiplier": 4,
+  "jobs": [
+   "Patissier",
+   "Confiseur",
+   "Decorateur",
+   "Glacier"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "BUSINESS",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "name": "JazzBar",
+  "displayName": "Jazz Bar",
+  "workingTimeMin": 40,
+  "multiplier": 4,
+  "jobs": [
+   "Crooner",
+   "Improv_Drummer",
+   "Blues_Guitarist",
+   "Double_Bassist"
+  ],
+  "maxOccupancy": 4,
+  "baseConstructionSec": 86400,
+  "special": "",
+  "buildType": "Work",
+  "category": "ENTERTAINMENT",
+  "buildable": true,
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ }
+]

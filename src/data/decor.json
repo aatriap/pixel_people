@@ -1,0 +1,2994 @@
+[
+ {
+  "id": 1,
+  "name": "Bush1",
+  "displayName": "Corn Fields",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 2,
+  "name": "Bush3",
+  "displayName": "Paddy Fields",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 3,
+  "name": "Flowerbed1",
+  "displayName": "Martian Flower Bed",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 4,
+  "name": "Flowerbed2",
+  "displayName": "Venusian Flower Bed",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 5,
+  "name": "Flowerbed3",
+  "displayName": "Playground",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 6,
+  "name": "Fountain1",
+  "displayName": "Font Pacifica",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 7,
+  "name": "Fountain2",
+  "displayName": "Supereme Font",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Inspiring",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 8,
+  "name": "Fountain3",
+  "displayName": "Carpark",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Inspiring",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 9,
+  "name": "Fountain4",
+  "displayName": "Food Stand",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Inspiring",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 10,
+  "name": "Plaza1",
+  "displayName": "Stargazebo",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Inspiring",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 11,
+  "name": "Plaza2",
+  "displayName": "Planetary Plaza",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Inspiring",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 12,
+  "name": "Statue2",
+  "displayName": "Graveyard",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Inspiring",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 13,
+  "name": "Statue1",
+  "displayName": "Monument",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Inspiring",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 14,
+  "name": "BroadcastArray",
+  "displayName": "Broadcast Array",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Spectacular",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 15,
+  "name": "Cornershop",
+  "displayName": "Cornershop",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Spectacular",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 16,
+  "name": "ReflectingPool",
+  "displayName": "Reflecting Pool",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Spectacular",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 17,
+  "name": "TransformerGrid",
+  "displayName": "Transformer Grid",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Spectacular",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 18,
+  "name": "BallCourt",
+  "displayName": "Ball Court",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Spectacular",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 19,
+  "name": "VTOLPad",
+  "displayName": "Vtol Pad",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Spectacular",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 20,
+  "name": "SundialPark",
+  "displayName": "Sundial Park",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 4,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Spectacular",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 21,
+  "name": "Convenience Store",
+  "displayName": "Convenience Store",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 22,
+  "name": "Decor_Parade1",
+  "displayName": "Procession 1",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "/Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 23,
+  "name": "Decor_Parade2",
+  "displayName": "Procession 2",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "/Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 24,
+  "name": "Decor_Parade3",
+  "displayName": "Grass Patch",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "/Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 25,
+  "name": "Decor_Parade4",
+  "displayName": "PROCESSION 3",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "/Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 26,
+  "name": "Decor_Parade5",
+  "displayName": "DINO PARK",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "/Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 27,
+  "name": "Decor_SoccerField",
+  "displayName": "SOCCER PITCH",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "/Basic",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 101,
+  "name": "AGDecor1",
+  "displayName": "BRONZE PLAZA",
+  "spirit": 1,
+  "cost": null,
+  "landCost": 0,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 102,
+  "name": "AGDecor2",
+  "displayName": "SILVER PLAZA",
+  "spirit": 2,
+  "cost": null,
+  "landCost": 0,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 103,
+  "name": "AGDecor3",
+  "displayName": "GOLD PLAZA",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 104,
+  "name": "AGDecor4",
+  "displayName": "ASTROGLASS PLAZA",
+  "spirit": 6,
+  "cost": null,
+  "landCost": 0,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 105,
+  "name": "AGDecor5",
+  "displayName": "CHESS PARK",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 106,
+  "name": "AGDecor6",
+  "displayName": "DOG PARK",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 107,
+  "name": "AGDecor7",
+  "displayName": "TREE PLAZA",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 108,
+  "name": "iapDecorCarousel",
+  "displayName": "CAROUSEL",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 109,
+  "name": "iapDecorGarden",
+  "displayName": "SEA GARDEN",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 110,
+  "name": "iapDecorSpire",
+  "displayName": "SPIRE",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 111,
+  "name": "iapDecorStatue",
+  "displayName": "GRAND FOUNTAIN",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 112,
+  "name": "iapDecorWindmill",
+  "displayName": "WINDMILL",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 113,
+  "name": "noniapDecorHayloft1",
+  "displayName": "BARN",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 114,
+  "name": "noniapDecorHayloft2",
+  "displayName": "BARN",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 115,
+  "name": "noniapDecorHayloft3",
+  "displayName": "BARN",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 116,
+  "name": "noniapDecorPlaza1",
+  "displayName": "PLAZA",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 20
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 117,
+  "name": "noniapDecorPlaza2",
+  "displayName": "PLAZA",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 20
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 118,
+  "name": "noniapDecorPlaza3",
+  "displayName": "PLAZA",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 20
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 119,
+  "name": "noniapDecorRink1",
+  "displayName": "ROLLER RINK",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 120,
+  "name": "noniapDecorRink2",
+  "displayName": "ROLLER RINK",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 121,
+  "name": "noniapDecorRink3",
+  "displayName": "SKATING RINK",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 122,
+  "name": "noniapDecorSports1",
+  "displayName": "TENNIS COURT",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 123,
+  "name": "noniapDecorSports2",
+  "displayName": "GLASS COURT",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 124,
+  "name": "noniapDecorSports3",
+  "displayName": "SOCCER PITCH",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 125,
+  "name": "noniapDecorTulip1",
+  "displayName": "TULIP FIELD",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 20
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 126,
+  "name": "noniapDecorTulip2",
+  "displayName": "TULIP FIELD",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 20
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 127,
+  "name": "noniapDecorTulip3",
+  "displayName": "TULIP FIELD",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 6,
+   "chroma": 20
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 128,
+  "name": "HalloweenDecor_1",
+  "displayName": "ABANDONED CAMP",
+  "spirit": 2,
+  "cost": null,
+  "landCost": 1,
+  "category": "",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 129,
+  "name": "HalloweenDecor_2",
+  "displayName": "I Scream Van",
+  "spirit": 2,
+  "cost": null,
+  "landCost": 1,
+  "category": "",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 130,
+  "name": "HalloweenDecor_3",
+  "displayName": "Fountain of Gory",
+  "spirit": 2,
+  "cost": null,
+  "landCost": 1,
+  "category": "",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 131,
+  "name": "HalloweenDecor_4",
+  "displayName": "Pumpkin Patch",
+  "spirit": 2,
+  "cost": null,
+  "landCost": 1,
+  "category": "",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 132,
+  "name": "HalloweenDecor_5",
+  "displayName": "Hot Spot",
+  "spirit": 2,
+  "cost": null,
+  "landCost": 1,
+  "category": "",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 133,
+  "name": "anniversaryStatue",
+  "displayName": "Statue of Mayor",
+  "spirit": 0,
+  "cost": null,
+  "landCost": 0,
+  "category": "",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 134,
+  "name": "Excalibur",
+  "displayName": "Sword Point",
+  "spirit": 1,
+  "cost": null,
+  "landCost": 1,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 135,
+  "name": "hippy_Decor",
+  "displayName": "Skate Park",
+  "spirit": 1,
+  "cost": null,
+  "landCost": 1,
+  "category": "From Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 300,
+  "name": "Offshore1",
+  "displayName": "Bathysphere",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 24,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Offshore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 301,
+  "name": "Offshore2",
+  "displayName": "Tree Pontoon",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 24,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Offshore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 302,
+  "name": "Offshore3",
+  "displayName": "Kaiju Isle",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 24,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Offshore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 303,
+  "name": "Offshore4",
+  "displayName": "WTOL Pad",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 24,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Offshore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 304,
+  "name": "Offshore5",
+  "displayName": "TRB4 Wreck",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 24,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Offshore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 305,
+  "name": "Offshore6",
+  "displayName": "Sunken Ruins",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 24,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Offshore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 306,
+  "name": "Offshore7",
+  "displayName": "Secret Base",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 24,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Offshore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 401,
+  "name": "Decor_SkyGarden",
+  "displayName": "Gravity Garden",
+  "spirit": 12,
+  "cost": null,
+  "landCost": 1,
+  "category": "From Missions",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 500,
+  "name": "Snowball_fortress_1",
+  "displayName": "Gatecon's Cache",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 501,
+  "name": "Snowball_fortress_2",
+  "displayName": "Snowmani Bank",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 502,
+  "name": "Wall_Btm",
+  "displayName": "Wall Bottom",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 503,
+  "name": "Wall_Side",
+  "displayName": "Wall Side",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 504,
+  "name": "Wall_Straight",
+  "displayName": "Wall Section",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 505,
+  "name": "Wall_Top",
+  "displayName": "Wall Top",
+  "spirit": 1,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 506,
+  "name": "Walrus_berg",
+  "displayName": "Deep Freeze",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 507,
+  "name": "Candy_canes",
+  "displayName": "Candy Canetacles",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 508,
+  "name": "shipwreck",
+  "displayName": "Ice Breaker",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 509,
+  "name": "Frozen_lake",
+  "displayName": "Ninja Lake",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 510,
+  "name": "Penguin_berg",
+  "displayName": "Bankai Berg",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 511,
+  "name": "XmasTree",
+  "displayName": "Holiday Park",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Snowy",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 520,
+  "name": "Shore_Decor_1_winter",
+  "displayName": "Icy Bottom Corner",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 521,
+  "name": "Shore_Decor_2_winter",
+  "displayName": "Bottom Frost",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 522,
+  "name": "Shore_Decor_3_winter",
+  "displayName": "Icy Side Corner",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 523,
+  "name": "Shore_Decor_4_winter",
+  "displayName": "Top Frost",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 524,
+  "name": "Shore_Decor_5_winter",
+  "displayName": "Icy Top Corner",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 525,
+  "name": "Shore_Decor_6_winter",
+  "displayName": "Cool Top Cove",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 526,
+  "name": "Shore_Decor_7_winter",
+  "displayName": "Cool Side Cove",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 527,
+  "name": "Shore_Decor_8_winter",
+  "displayName": "Cool Bottom Cove",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 530,
+  "name": "Shore_Corner_1_winter",
+  "displayName": "Icy Bottom Corner",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 531,
+  "name": "Shore_Corner_2_winter",
+  "displayName": "Icy Side Corner 1",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 532,
+  "name": "Shore_Corner_3_winter",
+  "displayName": "Icy Side Corner 2",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 533,
+  "name": "Shore_Corner_4_winter",
+  "displayName": "Frozen Bottom",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 534,
+  "name": "Shore_Corner_5_winter",
+  "displayName": "Icy Top Corner",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 535,
+  "name": "Shore_Corner_6_winter",
+  "displayName": "Cool Top Cove",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 536,
+  "name": "Shore_Corner_7_winter",
+  "displayName": "Frosty Top",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 537,
+  "name": "Shore_Corner_8_winter",
+  "displayName": "Frosty Top 2",
+  "spirit": 1,
+  "cost": {
+   "coins": 10000,
+   "utopium": 0,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Frozen Shore",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 540,
+  "name": "Everlasting_peach",
+  "displayName": "Everlasting Peach",
+  "spirit": 6,
+  "cost": null,
+  "landCost": 1,
+  "category": "Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 600,
+  "name": "railroad_balloon",
+  "displayName": "Balloon Stall",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 601,
+  "name": "railroad_candybooth",
+  "displayName": "Cotton Candy",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 602,
+  "name": "railroad_caravan",
+  "displayName": "Caravan Corner",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 603,
+  "name": "railroad_goldenroad",
+  "displayName": "Yellow Brick Plaza",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 604,
+  "name": "railroad_popcorn",
+  "displayName": "Popcorn Stand",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 605,
+  "name": "railroad_ticket",
+  "displayName": "Ticket Booth",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 606,
+  "name": "railroad_tramstop1",
+  "displayName": "Tram Terminus",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 607,
+  "name": "railroad_tramstop2",
+  "displayName": "Tram Stop",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 2,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Rail",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1101,
+  "name": "Winter_Replacement_1",
+  "displayName": "Stone Cold",
+  "spirit": 1,
+  "cost": null,
+  "landCost": 1,
+  "category": "Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1102,
+  "name": "Winter_Replacement_2",
+  "displayName": "Icicle Stand",
+  "spirit": 1,
+  "cost": null,
+  "landCost": 1,
+  "category": "Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1103,
+  "name": "Winter_Replacement_3",
+  "displayName": "Chill n Go",
+  "spirit": 1,
+  "cost": null,
+  "landCost": 1,
+  "category": "Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1104,
+  "name": "Winter_Replacement_4",
+  "displayName": "Freezy-bo",
+  "spirit": 1,
+  "cost": null,
+  "landCost": 1,
+  "category": "Mission",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1105,
+  "name": "SpecialDecor1",
+  "displayName": "OBELISK OF SIGHT",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1106,
+  "name": "SpecialDecor2",
+  "displayName": "MOTHERSPEAK DISH",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1107,
+  "name": "SpecialDecor3",
+  "displayName": "CREATORS TRIUMPH",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1108,
+  "name": "SpecialDecor4",
+  "displayName": "DAYTRIPPER",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1109,
+  "name": "SpecialDecor5",
+  "displayName": "LANTERN LANE",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1110,
+  "name": "SpecialDecor6",
+  "displayName": "CELESTIAL DIAL",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1111,
+  "name": "SpecialDecor7",
+  "displayName": "REFLECTING POND",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1112,
+  "name": "SpecialDecor8",
+  "displayName": "HEAVENLY GATE",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1113,
+  "name": "SpecialDecor9",
+  "displayName": "REAPER OF GOURDS",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1114,
+  "name": "SpecialDecor10",
+  "displayName": "HOLIDAY PLANT",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1115,
+  "name": "SpecialDecor11",
+  "displayName": "KING OF THE SOUTH",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1116,
+  "name": "SpecialDecor12",
+  "displayName": "MONUMENTAL UNIQUITY",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1117,
+  "name": "SolarPanelGrass",
+  "displayName": "NOOR NURSERY",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1118,
+  "name": "SolarPanelWater",
+  "displayName": "SUNGROW SOLAR",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1119,
+  "name": "WindFarmGrass",
+  "displayName": "JIUQUAN JOULES",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1120,
+  "name": "WindFarmWater",
+  "displayName": "WALNEY WATTAGE",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1121,
+  "name": "TidalGenerator",
+  "displayName": "SIHWA STATION",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1122,
+  "name": "KorDecor1",
+  "displayName": "HOT SPRINGS",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1123,
+  "name": "KorDecor2",
+  "displayName": "RAILBIKE",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1124,
+  "name": "KorDecor3",
+  "displayName": "SHRINE OF SERENITY",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1125,
+  "name": "KorDecor4",
+  "displayName": "PALATIAL PLINTH",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1126,
+  "name": "KorDecor5",
+  "displayName": "POJANGMACHA A",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1127,
+  "name": "KorDecor6",
+  "displayName": "POJANGMACHA B",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1128,
+  "name": "KorDecor7",
+  "displayName": "RETRO HOLOGRAM",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1129,
+  "name": "SpecialDecor13",
+  "displayName": "FESTIVAL BOULEVARD",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1130,
+  "name": "SpecialDecor14",
+  "displayName": "PONDERING PERGOLA",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1131,
+  "name": "SpecialDecor15",
+  "displayName": "FESTIVAL DRUM",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1132,
+  "name": "SpecialDecor16",
+  "displayName": "LUMINOUS LAMP",
+  "spirit": 6,
+  "cost": {
+   "coins": 0,
+   "utopium": 12,
+   "chroma": 0
+  },
+  "landCost": 1,
+  "category": "Magnificent",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1133,
+  "name": "JapDecor3",
+  "displayName": "MAWSON KONBINI",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1134,
+  "name": "JapDecor4",
+  "displayName": "MENAGE MART",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1135,
+  "name": "JapDecor5",
+  "displayName": "TORII",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1136,
+  "name": "JapDecor6",
+  "displayName": "KAIJU STATUE",
+  "spirit": 12,
+  "cost": {
+   "coins": 0,
+   "utopium": 28,
+   "chroma": 200
+  },
+  "landCost": 0,
+  "category": "Chroma (Premium)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1137,
+  "name": "JapDecor7",
+  "displayName": "SECRET ARMORY",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1138,
+  "name": "JapDecor8",
+  "displayName": "SECRET GARAGE",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1139,
+  "name": "JapDecor9",
+  "displayName": "SECRET SERVER",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1140,
+  "name": "JapDecor10",
+  "displayName": "SECRET ROBOTICS LAB",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1141,
+  "name": "JapDecor11",
+  "displayName": "MOUNTAIN BASE QUOIN",
+  "spirit": 2,
+  "cost": {
+   "coins": 0,
+   "utopium": 8,
+   "chroma": 40
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1142,
+  "name": "JapDecor12",
+  "displayName": "RAMEN STALL",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1143,
+  "name": "JapDecor13",
+  "displayName": "IZAKAYA STALL",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1144,
+  "name": "JapDecor14",
+  "displayName": "KAISEN STALL",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1145,
+  "name": "JapDecor15",
+  "displayName": "AGEMONO STALL",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ },
+ {
+  "id": 1146,
+  "name": "JapDecor16",
+  "displayName": "VENDING MACHINES",
+  "spirit": 3,
+  "cost": {
+   "coins": 0,
+   "utopium": 10,
+   "chroma": 60
+  },
+  "landCost": 0,
+  "category": "Chroma (Normal)",
+  "size": 1,
+  "cells": [
+   [
+    0,
+    0
+   ]
+  ]
+ }
+]
