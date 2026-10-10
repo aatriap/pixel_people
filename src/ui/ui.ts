@@ -4,7 +4,7 @@ import {
   ENTERPRISE_UTOPIUM, PET_STORE_UTOPIUM,
 } from '../logic/game';
 import {
-  ANIMAL, DECOR, JOB, JOB_BY_ID, MISSION, PATH, PATHS, RESIDENCES, STRINGS, TREES, WORKPLACE, Cost, POD,
+  ANIMAL, DECOR, JOB, JOB_BY_ID, MISSION, PATHS, RESIDENCES, STRINGS, TREES, WORKPLACE, Cost, POD,
   displayName, jobDisplay, kindOf, landUse,
 } from '../logic/data';
 import { constructionRushCost, landRow, timeTillNoon, timeRushCost } from '../logic/formulas';
@@ -199,7 +199,8 @@ export class UI {
         pend.append(btn(`PLACE ${displayName(wp).toUpperCase()} (FREE)`, 'b-green small', () => this.startBuild(wp)));
       }
       // reward card queue: one card at a time, only when nothing else is open (cGameManager::forceUIProc)
-      if (s.packets.length && !this.panel) this.showPacket(s.packets[0]);
+      // (a new-job card may replace the Arrival Center, as in milestone 1)
+      if (s.packets.length && (!this.panel || (this.panelKind === 'ARRIVAL CENTER' && s.packets[0].type === 0))) this.showPacket(s.packets[0]);
     }
     if (!pointerDown) this.panelRefresh?.();
   }
@@ -242,8 +243,10 @@ export class UI {
   }
 
   private act(r: { ok: boolean; msg?: string }, okMsg?: string) {
+    // success messages are upper-case game texts; placement results carry the new building id instead
+    const msg = okMsg ?? (r.msg && !/[a-z]/.test(r.msg) ? r.msg : '');
     if (!r.ok) this.toast(r.msg ?? '', true);
-    else if (okMsg ?? r.msg) this.toast((okMsg ?? r.msg)!);
+    else if (msg) this.toast(msg);
     this.onChange();
     return r.ok;
   }
@@ -1117,4 +1120,3 @@ function fmtShort(n: number): string {
 
 function handlersSet(k: string, f: () => void) { handlers.set(k, f); }
 
-void PATH;

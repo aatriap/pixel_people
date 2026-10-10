@@ -45,7 +45,8 @@ async function start() {
         if (ui.editing) { ui.editTap(id); return; }
         if (game.state.hearts.on === id) { ui.tapHeartOn(); changed(); return; }
         if (b.treeReady && kindOf(b.type) === 'tree') { game.tapTree(id, nowSec()); flushEvents(); changed(); return; }
-        if (game.needsRestart(b)) {
+        const specialReady = (b.type === 'Utopium Mine' && game.state.dailyUtopium) || (b.type === 'Animal Shelter' && game.state.dailyAnimal);
+        if (game.needsRestart(b) && !specialReady) {
           if (game.tapWorkplace(id, nowSec()).ok) { sfx('recharge_10'); ui.toast('BACK TO WORK!'); changed(); return; }
         }
         ui.openBuilding(id);

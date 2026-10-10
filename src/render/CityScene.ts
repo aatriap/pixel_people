@@ -176,6 +176,13 @@ export class CityScene extends Phaser.Scene {
     return w + this.game2.state.buildings.map((b) => `${b.id}@${b.x},${b.y},${b.flip ? 1 : 0},${b.buildEnd >= 0 ? 1 : 0}`).join('|');
   }
 
+  /** Top centre of the visible (non-transparent) part of a sprite: the atlas frames are trimmed. */
+  private visibleTop(im: Phaser.GameObjects.Image): { x: number; y: number } {
+    const f = im.frame as unknown as { realHeight: number; data?: { spriteSourceSize?: { y: number } } };
+    const sy = f.data?.spriteSourceSize?.y ?? 0;
+    return { x: im.x, y: im.y - im.originY * f.realHeight * im.scaleY + sy * im.scaleY };
+  }
+
   /** Called after each tick or action. */
   refresh() {
     if (this.layoutSignature() !== this.signature) this.rebuild();
@@ -210,8 +217,8 @@ export class CityScene extends Phaser.Scene {
       if (this.notifs.has(id)) continue;
       const view = this.views.get(id)?.[0] as Phaser.GameObjects.Image | undefined;
       if (!view) continue;
-      const top = view.getTopCenter();
-      const im = this.img(top.x!, top.y! + 30, frame);
+      const top = this.visibleTop(view);
+      const im = this.img(top.x, top.y + 24, frame);
       if (!im) continue;
       im.setOrigin(0.5, 1).setScale(1.6).setDepth(200000);
       im.setInteractive({ useHandCursor: true });
@@ -372,8 +379,8 @@ export class CityScene extends Phaser.Scene {
   floatText(buildingId: string, text: string, color = '#ffe14a') {
     const view = this.views.get(buildingId)?.[0] as Phaser.GameObjects.Image | undefined;
     if (!view || !view.active) return;
-    const top = view.getTopCenter();
-    const t = this.add.text(top.x!, top.y! + 40, text, {
+    const top = this.visibleTop(view);
+    const t = this.add.text(top.x, top.y + 10, text, {
       fontFamily: '"04b03", monospace', fontSize: '20px', color, stroke: '#3a2400', strokeThickness: 4,
     }).setOrigin(0.5).setDepth(300000);
     this.overlay.add(t);
@@ -388,8 +395,8 @@ export class CityScene extends Phaser.Scene {
     for (const [id, amount] of this.coinAcc) {
       const view = this.views.get(id)?.[0] as Phaser.GameObjects.Image | undefined;
       if (!view || !view.active) continue;
-      const top = view.getTopCenter();
-      const c = this.add.container(top.x!, top.y! + 40).setDepth(300000);
+      const top = this.visibleTop(view);
+      const c = this.add.container(top.x, top.y + 10).setDepth(300000);
       const coin = this.add.sprite(-10, 0, this.frameKey.get('coin_001')!, 'coin_001').play('coin').setScale(1.5);
       const t = this.add.text(4, 0, `+${amount}`, {
         fontFamily: '"04b03", monospace', fontSize: '18px', color: '#ffe14a', stroke: '#3a2400', strokeThickness: 4,
