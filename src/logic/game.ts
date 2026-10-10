@@ -18,6 +18,8 @@ import { PACK_ITEM, Shop } from './shop';
 import { TUTORIAL, TUTORIAL_UTOPIUM, TutAction } from './tutorial';
 
 export const FREE_COOLDOWN = 24 * 3600;
+/** Tutorial steps that only show something; a later real action may pass them (web). */
+const SOFT_TUT = new Set<TutAction>(['next', 'openSite', 'openAC', 'tapPortrait', 'spliceMe', 'card']);
 
 export type GameEvent =
   | { type: 'coins'; building: string; amount: number }
@@ -114,9 +116,12 @@ export class Game {
   /** cTutorialManager::advanceTutorial when the action matches the current step. Returns true if it advanced. */
   tut(action: TutAction): boolean {
     if (!this.tutorialActive()) return false;
-    const step = TUTORIAL[this.state.tutorial];
-    if (step.action !== action) return false;
-    this.state.tutorial += 1;
+    // web: if the player already did the next real action, the "soft" steps in between (narration,
+    // opening a popup, tapping a portrait) are passed too, so the tutorial can never get stuck.
+    let k = this.state.tutorial;
+    while (TUTORIAL[k] && TUTORIAL[k].action !== action && SOFT_TUT.has(TUTORIAL[k].action) && k - this.state.tutorial < 2) k++;
+    if (!TUTORIAL[k] || TUTORIAL[k].action !== action) return false;
+    this.state.tutorial = k + 1;
     if (this.state.tutorial >= TUTORIAL.length) this.finishTutorial();
     this.events.push({ type: 'tutorial', step: this.state.tutorial });
     return true;

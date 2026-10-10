@@ -1,10 +1,11 @@
 import Phaser from 'phaser';
 import './style.css';
 import { Game } from './logic/game';
-import { load, nowSec, save, wipe } from './logic/save';
+import { importSave, load, nowSec, save, wipe } from './logic/save';
 import { CityScene } from './render/CityScene';
 import { UI } from './ui/ui';
-import { sfx } from './ui/sound';
+import { sfx, setMuted } from './ui/sound';
+import { STRINGS, displayName } from './logic/data';
 import { Music } from './ui/music';
 import { kindOf } from './logic/data';
 
@@ -13,12 +14,15 @@ async function start() {
   const pages = Object.values(manifest).flat();
   const storage = typeof localStorage !== 'undefined' ? localStorage : undefined;
   const saved = load(storage);
-  const game = saved ? new Game(saved) : Game.fresh(nowSec());
+  // a new game starts in the tutorial (01 §5); saves made before milestone 3 count as done
+  const game = saved ? new Game(saved) : Game.fresh(nowSec(), true);
+  setMuted(game.state.soundMuted);
   (window as unknown as { pp: Game }).pp = game; // handy for debugging and the screenshot script
 
   const scene = new CityScene();
   let ui: UI;
-  const persist = () => save(storage, game.state);
+  // like the game, nothing is saved while the tutorial runs (cUserData::writeData checks CURRENT_TUTORIAL)
+  const persist = () => { if (!game.tutorialActive()) save(storage, game.state); };
   const changed = () => {
     persist();
     scene.refresh();
@@ -44,6 +48,8 @@ async function start() {
         if (!b) return;
         if (ui.editing) { ui.editTap(id); return; }
         if (game.state.hearts.on === id) { ui.tapHeartOn(); changed(); return; }
+        // tutorial step 22: "tap on the mine to start work there"
+        if (b.type === 'Utopium Mine' && game.state.tutorial === 22 && game.tapWorkplace(id, nowSec()).ok) { sfx('recharge_10'); changed(); return; }
         if (b.treeReady && kindOf(b.type) === 'tree') { game.tapTree(id, nowSec()); flushEvents(); changed(); return; }
         const specialReady = (b.type === 'Utopium Mine' && game.state.dailyUtopium) || (b.type === 'Animal Shelter' && game.state.dailyAnimal);
         if (game.needsRestart(b) && !specialReady) {
@@ -53,6 +59,7 @@ async function start() {
       },
       onPlace: (type: string, i: number, j: number) => ui.place(type, i, j),
       onTapEmpty: () => undefined,
+      onTapGuest: (code: number, job?: string) => { if (!ui.editing && !ui.buildType) ui.x.onGuest(code, job); },
       onReady: () => ready(),
     },
   });
@@ -60,7 +67,16 @@ async function start() {
     for (const e of game.drainEvents()) {
       if (e.type === 'coins') scene.coinGain(e.building, e.amount);
       if (e.type === 'arrived') { sfx('recharge_10'); ui.toast('A NEW CLONE ARRIVED!'); }
-      if (e.type === 'built') sfx('correct_03');
+      if (e.type === 'built') {
+        sfx('correct_03');
+        const b = game.building(e.building);
+        if (b && game.firstTickDone) ui.toast((STRINGS.LocalNotif_BuildingDone ?? '%s complete!').replace('%s', displayName(b.type)).toUpperCase());
+      }
+      if (e.type === 'spliced' && game.firstTickDone) { sfx('notification_01'); ui.toast((STRINGS.LocalNotif_SpliceDone ?? 'Splicing complete!').toUpperCase()); }
+      if (e.type === 'mineReady') { sfx('notification_01'); ui.toast((STRINGS.LocalNotif_UtopiumMineReady ?? 'Mining complete!').toUpperCase()); }
+      if (e.type === 'shelterReady') ui.toast((STRINGS.LocalNotif_AnimalShelterReady ?? 'Animals are ready!').toUpperCase());
+      if (e.type === 'achievement') ui.x.breakingNews(e.index);
+      if (e.type === 'tutorial' && e.step === -1) persist();
       if (e.type === 'tree') {
         scene.floatText(e.building, `+${e.amount}${e.kind === 'utopium' ? 'u' : ''}`, e.kind === 'utopium' ? '#ff7ad9' : '#ffe14a');
         sfx(e.kind === 'utopium' ? 'discovery_04' : 'correct_03');
@@ -84,6 +100,7 @@ async function start() {
       game.tick(now);
       flushEvents();
       scene.refresh();
+      scene.syncGuests(game.guests(game.local(now)));
       ui.update();
       if (game.state.playTime % 5 === 0) persist();
     };
@@ -92,6 +109,13 @@ async function start() {
     document.addEventListener('visibilitychange', () => { if (document.hidden) persist(); else tick(); });
     window.addEventListener('pagehide', persist);
     window.addEventListener('pp-reset', () => { wipe(storage); location.reload(); });
+    window.addEventListener('pp-import', (ev) => {
+      const st = importSave((ev as CustomEvent<string>).detail);
+      if (!st) return;
+      save(storage, st);
+      location.reload();
+    });
+    (window as unknown as { ppScene: CityScene }).ppScene = scene;
   }
 }
 

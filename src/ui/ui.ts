@@ -12,8 +12,15 @@ import { LAND } from '../logic/data';
 import type { CityScene } from '../render/CityScene';
 import { nowSec } from '../logic/save';
 import { sfx } from './sound';
+import { $, ptr, h, btn, fmtNum, fmtTime, costLine, fmtShort, handlersSet } from './dom';
+export { fmtNum, fmtTime } from './dom';
 import type { Music } from './music';
-import { CAL_LAYOUT, SEASONS, calendarReward, seasonAt, weekday } from '../logic/calendar';
+import { SEASONS, calendarAt } from '../logic/calendar';
+import { Extras } from './m3';
+import { footprintBox } from '../render/iso';
+const footprintCells = (t: string, x: number, y: number, f: boolean) => footprintBox(t, x, y, f).cells as [number, number][];
+import { TUTORIAL } from '../logic/tutorial';
+import { PACK_ITEM } from '../logic/shop';
 import { MISSION_COIN_FLOOR, WONDER_PARTS, parseReq, parseReward, wonderOf } from '../logic/missions';
 import type { ActiveMission, Packet } from '../logic/state';
 import { MISSION_SLOT_TYPES } from '../logic/state';
@@ -27,82 +34,13 @@ type PlaceMode =
   | { kind: 'wonder' }
   | { kind: 'move'; id: string };
 
-const $ = <T extends HTMLElement = HTMLElement>(sel: string, root: ParentNode = document) => root.querySelector(sel) as T;
-
-function h(tag: string, attrs: Record<string, string> = {}, ...kids: (Node | string | null | undefined)[]): HTMLElement {
-  const el = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k === 'class') el.className = v; else el.setAttribute(k, v);
-  }
-  for (const k of kids) if (k != null) el.append(k instanceof Node ? k : document.createTextNode(k));
-  return el;
-}
-
-// Buttons are matched by a stable key between pointerdown and pointerup, so a press still works
-// when a panel re-renders under the finger (panels refresh every second for their timers).
-const handlers = new Map<string, () => void>();
-let pressedKey: string | null = null;
-/** Panels refresh every second; skip that while a finger or the mouse is down so taps are never lost. */
-let pointerDown = false;
-document.addEventListener('pointerdown', () => { pointerDown = true; }, true);
-document.addEventListener('pointerup', () => { pointerDown = false; }, true);
-document.addEventListener('pointercancel', () => { pointerDown = false; }, true);
-const keyOf = (e: Event) => {
-  const b = (e.target as Element | null)?.closest?.('button[data-k]') as HTMLButtonElement | null;
-  return b && !b.disabled ? b.dataset.k! : null;
-};
-document.addEventListener('pointerdown', (e) => { pressedKey = keyOf(e); }, true);
-document.addEventListener('pointerup', (e) => {
-  const k = keyOf(e);
-  if (k && k === pressedKey) {
-    pressedKey = null;
-    e.preventDefault();
-    sfx('tap_01');
-    handlers.get(k)?.();
-  }
-}, true);
-
-function btn(label: string, cls: string, onClick: () => void, disabled = false, key = ''): HTMLButtonElement {
-  const b = h('button', { class: `btn ${cls}` }, label) as HTMLButtonElement;
-  b.disabled = disabled;
-  const k = key || `${label}|${cls}`;
-  b.dataset.k = k;
-  handlers.set(k, onClick);
-  return b;
-}
-
-export function fmtNum(n: number): string {
-  return Math.floor(n).toLocaleString('en-US');
-}
-
-export function fmtTime(s: number): string {
-  s = Math.max(0, Math.ceil(s));
-  const d = Math.floor(s / 86400), hh = Math.floor((s % 86400) / 3600), m = Math.floor((s % 3600) / 60), sec = s % 60;
-  if (d) return `${d}d ${hh}h`;
-  if (hh) return `${hh}h ${m}m`;
-  if (m) return `${m}m ${sec}s`;
-  return `${sec}s`;
-}
-
-function costLine(c: Cost | null, land = 0, spirit = 0): HTMLElement {
-  const el = h('span', { class: 'cost' });
-  if (!c) return el;
-  if (c.coins) el.append(h('img', { src: 'assets/ui/Coin.png', class: 'ic' }), fmtNum(c.coins), ' ');
-  if (c.utopium) el.append(h('img', { src: 'assets/ui/Utopium.png', class: 'ic' }), `${c.utopium}`, ' ');
-  if (c.chroma) el.append(h('img', { src: 'assets/ui/Chroma.png', class: 'ic' }), `${c.chroma}`, ' ');
-  if (!c.coins && !c.utopium && !c.chroma) el.append('FREE ');
-  if (land) el.append(h('span', { class: 'land' }, `${land} LAND`), ' ');
-  if (spirit) el.append(h('span', { class: 'spirit' }, `+${spirit} SPIRIT`));
-  return el;
-}
-
 const COMBO_IMG: Record<ComboKind, string> = {
   none: 'Splice_NoCombo', old: 'Splice_OldCombo', new: 'Splice_NewCombo', evil: 'Splice_EvilCombo',
 };
 
 export class UI {
-  private panel: HTMLElement | null = null;
-  private panelKind = '';
+  panel: HTMLElement | null = null;
+  panelKind = '';
   private panelRefresh: (() => void) | null = null;
   private onPanelClose: (() => void) | null = null;
   private toastTimer = 0;
@@ -112,11 +50,16 @@ export class UI {
   private editSel: string | null = null;
   private confirmDelete = false;
 
-  constructor(private game: Game, private scene: CityScene, private onChange: () => void, private music: Music) {
+  x: Extras;
+  private tutShown = -2;
+  private newsAt = 0;
+
+  constructor(public game: Game, public scene: CityScene, public onChange: () => void, public music: Music) {
+    this.x = new Extras(this);
     this.buildHud();
   }
 
-  private get s() { return this.game.state; }
+  get s() { return this.game.state; }
 
   // ---------------------------------------------------------------- HUD
   private buildHud() {
@@ -125,7 +68,7 @@ export class UI {
       <div class="hud">
         <div class="bar">
           <div class="pill" title="Utopium"><img src="assets/ui/Utopium.png"><span id="h-uto"></span></div>
-          <div class="pill" title="Coins"><img src="assets/ui/Coin.png"><span id="h-coins"></span></div>
+          <div class="pill" title="Coins" id="p-coins"><img src="assets/ui/Coin.png"><span id="h-coins"></span></div>
           <div class="pill" title="Chroma"><img src="assets/ui/Chroma.png"><span id="h-chroma"></span></div>
         </div>
         <div class="bar small">
@@ -140,27 +83,34 @@ export class UI {
         <button class="sidebtn" id="s-missions" title="Missions"><img src="assets/ui/MissionBoxHighlight.png"><span>HQ</span></button>
         <button class="sidebtn" id="s-cal" title="Calendar"><img id="s-cal-img" src="assets/ui/SeasonArt_Thaw.png"><span>DAY</span></button>
         <button class="sidebtn" id="s-animals" title="Animals"><img src="assets/ui/AnimalSilhouette.png"><span id="h-animals"></span></button>
+        <button class="sidebtn" id="s-ach" title="Achievements"><img src="assets/ui/ach/ac1.png"><span id="h-ach">ACH</span></button>
         <button class="sidebtn" id="s-edit" title="Edit"><img src="assets/ui/Movebtn.png"><span>EDIT</span></button>
         <button class="sidebtn" id="s-music" title="Music"><span id="h-music">BGM</span></button>
       </div>
+      <div id="spiritwatch" class="hidden"><img src="assets/ui/SpiritWatch.png"><span id="h-sw"></span></div>
       <div id="pending"></div>
+      <div id="news" class="hidden"><img src="assets/ui/NewsFeedBar.png" class="nb"><div class="track"><span id="news-text"></span></div></div>
+      <div id="breaking" class="hidden"></div>
       <div id="buildbar" class="hidden"></div>
       <div class="footer">
         <button class="sprbtn b-build" id="f-build">BUILD</button>
         <button class="sprbtn b-splice" id="f-ac">CLONES</button>
         <button class="sprbtn b-expand" id="f-expand">EXPAND</button>
-        <button class="iconbtn" id="f-menu" title="Menu">?</button>
+        <button class="iconbtn" id="f-menu" title="Settings">⚙</button>
       </div>
       <div id="toast" class="hidden"></div>
+      <div id="tut" class="hidden"></div>
       <div id="modal" class="hidden"></div>`;
     const on = (id: string, f: () => void) => { $(id).onclick = () => { sfx('tap_01'); f(); }; };
     on('#f-build', () => this.openBuildMenu());
     on('#f-ac', () => this.openArrivalCenter());
     on('#f-expand', () => this.openExpand());
-    on('#f-menu', () => this.openMenu());
+    on('#f-menu', () => this.x.openSettings());
+    on('#s-ach', () => this.x.openAchievements());
+    on('#p-coins', () => { if (!this.game.tutorialActive()) this.x.openExchange(); });
     on('#s-heart', () => this.openHearts());
     on('#s-missions', () => this.openMissions());
-    on('#s-cal', () => this.openCalendar());
+    on('#s-cal', () => this.x.openCalendar());
     on('#s-animals', () => this.openAnimals());
     on('#s-edit', () => (this.editing ? this.endEdit() : this.startEdit()));
     on('#s-music', () => { this.s.musicMuted = !this.s.musicMuted; this.music.setMuted(this.s.musicMuted); this.onChange(); });
@@ -187,7 +137,7 @@ export class UI {
     $('#s-missions').classList.toggle('hidden', !ms.unlocked());
     $('#s-missions').classList.toggle('glow', ms.unlocked() && ms.active().some((a) => ms.canComplete(a)));
     $('#s-cal').classList.toggle('glow', s.dailyGift);
-    const season = seasonAt(g.local(now));
+    const season = calendarAt(g.local(now)).season;
     ($('#s-cal-img') as HTMLImageElement).src = `assets/ui/SeasonArt_${season >= 0 ? SEASONS[season][0] + SEASONS[season].slice(1).toLowerCase() : 'Thaw'}.png`;
     $('#s-edit').classList.toggle('on', this.editing);
     const acReady = s.slots.some((x) => x.state === 3 || x.state === 5);
@@ -202,7 +152,83 @@ export class UI {
       // (a new-job card may replace the Arrival Center, as in milestone 1)
       if (s.packets.length && (!this.panel || (this.panelKind === 'ARRIVAL CENTER' && s.packets[0].type === 0))) this.showPacket(s.packets[0]);
     }
-    if (!pointerDown) this.panelRefresh?.();
+    $('#h-ach').textContent = `${g.achievements.pendingCount() || 'ACH'}`;
+    $('#s-ach').classList.toggle('glow', g.achievements.pendingCount() > 0);
+    // Funeral Parlor: spirit watch
+    $('#spiritwatch').classList.toggle('hidden', !s.spiritWatch || g.tutorialActive());
+    $('#h-sw').textContent = `${s.spirit}/${s.spiritLimit} · ${Math.trunc(g.discount() * 100)}% OFF`;
+    // Observatory background
+    const bg = `url("assets/ui/bg${s.spaceBg}.png")`;
+    if ($('#game').style.backgroundImage !== bg) $('#game').style.backgroundImage = bg;
+    // News Agency: live news feed
+    $('#news').classList.toggle('hidden', !s.newsFeed || g.tutorialActive() || !!this.buildType || this.editing);
+    if (s.newsFeed && now >= this.newsAt) {
+      this.newsAt = now + 16;
+      const t = $('#news-text');
+      t.textContent = this.x.newsText();
+      t.style.animation = 'none'; void t.offsetWidth; t.style.animation = '';
+    }
+    if (!ptr.down) this.panelRefresh?.();
+    this.renderTutorial();
+  }
+
+  // ---------------------------------------------------------------- tutorial (01 §5)
+  /** Spot for the tutorial's flashing square (Residence1 at step 1, the new workplace at step 16). */
+  private tutSpot(type: string): [number, number] { return this.game.findFreeSpot(type, [1, -1]); }
+
+  private tutSite(): string | undefined {
+    return this.s.buildings.find((b) => b.buildEnd >= 0)?.id;
+  }
+
+  renderTutorial() {
+    const g = this.game, s = this.s;
+    const on = g.tutorialActive();
+    document.body.classList.toggle('tutorial', on);
+    const el = $('#tut');
+    document.querySelectorAll('.tut-target').forEach((e) => e.classList.remove('tut-target'));
+    if (!on) {
+      if (this.tutShown !== -1) { el.classList.add('hidden'); this.scene.setMarker(null); this.tutShown = -1; }
+      return;
+    }
+    const step = s.tutorial;
+    const st = TUTORIAL[step];
+    if (step !== this.tutShown) {
+      this.tutShown = step;
+      el.innerHTML = '';
+      el.append(h('img', { class: 'narrator', src: this.scene.clonePortrait('Mechanic', false, 64) }),
+        h('div', { class: 'ttext' }, this.x.tutorialText(step),
+          step === 0 ? h('div', { class: 'hint' }, STRINGS.Tutorial_UtopiumWillResetAfter ?? '') : null));
+      if (st.action === 'next') el.append(btn('', 'b-tutnext', () => { if (g.tut('next')) { sfx('tap_01'); this.onChange(); } }, false, 'tut-next'));
+      el.classList.remove('hidden');
+    }
+    // the action each step waits for
+    if (step === 1 && !this.buildType && !this.panel) this.startBuild('Residence1');
+    if (step === 16 && !this.buildType && !this.panel && s.pendingWorkplaces.length && !s.packets.length) this.startBuild(s.pendingWorkplaces[0]);
+    const cells = (id?: string) => {
+      const b = id ? g.building(id) : undefined;
+      return b ? footprintCells(b.type, b.x, b.y, b.flip) : null;
+    };
+    let mark: [number, number][] | null = null;
+    if ((step === 1 || step === 16) && this.buildType) {
+      const [x, y] = this.tutSpot(this.buildType);
+      mark = footprintCells(this.buildType, x, y, false);
+    } else if ((step === 2 || step === 3 || step === 17) && !this.panel) mark = cells(this.tutSite());
+    else if ((step === 5 || step === 18) && !this.panel) mark = cells('SpacePort_1');
+    else if (step === 22 && !this.panel) mark = cells(s.buildings.find((b) => b.type === 'Utopium Mine')?.id);
+    this.scene.setMarker(mark, !!st.hand || step === 1 || step === 16 || step === 22);
+    // highlight the control the step is about
+    const sel: Record<number, string> = {
+      3: 'button[data-k="bld-rush"]', 17: 'button[data-k="bld-rush"]', 5: '#f-ac', 18: '#f-ac', 7: 'button[data-k^="arr"]',
+      8: '.slot .portrait.tap', 19: '.slot .portrait.tap', 9: 'button[data-k^="spl"]', 11: '.gene[data-job="Mayor"]',
+      12: '.gene[data-job="Mechanic"]', 13: 'button[data-k="splice-go"]', 20: 'button[data-k^="as"][data-k$="Utopium Mine"]',
+      15: 'button[data-k="disc-place"]',
+    };
+    if (sel[step]) document.querySelectorAll(sel[step]).forEach((e) => e.classList.add('tut-target'));
+    // gating: only the Arrival Center button and the settings stay usable
+    const acSteps = [5, 6, 7, 8, 9, 10, 11, 12, 13, 18, 19, 20];
+    ($('#f-ac') as HTMLButtonElement).disabled = !acSteps.includes(step);
+    ($('#f-build') as HTMLButtonElement).disabled = true;
+    ($('#f-expand') as HTMLButtonElement).disabled = true;
   }
 
   toast(msg: string, bad = false) {
@@ -216,7 +242,7 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- modal plumbing
-  private open(title: string, body: HTMLElement, refresh?: () => void, cls = '', onClose?: () => void) {
+  open(title: string, body: HTMLElement, refresh?: () => void, cls = '', onClose?: () => void) {
     const m = $('#modal');
     m.innerHTML = '';
     const close = h('button', { class: 'close', title: 'Close' });
@@ -229,6 +255,7 @@ export class UI {
     this.panelRefresh = refresh ?? null;
     this.onPanelClose = onClose ?? null;
     refresh?.();
+    this.renderTutorial();
   }
 
   close() {
@@ -242,7 +269,7 @@ export class UI {
     cb?.();
   }
 
-  private act(r: { ok: boolean; msg?: string }, okMsg?: string) {
+  act(r: { ok: boolean; msg?: string }, okMsg?: string) {
     // success messages are upper-case game texts; placement results carry the new building id instead
     const msg = okMsg ?? (r.msg && !/[a-z]/.test(r.msg) ? r.msg : '');
     if (!r.ok) this.toast(r.msg ?? '', true);
@@ -251,7 +278,7 @@ export class UI {
     return r.ok;
   }
 
-  private animalImg(name: string, size = 40): HTMLElement {
+  animalImg(name: string, size = 40): HTMLElement {
     const id = ANIMAL.get(name)?.id;
     return h('img', { class: 'aimg', src: id ? this.scene.thumb([`A${id}`], size, size) : 'assets/ui/AnimalSilhouette.png' });
   }
@@ -264,7 +291,8 @@ export class UI {
       case 0: return 'NewJobDiscovered';
       case 1: return 'SpecialPacket';
       case 2: return 'LevelUpPacket';
-      case 3: return this.s.animals[p.id] ? 'LOVEpacket' : 'NewAnimalDiscovered';
+      case 3: case 14: return this.s.animals[p.id] ? 'LOVEpacket' : 'NewAnimalDiscovered';
+      case 50: return 'ArcadePacket';
       case 10: return 'NineAnimalsPacket';
       default: return 'LOVEpacket';
     }
@@ -295,8 +323,16 @@ export class UI {
       case 3: case 14: {
         const a = ANIMAL.get(p.id);
         if (!this.s.animals[p.id]) title = 'NEW ANIMAL DISCOVERED!';
+        if (p.type === 14) title = this.s.animalRecipes.includes(p.id) ? 'ALTAR SPLICE!' : 'NEW RECIPE!';
         body.append(this.animalImg(p.id, 96), h('div', { class: 'jobname' }, p.id.toUpperCase()),
           h('div', {}, `TIER ${a?.tier ?? '?'} · ${(a?.categories ?? []).join(', ').toUpperCase()}`));
+        break;
+      }
+      case 50: {
+        const [skin, bld] = p.id.split('~');
+        title = (STRINGS.Card_Gacha_Title ?? 'NEW SKIN UNLOCKED').toUpperCase();
+        body.append(h('img', { class: 'wp', src: this.scene.workplaceThumb(skin, 120) }),
+          h('div', { class: 'jobname' }, displayName(bld).toUpperCase()), h('div', {}, (STRINGS.Card_Gacha_Desc ?? '').toUpperCase()));
         break;
       }
       case 4: body.append(big('assets/ui/Coin.png', `+${fmtNum(p.value)} COINS`)); break;
@@ -371,7 +407,9 @@ export class UI {
           case 3:
             port.append(h('img', { src: this.scene.clonePortrait(null, !!peep?.female) }));
             info.append(h('b', {}, 'NEW CLONE'), h('div', {}, 'READY TO SPLICE'));
-            actions.append(btn('SPLICE', 'b-green small', () => this.openSplicer(idx), false, `spl${idx}`));
+            port.classList.add('tap');
+            port.addEventListener('click', () => { if (g.tut('tapPortrait')) { sfx('tap_01'); this.onChange(); } });
+            actions.append(btn('SPLICE ME', 'b-green small', () => { g.tut('tapPortrait'); g.tut('spliceMe'); this.openSplicer(idx); }, false, `spl${idx}`));
             break;
           case 4: {
             port.append(h('img', { src: 'assets/ui/SplicingClone.png' }));
@@ -386,6 +424,8 @@ export class UI {
             port.append(h('img', { src: this.scene.clonePortrait(slot.job, !!peep?.female) }));
             const jd = JOB.get(slot.job!)!;
             info.append(h('b', {}, jobDisplay(slot.job!).toUpperCase()), h('div', {}, 'NEEDS A WORKPLACE'));
+            port.classList.add('tap');
+            port.addEventListener('click', () => { if (g.tut('tapPortrait')) { sfx('tap_01'); this.onChange(); } });
             const vac = g.missions.vacancyFor(slot.job!);
             if (vac) {
               actions.append(btn(`MISSION: ${MISSION.get(vac.mission.id)!.name.toUpperCase()}`, 'b-pink small',
@@ -407,10 +447,11 @@ export class UI {
         body.append(row);
       });
     };
+    if (this.game.tut('openAC')) this.onChange();
     this.open('ARRIVAL CENTER', body, refresh);
   }
 
-  private progress(f: number): HTMLElement {
+  progress(f: number): HTMLElement {
     const bar = h('div', { class: 'progress' });
     bar.append(h('div', { style: `width:${Math.max(0, Math.min(1, f)) * 100}%` }));
     return bar;
@@ -449,7 +490,7 @@ export class UI {
       const land = info.landRequired ? `LAND REQUIRED: ${info.landRequired}` : '';
       const spliceBtn = btn(`SPLICE (${fmtTime(g.splicingDuration())})`, 'b-green', () => {
         if (this.act(g.startSplice(slotIdx, sel[0]!, sel[1]!, nowSec()))) { sfx('extra_05'); this.openArrivalCenter(); }
-      }, info.kind === 'none');
+      }, info.kind === 'none', 'splice-go');
       top.append(pick(0), mid, pick(1), h('div', { class: 'combotext' }, text, land ? h('div', { class: 'land' }, land) : null), spliceBtn);
       genes.querySelectorAll('.gene').forEach((el) => {
         const j = (el as HTMLElement).dataset.job!;
@@ -464,6 +505,8 @@ export class UI {
         el.addEventListener('click', () => {
           sfx('tap_01');
           if (sel[0] === null) sel[0] = j; else if (sel[1] === null) sel[1] = j; else { sel[0] = sel[1]; sel[1] = j; }
+          if (j === 'Mayor' && g.tut('pickMayor')) this.onChange();
+          if (j === 'Mechanic' && g.tut('pickMechanic')) this.onChange();
           render();
         });
         sec.append(el);
@@ -487,12 +530,19 @@ export class UI {
       h('div', {}, `${jd.group.toUpperCase()} · WORKS AT ${jd.workplaces.map((w) => displayName(w).toUpperCase()).join(', ')}`),
     );
     let placeAfter = false;
-    const done = () => { this.game.closePacket(); this.onChange(); if (placeAfter) this.startBuild(wp); };
+    const tut = this.game.tutorialActive();
+    this.game.tut('card');
+    const done = () => {
+      this.game.closePacket();
+      this.game.tut('closeCard');
+      this.onChange();
+      if (placeAfter || (tut && wp && this.s.pendingWorkplaces.includes(wp))) this.startBuild(wp);
+    };
     if (wp && this.s.pendingWorkplaces.includes(wp)) {
       body.append(h('img', { class: 'wp', src: this.scene.workplaceThumb(wp, 120) }),
         h('div', {}, `FREE ${displayName(wp).toUpperCase()}! IT ONLY NEEDS ${WORKPLACE.get(wp)?.size ?? 1} LAND.`));
-      body.append(btn('PLACE IT NOW', 'b-green', () => { placeAfter = true; this.close(); }));
-      body.append(btn('LATER', 'b-grey small', () => this.close()));
+      body.append(btn('PLACE IT NOW', 'b-green', () => { placeAfter = true; this.close(); }, false, 'disc-place'));
+      if (!tut) body.append(btn('LATER', 'b-grey small', () => this.close()));
     } else {
       body.append(btn('OK', 'b-green', () => this.close()));
     }
@@ -509,6 +559,7 @@ export class UI {
     if (b.type === POD && b.mission) return this.openMission(b.mission);
     const kind = kindOf(b.type);
     if (kind === 'wonder' && g.state.missions.wonder?.id === b.type) return this.openMission(b.type);
+    if (b.buildEnd >= 0 && g.tut('openSite')) this.onChange();
     const body = h('div', { class: 'bldg' });
     const refresh = () => {
       const now = nowSec();
@@ -520,7 +571,7 @@ export class UI {
         const left = b2.buildEnd - now;
         body.append(h('b', {}, 'UNDER CONSTRUCTION'), h('div', {}, `TIME LEFT ${fmtTime(left)}`),
           this.progress(1 - left / Math.max(1, b2.buildEnd - b2.buildStart)));
-        body.append(btn(`RUSH ${constructionRushCost(left)}u`, 'b-pink', () => { if (this.act(g.rushConstruction(id, nowSec()))) sfx('Construction_sound'); }));
+        body.append(btn(`RUSH ${constructionRushCost(left)}u`, 'b-pink', () => { if (this.act(g.rushConstruction(id, nowSec()))) sfx('Construction_sound'); }, false, 'bld-rush'));
         const free = this.freeButton(this.s.freeBuildReadyAt, () => this.act(g.freeConstruction(id, nowSec())));
         body.append(free, h('div', { class: 'hint' }, left > 3599 ? 'FREE: REDUCES TIME BY 1H (ONCE EVERY 24H)' : 'FREE: FINISHES NOW (ONCE EVERY 24H)'));
         return;
@@ -538,7 +589,11 @@ export class UI {
         } else {
           body.append(h('b', { class: 'warn' }, 'NO WORKERS YET'));
         }
-        body.append(this.specialButtons(b2.type, id));
+        const sp = this.specialButtons(b2.type, id);
+        this.x.specialButtons(b2.type, sp);
+        body.append(sp);
+        const skins = this.x.skinRow(b2);
+        if (skins) body.append(skins);
         const tools = h('div', { class: 'row' });
         if (g.featureUnlocked(F.UPGRADE) && b2.type !== 'SpacePort') {
           tools.append(b2.level > 5 ? btn('MAX LEVEL', 'b-grey small', () => {}, true)
@@ -553,9 +608,11 @@ export class UI {
           const known = this.s.unlockedJobs.includes(j);
           const cell = h('div', { class: `job ${p ? 'on' : ''}` },
             h('img', { src: p ? this.scene.clonePortrait(j, p.female) : 'assets/ui/status_lock.png' }),
-            h('span', {}, known ? jobDisplay(j).toUpperCase() : '???'),
+            h('span', {}, known || this.s.revealed.includes(j) ? jobDisplay(j).toUpperCase() : '???'),
             h('small', {}, p ? (p.female ? JOB.get(j)!.femaleName : JOB.get(j)!.maleName).toUpperCase() : 'VACANT'));
           if (p && hotel) cell.append(btn('VACATION 1u', 'b-grey small', () => this.act(g.hotelCheckIn(p.id)), false, `vac${p.id}`));
+          if (p) { const m = this.x.mothershipBtn(p.id); if (m) cell.append(m); }
+          if (!p && !known) { const r = this.x.revealBtn(j); if (r) cell.append(r); }
           list.append(cell);
         }
         body.append(list);
@@ -564,8 +621,15 @@ export class UI {
         const cap = RESIDENCES.find((r) => r.name === b2.type)!.population;
         body.append(h('div', {}, `RESIDENTS ${res.length}/${cap}`));
         if (this.s.hearts.on === id) body.append(btn('COLLECT HEART', 'b-pink', () => { this.close(); this.tapHeartOn(); }));
+        const paint = this.x.paintRow(b2);
+        if (paint) body.append(paint);
         const list = h('div', { class: 'jobs' });
-        for (const p of res) list.append(h('div', { class: 'job on' }, h('img', { src: this.scene.clonePortrait(p.job, p.female) }), h('span', {}, p.job ? jobDisplay(p.job).toUpperCase() : 'CLONE')));
+        for (const p of res) {
+          const cell = h('div', { class: 'job on' }, h('img', { src: this.scene.clonePortrait(p.job, p.female) }), h('span', {}, p.job ? jobDisplay(p.job).toUpperCase() : 'CLONE'));
+          const m = this.x.mothershipBtn(p.id);
+          if (m) cell.append(m);
+          list.append(cell);
+        }
         body.append(list);
       } else if (kind === 'decor') {
         const d = DECOR.find((x) => x.name === b2.type)!;
@@ -825,34 +889,6 @@ export class UI {
   }
 
   // ---------------------------------------------------------------- calendar + animals
-  openCalendar() {
-    const g = this.game;
-    const body = h('div', { class: 'calendar' });
-    const refresh = () => {
-      const local = g.local(nowSec());
-      const se = seasonAt(local);
-      body.innerHTML = '';
-      if (se < 0) { body.append(h('div', {}, 'NO SEASON')); return; }
-      const name = SEASONS[se];
-      body.append(h('img', { class: 'season', src: `assets/ui/SeasonArt_${name[0] + name.slice(1).toLowerCase()}.png` }),
-        h('div', { class: 'jobname' }, name), h('div', { class: 'hint' }, 'SEASONS CHANGE EVERY WEEK!'));
-      const week = h('div', { class: 'week' });
-      const wd = weekday(local);
-      CAL_LAYOUT[se].forEach((r, i) => {
-        const icon = r.kind === 'utopium' ? 'Utopium' : r.kind === 'chroma' ? 'Chroma' : 'GiftCollected';
-        week.append(h('div', { class: `day ${i === wd ? 'today' : ''}` }, h('small', {}, 'MTWTFSS'[i]),
-          h('img', { src: `assets/ui/${icon}.png` }), h('small', {}, r.kind === 'gift' ? 'GIFT' : `${r.n}`)));
-      });
-      body.append(week);
-      const r = calendarReward(local)!;
-      body.append(this.s.dailyGift
-        ? btn(`COLLECT ${r.kind === 'gift' ? 'GIFT' : `${r.n} ${r.kind.toUpperCase()}`}`, 'b-green', () => { this.act(g.collectCalendar(nowSec())); this.close(); }, false, 'cal')
-        : btn('COME BACK TOMORROW', 'b-grey', () => {}, true));
-    };
-    this.open('CALENDAR', body, undefined);
-    refresh();
-  }
-
   openAnimals() {
     const body = h('div', { class: 'animals' });
     const names = Object.keys(this.s.animals).filter((n) => this.s.animals[n] > 0).sort();
@@ -895,20 +931,25 @@ export class UI {
       const items: { type: string; cost: Cost | null; extra?: string; spirit?: number }[] = [];
       if (t === 'res') {
         for (const r of RESIDENCES) {
-          if (!this.scene.hasFrame(r.name) || /^iap|^AGResidence|^Special/.test(r.name)) continue;
+          if (!this.scene.hasFrame(r.name)) continue;
+          if (/^iap|^AGResidence|^Special/.test(r.name) && !(PACK_ITEM.has(r.name) && g.shop.packUnlocked(r.name))) continue;
           if (!r.cost.coins && !r.cost.utopium && !r.cost.chroma) continue;
           items.push({ type: r.name, cost: r.cost, extra: `${r.population} BEDS · ${fmtTime(g.buildTime(r.name))}` });
         }
       } else if (t === 'decor') {
         const cats = ['Basic', 'Inspiring', 'Spectacular', 'Magnificent', 'Chroma (Normal)'];
         for (const d of DECOR) {
-          if (!cats.includes(d.category) || !d.cost || !this.scene.hasFrame(d.name)) continue;
+          const pack = PACK_ITEM.has(d.name);
+          if ((pack ? !g.shop.packUnlocked(d.name) : !cats.includes(d.category)) || !d.cost || !this.scene.hasFrame(d.name)) continue;
           items.push({ type: d.name, cost: d.cost, spirit: d.spirit, extra: d.category.toUpperCase() });
         }
       } else if (t === 'path') {
         for (const p of PATHS) if (p.cost && this.scene.hasFrame(p.name) && g.typeUnlocked(p.name)) items.push({ type: p.name, cost: p.cost, extra: p.pathType.toUpperCase() });
       } else {
-        for (const tr of TREES) if (tr.cost && /^Tree\d+$/.test(tr.name) && this.scene.hasFrame(tr.name)) items.push({ type: tr.name, cost: tr.cost });
+        for (const tr of TREES) {
+          const pack = PACK_ITEM.has(tr.name) && g.shop.packUnlocked(tr.name);
+          if (tr.cost && (/^Tree\d+$/.test(tr.name) || pack) && this.scene.hasFrame(tr.name)) items.push({ type: tr.name, cost: tr.cost });
+        }
       }
       for (const it of items) {
         const can = g.canAfford(it.cost!) && landUse(it.type) <= g.freeLand();
@@ -998,6 +1039,7 @@ export class UI {
       if (this.act(g.placeWonder(i, j))) { sfx('discovery_04'); this.endBuild(); }
       return;
     }
+    if (g.tutorialActive() && (this.s.tutorial === 1 || this.s.tutorial === 16)) [i, j] = this.tutSpot(type); // beam it down on the square
     const r = g.place(type, i, j, false, nowSec());
     if (!this.act(r)) return;
     sfx(kindOf(type) === 'path' ? 'tap_01' : 'Construction_sound');
@@ -1091,32 +1133,10 @@ export class UI {
     this.open('EXPAND UTOPIA', body, refresh);
   }
 
-  openMenu() {
-    const body = h('div', { class: 'expand' },
-      h('div', {}, 'PIXEL PEOPLE 4.20 WEB REMAKE — MILESTONE 2'),
-      h('div', { class: 'hint' }, 'DRAG TO MOVE · WHEEL OR PINCH TO ZOOM · TAP TO ACT. THE GAME SAVES IN THIS BROWSER.'),
-      h('div', { class: 'hint' }, `FREE BUTTONS: CONSTRUCTION ${this.s.freeBuildReadyAt > nowSec() ? 'IN ' + fmtTime(this.s.freeBuildReadyAt - nowSec()) : 'READY'} · SPLICER ${this.s.freeSpliceReadyAt > nowSec() ? 'IN ' + fmtTime(this.s.freeSpliceReadyAt - nowSec()) : 'READY'} (COOLDOWN ${FREE_COOLDOWN / 3600}H)`),
-      h('div', { class: 'hint' }, `DAILY RESET (MINE, SHELTER, TREES, MISSIONS) IN ${fmtTime(timeTillNoon(this.game.local(nowSec())))}`),
-      btn(this.s.musicMuted ? 'MUSIC: OFF' : 'MUSIC: ON', 'b-grey small', () => { this.s.musicMuted = !this.s.musicMuted; this.music.setMuted(this.s.musicMuted); this.onChange(); this.openMenu(); }, false, 'menu-music'),
-      btn('RESET ZOOM', 'b-grey small', () => { this.scene.setZoom(this.scene.defaultZoom()); this.close(); }),
-      btn('NEW GAME (ERASES SAVE)', 'b-pink small', () => {
-        if (confirm('Erase this city and start again?')) { window.dispatchEvent(new CustomEvent('pp-reset')); }
-      }),
-    );
-    this.open('MENU', body);
-  }
 }
 
 function md0Title(id: string): string {
   const md = MISSION.get(id);
   return md?.type === 5 ? 'WONDER' : 'MISSION';
 }
-
-function fmtShort(n: number): string {
-  if (n >= 1e6) return `${+(n / 1e6).toFixed(n >= 1e7 ? 0 : 1)}M`;
-  if (n >= 1e4) return `${Math.floor(n / 1000)}K`;
-  return fmtNum(n);
-}
-
-function handlersSet(k: string, f: () => void) { handlers.set(k, f); }
 

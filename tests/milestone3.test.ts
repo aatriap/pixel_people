@@ -543,3 +543,18 @@ describe('save file export and import (settings)', () => {
     expect(saveFileName(DAY0)).toBe('pixel-people-2027-01-15.json');
   });
 });
+
+describe('tutorial: soft steps (web)', () => {
+  it('a real action passes at most two narration/popup steps before it, never a real one', () => {
+    const g = Game.fresh(T0, true);
+    g.state.tutorial = 19; // tap the portrait, then assign
+    expect(g.tut('assign')).toBe(true);
+    expect(g.state.tutorial).toBe(21);
+    g.state.tutorial = 1; // place a house: a rush (step 3) can't skip placing and opening it
+    expect(g.tut('rushBuild')).toBe(false);
+    expect(g.state.tutorial).toBe(1);
+    g.state.tutorial = 14; // card shown, then closed
+    expect(g.tut('closeCard')).toBe(true);
+    expect(g.state.tutorial).toBe(16);
+  });
+});

@@ -9,8 +9,12 @@ export interface SceneHooks {
   onTapBuilding(id: string): void;
   onPlace(type: string, i: number, j: number): void;
   onTapEmpty(): void;
+  onTapGuest(code: number, job?: string): void;
   onReady(): void;
 }
+
+/** A guest NPC walking on the roads (04 §4): 2001 special gene, 2005 mini-quests ("Mothership Alert"). */
+export interface GuestInfo { code: number; job?: string }
 
 interface PeepView { c: Phaser.GameObjects.Container; target?: { x: number; y: number }; busy: boolean }
 
@@ -51,6 +55,9 @@ export class CityScene extends Phaser.Scene {
 
   preload() {
     for (const p of this.pages) this.load.atlas(p, `assets/atlas/${p}.png`, `assets/atlas/${p}.json`);
+    this.load.image('ui-specialgene', 'assets/ui/notif_specialgene.png');
+    this.load.image('ui-hint', 'assets/ui/Notif-Hint.png');
+    this.load.image('ui-cursor', 'assets/ui/Cursor.png');
   }
 
   create() {
@@ -146,6 +153,8 @@ export class CityScene extends Phaser.Scene {
       flip = v.flip;
       if (!this.hasFrame(frame)) { frame = b.type; flip = false; }
     }
+    // Arcade skin (cycleTileSkin): same canvas size as the original sprite
+    if (b.skin && this.hasFrame(b.skin)) frame = b.skin;
     const p = cellCenter(box.minI, box.minJ);
     const im = this.img(p.x, p.y, frame);
     if (!im) {
@@ -168,12 +177,23 @@ export class CityScene extends Phaser.Scene {
     this.hitImages.set(im, b.id);
     this.world.add(im);
     out.push(im);
+    // residence paint (cPaintPopup): _Layer1 and _Layer2 tinted with the two random colours
+    if (kind === 'residence' && b.paint) {
+      b.paint.forEach((rgb, k) => {
+        const lf = `${b.type}_Layer${k + 1}`;
+        const L = this.hasFrame(lf) ? this.img(p.x, p.y, lf) : null;
+        if (!L) return;
+        L.setOrigin(o.ox, o.oy).setFlipX(flip).setDepth(im.depth + 0.01 * (k + 1)).setTint(rgb);
+        this.world.add(L);
+        out.push(L);
+      });
+    }
     return out;
   }
 
   private layoutSignature(): string {
     const w = JSON.stringify(this.game2.state.missions.wonderMap);
-    return w + this.game2.state.buildings.map((b) => `${b.id}@${b.x},${b.y},${b.flip ? 1 : 0},${b.buildEnd >= 0 ? 1 : 0}`).join('|');
+    return w + this.game2.state.buildings.map((b) => `${b.id}@${b.x},${b.y},${b.flip ? 1 : 0},${b.buildEnd >= 0 ? 1 : 0},${b.skin ?? ''},${b.paint?.join('/') ?? ''}`).join('|');
   }
 
   /** Top centre of the visible (non-transparent) part of a sprite: the atlas frames are trimmed. */
@@ -345,6 +365,98 @@ export class CityScene extends Phaser.Scene {
       onUpdate: () => { const cell = worldToCell(av.c.x, av.c.y); av.c.setDepth(depthFor(cell.i, cell.j, 4)); },
       onComplete: () => this.time.delayedCall(Phaser.Math.Between(500, 3000), () => this.strollAnimal(av)),
     });
+  }
+
+  // ------------------------------------------------------------------ guests (cTerrainNPC)
+  private guestViews = new Map<string, Phaser.GameObjects.Container>();
+  private guestHits = new Map<Phaser.GameObjects.GameObject, GuestInfo>();
+
+  /** One walker per guest on a random road (04 §4). They beam up when their reason is gone. */
+  syncGuests(list: GuestInfo[]) {
+    const g = this.game2;
+    const roads = g.state.buildings.filter((b) => PATH.has(b.type) && g.isBuilt(b));
+    const want = new Map(roads.length ? list.map((x) => [`${x.code}:${x.job ?? ''}`, x]) : []);
+    for (const [k, c] of this.guestViews) {
+      if (want.has(k)) continue;
+      this.tweens.killTweensOf(c);
+      this.tweens.add({ targets: c, alpha: 0, y: c.y - 80, duration: 600, onComplete: () => c.destroy() }); // beamUp
+      this.guestViews.delete(k);
+    }
+    for (const [k, info] of want) {
+      if (this.guestViews.has(k)) continue;
+      const r = Phaser.Utils.Array.GetRandom(roads);
+      const q = cellCenter(r.x, r.y);
+      const c = this.add.container(q.x, q.y);
+      const frames = [info.code === 2001 ? 'Female1' : 'Male1', `${info.code}`, `${info.code}_L`].filter((f) => this.hasFrame(f));
+      for (const f of frames) { const im = this.img(0, 0, f); if (im) c.add(im.setOrigin(0.5, 1)); }
+      const icon = this.add.image(0, -58, info.code === 2001 ? 'ui-specialgene' : 'ui-hint').setOrigin(0.5, 1).setScale(1.1);
+      c.add(icon);
+      this.tweens.add({ targets: icon, y: -66, yoyo: true, repeat: -1, duration: 500, ease: 'Sine.inOut' });
+      c.setScale(1.5).setAlpha(0);
+      this.tweens.add({ targets: c, alpha: 1, duration: 500 }); // doSpawn
+      for (const o of c.list) {
+        (o as Phaser.GameObjects.Image).setInteractive({ useHandCursor: true });
+        this.guestHits.set(o as Phaser.GameObjects.GameObject, info);
+      }
+      this.world.add(c);
+      this.guestViews.set(k, c);
+      this.strollGuest(c);
+    }
+  }
+
+  private strollGuest(c: Phaser.GameObjects.Container) {
+    if (!c.active) return;
+    const roads = this.game2.state.buildings.filter((b) => PATH.has(b.type));
+    if (!roads.length) return;
+    const r = Phaser.Utils.Array.GetRandom(roads);
+    const q = cellCenter(r.x, r.y);
+    const tx = q.x + Phaser.Math.Between(-20, 20), ty = q.y + Phaser.Math.Between(-6, 6);
+    c.setScale(tx < c.x ? -1.5 : 1.5, 1.5);
+    const dist = Phaser.Math.Distance.Between(c.x, c.y, tx, ty);
+    this.tweens.add({
+      targets: c, x: tx, y: ty, duration: Math.max(600, dist * 45),
+      onUpdate: () => { const cell = worldToCell(c.x, c.y); c.setDepth(depthFor(cell.i, cell.j, 6)); },
+      onComplete: () => this.time.delayedCall(Phaser.Math.Between(1500, 4000), () => this.strollGuest(c)),
+    });
+  }
+
+  /** Screen position of the first guest (screenshot script). */
+  guestScreen(): { x: number; y: number } | null {
+    const c = [...this.guestViews.values()][0];
+    if (!c) return null;
+    const cam = this.cameras.main;
+    return { x: (c.x - cam.worldView.x) * cam.zoom, y: (c.y - 30 - cam.worldView.y) * cam.zoom };
+  }
+
+  // ------------------------------------------------------------------ tutorial marker
+  private marker: Phaser.GameObjects.GameObject[] = [];
+  private markerSig = '';
+
+  /** Flashing squares (and the tutorial hand) on some cells. */
+  setMarker(cells: [number, number][] | null, hand = false) {
+    const sig = cells ? JSON.stringify(cells) + hand : '';
+    if (sig === this.markerSig) return;
+    this.markerSig = sig;
+    for (const o of this.marker) o.destroy();
+    this.marker = [];
+    if (!cells) return;
+    for (const [i, j] of cells) {
+      const p = cellCenter(i, j);
+      const s = this.img(p.x, p.y, 'SelectionSquareFill');
+      if (s) {
+        s.setTint(0xffe14a).setAlpha(0.8).setDepth(240000);
+        this.tweens.add({ targets: s, alpha: 0.2, yoyo: true, repeat: -1, duration: 400 });
+        this.overlay.add(s);
+        this.marker.push(s);
+      }
+    }
+    if (hand && cells.length) {
+      const p = cellCenter(cells[0][0], cells[0][1]);
+      const c = this.add.image(p.x + 10, p.y - 10, 'ui-cursor').setOrigin(0, 0).setScale(2.5).setDepth(260000);
+      this.tweens.add({ targets: c, x: p.x + 22, y: p.y + 2, yoyo: true, repeat: -1, duration: 450 });
+      this.overlay.add(c);
+      this.marker.push(c);
+    }
   }
 
   // ------------------------------------------------------------------ edit selection
@@ -527,6 +639,10 @@ export class CityScene extends Phaser.Scene {
         return;
       }
       const hits = this.input.hitTestPointer(p);
+      for (const h of hits) {
+        const guest = this.guestHits.get(h);
+        if (guest) { this.hooks.onTapGuest(guest.code, guest.job); return; }
+      }
       for (const h of hits) {
         const id = this.hitImages.get(h);
         if (id) { this.hooks.onTapBuilding(id); return; }
